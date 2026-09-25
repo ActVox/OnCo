@@ -27,6 +27,9 @@ function eraRange(era: string): [number, number] {
 }
 
 const num = (n: number) => n.toLocaleString("en-GB");
+const WORDS = ["Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen"];
+/** A small count in words, so the sentence above the findings never says a number the page does not show. */
+const spell = (n: number) => WORDS[n - 9] ?? String(n);
 
 /**
  * One timeline over every year in oncology, at two scales.
@@ -79,7 +82,7 @@ export default function TimelinePage() {
         </Block>
 
         <Block title="What the shape shows" id="findings">
-          <p className="text-sm text-muted mb-4 max-w-3xl">Ten questions asked of the dates once they are in one shape. Every figure carries the number of records it was computed over. A question answered over fewer than {MIN_N} cases, or contradicted by the shape of the data, is marked as one the corpus cannot support, and the working is shown anyway so the thinness is visible.</p>
+          <p className="text-sm text-muted mb-4 max-w-3xl">{spell(found.length)} questions asked of the dates once they are in one shape. Every figure carries the number of records it was computed over. A question answered over fewer than {MIN_N} cases, or contradicted by the shape of the data, is marked as one the corpus cannot support, and the working is shown anyway so the thinness is visible.</p>
           <div className="space-y-4">
             {found.map((f) => (
               <section key={f.id} id={f.id} className="card p-4 scroll-mt-28">

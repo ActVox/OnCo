@@ -451,6 +451,12 @@ describe("Ask OnCo end to end", () => {
     // themselves in the index and must never be retrieved instead of one of them. Recall and rubric are back to
     // the figures immediately before the change, so neither floor moves.
     { date: "2026-09-25", recall: 0.4346, note: "year records at a provenance weight of 0.5; extractive rubric 0.6875, both unchanged from before they were added" },
+    // 25 Sept 2026, the three dated fields /timeline/ was missing: `firstDescribed` on 1,654 targets, `started` on
+    // 5,788 trials, and the accelerated-approval pathway as typed regulatoryEvents on 139 products (238 indications
+    // read from the four FDA tables). All three are scalars and dates on records already in the index rather than
+    // new records, so nothing new competes for a question and nothing is displaced. Measured immediately before and
+    // immediately after at the same figures; neither floor moves.
+    { date: "2026-09-25", recall: 0.4346, note: "first-description year on targets, registry start date on trials, accelerated approvals as typed events; extractive rubric 0.6875, both unchanged" },
   ];
   /** Floors set since the ratchet began, in order. Each entry must be at least the one before it. */
   const EXTRACTIVE_FLOORS: ReadonlyArray<{ date: string; recall: number; rubric: number; change: string }> = [

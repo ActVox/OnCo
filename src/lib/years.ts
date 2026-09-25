@@ -67,6 +67,7 @@ export function canonicalDate(raw: string): string | null {
 
 const REG_LABEL: Record<string, string> = {
   designation: "designation", filing: "filing", pdufa: "decision date set", approval: "approval",
+  "accelerated-approval": "accelerated approval", conversion: "accelerated approval confirmed",
   crl: "complete response letter", withdrawal: "withdrawal", "label-change": "label change", "advisory-committee": "advisory committee",
 };
 
@@ -99,11 +100,16 @@ export function yearEvents(inputs: readonly EntityInput[], side: YearSideData): 
       }
       case "drug": {
         for (const a of e.approvals ?? []) add("approval", String(a.year), `${e.name} approved in ${a.region}`, e.id, [], a.note ? `${a.indication}. ${a.note}` : a.indication);
-        for (const r of e.regulatoryEvents ?? []) add("regulatory", r.date, `${e.name}: ${REG_LABEL[r.type] ?? r.type} (${r.region})`, e.id, [], r.note);
+        // The indication leads the note, ahead of the wording of the decision: a product can carry two accelerated
+        // approvals granted on the same day, and the indication is the only thing that tells the two lines apart.
+        // It goes first because a note is trimmed from the end.
+        for (const r of e.regulatoryEvents ?? []) add("regulatory", r.date, `${e.name}: ${REG_LABEL[r.type] ?? r.type} (${r.region})`, e.id, [], r.indication ? `${r.indication.replace(/\.$/, "")}. ${r.note}` : r.note);
         break;
       }
       case "trial": {
-        if (e.yearReported !== undefined) add("trial", String(e.yearReported), `${e.name} reported`, e.id, [...(e.cancers ?? []), ...(e.drugs ?? [])].slice(0, 6), e.result);
+        // The registry id stands in for a result the corpus does not hold, and tells two ingested trials apart when
+        // their registry titles run to the same words for longer than a line can show.
+        if (e.yearReported !== undefined) add("trial", String(e.yearReported), `${e.name} reported`, e.id, [...(e.cancers ?? []), ...(e.drugs ?? [])].slice(0, 6), e.result ?? (e.nct ? `Registry record ${e.nct}; no result is recorded here.` : undefined));
         break;
       }
       case "paper": {

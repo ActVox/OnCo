@@ -306,6 +306,12 @@ function kindTabs(e: Entity): Tab[] {
             </div>
           )}
           <TargetSpecificityPills target={e} className="mt-4" />
+          {e.firstDescribed !== undefined && (
+            <p className="text-sm text-muted mt-4" data-target-first-described>
+              <span className="font-medium text-foreground">First described {e.firstDescribed}.</span>{" "}
+              {e.firstDescribedNote}{e.firstDescribedSource && <> <a className="underline hover:text-foreground" href={e.firstDescribedSource} rel="noopener">Source</a>.</>}
+            </p>
+          )}
           <Block title="External identifiers"><XrefStrip targetId={e.id} compact fallback={e.hgnc ? { symbol: e.symbol ?? e.name, name: e.aka[0] ?? e.name, hgnc: e.hgnc, ensembl: e.ensembl, uniprot: e.uniprot, entrez: e.entrez } : undefined} /></Block>
           {e.sources.length > 0 && (
             <p className="text-sm text-muted mt-3" data-target-sources>
@@ -417,6 +423,7 @@ function kindTabs(e: Entity): Tab[] {
           <Field label="Sponsor">{e.sponsor}</Field>
           <Field label="Registry">{e.nct && <a className="underline" href={`https://clinicaltrials.gov/study/${e.nct}`} rel="noopener">{e.nct}</a>}</Field>
           <Field label="Headline result">{e.result}</Field>
+          <Field label="Started">{e.started && <span title={e.startedType ? `ClinicalTrials.gov marks this start date ${e.startedType}` : "Start date as ClinicalTrials.gov states it"}>{e.started}{e.startedType === "estimated" && <span className="text-xs text-muted"> (estimated)</span>}</span>}</Field>
           <Field label="Reported">{e.yearReported}</Field>
           <Field label="Enrolled">{e.enrolled !== undefined && <span title={e.enrolledNote ?? undefined}>{enrolmentLabel(e.enrolled, e.enrolledBasis)}{e.enrolledNote && <span className="block text-xs text-muted mt-0.5">{e.enrolledNote}</span>}</span>}</Field>
           <Field label="Replication">{e.replication}</Field>

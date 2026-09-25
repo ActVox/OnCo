@@ -16,6 +16,9 @@
  * cited by DOI below. The accelerated-approval medians in US_ACCELERATED are computed here from the FDA tables and
  * are not FDA-published statistics; the computation is described on the record.
  */
+import { ACCELERATED_APPROVALS, ACCELERATED_READ_ON, ACCELERATED_TABLES, ACCELERATED_UNMATCHED } from "./accelerated-approvals";
+import { intervalYears, longDate, summarise, type AcceleratedRow, type AcceleratedSummary } from "@/lib/accelerated";
+
 export type CountryCard = { id: string; title: string; plain: string; detail: string; links: Array<{ label: string; url: string }> };
 
 export const US_ASOF = "2026-09-25";
@@ -243,20 +246,49 @@ export const US_REGULATOR: CountryCard[] = [
 ];
 
 /**
- * The four FDA oncology accelerated-approval tables, counted on US_ASOF. Row counts are the tbody rows of each
- * table (one row per indication). The medians and quartiles are computed here from the two date columns of each
- * table (accelerated approval date to traditional approval or withdrawal date; for the ongoing table, accelerated
- * approval date to US_ASOF). The FDA does not publish these medians; they are OnCo arithmetic over the FDA's own
- * rows, and anyone can repeat them from the linked pages.
+ * The four FDA oncology accelerated-approval tables, no longer typed out here.
+ *
+ * Every row of the four tables is now in the corpus (scripts/fetch-accelerated.ts writes
+ * src/data/accelerated-approvals.ts, and src/data/index.ts turns each row into typed regulatoryEvents on the
+ * product), so this card is computed from those rows rather than from a reading an editor did once. The counts are
+ * the tables' own; the medians and quartiles are OnCo arithmetic over the two date columns (accelerated approval to
+ * traditional approval or withdrawal, and for the ongoing table to the day the table says it is current to). The
+ * FDA does not publish these medians; anyone can repeat them from the linked pages. Re-running the script refreshes
+ * this card, so it cannot say one thing here and another on /timeline/.
  */
+const ACCELERATED_ROWS: AcceleratedRow[] = [...Object.values(ACCELERATED_APPROVALS).flat(), ...ACCELERATED_UNMATCHED];
+
+/** The earliest accelerated approval any of the four tables still lists. */
+export const US_ACCELERATED_FROM = Math.min(...ACCELERATED_ROWS.map((r) => Number(r.granted.slice(0, 4))));
+
+function acceleratedNote(id: string, rows: AcceleratedRow[], s: AcceleratedSummary): string {
+  if (id === "verified") return `Median years from accelerated approval to conversion; range across all rows ${(s.min ?? 0).toFixed(1)} to ${(s.max ?? 0).toFixed(1)} years.`;
+  if (id === "withdrawn") return `Median years from accelerated approval to withdrawal; the longest-standing indication withdrawn came off the label ${(s.max ?? 0).toFixed(1)} years after its approval.`;
+  if (id === "ongoing") {
+    const overFive = rows.filter((r) => intervalYears(r, ACCELERATED_READ_ON) > 5).length;
+    const oldest = [...rows].sort((a, b) => a.granted.localeCompare(b.granted))[0];
+    return `Median years since accelerated approval, still awaiting a confirmatory result. ${overFive} have been open more than five years; the oldest is ${oldest.drugName} since ${longDate(oldest.granted)}.`;
+  }
+  return "Accelerated approvals that are not cancer treatment indications.";
+}
+
 export const US_ACCELERATED = {
-  readOn: US_ASOF,
-  rows: [
-    { id: "verified", label: "Converted to traditional approval", count: 127, current: "17 September 2026", years: "3.3", range: "1.9 to 5.2", note: "Median years from accelerated approval to conversion; range across all rows 0.4 to 17.6 years.", url: "https://www.fda.gov/drugs/resources-information-approved-drugs/verified-clinical-benefit-cancer-accelerated-approvals" },
-    { id: "withdrawn", label: "Withdrawn", count: 35, current: "2 September 2026", years: "3.8", range: "2.8 to 7.1", note: "Median years from accelerated approval to withdrawal; the oldest withdrawal came 12.5 years after approval.", url: "https://www.fda.gov/drugs/resources-information-approved-drugs/withdrawn-cancer-accelerated-approvals" },
-    { id: "ongoing", label: "Still unresolved", count: 57, current: "17 September 2026", years: "3.3", range: "1.7 to 5.4", note: "Median years since accelerated approval, still awaiting a confirmatory result. Seventeen have been open more than five years; pralatrexate for peripheral T-cell lymphoma since 24 September 2009.", url: "https://www.fda.gov/drugs/resources-information-approved-drugs/ongoing-cancer-accelerated-approvals" },
-    { id: "other", label: "Other (supportive care, dosing and formulation)", count: 20, current: "15 July 2026", years: "", range: "", note: "Accelerated approvals that are not cancer treatment indications.", url: "https://www.fda.gov/drugs/resources-information-approved-drugs/other-cancer-accelerated-approvals" },
-  ],
+  readOn: ACCELERATED_READ_ON,
+  rows: ACCELERATED_TABLES.map((t) => {
+    const rows = ACCELERATED_ROWS.filter((r) => r.table === t.id);
+    const s = summarise(rows, ACCELERATED_READ_ON);
+    const timed = t.id !== "other";
+    return {
+      id: t.id,
+      label: t.label,
+      count: t.count,
+      current: longDate(t.current),
+      years: timed ? (s.median ?? 0).toFixed(1) : "",
+      range: timed ? `${(s.p25 ?? 0).toFixed(1)} to ${(s.p75 ?? 0).toFixed(1)}` : "",
+      note: acceleratedNote(t.id, rows, s),
+      url: t.url,
+    };
+  }),
 };
 
 /** What the country does that no other country does, and what that system does badly. */

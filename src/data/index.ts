@@ -13,7 +13,7 @@ import { pairings } from "./pairings";
 import { roadmaps } from "./roadmaps";
 import { ideas } from "./ideas";
 import { collections } from "./collections";
-import type { EntityInput, TargetInput } from "@/lib/schema";
+import type { DrugInput, EntityInput, TargetInput } from "@/lib/schema";
 import { applySpikeSupplements, mergeSpikeInto, spikeEntities, unappliedSpikeSupplements, unpatchedSpikeCancers } from "./spikes";
 import { applyMergeSupplements, unappliedMergeSupplements } from "./merged-records";
 import { failures } from "./failures";
@@ -48,6 +48,11 @@ import { papersIdeasWave6 } from "./papers-ideas-wave6";
 import { ideaLinksWave6 } from "./idea-links-wave6";
 import { companyDrugsWave6, trialCompaniesWave6 } from "./company-drugs-wave6";
 import { SUPPORTIVE_DRUGS } from "./supportive-drugs";
+import { ACCELERATED_APPROVALS, ACCELERATED_READ_ON } from "./accelerated-approvals";
+import { mergeAcceleratedEvents } from "@/lib/accelerated";
+import { TARGET_FIRST_DESCRIBED } from "./target-first-described";
+import { firstDescribedSource } from "@/lib/first-described";
+import { TRIAL_START_DATES } from "./trial-start-dates";
 import { yearRecords } from "./years";
 import { entityTrialLinksWave5, entityTrialsWave5, trialsEntitiesWave5 } from "./trials-entities-wave5";
 import { issuesWaveAPapers, issuesWaveATrials } from "./issues-2026-09-wave-a";
@@ -328,6 +333,12 @@ const RECORDS: EntityInput[] = RAW_INPUTS_DEDUPED.map((base) => {
   // Supportive care medicines (src/data/supportive-drugs.ts): the flag that keeps antiemetics, growth factors, bone agents,
   // antidotes and opioids out of treatment counts and rankings, and renders the "Supportive care" pill.
   if (e.kind === "drug" && SUPPORTIVE_DRUGS[e.id]) e = { ...e, supportive: true };
+  // Accelerated approvals (scripts/fetch-accelerated.ts, src/data/accelerated-approvals.ts): every indication the FDA's
+  // four tables give the product becomes typed regulatoryEvents, the grant and the conversion or withdrawal that closed
+  // it, keyed to each other by the agency's indication text. A hand-written event on the same date and type wins.
+  if (e.kind === "drug" && ACCELERATED_APPROVALS[e.id]) {
+    e = { ...e, regulatoryEvents: mergeAcceleratedEvents(e.regulatoryEvents ?? [], ACCELERATED_APPROVALS[e.id], ACCELERATED_READ_ON) as DrugInput["regulatoryEvents"] };
+  }
   // Immune members of the checkpoint map (src/data/checkpoint-map.ts) carry the immune-checkpoint role, whichever file owns the record.
   if (e.kind === "target" && IMMUNE_CHECKPOINT_TARGET_IDS.has(e.id) && !(e.role ?? []).includes("immune-checkpoint")) e = { ...e, role: [...(e.role ?? []), "immune-checkpoint"] };
   if (e.kind === "term") return { ...e, category: canonicalTermCategory(e.id, e.category) };
@@ -336,6 +347,10 @@ const RECORDS: EntityInput[] = RAW_INPUTS_DEDUPED.map((base) => {
   // `related`, and no readout is an orphan reachable only by search.
   if (e.kind === "target") {
     // Specificity and distribution (scripts/fetch-target-specificity.ts, src/data/target-specificity.ts): filled where the record carries none of its own.
+    // First-description year (scripts/fetch-first-described.ts, src/data/target-first-described.ts): the earliest
+    // sequence paper UniProt cites for the protein, never the earliest paper OnCo holds. A hand-written year wins.
+    const fd = TARGET_FIRST_DESCRIBED[e.id];
+    if (fd && e.firstDescribed === undefined) e = { ...e, firstDescribed: fd.year, firstDescribedBasis: "sequence", firstDescribedNote: fd.note, firstDescribedSource: firstDescribedSource(fd) };
     const sp = targetSpecificity[e.id];
     if (sp && !e.specificity && !e.distribution) e = { ...e, ...(sp.specificity ? { specificity: sp.specificity } : {}), distribution: sp.distribution, ...(sp.tumourAgnostic ? { tumourAgnostic: true } : {}), specificityNote: sp.specificityNote, specificitySources: sp.specificitySources };
     if (READOUTS_BY_TARGET[e.id]) return { ...e, related: [...(e.related ?? []), ...READOUTS_BY_TARGET[e.id].filter((id) => !(e.related ?? []).includes(id))] };
@@ -369,6 +384,10 @@ const RECORDS: EntityInput[] = RAW_INPUTS_DEDUPED.map((base) => {
     // still carries the status the script saw, with a dated note and, on ingested trials, the matching TL;DR and summary phrase.
     const st = TRIAL_REGISTRY_STATUS[t.id];
     if (st) t = applyRegistryStatus(t, st);
+    // Start date from the registry's startDateStruct (scripts/fetch-trial-starts.ts, src/data/trial-start-dates.ts),
+    // with the registry's own ACTUAL or ESTIMATED beside it. A date written on the record wins.
+    const start = TRIAL_START_DATES[t.id];
+    if (start && !t.started) t = { ...t, started: start.started, ...(start.type ? { startedType: start.type } : {}) };
     return t;
   }
   // Trials found for drugs and technologies that had none by scripts/fetch-entity-trials.ts (wave 5): the record's own `trials` array.

@@ -3,7 +3,8 @@ import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { AppRouterContext, type AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import UnitedStatesPage from "./page";
-import { US_ACCELERATED, US_PAPERS, US_PEOPLE, US_TRIALS } from "@/data/country-us";
+import { US_ACCELERATED, US_ACCELERATED_FROM, US_PAPERS, US_PEOPLE, US_TRIALS } from "@/data/country-us";
+import { ACCELERATED_APPROVALS, ACCELERATED_UNMATCHED } from "@/data/accelerated-approvals";
 import { graph } from "@/lib/graph";
 
 /**
@@ -33,8 +34,10 @@ describe("/countries/us/", () => {
   it("states the accelerated-approval counts it computed, and their total", () => {
     const html = render();
     const total = US_ACCELERATED.rows.reduce((n, r) => n + r.count, 0);
-    expect(total).toBe(239);
-    expect(html).toContain(`${total} oncology indications have been granted accelerated approval since 1992`);
+    // The counts come from src/data/accelerated-approvals.ts, generated from the four FDA tables, so they move when
+    // the script is re-run; what must hold is that every row the tables carry is also a dated event in the corpus.
+    expect(total).toBe(Object.values(ACCELERATED_APPROVALS).flat().length + ACCELERATED_UNMATCHED.length);
+    expect(html).toContain(`${total} oncology indications have been granted accelerated approval since ${US_ACCELERATED_FROM}`);
     for (const r of US_ACCELERATED.rows) expect(html, `missing count for ${r.id}`).toContain(`>${r.count}</span>`);
   });
 

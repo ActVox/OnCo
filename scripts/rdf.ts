@@ -42,9 +42,9 @@ function scalars(e: Entity): Triple[] {
   if (e.status) out.push([`${NS}status`, lit(e.status)]);
   for (const t of e.tags) out.push([`${NS}tag`, lit(t)]);
   switch (e.kind) {
-    case "drug": out.push([`${NS}modality`, lit(e.modality)]); if (e.brand) out.push([`${SCHEMA}alternateName`, lit(e.brand)]); for (const a of e.approvals) out.push([`${NS}approval`, lit(`${a.region} ${a.year}: ${a.indication}`)]); break;
-    case "trial": out.push([`${NS}phase`, lit(e.phase)]); if (e.nct) out.push([`${SCHEMA}identifier`, lit(e.nct)]); break;
-    case "target": if (e.symbol) out.push([`${SCHEMA}alternateName`, lit(e.symbol)]); out.push([`${NS}targetClass`, lit(e.targetClass)]); for (const u of geneIdUrls(e)) out.push([`${SCHEMA}sameAs`, iri(u)]); break;
+    case "drug": out.push([`${NS}modality`, lit(e.modality)]); if (e.brand) out.push([`${SCHEMA}alternateName`, lit(e.brand)]); for (const a of e.approvals) out.push([`${NS}approval`, lit(`${a.region} ${a.year}: ${a.indication}`)]); for (const r of e.regulatoryEvents) if (r.type === "accelerated-approval" || r.type === "conversion") out.push([`${NS}${r.type === "conversion" ? "acceleratedApprovalConfirmed" : "acceleratedApproval"}`, lit(`${r.region} ${r.date}${r.indication ? `: ${r.indication}` : ""}`)]); break;
+    case "trial": out.push([`${NS}phase`, lit(e.phase)]); if (e.nct) out.push([`${SCHEMA}identifier`, lit(e.nct)]); if (e.started) out.push([`${SCHEMA}startDate`, lit(e.started)]); break;
+    case "target": if (e.symbol) out.push([`${SCHEMA}alternateName`, lit(e.symbol)]); out.push([`${NS}targetClass`, lit(e.targetClass)]); if (e.firstDescribed !== undefined) out.push([`${NS}firstDescribed`, typed(String(e.firstDescribed), "gYear")]); for (const u of geneIdUrls(e)) out.push([`${SCHEMA}sameAs`, iri(u)]); break;
     case "company": out.push([`${SCHEMA}addressCountry`, lit(e.country)]); if (e.website) out.push([`${SCHEMA}url`, iri(e.website)]); break;
     case "institution": out.push([`${SCHEMA}addressCountry`, lit(e.country)], [`${SCHEMA}addressLocality`, lit(e.city)], [`${SCHEMA}latitude`, typed(String(e.lat), "decimal")], [`${SCHEMA}longitude`, typed(String(e.lng), "decimal")]); if (e.website) out.push([`${SCHEMA}url`, iri(e.website)]); break;
     case "paper": if (e.doi) out.push([`${SCHEMA}sameAs`, iri(`https://doi.org/${e.doi}`)]); out.push([`${SCHEMA}datePublished`, typed(String(e.year), "gYear")], [`${SCHEMA}author`, lit(e.authors)]); break;
