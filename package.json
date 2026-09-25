@@ -98,7 +98,8 @@
     "changelog": "tsx scripts/changelog-sync.ts",
     "orphans": "tsx scripts/orphans.ts",
     "fold:zh": "tsx scripts/fold-zh.ts",
-    "indexnow": "tsx scripts/indexnow.ts"
+    "indexnow": "tsx scripts/indexnow.ts",
+    "audit:weight": "tsx scripts/page-weight.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0",

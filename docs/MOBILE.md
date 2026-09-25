@@ -42,3 +42,35 @@ The page must never scroll sideways at 390 px; a wide element scrolls inside its
 
 - The audit runs against a dev server or the live site (one request per route); it is not yet part of the ship chain.
 - Dev-only hydration attribute warnings seen while measuring are pre-existing and not from this pass: float rounding in `/graph/` node transforms and `/deals/` chord paths, and ChipTitles stamping `title` on truncated chips before the page hydrates (now also on `/path/`, whose route chips truncate instead of overflowing).
+
+## What a reader actually downloads (25 September 2026)
+
+Every page budget in this repo is measured on the static markup, because that is what `react-dom/server` can
+produce inside vitest. `src/app/chrome-size.test.ts` states the assumption: "the RSC payload cannot be rendered in
+vitest, but the same trees drive both". Measured against the live site with `npm run audit:weight`
+(`scripts/page-weight.ts`), the assumption does not hold. The payload is not a constant fraction of the markup; it
+is between a fifth and four fifths of the page, and the pages it is worst on are the ones a budget passed.
+
+| page | total | markup | hydration payload | payload share |
+| --- | --- | --- | --- | --- |
+| /timeline/ | 2,139 KB | 528 KB | 1,610 KB | 75% |
+| /explained/ | 1,516 KB | 736 KB | 780 KB | 51% |
+| /years/2020/ | 1,023 KB | 383 KB | 640 KB | 63% |
+| / | 939 KB | 242 KB | 697 KB | 74% |
+| /cancers/prostate/uk/ | 927 KB | 410 KB | 517 KB | 56% |
+| /for-me/ | 890 KB | 628 KB | 263 KB | 29% |
+| /explore/ | 680 KB | 128 KB | 552 KB | 81% |
+| /cancers/breast-cancer/ | 650 KB | 272 KB | 378 KB | 58% |
+| /trials/ | 618 KB | 336 KB | 283 KB | 46% |
+
+`/timeline/` is the clearest case: 528 KB of markup, comfortably inside its 640 KB budget, and 2,139 KB on the
+wire. The budget was guarding a quarter of the page. `/explore/` is the other shape of the same fault: 128 KB of
+markup and 552 KB of payload, because almost everything it shows is passed to a client component as props.
+
+The rule this gives: **props are serialised once per page, imported code ships once.** A list handed to a client
+component is paid for by every reader of every page that renders it, twice if it is also in the markup. The fix is
+the one already used for the heavy tables and the family roll-up: render what the reader sees, fetch the rest from
+a static file, and hand the client component an id rather than a tree.
+
+This is not yet a gate. It needs the built site, so it cannot run in vitest; run `npm run audit:weight` after a
+deploy and record the numbers here. Making it a gate means measuring the export, which is the obvious next step.
