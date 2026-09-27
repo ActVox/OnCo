@@ -68,7 +68,7 @@ export default function SurvivalPage() {
               <div className="card p-4 sm:p-5 space-y-2 text-sm leading-relaxed">
                 <div className="kicker">What the table actually shows</div>
                 <p><span className="font-medium">Stage is the biggest lever.</span> For {nearNormal} of the {mapped.length} cancers below, people diagnosed with localised disease have five-year survival at or above 90%, close to people without cancer. That is why screening and early detection are on almost every cancer&apos;s state-of-the-art list.</p>
-                <p><span className="font-medium">The figures lag treatment.</span> They describe people diagnosed in {periodText}. Immunotherapy, ADCs, targeted pills and radioligand therapy approved since then are not reflected, so for fast-moving cancers current survival is likely better than the number shown.</p>
+                <p><span className="font-medium">The figures lag treatment.</span> They describe people diagnosed in {periodText}. Immunotherapy, ADCs, targeted pills and radioligand therapy approved since then are not reflected, so where a cancer has had a new standard of care since 2022, current survival is likely better than the number shown, by an amount nobody can yet quantify: the cohort that would measure it has not been followed for five years.</p>
                 <p><span className="font-medium">Subtype matters more than site.</span> SEER groups by organ; OnCo splits breast, lung, leukaemia and lymphoma by subtype, and the same site figure is repeated with a note on which way the subtype differs. Each cancer page explains its own picture in words first.</p>
               </div>
               <WhatIsBeingDone topic="late-diagnosis" />

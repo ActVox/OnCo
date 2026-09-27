@@ -28,7 +28,7 @@ export default function ExplainedPage() {
   return (
     <>
       <PageHeader kicker={<GroupKicker id="intel" />} title="Trials in plain words"
-        lede="Hazard ratios and medians mean little to most readers. This page takes every trial result recorded in OnCo and says what it means for people: how many more out of 100 were helped, roughly how many need to be treated for one extra person to benefit, what a median is and is not, whether the endpoint is a surrogate or actual survival, and who the trial enrolled. The numbers come from the trial records and their sources; the words are ours." />
+        lede="Hazard ratios and medians are the language trial results are published in; this page is the same numbers in English. This page takes every trial result recorded in OnCo and says what it means for people: how many more out of 100 were helped, roughly how many need to be treated for one extra person to benefit, what a median is and is not, whether the endpoint is a surrogate or actual survival, and who the trial enrolled. The numbers come from the trial records and their sources; the words are ours." />
       <Container className="pb-16">
         {/* The organ drawings once each; the 256 section headings reference them (132 KB of HTML as inline drawings). */}
         <CancerIconDefs cancerIds={ordered.flatMap((grp) => (grp.cancer ? [grp.cancer.id] : []))} />

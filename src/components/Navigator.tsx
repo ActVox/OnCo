@@ -158,7 +158,10 @@ export function Navigator({ data }: { data: NavigatorData }) {
     <div className="space-y-8">
       <ProfileBar cancers={data.cancers} lines={lines} />
 
-      <div className="card p-4 border-rose-300 bg-rose-50/60 dark:bg-rose-950/20 dark:border-rose-900 text-sm">
+      {/* Rose is the site's "Emergency services now" palette (RedCards.tsx, RedFlagCard.tsx). A legal note in it
+          teaches the reader that the alarm colour can mean nothing urgent, and it was the first rose thing a
+          frightened reader met here. Neutral card; the words are unchanged. */}
+      <div className="card p-4 text-sm">
         <span className="font-semibold">Not medical advice.</span> This navigator ranks what is documented in OnCo for a cancer, stage, and biomarker set. It does not know your case, your fitness, your prior responses, or local availability. Use it to prepare questions, then decide with your clinical team.
       </div>
 

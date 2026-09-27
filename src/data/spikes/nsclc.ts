@@ -306,7 +306,7 @@ const spike: Spike = {
       "Perioperative chemo-immunotherapy improves survival in resectable disease (CheckMate 816, KEYNOTE-671).",
       "Twelve targetable drivers each have an approved matched therapy; two oral HER2 TKIs (zongertinib, sevabertinib) arrived in 2025-26.",
       "First-in-class bispecific ivonescimab beat pembrolizumab on PFS and OS in China; the US decision (PDUFA 14 Nov 2026) hinges on HARMONi.",
-      "5-year survival with pembrolizumab in PD-L1-high disease is ~32%, unthinkable a decade ago.",
+      "5-year survival with pembrolizumab in PD-L1-high disease is 31.9% in the KEYNOTE-024 five-year analysis, against 16.3% with platinum chemotherapy in the same trial.",
     ],
     history: [
       { year: 2002, title: "Gefitinib approved; dramatic responses in a minority" },

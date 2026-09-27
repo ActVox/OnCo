@@ -50,6 +50,10 @@ export function RedFlagCard({ name, route, sets, phone, compact = false }: {
       </div>
       {phone && <div className="mt-2 text-sm"><span className="text-muted">24-hour line: </span><span className="font-mono font-semibold">{phone}</span></div>}
       {windows.length > 0 && <p className="text-xs text-muted mt-2">{windows.join(" ")}</p>}
+      {/* This card goes on a fridge and is read cold, weeks before it is needed. Without this line it is a list of
+          ways to be in danger with a phone number under it; "When in doubt, call" was set in 11px at the bottom,
+          below the sources, which is the one sentence that has to be read first. */}
+      <p className="mt-3 text-[13px] font-medium">When in doubt, call. Nobody minds a false alarm, and every one of these is treated faster the earlier the team hears about it.</p>
       <div className="mt-3 space-y-2">
         {ORDER.map((a) => {
           const list = flags.filter((f) => f.action === a);
@@ -62,7 +66,7 @@ export function RedFlagCard({ name, route, sets, phone, compact = false }: {
           );
         })}
       </div>
-      <p className="text-[11px] text-muted mt-3">Thresholds quoted from {sources.map((s, i) => <span key={s.url}>{i > 0 && (i === sources.length - 1 ? " and " : ", ")}<a className="underline" href={s.url} rel="noopener">{s.label}</a></span>)}. The treating team&apos;s own instructions take precedence. When in doubt, call.</p>
+      <p className="text-[11px] text-muted mt-3">Thresholds quoted from {sources.map((s, i) => <span key={s.url}>{i > 0 && (i === sources.length - 1 ? " and " : ", ")}<a className="underline" href={s.url} rel="noopener">{s.label}</a></span>)}. The treating team&apos;s own instructions take precedence.</p>
     </div>
   );
 }

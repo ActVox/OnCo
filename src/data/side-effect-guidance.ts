@@ -35,7 +35,7 @@ const FEVER_RULE = "A temperature of 38 C or higher, or any signs of infection o
 export const sideEffectGuidance: SideEffectGuidance[] = [
   {
     group: "Fever or febrile neutropenia",
-    plain: "Many treatments lower the white blood cells that fight infection. A fever can then be the only sign of a serious infection, and it can become life-threatening within hours.",
+    plain: "Many treatments lower the white blood cells that fight infection. A fever can then be the only sign of a serious infection, so it is treated as an emergency: NICE CG151 asks for antibiotics within an hour of arrival, and treated that fast most people recover. That is why the rule is to ring straight away rather than wait and see.",
     selfCare: "Check your temperature whenever you feel unwell, shivery or flushed. Keep the treatment card and the 24-hour number by the phone.",
     callToday: FEVER_RULE,
     emergency: "Fever with shaking, fast breathing, confusion, cold or mottled skin, or feeling very unwell: emergency services now. CTCAE defines febrile neutropenia as a neutrophil count below 1,000 with a single temperature above 38.3 C or a temperature of 38 C or above sustained for more than one hour.",
@@ -331,7 +331,7 @@ export const sideEffectGuidance: SideEffectGuidance[] = [
   },
   {
     group: "Rash, itching or skin reactions",
-    plain: "Rashes are among the most common side effects: acne-like with EGFR inhibitors, itchy or blotchy with immunotherapy, sun-sensitive with some kinase inhibitors. Rarely a rash is the start of a severe blistering reaction that is a medical emergency.",
+    plain: "Rashes are among the most common side effects: acne-like with EGFR inhibitors, itchy or blotchy with immunotherapy, sun-sensitive with some kinase inhibitors. Nearly all of them are managed with creams, antihistamines or a dose change without stopping treatment. Rarely a rash blisters or involves the mouth or eyes, and that one is an emergency.",
     selfCare: "Moisturise, use sun protection, avoid hot showers and perfumed products, and use the steroid cream or antihistamine the team has suggested.",
     callToday: "Rash covering 10 to 30 percent of the body, itching that disturbs sleep, or pustules on the face or chest (CTCAE grade 2). On immunotherapy, report any new rash.",
     emergency: "Blisters, peeling skin, sores in the mouth, eyes or genitals, fever with a rash, or a rash that is spreading fast (possible Stevens-Johnson syndrome or toxic epidermal necrolysis; CTCAE grade 3 to 4): emergency services now. Enfortumab vedotin carries a boxed warning for this.",

@@ -128,7 +128,7 @@ export const GENERAL_RED_FLAGS: RedFlagSet = {
     { symptom: "Signs of sepsis", threshold: "Breathing very fast, confusion or slurred speech, blue, pale or blotchy skin, a very high or very low temperature or shivering, or a rash that does not fade when you press it.", action: "emergency", source: NHS_SEPSIS },
     { symptom: "Breathlessness", threshold: "Shortness of breath at rest, or any chest pain or tightness: the triage tool sends both straight to 999.", action: "emergency", source: UKONS },
     { symptom: "Uncontrolled vomiting or diarrhoea", threshold: "Six or more episodes of vomiting in 24 hours, or an increase of seven or more bowel movements a day over your pre-treatment normal.", action: "call-now", source: UKONS },
-    { symptom: "Bleeding", threshold: "Bleeding that does not stop by itself, bleeding that is spraying or pouring or enough to make a puddle, or bruising in several places or one large area.", action: "emergency", source: UKONS },
+    { symptom: "Bleeding", threshold: "Bleeding that does not stop by itself, heavy or continuous bleeding, or bruising in several places or one large area.", action: "emergency", source: UKONS },
     { symptom: "Confusion or drowsiness", threshold: "Severe confusion, an altered level of consciousness, or being difficult to rouse.", action: "emergency", source: UKONS },
     { symptom: "Rash that blisters", threshold: "A rash over more than 30 percent of the body, or blistering, ulceration, weeping skin, spontaneous bleeding or severe pain in the skin.", action: "emergency", source: UKONS },
   ],

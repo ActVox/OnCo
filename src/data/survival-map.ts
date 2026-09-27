@@ -25,7 +25,10 @@ export const SURVIVAL_SITES: Record<string, SurvivalSite> = {
   endometrial: { slug: "corp", seerLabel: "Uterus (corpus and uterus, NOS)" },
   cervical: { slug: "cervix", seerLabel: "Cervix uteri" },
   melanoma: { slug: "melan", seerLabel: "Melanoma of the skin" },
-  glioblastoma: { slug: "brain", seerLabel: "Brain and other nervous system", shared: "SEER combines all brain and nervous system tumours; glioblastoma survival is far below this average." },
+  // The house form in this file is "worse survival than this average" / "better survival than this average", said
+  // without an intensifier and without a figure, because the cancer's own record carries the figures with their
+  // cohorts. Glioblastoma read "far below this average", which is the same claim with a thumb on the scale.
+  glioblastoma: { slug: "brain", seerLabel: "Brain and other nervous system", shared: "SEER combines all brain and nervous system tumours; glioblastoma has worse survival than this average." },
   "head-and-neck": { slug: "oralcav", seerLabel: "Oral cavity and pharynx", shared: "Covers oral cavity and pharynx only; larynx is a separate SEER site." },
   sarcoma: { slug: "soft", seerLabel: "Soft tissue including heart", shared: "Soft-tissue sarcomas only; bone sarcomas and GIST are reported separately." },
   thyroid: { slug: "thyro", seerLabel: "Thyroid" },

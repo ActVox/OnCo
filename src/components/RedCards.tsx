@@ -41,7 +41,9 @@ export function RedCards({ cards, cancerName, compact = false }: { cards: RedCar
     <section aria-label={`Red cards${cancerName ? ` for ${cancerName}` : ""}`} className={compact ? "" : "mt-8"}>
       <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
         <h2 className={`${compact ? "text-base" : "text-lg"} font-semibold tracking-tight inline-flex items-center gap-2`}><RedCardsGlyph className="h-4 w-4 text-accent" />Red cards</h2>
-        <span className="text-xs text-muted">From the labels and guidelines behind the standard of care. Your team&apos;s thresholds win.</span>
+        {/* A frightened reader meets six red tiles here, so the strip says what it is for before it says where it
+            came from: these are things to recognise and act on, not a forecast. */}
+        <span className="text-xs text-muted">What to watch for and who to call, from the labels and guidelines behind the standard of care. Your team&apos;s thresholds win.</span>
       </div>
       {/* min-w-0 on the card: a grid item's automatic minimum size is its content's min-content width, and a
           concern chip cannot wrap (globals.css `.chip` is nowrap by design, one pill being one unit), so a single
