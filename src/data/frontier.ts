@@ -419,7 +419,7 @@ const frontierRadical: EntityInput[] = [
     tldr: "Stiff, high-pressure tumours squeeze their own blood vessels shut, keeping drugs out. Softening them is a way in.",
     summary: "Desmoplastic tumours such as pancreatic cancer generate solid stress that collapses vessels; agents that reduce matrix stiffness (losartan, hyaluronidase, LOXL2 inhibitors) aim to reopen perfusion. PEGPH20, the furthest-advanced hyaluronidase, failed its phase 3 in pancreatic cancer, and losartan combinations remain investigational. The physics is well characterised; converting it into benefit has so far failed.",
     principle: "Reducing extracellular matrix content or stiffness lowers solid stress, decompresses vessels, and improves delivery of drugs and immune cells.",
-    strengths: ["Addresses a delivery barrier shared by the deadliest tumours", "Cheap existing agents to test", "Measurable with imaging"],
+    strengths: ["Addresses a delivery barrier shared by the tumours with the lowest survival", "Cheap existing agents to test", "Measurable with imaging"],
     limitations: ["PEGPH20 phase 3 failure", "Loosening the matrix may aid invasion", "No demonstrated effect on outcomes"],
     technologies: ["cytotoxic-chemotherapy", "antiangiogenic", "single-cell-spatial"], targets: ["fap"], cancers: ["pancreatic"], terms: ["desmoplasia"],
     tags: ["frontier"],
@@ -483,7 +483,7 @@ const frontierRadical: EntityInput[] = [
   {
     id: "drug-repurposing", kind: "technology", name: "Systematic drug repurposing", sections: ["drug-discovery", "prevention"], status: "phase-3", asOf: RAD,
     tldr: "Testing cheap old drugs, aspirin, metformin, statins, beta-blockers, as cancer treatments, because they are safe, available and sometimes work.",
-    summary: "Large randomised trials of repurposed agents have given sobering results: metformin did not improve invasive disease-free survival in the adjuvant breast cancer trial MA.32 (NCT01101438), while aspirin continues to be tested for adjuvant benefit (Add-Aspirin, NCT02804815) and is established in Lynch syndrome prevention. AI screening of prescription and expression databases now proposes candidates faster than trials can test them, and funding for non-proprietary agents is the real bottleneck.",
+    summary: "Large randomised trials of repurposed agents have mostly been negative: metformin did not improve invasive disease-free survival in the adjuvant breast cancer trial MA.32 (NCT01101438), while aspirin continues to be tested for adjuvant benefit (Add-Aspirin, NCT02804815) and is established in Lynch syndrome prevention. AI screening of prescription and expression databases now proposes candidates faster than trials can test them, and funding for non-proprietary agents is the real bottleneck.",
     principle: "Approved drugs with known safety are tested against cancer endpoints, either on mechanistic grounds or on signals mined from real-world prescription data.",
     strengths: ["Known safety and cost, so adoption is immediate if positive", "Attractive for prevention and low-resource settings", "AI can prioritise candidates from existing data"],
     limitations: ["No commercial sponsor, so trials are slow and underfunded", "Observational signals are heavily confounded", "Major trials have been negative"],

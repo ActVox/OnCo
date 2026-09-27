@@ -739,7 +739,7 @@ export const papersSolidTumours: PaperInput[] = [
       "Skin toxicity (from panitumumab) and hypomagnesaemia were the main adverse events; grade 3 or higher treatment-related events about 36% (960 mg), 30% (240 mg) and 43% (standard care).",
       "Overall survival showed a trend favouring the 960 mg arm but was not powered to detect a difference.",
     ],
-    whatItMeans: "Patients with metastatic colorectal cancer carrying a KRAS G12C mutation (about 3-4% of cases) who have exhausted standard chemotherapy now have a targeted option that works far better than trifluridine-tipiracil or regorafenib. The higher sotorasib dose is clearly superior, and the EGFR antibody is essential because KRAS inhibition alone barely works in bowel cancer. Responses are still modest and short-lived compared with EGFR or ALK inhibitors in lung cancer.",
+    whatItMeans: "Patients with metastatic colorectal cancer carrying a KRAS G12C mutation (about 3-4% of cases) who have exhausted standard chemotherapy now have a targeted option that works far better than trifluridine-tipiracil or regorafenib. The higher sotorasib dose is clearly superior, and the EGFR antibody is essential because KRAS inhibition alone has little effect in bowel cancer. Responses are still modest and short-lived compared with EGFR or ALK inhibitors in lung cancer.",
     caveats: [
       "Small trial with a PFS primary endpoint; OS benefit not established.",
       "The comparator drugs are of very limited efficacy, so the bar was low.",
@@ -766,7 +766,7 @@ export const papersSolidTumours: PaperInput[] = [
       "Responses were independent of PD-L1, tumour mutational burden or Lynch syndrome status.",
       "Radiological response underestimated pathological response, as in other neoadjuvant immunotherapy studies.",
     ],
-    whatItMeans: "For colon cancer that is mismatch-repair deficient (about 10-15% of colon cancers, more in older patients), a single short course of immunotherapy before surgery is now a reasonable standard and is far more effective than chemotherapy, which barely works in this subtype. It requires testing every colon cancer for mismatch repair at diagnosis, before surgery. Whether some patients can safely skip surgery, as in dMMR rectal cancer, is the next question.",
+    whatItMeans: "For colon cancer that is mismatch-repair deficient (about 10-15% of colon cancers, more in older patients), a single short course of immunotherapy before surgery is now a reasonable standard and is far more effective than chemotherapy, which has little effect in this subtype. It requires testing every colon cancer for mismatch repair at diagnosis, before surgery. Whether some patients can safely skip surgery, as in dMMR rectal cancer, is the next question.",
     caveats: [
       "Single-arm phase 2 without a control; the 100% disease-free survival is remarkable but from a single-centre network with limited follow-up.",
       "Surgery was still performed in all patients, so organ preservation is not yet demonstrated in colon cancer.",

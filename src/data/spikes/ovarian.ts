@@ -249,7 +249,7 @@ const technologies: TechnologyInput[] = [
     tldr: "Removing the fallopian tubes, where most ovarian cancer starts, during other pelvic surgery or in women at inherited risk.",
     summary: "Because high-grade serous cancer originates in the tubal fimbria, removing the tubes at hysterectomy or instead of tubal ligation (opportunistic salpingectomy) is recommended by ACOG and SGO for average-risk women. In BRCA carriers, salpingo-oophorectomy by age 35-45 remains standard; salpingectomy with delayed oophorectomy (TUBA-WISP II, SOROCk) is under study to postpone surgical menopause. Population data from British Columbia show falling incidence after policy adoption.",
     principle: "Removing the fallopian tubes eliminates the tissue of origin of high-grade serous carcinoma while sparing ovarian hormone production.",
-    strengths: ["Prevents the deadliest ovarian cancer type without hormonal consequences", "Adds little time or risk to existing surgery"],
+    strengths: ["Prevents the ovarian cancer type with the lowest survival without hormonal consequences", "Adds little time or risk to existing surgery"],
     limitations: ["Does not prevent non-tubal ovarian cancers", "Benefit for BRCA carriers versus oophorectomy still unproven"],
     cancers: ["ovarian"], targets: ["brca"], technologies: ["chemoprevention"], terms: ["hgsoc"], links: [{ label: "Wikipedia", url: W("Salpingectomy") }] }),
 ];

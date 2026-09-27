@@ -158,7 +158,7 @@ export const simpleS: Record<string, string> = {
   "hpv-negative-head-and-neck-cancer": "HPV-negative head and neck cancer is caused by tobacco and alcohol rather than the HPV virus, and it is harder to cure, with surgery or cisplatin chemoradiation as the mainstay.",
   "recurrent-metastatic-hnscc": "Recurrent or metastatic head and neck cancer has come back where it cannot be removed or spread elsewhere, so it is treated to extend life rather than cure, with pembrolizumab as the first choice.",
   "hypopharyngeal-cancer": "Cancer of the hypopharynx, the funnel behind the voice box, is the head and neck cancer with the worst outlook because it grows silently and spreads to the neck early.",
-  "adenoid-cystic-carcinoma": "Adenoid cystic carcinoma is a slow but relentless cancer of the salivary glands that creeps along nerves and comes back years later, often in the lungs.",
+  "adenoid-cystic-carcinoma": "Adenoid cystic carcinoma is a slow-growing cancer of the salivary glands that spreads along nerves and can come back years after treatment, often in the lungs.",
   "salivary-duct-carcinoma": "Salivary duct carcinoma is an aggressive cancer of the parotid gland that behaves like a high-grade breast cancer, with most tumours running on the androgen receptor and about a third on HER2.",
   "mucoepidermoid-carcinoma": "Mucoepidermoid carcinoma is the most common salivary gland cancer and, for most people, one of the most curable, since low-grade tumours are removed surgically and rarely return.",
   "oral-tongue-cancer": "Cancer of the front of the tongue or the floor of the mouth is treated first with surgery, and how deep the tumour has grown is now the number that decides staging.",

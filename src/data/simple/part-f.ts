@@ -45,7 +45,7 @@ export const simpleF: Record<string, string> = {
   "mechanobiology-therapy": "Stiff, high-pressure tumours squeeze their own blood vessels shut and keep drugs out, so softening them could be a way in, though attempts so far have failed.",
   "hypoxia-activated-therapy": "Hypoxia-activated prodrugs turn into poison only where oxygen is absent, which in the body means inside a tumour; the idea is clean but the clinical record is poor.",
   "n-of-1-platforms": "N-of-1 and platform trials build a trial around one patient, or let one trial swap drugs in and out as the evidence accumulates.",
-  "drug-repurposing": "Drug repurposing tests cheap old drugs such as aspirin, metformin and statins as cancer treatments because they are safe and available, though large trials have given sobering results.",
+  "drug-repurposing": "Drug repurposing tests cheap old drugs such as aspirin, metformin and statins as cancer treatments because they are safe and available, though large trials have mostly been negative.",
   "total-body-pet-screening": "Total-body PET scanners can image the whole body in seconds at a fraction of the radiation dose, which raises the question of whether healthy people should be scanned.",
   "quantum-dot-imaging": "Quantum dots and targeted microbubbles are brighter, longer-lasting imaging particles that could make tumours visible during surgery or on an ultrasound scan; they remain preclinical.",
   "organoid-guided-therapy-scale": "Organoid-guided therapy means routinely growing a piece of each patient's tumour and testing drugs on it before choosing treatment, rather than relying on genetics alone.",

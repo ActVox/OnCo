@@ -36,7 +36,7 @@ const entities: EntityInput[] = [
   },
   {
     id: "dordaviprone", trials: ["action-dmg"], kind: "drug", name: "Dordaviprone", brand: "Modeyso", code: "ONC201", modality: "Small-molecule imipridone (ClpP agonist / DRD2 antagonist)", asOf, status: "approved",
-    tldr: "Dordaviprone is the first drug ever approved for a lethal childhood and young-adult brain tumour, diffuse midline glioma with the H3 K27M mutation (August 2025).",
+    tldr: "Dordaviprone is the first drug ever approved for a childhood and young-adult brain tumour that had none, diffuse midline glioma with the H3 K27M mutation (August 2025).",
     summary: "FDA accelerated approval 6 August 2025 for patients ≥1 year with H3 K27M-mutant diffuse midline glioma progressing after prior therapy, based on an integrated analysis of 50 patients across five trials: ORR 22%, median duration of response 10.3 months. Brain-penetrant oral agent from Oncoceutics → Chimerix → Jazz Pharmaceuticals (2025). Confirmatory phase 3 ACTION trial (newly diagnosed, after radiotherapy) ongoing. Debate continues on the strength of single-arm evidence.",
     mechanism: "Hyperactivates the mitochondrial protease ClpP and antagonises dopamine receptor D2, triggering integrated stress response and apoptosis in H3 K27M-altered cells.",
     approvals: [{ region: "US", year: 2025, indication: "Recurrent H3 K27M-mutant diffuse midline glioma, age ≥1 (accelerated)" }],

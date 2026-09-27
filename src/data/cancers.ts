@@ -726,7 +726,7 @@ export const cancers: CancerInput[] = [
       { year: 2024, title: "Vorasidenib approved for IDH-mutant glioma", note: "First targeted drug for grade 2 astrocytoma and oligodendroglioma after surgery (INDIGO trial).", refs: ["vorasidenib"] },
     ],
     pipeline: ["dordaviprone","tovorafenib", "emavusertib"],
-    openProblems: ["Drugs rarely cross the blood-brain barrier at useful concentrations.", "Diffuse midline glioma remains almost uniformly fatal.", "Cognitive late effects of radiotherapy in children."],
+    openProblems: ["Drugs rarely cross the blood-brain barrier at useful concentrations.", "Median survival in diffuse midline glioma is still about a year.", "Cognitive late effects of radiotherapy in children."],
     related: ["glioblastoma", "dipg-dmg", "medulloblastoma", "ependymoma", "craniopharyngioma", "atrt", "paediatric-low-grade-glioma", "primary-cns-lymphoma", "idh-mutant-astrocytoma", "oligodendroglioma", "meningioma", "secondary-brain-tumours", "paediatric-high-grade-glioma", "spinal-cord-tumours", "vestibular-schwannoma", "cns-germ-cell-tumours", "pituitary-tumours"],
     targets: ["idh", "braf", "mek"], technologies: ["bbb-focused-ultrasound"], drugs: ["temozolomide", "vorasidenib", "dabrafenib", "trametinib"],
     links: [{ label: "NCI: Brain tumors", url: "https://www.cancer.gov/types/brain" }, { label: "GLOBOCAN 2020 (Sung 2021)", url: "https://doi.org/10.3322/caac.21660" }],
@@ -746,7 +746,7 @@ export const cancers: CancerInput[] = [
       { setting: "Survivorship", approach: "Lifelong follow-up for late effects on heart, fertility, growth and second cancers, with a survivorship care plan; trials that reduce therapy where cure rates are high.", refs: ["survivorship-care-plan"] },
     ],
     history: [
-      { year: 1965, title: "Combination chemotherapy first cures childhood leukaemia", note: "Multi-drug regimens at the National Cancer Institute and St Jude turned acute lymphoblastic leukaemia from uniformly fatal to curable.", refs: ["vincristine", "methotrexate"] },
+      { year: 1965, title: "Combination chemotherapy first cures childhood leukaemia", note: "Multi-drug regimens at the National Cancer Institute and St Jude turned acute lymphoblastic leukaemia from a disease almost no child survived into a curable one.", refs: ["vincristine", "methotrexate"] },
       { year: 2015, title: "Dinutuximab approved for high-risk neuroblastoma", note: "Anti-GD2 antibody added to maintenance therapy after the Children's Oncology Group trial.", refs: ["dinutuximab"] },
       { year: 2017, title: "First CAR-T therapy approved", note: "Tisagenlecleucel for children and young adults with relapsed or refractory B-cell acute lymphoblastic leukaemia.", refs: ["tisagenlecleucel"] },
     ],

@@ -3,7 +3,7 @@ export const simpleO: Record<string, string> = {
   // cancers
   "granulosa-cell-tumour": "A granulosa cell tumour is a rare ovarian cancer that makes oestrogen, often shows up as unusual bleeding, and is usually cured by surgery, though it can come back years later.",
   "anaplastic-thyroid-cancer": "Anaplastic thyroid cancer is a rare, very fast-growing neck tumour that can squeeze the airway, and combining targeted drugs, immunotherapy, surgery and radiotherapy has started to lift survival.",
-  "biliary-tract-cancer": "Biliary tract cancers start in the bile ducts, the gallbladder or where the duct meets the bowel, and they share a poor outlook and the same first chemotherapy with immunotherapy.",
+  "biliary-tract-cancer": "Biliary tract cancers start in the bile ducts, the gallbladder or where the duct meets the bowel, and they share short survival and the same first chemotherapy with immunotherapy.",
   "prostate-bcr": "Biochemical recurrence means the PSA blood test is rising after prostate treatment while scans still show nothing, and radiotherapy or hormone drugs can still hold it back or cure it.",
   "brain-tumours": "Brain and spinal cord tumours range from slow-growing types to glioblastoma, and doctors now sort them by molecular markers to choose surgery, radiotherapy and drugs.",
   "breast-cancer": "Breast cancer is really several diseases, and the receptors on the tumour cells [hormone, HER2 or neither] decide which treatment a person gets.",

@@ -184,7 +184,7 @@ export const simpleE: Record<string, string> = {
   "complement-in-cancer": "Complement is a cascade of blood proteins that punches holes in cells marked by antibodies; rituximab uses it to kill cancer cells, and tumours defend themselves with protein shields.",
   "nk-cell-recognition": "Natural killer cells patrol for cells that lost their identity papers or show stress flags, so cancers hiding from T cells become visible to them unless they add disguises.",
   "invasion-ecm-degradation": "To invade, a cancer cell grips the scaffolding, dissolves a path with enzymes and pulls itself forward; enzyme blockers failed in the 1990s, so today's drugs target the grip.",
-  "intravasation-ctc-survival": "Getting into the bloodstream and surviving there is brutal for cancer cells; the few survivors travel in clusters or cloaked in platelets, and blood tests catch what is left.",
+  "intravasation-ctc-survival": "Getting into the bloodstream kills almost every cancer cell that tries; the few survivors travel in clusters or cloaked in platelets, and blood tests catch what is left.",
   "pre-metastatic-niche": "Before any cancer cell arrives, the original tumour sends tiny parcels and hormones ahead that recruit bone marrow cells to a distant organ and prepare it as fertile soil.",
   "organ-tropism-seed-soil": "Where a cancer spreads depends on the seed (the cell's programme) and the soil (the organ's welcome), which is why breast cancer goes to bone and colon cancer to liver.",
   "blood-brain-barrier-metastasis": "The brain's blood vessels are sealed tight and fitted with pumps that eject most drugs, protecting the brain from poisons but also from chemotherapy and antibodies aimed at cancer there.",

@@ -348,7 +348,7 @@ const spike: Spike = {
       "LAG-3 blockade is not a class effect: it failed as adjuvant therapy and with cemiplimab, so the biology of when it helps is unresolved.",
       "Adjuvant therapy in stage IIB/IIC treats many to benefit few; ctDNA-guided selection is unproven.",
       "Uveal, mucosal, and acral melanomas respond poorly to checkpoint inhibitors and have few targeted options.",
-      "Brain metastases occur in up to half of advanced patients; leptomeningeal disease is untreatable.",
+      "Brain metastases occur in up to half of advanced patients; no treatment reliably controls leptomeningeal disease.",
       "T-cell-receptor drugs require HLA-A*02:01, excluding most people of African and East Asian ancestry.",
       "Long-term immune toxicity (endocrinopathies, arthritis) in cured patients is under-studied.",
     ],
