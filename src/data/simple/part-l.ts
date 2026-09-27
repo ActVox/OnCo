@@ -278,7 +278,7 @@ export const simpleL: Record<string, string> = {
   "elizabeth-jaffee": "Elizabeth Jaffee, a Johns Hopkins pancreatic cancer immunologist, developed the GVAX vaccine and has led national cancer policy panels including the NCI's advisory board.",
   "emer-cooke": "Emer Cooke, a pharmacist by training, has been executive director of the European Medicines Agency since November 2020, overseeing EU approval of cancer medicines.",
   "emil-frei": "Emil 'Tom' Frei, with Emil Freireich at the National Cancer Institute, showed that combinations of drugs could cure childhood leukaemia, then extended the idea to Hodgkin lymphoma.",
-  "emil-freireich": "Emil Freireich, at the National Cancer Institute in the early 1960s, gave children four drugs at once against fierce opposition and turned a uniformly fatal leukaemia into a curable one.",
+  "emil-freireich": "Emil Freireich, at the National Cancer Institute in the early 1960s, gave children four drugs at once against fierce opposition and turned a leukaemia almost no child survived into a curable one.",
   "emile-voest": "Emile Voest, a medical oncologist at the Netherlands Cancer Institute, led the DRUP trial giving off-label targeted drugs by genomic match and developed organoid-based testing.",
   "emily-bergsland": "Emily Bergsland is a UCSF neuroendocrine tumour specialist who helps design the trials that set treatment for these rare cancers and co-authors national guidelines.",
   "emily-whitehead": "Emily Whitehead was the first child treated with CAR-T cells [engineered immune cells], in 2012, and her recovery from relapsed leukaemia turned an experimental idea into an approved therapy.",

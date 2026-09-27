@@ -26,7 +26,7 @@ export const ovarianSubtypes: CancerInput[] = [
       { setting: "Platinum-resistant relapse", approach: "Single-agent chemotherapy with or without bevacizumab; mirvetuximab soravtansine for folate receptor alpha-high tumours (MIRASOL); relacorilant with nab-paclitaxel in trials and early approvals.", refs: ["mirvetuximab-soravtansine", "folr1", "relacorilant", "bevacizumab"] },
       { setting: "Prevention in carriers", approach: "Risk-reducing salpingo-oophorectomy around age 35 to 45 by gene; opportunistic salpingectomy at other pelvic surgery for everyone.", refs: ["brca", "risk-reducing-salpingectomy"] },
     ],
-    stateOfArt: ["PARP inhibitor maintenance has turned a disease of relentless relapse into one where a large fraction of BRCA-mutant patients remain disease-free seven years on.", "The fallopian tube origin has made opportunistic salpingectomy a population prevention strategy.", "Antibody-drug conjugates against folate receptor alpha are the first new active drugs in platinum-resistant disease in a decade."],
+    stateOfArt: ["PARP inhibitor maintenance has turned a disease that nearly always relapsed into one where a large fraction of BRCA-mutant patients remain disease-free seven years on.", "The fallopian tube origin has made opportunistic salpingectomy a population prevention strategy.", "Antibody-drug conjugates against folate receptor alpha are the first new active drugs in platinum-resistant disease in a decade."],
     history: [
       { year: 1996, title: "Carboplatin-paclitaxel becomes standard (GOG 111 and successors)", refs: ["carboplatin", "paclitaxel"] },
       { year: 2007, title: "Fallopian tube fimbria identified as the origin of serous cancer" },

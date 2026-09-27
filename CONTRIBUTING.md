@@ -62,6 +62,9 @@ A spike is a fully built cancer page: 3-paragraph summary, `standardOfCare` rows
 
 ## Style
 
+The full house style is `docs/HOUSE-STYLE.md`; the rules below are the ones you will need first.
+
+- **No fatalistic language in OnCo's own voice.** The numbers stay and the adjectives go: "five-year survival is 8 per cent (SEER 22, 2014 to 2020)", not "a dismal prognosis". Relentless, bleak, uniformly fatal, death sentence, untreatable and the battle metaphors fail `src/lib/tone.test.ts`. A cancer with poor survival still says so, with its figures. **Quotations are never edited**: an abstract, a paper title or a guideline statement stays exactly as its author wrote it, and the test excludes those fields by construction.
 - British or American spelling is fine; be consistent within a record.
 - No superlatives without a comparator. "First", "largest", "only" need a source.
 - Failures are welcome: negative trials, withdrawn approvals, discontinued programmes. Mark them `status: "negative"` or `"withdrawn"` and tag `failure`.

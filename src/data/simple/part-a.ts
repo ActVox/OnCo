@@ -7,7 +7,7 @@ export const simpleA: Record<string, string> = {
   nsclc: "The most common lung cancer and the one that kills the most people. Doctors now test each tumour for its weak spots and pick a pill or an immune drug to match.",
   sclc: "A fast-growing lung cancer. Chemotherapy shrinks it quickly but it usually comes back. New drugs that bring immune cells to the tumour are finally helping.",
   colorectal: "Cancer of the bowel. A screening test can find it early and stop it. Some rare types melt away with immune drugs, but most spread cancer still needs chemotherapy.",
-  pancreatic: "The deadliest common cancer, usually found late. Almost every case has a broken gene called KRAS, and the first drugs that switch it off are now in big trials.",
+  pancreatic: "The common cancer with the lowest survival, usually found late. Almost every case has a broken gene called KRAS, and the first drugs that switch it off are now in big trials.",
   gastric: "Stomach cancer. In the last few years doctors found three new proteins on stomach cancer cells that new drugs can attack, alongside immune drugs.",
   esophageal: "Cancer of the food pipe. There are two very different kinds. Immune drugs are now standard, and a new two-in-one targeted drug worked in a big trial in 2026.",
   hcc: "Liver cancer, which usually starts in a liver already damaged by a virus or alcohol. Immune drugs have replaced the old pills as the first treatment.",

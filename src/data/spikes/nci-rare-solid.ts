@@ -164,7 +164,7 @@ export const nciRareSolidCancers: CancerInput[] = [
     stateOfArt: [
       "IMT is close to a fully genotype-directed disease: nearly every tumour carries a kinase fusion with an approved inhibitor.",
       "The 2022 crizotinib approval used adult (CREATE) and paediatric (COG ADVL0912) data together, a model for age-agnostic approvals under the RACE for Children Act.",
-      "Epithelioid inflammatory myofibroblastic sarcoma, once uniformly lethal, responds to ALK inhibition and is managed with sequential ALK inhibitors.",
+      "Epithelioid inflammatory myofibroblastic sarcoma, which no treatment used to touch, responds to ALK inhibition and is managed with sequential ALK inhibitors.",
       "Surgery remains curative for the majority; drugs are for the minority with unresectable disease.",
     ],
     history: [
@@ -266,7 +266,7 @@ export const nciRareSolidCancers: CancerInput[] = [
     stateOfArt: [
       "A single oncogenic fusion with a druggable domain: NUT carcinoma is the founding indication for BET bromodomain inhibitors.",
       "NUT immunohistochemistry has made diagnosis fast and cheap, and is now recommended for any poorly differentiated midline carcinoma, particularly in young patients.",
-      "Registry data show that complete resection and radiotherapy of localised disease produce long-term survivors, so the disease is not uniformly fatal.",
+      "Registry data show that complete resection and radiotherapy of localised disease produce long-term survivors, so long-term survival is achievable.",
       "BET inhibitors have shown objective responses, but durability is limited; degraders and combinations are the next step.",
     ],
     history: [

@@ -934,7 +934,7 @@ export const gapTargets: TargetInput[] = [
     tldr: "A T-cell surface marker kept on most T-cell leukaemias; CAR-T cells against it must be engineered not to kill each other, and they have produced remissions in T-ALL where nothing else worked.",
     summary: "CD7 is expressed on ~95% of T-ALL and T-lymphoblastic lymphoma, some NK/T lymphomas and ~30% of AML. CD7 CAR-T requires fratricide prevention (CD7 knockout, protein expression blockers or naturally selected CD7-negative T cells) and causes T-cell aplasia, so it is used as a bridge to allogeneic transplant. Trials in China (Peking University, Hebei Yanda) reported 90%+ complete remission in relapsed T-ALL (NEJM 2022, universal donor-derived CAR-T), and WU-CART-007 (allogeneic, US) received breakthrough status. Also a target for the ADC and for imaging in T-cell lymphoma.",
     biology: "Ig-superfamily transmembrane glycoprotein on thymocytes, mature T and NK cells; ligand is SECTM1/K12; co-stimulatory role in early T-cell development.",
-    whereFound: ["T-ALL / T-LBL (~95%)", "Extranodal NK/T-cell lymphoma, some PTCL", "AML (~30%, poor prognosis)"],
+    whereFound: ["T-ALL / T-LBL (~95%)", "Extranodal NK/T-cell lymphoma, some PTCL", "AML (~30%, shorter survival)"],
     cancers: ["all-leukemia", "peripheral-t-cell-lymphoma", "aml"], technologies: ["car-t", "allogeneic-cell-therapy", "allogeneic-hsct"],
     prevalence: [
       { cancerId: "all-leukemia", pct: ">99", measure: "Flow cytometry, median % CD7+ blasts in 49 diagnostic T-ALL samples (incl. 14 ETP-ALL); stable at relapse and during chemotherapy", source: "https://doi.org/10.1182/bloodadvances.2017009928", note: "T-ALL/T-LBL only (~15% of ALL); B-ALL is CD7-negative" },

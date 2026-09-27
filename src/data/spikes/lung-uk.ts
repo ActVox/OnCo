@@ -725,7 +725,7 @@ export const lungUkPathway: UkPathway = {
       scotland: { body: "SMC", decision: "Topotecan capsules accepted for restricted use where first-line re-treatment is inappropriate (545/09, 14 April 2009). Tarlatamab not recommended (SMC2816, 10 November 2025), as in England", ref: "SMC2816", date: "2025-11-10", url: smc("tarlatamab-imdylltra-full-smc2816") },
       wales: "NICE TA184 applies; tarlatamab's Welsh record is excluded from AWMSG appraisal on the basis of the NICE refusal.",
       northernIreland: "NICE TA184 applies.",
-      note: "The bleakest row on the page: in relapsed small-cell disease the NHS funds a 2009 oral chemotherapy and nothing newer, in any of the four nations." },
+      note: "The thinnest row on the page: in relapsed small-cell disease the NHS funds a 2009 oral chemotherapy and nothing newer, in any of the four nations." },
     { line: "Bone metastases", treatment: "Denosumab to prevent skeletal-related events", refs: ["denosumab"],
       england: { body: "NICE", decision: "Recommended for preventing skeletal-related events in adults with bone metastases from solid tumours other than prostate cancer, which includes lung cancer", ref: "TA265", date: "2012-10-24", url: nice("ta265") },
       wales: "NICE TA265 applies.",

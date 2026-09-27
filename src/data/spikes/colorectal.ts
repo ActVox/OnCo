@@ -81,7 +81,7 @@ const trials: TrialInput[] = [
   t({ id: "breakwater", technologies: ["kinase-inhibitors"], name: "BREAKWATER", nct: "NCT04607421", phase: "3", status: "positive", yearReported: 2025, sponsor: "Pfizer",
     setting: "First-line BRAF V600E-mutant metastatic colorectal cancer: encorafenib + cetuximab + mFOLFOX6 (or FOLFIRI) vs chemotherapy ± bevacizumab",
     tldr: "Doubled survival, from about 15 to about 30 months, in the worst-prognosis genetic subtype of bowel cancer by adding two targeted drugs to first-line chemotherapy.",
-    summary: "EC + mFOLFOX6: PFS 12.8 vs 7.1 months; OS 30.3 vs 15.1 months (HR 0.49; ASCO 2025 LBA3500). The FOLFIRI cohort (ASCO 2026 LBA3503) showed PFS HR 0.44 and OS HR 0.56. FDA accelerated approval December 2024 (first under Project FrontRunner), converted toward full approval in 2026. BRAF V600E disease was previously a near-death sentence with median OS around a year.",
+    summary: "EC + mFOLFOX6: PFS 12.8 vs 7.1 months; OS 30.3 vs 15.1 months (HR 0.49; ASCO 2025 LBA3500). The FOLFIRI cohort (ASCO 2026 LBA3503) showed PFS HR 0.44 and OS HR 0.56. FDA accelerated approval December 2024 (first under Project FrontRunner), converted toward full approval in 2026. BRAF V600E disease previously had a median overall survival of around a year.",
     result: "OS 30.3 vs 15.1 months (HR 0.49); PFS 12.8 vs 7.1 months.",
     outcomes: [
       { endpoint: "Overall survival (EC + mFOLFOX6)", unit: "months", arms: [{ name: "Encorafenib + cetuximab + mFOLFOX6", value: 30.3 }, { name: "Chemotherapy ± bevacizumab", value: 15.1 }], hr: 0.49, source: "https://ascopubs.org/doi/10.1200/JCO.2025.43.17_suppl.LBA3500" },

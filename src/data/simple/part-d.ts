@@ -131,7 +131,7 @@ export const simpleD: Record<string, string> = {
   "fortifi-hn01": "This trial is testing a two-in-one antibody added to an immune drug in head and neck cancer not caused by HPV; it is still recruiting.",
   "fortitude-101": "This trial tested a new antibody with chemotherapy in stomach cancer rich in a protein called FGFR2b; an early survival gain shrank with longer follow-up.",
   "fourlight-1": "This trial tested a new pill designed to avoid low blood counts, with hormone treatment, in advanced breast cancer; it found the cancer stayed controlled for longer.",
-  "fresco-2": "This trial tested a blood vessel blocking pill in people with bowel cancer who had run out of standard treatments; it found they lived a little longer.",
+  "fresco-2": "This trial tested a blood vessel blocking pill in people with bowel cancer whose standard treatments had stopped working; it found they lived a little longer.",
   frontmind: "This trial tested adding two drugs to standard first chemotherapy in high-risk aggressive lymphoma; it found the cancer came back less often.",
   "gd2-cart01": "This trial tested CAR-T (engineered immune cells) in children whose neuroblastoma had returned; it found two thirds responded and a third went into complete remission.",
   hd21: "This trial compared a new antibody-drug chemotherapy plan with Europe's strongest chemotherapy in advanced Hodgkin lymphoma; it found the new plan worked as well with far fewer side effects.",
