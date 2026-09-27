@@ -15,6 +15,14 @@ import { RowAvatar } from "@/components/RowAvatar";
 import { SurvivalDisclosure } from "@/components/SurvivalDisclosure";
 import { SectionStrip } from "@/components/SectionStrip";
 
+/**
+ * Only the cancers that have a pathway. Without `dynamicParams = false` the dev server tries to render any other
+ * id and throws a 500, which reads like a broken page: a reviewer reported /cancers/glioblastoma/uk/ as broken
+ * when the export correctly serves a 404, because no such page exists. The sibling [section] route already does
+ * this. Now dev and production agree.
+ */
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return ukPathwayCancerIds().map((id) => ({ id }));
 }

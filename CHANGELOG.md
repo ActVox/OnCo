@@ -7,6 +7,10 @@ All notable changes to OnCo are recorded here. The format follows [Keep a Change
 Regenerated from the commit log each time the site ships (`scripts/changelog-sync.ts`); the version sections below are written by hand when a release is cut.
 
 ### 27 September 2026
+- A total review of fatalistic language: 153 phrases rewritten, the survival guard now says what a median is, and the red-flag card leads with calling
+- A word that is the source's is shown as the source's
+- The half a keyword search cannot find: order, framing and the numbers printed as verdicts
+- Say what the cancer does, not how to feel about it: fatalistic language out of OnCo's own voice, every quotation left exactly as its author wrote it
 - Three dated fields the corpus lacked: accelerated approvals with their confirmations, a sourced first-description year on targets, and a trial start date
 - Adenoid cystic carcinoma described without the word relentless
 
