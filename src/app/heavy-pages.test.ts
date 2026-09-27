@@ -42,6 +42,9 @@ import { PAPER_CARDS } from "@/components/record-blocks";
 import { dossierFile } from "@/components/Dossier";
 import { graph } from "@/lib/graph";
 
+/** Text as React renders it into the markup, so an assertion can look for a sentence that contains an apostrophe. */
+const escapeText = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#x27;");
+
 /**
  * The four heaviest exported pages used to ship every row in the HTML (and again in the hydration payload):
  * /explore/ 10.5 MB, /for-me/ 13.2 MB, /navigator/ 8.8 MB. They now carry a first page of rows (Explore) or the
@@ -449,7 +452,7 @@ describe("kind browsers carry one page of rows", () => {
  * room to fix the cause, rather than at the cliff edge where the next link added breaks the build.
  */
 describe("roadmap pages collapse their eras", () => {
-  const escape = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#x27;");
+  const escape = escapeText;
   const roadmaps = graph().kind("roadmap");
   it("has roadmaps with more than two eras and a watch table longer than a page to test", () => {
     expect(roadmaps.length).toBeGreaterThan(20);
@@ -554,9 +557,12 @@ describe("the timeline and its years", () => {
     // Every finding states its denominator and its caveat on the page, not only in the data behind it.
     for (const f of findings(graph())) {
       expect(html, `${f.id} is on the page`).toContain(`id="${f.id}"`);
-      expect(html, `${f.id} states its denominator`).toContain(f.denominator.replace(/&/g, "&amp;"));
+      expect(html, `${f.id} states its denominator`).toContain(escapeText(f.denominator));
     }
-    expect(html).toContain("Corpus cannot support this");
+    // The warning chip is shown for a finding the corpus cannot support, and for no other; when every question is
+    // answerable the chip is absent, which is the state to aim at rather than one to assert.
+    const unsupported = findings(graph()).filter((f) => !f.supported);
+    expect((html.match(/Corpus cannot support this/g) ?? []).length).toBe(unsupported.length);
     const bytes = Buffer.byteLength(html, "utf8");
     // 490 KB when written, of which 401 KB is the scrubber that was already on the page.
     expect(bytes / (640 * KB), `timeline markup is ${(bytes / KB).toFixed(1)} KB of its 640 KB ceiling`).toBeLessThan(MARGIN);

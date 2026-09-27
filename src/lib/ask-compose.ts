@@ -35,12 +35,13 @@ export type AskEntity = EntityLike & {
   dosing?: { route: string; schedule: string; modifications?: string; monitoring?: string };
   standardOfCare?: Array<{ setting: string; approach: string; refs?: string[] }>;
   pipeline?: string[]; group?: string; burden?: string; subtypes?: string[]; biomarkers?: string[];
-  phase?: string; setting?: string; sponsor?: string; nct?: string; yearReported?: number; enrolled?: number;
+  phase?: string; setting?: string; sponsor?: string; nct?: string; yearReported?: number; enrolled?: number; started?: string; startedType?: string;
   hq?: string; country?: string; companyType?: string; ticker?: string; founded?: number;
   city?: string; institutionType?: string; nci?: string; university?: string; programs?: string[]; newsweekOncology2026?: number;
   role?: string; specialisms?: string[]; institutionId?: string;
   category?: string; journal?: string; year?: number; authors?: string; paperType?: string;
   symbol?: string; targetClass?: string; prevalence?: Array<{ cancerId: string; pct: number | string; measure?: string }>;
+  firstDescribed?: number; firstDescribedNote?: string;
   since?: number | string; generation?: string; holds?: string; url?: string; maturity?: string; actor?: string;
   stage?: string; severity?: string; metrics?: Array<{ label: string; value: string }>;
   targets?: string[]; drugs?: string[]; cancers?: string[]; trials?: string[]; companies?: string[]; technologies?: string[]; terms?: string[]; institutions?: string[]; sections?: string[];
@@ -412,6 +413,8 @@ function tApproval(c: Ctx, r: AskEntityRecord): boolean {
     else c.b.add(s, `No product ${e.kind === "target" ? "against" : "using"} ${short(r)} is approved yet on OnCo's record.`, "linked products");
     if (late.length) c.b.add(s, `In phase 3: ${list(late.slice(0, 6).map((d) => d.name))}.`, "linked products");
     if (e.kind === "technology" && e.since) c.b.add(s, `First used in people or approved: ${e.since}.`, "since");
+    // The year the protein itself was described, with the paper named, so "how long did this take" has a start.
+    if (e.kind === "target" && e.firstDescribed) c.b.add(s, `First described in ${e.firstDescribed}. ${e.firstDescribedNote ?? ""}`.trim(), "first described");
     return true;
   }
   if (e.kind === "cancer") return tTreatments(c, r);
@@ -497,6 +500,14 @@ function tResults(c: Ctx, r: AskEntityRecord): boolean {
   if (e.kind === "trial") {
     c.b.add(s, e.tldr, "TL;DR");
     if (e.phase || e.setting) c.b.add(s, `${e.name} is a phase ${e.phase ?? "?"} trial${e.sponsor ? ` run by ${e.sponsor}` : ""}${e.enrolled ? ` with ${e.enrolled.toLocaleString()} participants` : ""}${e.setting ? `: ${e.setting}` : ""}.`, "setting");
+    // How long the trial took: the registry's start date against the year it reported, which is the only pair of
+    // dates the corpus holds for a single study.
+    if (e.started) {
+      const from = Number(e.started.slice(0, 4));
+      c.b.add(s, e.yearReported !== undefined && e.yearReported >= from
+        ? `It opened in ${e.started} and reported in ${e.yearReported}, ${e.yearReported - from} ${e.yearReported - from === 1 ? "year" : "years"} later.`
+        : `It opened in ${e.started}${e.startedType === "estimated" ? ", a date the registry still marks as estimated" : ""}.`, "start date");
+    }
     c.b.add(s, e.result ? `Headline result: ${e.result}` : undefined, "result");
     const rec = recordFromEntity(e, r.route);
     for (const p of rec.passages.filter((x) => x.field === "outcome").slice(0, 3)) c.b.add(s, p.text, "outcome");

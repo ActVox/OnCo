@@ -134,9 +134,13 @@ describe("the timeline and its findings", () => {
         expect(text, `${f.id}`).not.toMatch(/\bas of\b/i);
       }
     }
-    // The two the corpus cannot answer are marked, not quietly dropped.
-    expect(found.find((f) => f.id === "target-to-drug")?.supported).toBe(false);
-    expect(found.find((f) => f.id === "accelerated-to-withdrawal")?.supported).toBe(false);
+    // The two questions that were unanswerable when this page was written are answerable now, each from a field
+    // added for it: `firstDescribed` on the target (src/data/target-first-described.ts) and the typed
+    // accelerated-approval events on the product (src/data/accelerated-approvals.ts). The assertion is kept the
+    // other way round so a regression that silently drops either field is caught here rather than on the page.
+    expect(found.find((f) => f.id === "target-to-drug")?.supported).toBe(true);
+    expect(found.find((f) => f.id === "accelerated-to-withdrawal")?.supported).toBe(true);
+    expect(found.find((f) => f.id === "trial-start-to-readout")?.supported).toBe(true);
   });
 
   it("marks a finding unsupported whenever its denominator is under the minimum", () => {

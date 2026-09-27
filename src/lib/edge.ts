@@ -98,7 +98,7 @@ const normDoi = (doi?: string) => doi?.trim().replace(/^https?:\/\/(dx\.)?doi\.o
 const normUrl = (u: string) => u.trim().replace(/\/+$/, "").toLowerCase();
 
 const AGENCY: Record<string, string> = { US: "FDA", USA: "FDA", EU: "EMA / European Commission", UK: "MHRA", JP: "PMDA / MHLW", Japan: "PMDA / MHLW", CN: "NMPA", China: "NMPA", AU: "TGA", IN: "CDSCO" };
-const REG_TYPE: Record<string, string> = { approval: "Approval", withdrawal: "Withdrawal" };
+const REG_TYPE: Record<string, string> = { approval: "Approval", "accelerated-approval": "Accelerated approval", conversion: "Accelerated approval confirmed", withdrawal: "Withdrawal" };
 const PROPOSAL_KIND: Record<string, string> = { "regional-row": "regional approval row", "regulatory-event": "regulatory event", "trial-status": "trial status change", "drug-approval": "approval", "trial-completion": "trial completion", "new-product": "new product" };
 
 /** Journal or agency name from a source URL's host, for items whose record does not name one. */
@@ -197,8 +197,10 @@ export function edgeItems(root = process.cwd(), today = todayIso()): EdgeItem[] 
   // Dated approvals and withdrawals recorded on product pages.
   for (const d of g.kind("drug")) {
     for (const e of d.regulatoryEvents) {
-      if ((e.type !== "approval" && e.type !== "withdrawal") || !e.source) continue;
-      push({ raw: e.date, kind: e.type, title: `${REG_TYPE[e.type]}: ${shortName(d.name)} (${e.region})`, url: e.source, venue: AGENCY[e.region] ?? e.region, refs: refs([d.id, ...d.cancers, ...d.targets]), weight: WEIGHT.approval, sentence: sentenceOf(e.note) });
+      // An accelerated approval and the conversion that confirmed it are approvals for the Edge's purposes; each
+      // carries its own words in REG_TYPE so a reader can see which of the three a line is.
+      if (!REG_TYPE[e.type] || !e.source) continue;
+      push({ raw: e.date, kind: e.type === "withdrawal" ? "withdrawal" : "approval", title: `${REG_TYPE[e.type]}: ${shortName(d.name)} (${e.region})`, url: e.source, venue: AGENCY[e.region] ?? e.region, refs: refs([d.id, ...d.cancers, ...d.targets]), weight: WEIGHT.approval, sentence: sentenceOf(e.note) });
     }
   }
 

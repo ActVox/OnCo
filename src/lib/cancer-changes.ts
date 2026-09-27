@@ -128,7 +128,7 @@ export function matchesCancer(text: string, needles: string[], drugCancerCount: 
 }
 
 const REG_LABEL: Record<Drug["regulatoryEvents"][number]["type"], string> = {
-  designation: "designation granted", filing: "filing accepted", pdufa: "decision date set", approval: "approval", crl: "complete response letter", withdrawal: "withdrawal", "label-change": "label change", "advisory-committee": "advisory committee",
+  designation: "designation granted", filing: "filing accepted", pdufa: "decision date set", approval: "approval", "accelerated-approval": "accelerated approval", conversion: "accelerated approval confirmed", crl: "complete response letter", withdrawal: "withdrawal", "label-change": "label change", "advisory-committee": "advisory committee",
 };
 
 const firstSentence = (s: string) => { const m = s.match(/^[^.!?]+[.!?]/); return (m ? m[0] : s).trim(); };

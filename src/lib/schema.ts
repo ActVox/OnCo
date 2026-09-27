@@ -182,6 +182,21 @@ export const TargetSchema = Base.extend({
   ensembl: z.string().regex(/^ENSG\d{11}$/).optional(),
   uniprot: z.string().regex(/^[OPQ][0-9][A-Z0-9]{3}[0-9]$|^[A-NR-Z][0-9]([A-Z][A-Z0-9]{2}[0-9]){1,2}$/).optional(),
   entrez: z.string().regex(/^\d+$/).optional(),
+  /**
+   * The year the target itself was first described in the literature, which is not the year of the earliest paper
+   * OnCo happens to hold about it: our papers for a target are its clinical literature, so on many targets the first
+   * drug precedes them. Filled by scripts/fetch-first-described.ts from UniProt's own reference list
+   * (src/data/target-first-described.ts) and merged here by src/data/index.ts; left empty where no source states it,
+   * because a guessed year would be computed with. `firstDescribedBasis` says what kind of description was dated and
+   * `firstDescribedNote` names the paper, so the figure can be checked rather than believed.
+   */
+  firstDescribed: z.number().int().min(1800).max(2100).optional(),
+  /** What was dated: "sequence" is the earliest paper UniProt cites for the protein or its gene sequence, the usual case; "literature" is a hand-sourced first description of the protein itself. */
+  firstDescribedBasis: z.enum(["sequence", "literature"]).optional(),
+  /** The paper the year comes from, named: authors, journal and year. Required when `firstDescribed` is set. */
+  firstDescribedNote: z.string().optional(),
+  /** Where the year was read: the UniProt entry, or the paper itself. Required when `firstDescribed` is set. */
+  firstDescribedSource: url.optional(),
   biology: z.string(),
   /** Expression or alteration by cancer, free text. */
   whereFound: z.array(z.string()).default([]),
@@ -222,7 +237,24 @@ export const DrugSchema = Base.extend({
   toxicity: z.array(z.object({ event: z.string(), anyGradePct: z.number().optional(), grade3PlusPct: z.number().optional(), source: url.optional(), note: z.string().optional() })).default([]),
   /** Cost and access by country. */
   access: z.array(z.object({ country: z.string(), listPrice: z.string().optional(), reimbursement: z.string().optional(), assistance: z.string().optional(), generic: z.boolean().optional(), source: url.optional(), asOf: isoDate.optional() })).default([]),
-  regulatoryEvents: z.array(z.object({ date: z.string(), type: z.enum(["designation", "filing", "pdufa", "approval", "crl", "withdrawal", "label-change", "advisory-committee"]), region: z.string(), note: z.string(), source: url.optional() })).default([]),
+  /**
+   * Dated regulatory events. Three of the types are the accelerated-approval pathway read one indication at a time:
+   * "accelerated-approval" is the grant, "conversion" the confirmatory conversion to traditional approval, and
+   * "withdrawal" the indication coming off the label. A grant and the event that closed it carry the same
+   * `indication` text, which is what pairs them; a grant with neither is still open. The American rows are generated
+   * from the FDA's own four accelerated-approval tables by scripts/fetch-accelerated.ts
+   * (src/data/accelerated-approvals.ts) and merged onto the product here by src/data/index.ts, so they refresh with
+   * the tables rather than rot in prose.
+   */
+  regulatoryEvents: z.array(z.object({
+    date: z.string(),
+    type: z.enum(["designation", "filing", "pdufa", "approval", "accelerated-approval", "conversion", "crl", "withdrawal", "label-change", "advisory-committee"]),
+    region: z.string(),
+    note: z.string(),
+    source: url.optional(),
+    /** The indication the event is about, in the source's own words. On the accelerated-approval pathway it keys a grant to the conversion or withdrawal that closed it. */
+    indication: z.string().optional(),
+  })).default([]),
 });
 
 /**
@@ -318,6 +350,15 @@ export const TrialSchema = Base.extend({
   sponsor: z.string().optional(),
   /** Headline result in one or two sentences, with numbers only if sourced. */
   result: z.string().optional(),
+  /**
+   * The date the study started, as the registry states it: "YYYY", "YYYY-MM" or "YYYY-MM-DD". Filled from the
+   * ClinicalTrials.gov `startDateStruct` by scripts/fetch-trial-starts.ts (src/data/trial-start-dates.ts) and merged
+   * here by src/data/index.ts; a hand-written date on the record wins. With `yearReported` it is the only way the
+   * corpus can say how long a trial took, so it is never inferred from anything else.
+   */
+  started: z.string().regex(/^\d{4}(-\d{2}(-\d{2})?)?$/, "date like 2019, 2019-04 or 2019-04-15").optional(),
+  /** Whether the registry marks the start date as the real one (ACTUAL) or a plan (ESTIMATED). */
+  startedType: z.enum(["actual", "estimated"]).optional(),
   yearReported: z.number().int().optional(),
   enrolled: z.number().int().optional(),
   /**

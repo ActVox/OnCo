@@ -14,7 +14,10 @@
 import type { Graph } from "./graph";
 import type { Drug, Entity, Trial, Year } from "./schema";
 import { YEAR_EVENT_GROUPS, type YearEventGroup } from "./year-groups";
+import { yearsBetween } from "./accelerated";
+import { startYear } from "./trial-starts";
 import { guidelineVersions } from "@/data/guideline-versions";
+import { ACCELERATED_READ_ON, ACCELERATED_TABLES, ACCELERATED_UNMATCHED } from "@/data/accelerated-approvals";
 
 /** Below this many cases a finding is shown but marked as not supported by the corpus. */
 export const MIN_N = 30;
@@ -47,6 +50,8 @@ const quantile = (xs: readonly number[], q: number): number => {
   return s[Math.min(s.length - 1, Math.max(0, Math.floor(q * (s.length - 1))))];
 };
 const years = (n: number) => `${n} ${Math.abs(n) === 1 ? "year" : "years"}`;
+/** For intervals the sources date to the day: "3.3 years", never rounded to a whole year it was not. */
+const yearsOneDp = (n: number) => `${n.toFixed(1)} ${n >= 0.95 && n < 1.05 ? "year" : "years"}`;
 
 const isDrug = (e: Entity | undefined): e is Drug => e?.kind === "drug";
 const isTrial = (e: Entity | undefined): e is Trial => e?.kind === "trial";
@@ -77,10 +82,32 @@ export const bandValue = (c: YearColumn, band: (typeof BANDS)[number]): number =
 
 /* ------------------------------------------------------------------------------------------------------------ */
 
-/** Earliest publication year of any paper record tied to an entity, through `keyPapers` or through a paper naming it. */
-function firstPaperYear(g: Graph, e: Entity): number | null {
-  const papers = [...(g.incoming(e.id).get("paper") ?? []), ...e.keyPapers.map((id) => g.get(id))].filter((p): p is Extract<Entity, { kind: "paper" }> => p?.kind === "paper");
-  return papers.length ? Math.min(...papers.map((p) => p.year)) : null;
+/** One accelerated-approval indication as the graph now carries it: the grant, and what closed it, if anything. */
+type AcceleratedPair = { id: string; name: string; indication: string; granted: string; outcome: "conversion" | "withdrawal" | "open"; closed?: string; gap: number };
+
+/**
+ * Every accelerated-approval indication in the graph, paired with the event that closed it.
+ *
+ * A grant is an "accelerated-approval" regulatory event; the conversion or withdrawal that closed it is an event of
+ * that type on the same product carrying the same `indication` text, which is how the pair is found. An indication
+ * with no closing event is open, and its clock is measured to the day the agency's tables were last read rather
+ * than to today, because that is the last day the corpus knows it was still open.
+ */
+function acceleratedPairs(g: Graph): AcceleratedPair[] {
+  const out: AcceleratedPair[] = [];
+  for (const d of g.kind("drug")) {
+    for (const ev of d.regulatoryEvents) {
+      if (ev.type !== "accelerated-approval" || !ev.indication) continue;
+      const close = d.regulatoryEvents.find((x) => (x.type === "conversion" || x.type === "withdrawal") && x.indication === ev.indication && x.date >= ev.date);
+      out.push({
+        id: d.id, name: d.name, indication: ev.indication, granted: ev.date,
+        outcome: close ? (close.type as "conversion" | "withdrawal") : "open",
+        ...(close ? { closed: close.date } : {}),
+        gap: yearsBetween(ev.date, close?.date ?? ACCELERATED_READ_ON),
+      });
+    }
+  }
+  return out;
 }
 
 /** Earliest approval year across a set of products. */
@@ -97,31 +124,66 @@ export function findings(g: Graph): Finding[] {
   const drugs = g.kind("drug"), trials = g.kind("trial"), targets = g.kind("target"), companies = g.kind("company");
 
   /* 1. Target to drug ------------------------------------------------------------------------------------- */
-  const pairs: Array<{ id: string; paper: number; approval: number }> = [];
-  for (const t of targets) {
-    const paper = firstPaperYear(g, t);
+  // The interval runs from the target's `firstDescribed` year, which is sourced on the record (the earliest sequence
+  // paper UniProt cites for the protein), to the first approval of any product aimed at it. The earlier version of
+  // this finding used the earliest paper the corpus holds and had to report itself unanswerable, because a target's
+  // papers here are its clinical literature; the field exists so that mistake is not made again.
+  const described = targets.filter((t) => t.firstDescribed !== undefined);
+  const pairs: Array<{ id: string; described: number; approval: number }> = [];
+  for (const t of described) {
     const approval = firstApprovalYear(drugsOf(g, t));
-    if (paper !== null && approval !== null) pairs.push({ id: t.id, paper, approval });
+    if (approval !== null) pairs.push({ id: t.id, described: t.firstDescribed!, approval });
   }
-  const forward = pairs.filter((p) => p.approval >= p.paper);
+  const forward = pairs.filter((p) => p.approval >= p.described);
   const backward = pairs.length - forward.length;
+  const gaps = forward.map((p) => p.approval - p.described);
+  const nineties = described.filter((t) => t.firstDescribed! >= 1990 && t.firstDescribed! < 2000).length;
   out.push({
     id: "target-to-drug",
     question: "How long from the first description of a target to the first approved drug against it, and is that interval shortening?",
-    figure: `${backward} of ${pairs.length}`,
-    answer: `The corpus cannot answer this. ${pairs.length} of the ${num(targets.length)} targets carry both a dated paper and an approved product, and on ${backward} of them the drug was approved before the earliest paper OnCo holds about the target. A target's papers here are its clinical literature, not the work that first described it, so the interval measured would be the age of our reading rather than the age of the biology.`,
-    denominator: `${pairs.length} of ${num(targets.length)} targets carry both a dated paper and a product with an approval`,
-    supported: false,
-    caveat: "Fixing this needs a first-description year on the target record, sourced from the paper that named the gene or protein. The corpus has no such field, and inventing one from the earliest paper we happen to hold would be the error this finding is reporting.",
+    figure: years(median(gaps)),
+    answer: `It is lengthening, not shortening, and part of that is arithmetic. The median is ${years(median(gaps))} across ${forward.length} targets whose first approval came after the protein was described, and it rises steadily with the decade of approval: ${intervalLine(forward.filter((p) => p.approval >= 2000 && p.approval < 2010).map((p) => p.approval - p.described))} for approvals in the 2000s, ${intervalLine(forward.filter((p) => p.approval >= 2010 && p.approval < 2020).map((p) => p.approval - p.described))} in the 2010s and ${intervalLine(forward.filter((p) => p.approval >= 2020).map((p) => p.approval - p.described))} in the 2020s. On ${backward} more targets the drug came first, by as much as ${years(Math.max(...pairs.filter((p) => p.approval < p.described).map((p) => p.described - p.approval), 0))}: methotrexate, mercaptopurine, the steroid receptors and the hormone therapies were in use for decades before anyone had the gene they act on.`,
+    denominator: `${pairs.length} of the ${num(targets.length)} targets carry both a sourced first-description year and a product with an approval; ${num(described.length)} targets carry the year at all`,
+    supported: forward.length >= MIN_N,
+    caveat: `The year is the earliest paper UniProt cites for the protein's sequence, so it dates the molecule being in hand, not the biology being understood or anyone thinking of it as a target. The widening is also partly forced: an interval cannot be longer than the time since the sequence was published, and ${Math.round((nineties / described.length) * 100)} per cent of these sequences are from the 1990s, so recent approvals have more room to be slow than old ones ever had.`,
     rows: [
-      { label: "Targets with a dated paper and an approved product", value: num(pairs.length) },
-      { label: "Of those, drug approved before the earliest paper we hold", value: `${backward} (${Math.round((backward / Math.max(1, pairs.length)) * 100)} per cent)` },
-      { label: "Median interval on the rest, first approval in the 2010s", value: intervalLine(forward.filter((p) => p.approval >= 2010 && p.approval < 2020).map((p) => p.approval - p.paper)) },
-      { label: "Median interval on the rest, first approval in the 2020s", value: intervalLine(forward.filter((p) => p.approval >= 2020).map((p) => p.approval - p.paper)) },
+      { label: "Targets with a first-description year", value: `${num(described.length)} of ${num(targets.length)}` },
+      { label: "Of those, with an approved product", value: num(pairs.length) },
+      { label: "Drug approved before the target was described", value: `${backward} of ${pairs.length}` },
+      { label: "First approval in the 2000s", value: intervalLine(forward.filter((p) => p.approval >= 2000 && p.approval < 2010).map((p) => p.approval - p.described)) },
+      { label: "First approval in the 2010s", value: intervalLine(forward.filter((p) => p.approval >= 2010 && p.approval < 2020).map((p) => p.approval - p.described)) },
+      { label: "First approval in the 2020s", value: intervalLine(forward.filter((p) => p.approval >= 2020).map((p) => p.approval - p.described)) },
     ],
   });
 
-  /* 2. Trial readout to approval -------------------------------------------------------------------------- */
+  /* 2. Trial start to readout ----------------------------------------------------------------------------- */
+  // `started` is the registry's own study start date (src/lib/trial-starts.ts); `yearReported` is the year the
+  // primary result was reported. Before the start date existed the corpus could not say how long any trial took.
+  const started = trials.filter((t) => t.started !== undefined);
+  const ran = trials.filter((t): t is Trial & { started: string; yearReported: number } => t.started !== undefined && t.yearReported !== undefined && t.yearReported >= startYear(t.started)!);
+  const durations = ran.map((t) => t.yearReported - startYear(t.started)!);
+  const byStart = (lo: number, hi: number) => ran.filter((t) => startYear(t.started)! >= lo && startYear(t.started)! <= hi).map((t) => t.yearReported - startYear(t.started)!);
+  const phaseSet = (p: string) => ran.filter((t) => t.phase === p).map((t) => t.yearReported - startYear(t.started)!);
+  const estimated = ran.filter((t) => t.startedType === "estimated").length;
+  out.push({
+    id: "trial-start-to-readout",
+    question: "How long does a trial take, from opening to reporting its primary result?",
+    figure: years(median(durations)),
+    answer: `The median is ${years(median(durations))}, and the middle half runs from ${years(quantile(durations, 0.25))} to ${years(quantile(durations, 0.75))}. Phase makes almost no difference to it: ${intervalLine(phaseSet("2"))} for phase 2 and ${intervalLine(phaseSet("3"))} for phase 3. What does move is when the trial opened, and that movement is mostly an artefact: trials that opened in the 1990s took ${years(median(byStart(1990, 1999)))}, those that opened in the 2010s ${years(median(byStart(2010, 2019)))} and those that opened since 2020 ${years(median(byStart(2020, 2030)))}, because a trial that opened in 2022 can only appear here if it has already finished.`,
+    denominator: `${num(ran.length)} of the ${num(trials.length)} trials carry both a registry start date and a reported year; ${num(started.length)} carry a start date at all`,
+    supported: durations.length >= MIN_N,
+    caveat: `This measures trials that reported, which is the whole selection problem in one sentence: a trial still running, abandoned or never published has no reported year and is absent, and the more recent the start, the more of them are missing. The start date is the registry's, the reported year is a year, so every figure is a difference of years and not of days. ${estimated === 0 ? "Every start date counted here is one the registry marks as actual or leaves unmarked; none is still a plan." : `${estimated} of these start dates are ones the registry still marks as estimated rather than actual.`}`,
+    rows: [
+      { label: "Opened 1990 to 1999", value: intervalLine(byStart(1990, 1999)) },
+      { label: "Opened 2000 to 2009", value: intervalLine(byStart(2000, 2009)) },
+      { label: "Opened 2010 to 2019", value: intervalLine(byStart(2010, 2019)) },
+      { label: "Opened 2020 onwards", value: intervalLine(byStart(2020, 2030)) },
+      { label: "Phase 1 and phase 1/2", value: intervalLine([...phaseSet("1"), ...phaseSet("1/2")]) },
+      { label: "Phase 3", value: intervalLine(phaseSet("3")) },
+    ],
+  });
+
+  /* 3. Trial readout to approval -------------------------------------------------------------------------- */
   const dated = trials.filter((t): t is Trial & { yearReported: number } => t.yearReported !== undefined);
   const readoutGaps: Array<{ gap: number; year: number }> = [];
   for (const t of dated) {
@@ -144,7 +206,7 @@ export function findings(g: Graph): Finding[] {
     ],
   });
 
-  /* 3. Trial readout to guideline change ------------------------------------------------------------------ */
+  /* 4. Trial readout to guideline change ------------------------------------------------------------------ */
   const gl: Array<{ year: number; gap: number }> = [];
   let glNoTrial = 0;
   for (const v of guidelineVersions) {
@@ -169,7 +231,7 @@ export function findings(g: Graph): Finding[] {
     ],
   });
 
-  /* 4. US to EU ------------------------------------------------------------------------------------------- */
+  /* 5. US to EU ------------------------------------------------------------------------------------------- */
   const euLag: number[] = [];
   for (const d of drugs) {
     const us = d.approvals.filter((a) => /^(US|United States|FDA)$/i.test(a.region)).map((a) => a.year);
@@ -191,7 +253,7 @@ export function findings(g: Graph): Finding[] {
     ],
   });
 
-  /* 5. Approval to England ------------------------------------------------------------------------------- */
+  /* 6. Approval to England ------------------------------------------------------------------------------- */
   const niceLag: number[] = [];
   for (const d of drugs) {
     const n = d.approvals.filter((a) => /NICE/i.test(a.region)).map((a) => a.year);
@@ -209,32 +271,38 @@ export function findings(g: Graph): Finding[] {
     rows: [{ label: "Quartiles", value: `${years(quantile(niceLag, 0.25))} to ${years(quantile(niceLag, 0.75))}` }],
   });
 
-  /* 6. Accelerated approval to withdrawal ----------------------------------------------------------------- */
-  const acc: Array<{ id: string; name: string; from: number; to: number }> = [];
-  let withdrawn = 0;
-  for (const d of drugs) {
-    const w = d.regulatoryEvents.filter((r) => r.type === "withdrawal");
-    if (!w.length) continue;
-    withdrawn += 1;
-    const fromApprovals = d.approvals.filter((a) => /accelerated/i.test(`${a.indication} ${a.note ?? ""}`)).map((a) => a.year);
-    const fromEvents = d.regulatoryEvents.filter((r) => r.type === "approval" && /accelerated/i.test(r.note)).map((r) => Number(r.date.slice(0, 4)));
-    const first = [...fromApprovals, ...fromEvents].sort((a, b) => a - b)[0];
-    const last = Math.max(...w.map((r) => Number(r.date.slice(0, 4))));
-    if (first !== undefined && last >= first) acc.push({ id: d.id, name: d.name, from: first, to: last });
-  }
-  const accAll = drugs.filter((d) => d.approvals.some((a) => /accelerated/i.test(`${a.indication} ${a.note ?? ""}`)) || d.regulatoryEvents.some((r) => /accelerated/i.test(r.note)));
+  /* 7. Accelerated approval to confirmation or withdrawal ------------------------------------------------- */
+  // Read off the typed regulatory events, not off the word "accelerated" in prose: a grant is an
+  // "accelerated-approval" event and the event that closed it is a "conversion" or a "withdrawal" carrying the same
+  // indication text (src/lib/accelerated.ts, written from the FDA's four tables by scripts/fetch-accelerated.ts).
+  const acc = acceleratedPairs(g);
+  const accProducts = new Set(acc.map((a) => a.id)).size;
+  const closed = acc.filter((a) => a.outcome !== "open");
+  const converted = acc.filter((a) => a.outcome === "conversion");
+  const pulled = acc.filter((a) => a.outcome === "withdrawal");
+  const open = acc.filter((a) => a.outcome === "open");
+  const rate = Math.round((converted.length / Math.max(1, closed.length)) * 100);
+  const grantYears = acc.map((a) => Number(a.granted.slice(0, 4)));
+  const since2020 = acc.filter((a) => Number(a.granted.slice(0, 4)) >= 2020);
   out.push({
     id: "accelerated-to-withdrawal",
-    question: "How long from an accelerated approval to its confirmation or its withdrawal?",
-    figure: `${acc.length} products`,
-    answer: `The corpus cannot support a rate. ${accAll.length} products carry the word accelerated on an approval or a regulatory event and ${withdrawn} carry a withdrawal, of which ${acc.length} carry both with the withdrawal after the accelerated approval. Their intervals run from ${years(Math.min(...acc.map((a) => a.to - a.from)))} to ${years(Math.max(...acc.map((a) => a.to - a.from)))}. The corpus has no field for a confirmatory conversion, so the other side of the question, how many accelerated approvals were confirmed, cannot be counted at all.`,
-    denominator: `${acc.length} products of the ${accAll.length} with accelerated wording and the ${withdrawn} with a recorded withdrawal`,
-    supported: false,
-    caveat: "Withdrawals are recorded where an editor wrote one down, so this is a list of the cases the corpus knows, not a denominator. Counting the conversion rate would need the accelerated approval and its confirmation as typed regulatory events on every product that had one.",
-    rows: acc.sort((a, b) => a.to - a.from - (b.to - b.from)).map((a) => ({ label: a.name, value: `${a.from} to ${a.to}, ${years(a.to - a.from)}` })),
+    question: "How many accelerated approvals were confirmed, how many were withdrawn, and how long did each take?",
+    figure: `${rate} per cent confirmed`,
+    answer: `${converted.length} of the ${closed.length} resolved indications converted to traditional approval and ${pulled.length} were withdrawn, a confirmation rate of ${rate} per cent, with ${open.length} more still open. Confirmation takes a median ${yearsOneDp(median(converted.map((a) => a.gap)))} and withdrawal a median ${yearsOneDp(median(pulled.map((a) => a.gap)))}, so ${median(pulled.map((a) => a.gap)) > median(converted.map((a) => a.gap)) ? "a failure takes longer to admit than a success takes to prove" : "the two take about as long as each other"}. The open indications have been open a median ${yearsOneDp(median(open.map((a) => a.gap)))} already, and that figure only grows.`,
+    denominator: `${acc.length} accelerated-approval indications on ${accProducts} products, dated ${Math.min(...grantYears)} to ${Math.max(...grantYears)}, generated from all four of the accelerated-approval tables the FDA publishes, of which ${ACCELERATED_TABLES.find((t) => t.id === "other")?.count ?? 0} are not cancer treatments (supportive care, dosing and formulation); ${ACCELERATED_UNMATCHED.length === 1 ? "one further indication on the agency's list names a product OnCo does not hold" : `${ACCELERATED_UNMATCHED.length} further indications on the agency's list name products OnCo does not hold`}`,
+    supported: acc.length >= MIN_N,
+    caveat: "This is the American pathway and only the American pathway: the FDA publishes the four lists, no other regulator does, and the conditional approvals of the EMA and the others are not in this count. The rate is taken over resolved indications alone, because counting the open ones as failures would make it fall every time the agency granted a new one; an open indication's clock is measured to the day the table was read, so it is a floor and not a duration.",
+    rows: [
+      { label: "Converted to traditional approval", value: `${converted.length}, ${intervalLineOneDp(converted.map((a) => a.gap))}` },
+      { label: "Withdrawn", value: `${pulled.length}, ${intervalLineOneDp(pulled.map((a) => a.gap))}` },
+      { label: "Still open when the tables were read", value: `${open.length}, open ${intervalLineOneDp(open.map((a) => a.gap))} so far` },
+      { label: "Granted 2020 or later", value: `${since2020.length} of ${acc.length}, ${since2020.filter((a) => a.outcome !== "open").length} already resolved` },
+      { label: "Longest run to a withdrawal", value: pulled.length ? `${[...pulled].sort((a, b) => b.gap - a.gap)[0].name}, ${yearsOneDp([...pulled].sort((a, b) => b.gap - a.gap)[0].gap)}` : "no cases" },
+      { label: "Longest still open", value: open.length ? `${[...open].sort((a, b) => b.gap - a.gap)[0].name}, ${yearsOneDp([...open].sort((a, b) => b.gap - a.gap)[0].gap)}` : "no cases" },
+    ],
   });
 
-  /* 7. Company to first product --------------------------------------------------------------------------- */
+  /* 8. Company to first product --------------------------------------------------------------------------- */
   const founded = companies.filter((c) => c.founded !== undefined);
   const coGaps: number[] = [];
   for (const c of founded) {
@@ -255,7 +323,7 @@ export function findings(g: Graph): Finding[] {
     ],
   });
 
-  /* 8. Which decades the corpus knows least, and whether that is history or us ----------------------------- */
+  /* 9. Which decades the corpus knows least, and whether that is history or us ----------------------------- */
   const cols = series(g);
   const decade = (d: number) => cols.filter((c) => Math.floor(c.year / 10) * 10 === d);
   const totalIn = (d: number) => decade(d).reduce((s, c) => s + c.total, 0);
@@ -280,7 +348,7 @@ export function findings(g: Graph): Finding[] {
     })),
   });
 
-  /* 9. Precision ------------------------------------------------------------------------------------------ */
+  /* 10. Precision ------------------------------------------------------------------------------------------ */
   const yrs = yearRecordsOf(g);
   const evs = yrs.flatMap((y) => y.events);
   const day = evs.filter((e) => e.precision === "day").length;
@@ -300,7 +368,7 @@ export function findings(g: Graph): Finding[] {
     ],
   });
 
-  /* 10. The edges ----------------------------------------------------------------------------------------- */
+  /* 11. The edges ----------------------------------------------------------------------------------------- */
   const withEvents = yrs.filter((y) => y.events.length > 0);
   const empty = yrs.filter((y) => y.events.length === 0);
   const ahead = yrs.filter((y) => y.year > 2026);
@@ -327,4 +395,11 @@ function intervalLine(xs: readonly number[]): string {
   if (!xs.length) return "no cases";
   if (xs.length === 1) return `1 case, ${years(xs[0])}`;
   return `n=${xs.length}, median ${years(median(xs))} (${years(quantile(xs, 0.25))} to ${years(quantile(xs, 0.75))})`;
+}
+
+/** The same line for intervals the sources date to the day. */
+function intervalLineOneDp(xs: readonly number[]): string {
+  if (!xs.length) return "no cases";
+  if (xs.length === 1) return `1 case, ${yearsOneDp(xs[0])}`;
+  return `median ${yearsOneDp(median(xs))} (${yearsOneDp(quantile(xs, 0.25))} to ${yearsOneDp(quantile(xs, 0.75))})`;
 }

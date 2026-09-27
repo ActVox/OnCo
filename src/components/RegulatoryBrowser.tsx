@@ -6,7 +6,7 @@ import { FacetSelect } from "./filters/FacetSelect";
 import { ResultsTable, Toolbar, type Column, type SortState } from "./filters/ResultsTable";
 import { EVENT_LABEL, EVENT_TONE, formatDate } from "./RegulatoryTimeline";
 
-export type RegRow = { id: string; drugId: string; drug: string; route: string; modality: string; date: string; key: string; type: keyof typeof EVENT_LABEL; region: string; note: string; source?: string };
+export type RegRow = { id: string; drugId: string; drug: string; route: string; modality: string; date: string; key: string; type: keyof typeof EVENT_LABEL; region: string; note: string; source?: string; /** The indication the event is about, on the accelerated-approval rows that carry one. */ indication?: string };
 
 /**
  * Sortable, filterable table of dated regulatory events. `fdaActivity` (product id to ISO date) comes from the
@@ -24,7 +24,7 @@ export function RegulatoryBrowser({ rows, fdaActivity = {}, fdaFetched }: { rows
 
   const filtered = useMemo(() => {
     const n = q.trim().toLowerCase();
-    const list = rows.filter((r) => (!types.length || types.includes(r.type)) && (!regions.length || regions.includes(r.region)) && (!years.length || years.includes(r.key.slice(0, 4))) && (!fdaOnly || fdaActivity[r.drugId]) && (!n || `${r.drug} ${r.note} ${r.modality}`.toLowerCase().includes(n)));
+    const list = rows.filter((r) => (!types.length || types.includes(r.type)) && (!regions.length || regions.includes(r.region)) && (!years.length || years.includes(r.key.slice(0, 4))) && (!fdaOnly || fdaActivity[r.drugId]) && (!n || `${r.drug} ${r.note} ${r.modality} ${r.indication ?? ""}`.toLowerCase().includes(n)));
     list.sort((a, b) => sort.key === "drug" ? sort.dir * a.drug.localeCompare(b.drug) : sort.dir * a.key.localeCompare(b.key) || a.drug.localeCompare(b.drug));
     return list;
   }, [rows, types, regions, years, fdaOnly, fdaActivity, q, sort]);
@@ -40,7 +40,7 @@ export function RegulatoryBrowser({ rows, fdaActivity = {}, fdaFetched }: { rows
     { key: "drug", label: "Product", sortable: true, render: (r) => <div><Link href={`${r.route}#approvals`} className="font-medium hover:underline">{r.drug}</Link>{fdaActivity[r.drugId] && <span className="chip ml-1.5 bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200" title={`FDA activity ${fdaActivity[r.drugId]} in the weekly feed`}>FDA {fdaActivity[r.drugId]}</span>}<div className="text-xs text-muted">{r.modality}</div></div> },
     { key: "type", label: "Event", filter: { options: typeOptions, value: types, onChange: setTypes }, render: (r) => <span className={`chip ${EVENT_TONE[r.type]}`}>{EVENT_LABEL[r.type]}</span> },
     { key: "region", label: "Region", filter: { options: regionOptions, value: regions, onChange: setRegions }, render: (r) => <span className="text-muted">{r.region}</span>, hide: "hidden sm:table-cell" },
-    { key: "note", label: "What happened", render: (r) => <span>{r.note}{r.source && <> <a className="text-xs underline text-muted" href={r.source} rel="noopener">source</a></>}</span> },
+    { key: "note", label: "What happened", render: (r) => <span>{r.indication && <span className="block text-xs text-muted">{r.indication}</span>}{r.note}{r.source && <> <a className="text-xs underline text-muted" href={r.source} rel="noopener">source</a></>}</span> },
   ];
 
   return (

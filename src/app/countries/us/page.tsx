@@ -8,7 +8,7 @@ import { GLOBOCAN, sitesForCountry } from "@/lib/globocan";
 import { countryExtras } from "@/data/country-extras";
 import { regionalApprovals, REGION_META } from "@/data/regional-approvals";
 import { StaticTable, type StaticColumn, type StaticRow } from "@/components/filters/StaticTable";
-import { US_ACCELERATED, US_ASOF, US_COMPANIES, US_COVERAGE_RULES, US_DISPARITIES, US_DRUGS, US_GAPS, US_INSTITUTIONS, US_MACHINE, US_NETWORK, US_PAPERS, US_PAYING, US_PEOPLE, US_PROFILE, US_REGULATOR, US_TRIALS, type CountryCard } from "@/data/country-us";
+import { US_ACCELERATED, US_ACCELERATED_FROM, US_ASOF, US_COMPANIES, US_COVERAGE_RULES, US_DISPARITIES, US_DRUGS, US_GAPS, US_INSTITUTIONS, US_MACHINE, US_NETWORK, US_PAPERS, US_PAYING, US_PEOPLE, US_PROFILE, US_REGULATOR, US_TRIALS, type CountryCard } from "@/data/country-us";
 
 export const metadata: Metadata = pageMeta({
   title: "Cancer in the United States",
@@ -122,7 +122,7 @@ export default function UnitedStatesPage() {
               <h3 className="font-semibold">Every oncology accelerated approval, by what became of it</h3>
               <span className="text-xs text-muted">FDA tables read {US_ACCELERATED.readOn}</span>
             </div>
-            <p className="text-sm text-muted mb-4">The FDA keeps four separate lists rather than one, so the shape of the pathway is not visible from any single page. Put together, {US_ACCELERATED.rows.reduce((n, r) => n + r.count, 0)} oncology indications have been granted accelerated approval since 1992. The medians below are computed from the two date columns of the FDA&apos;s own tables; the agency does not publish them.</p>
+            <p className="text-sm text-muted mb-4">The FDA keeps four separate lists rather than one, so the shape of the pathway is not visible from any single page. Put together, {US_ACCELERATED.rows.reduce((n, r) => n + r.count, 0)} oncology indications have been granted accelerated approval since {US_ACCELERATED_FROM}. The medians below are computed from the two date columns of the FDA&apos;s own tables; the agency does not publish them.</p>
             <ul className="grid gap-3 sm:grid-cols-2">
               {US_ACCELERATED.rows.map((r) => (
                 <li key={r.id} className="rounded-lg border border-border p-4">

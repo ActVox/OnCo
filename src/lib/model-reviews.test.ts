@@ -104,8 +104,10 @@ describe("loader", () => {
     expect(sg.targets).toEqual(["trop2"]);
     expect(sg.cancers).toContain("urothelial");
     expect(sg.summary).toMatch(/withdrawn/);
+    // 7 rows until the FDA's accelerated-approval tables were read in (scripts/fetch-accelerated.ts): the two
+    // indications granted accelerated approval that the record did not already carry as a dated event.
     const events = (sg as { regulatoryEvents?: Array<{ date: string; type: string }> }).regulatoryEvents ?? [];
-    expect(events).toHaveLength(7);
+    expect(events).toHaveLength(9);
     expect(events[0].date.startsWith("2016")).toBe(true);
     expect(events.some((ev) => ev.type === "withdrawal")).toBe(true);
     expect(events[events.length - 1]).toMatchObject({ type: "approval" });

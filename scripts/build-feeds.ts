@@ -34,7 +34,7 @@ export function dateKey(d: string): string {
 const iso = (d: string) => `${dateKey(d)}T00:00:00Z`;
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
-const REG_TYPE: Record<string, string> = { designation: "Designation", filing: "Filing", pdufa: "PDUFA date", approval: "Approval", crl: "Complete response letter", withdrawal: "Withdrawal", "label-change": "Label change", "advisory-committee": "Advisory committee" };
+const REG_TYPE: Record<string, string> = { designation: "Designation", filing: "Filing", pdufa: "PDUFA date", approval: "Approval", "accelerated-approval": "Accelerated approval", conversion: "Accelerated approval confirmed", crl: "Complete response letter", withdrawal: "Withdrawal", "label-change": "Label change", "advisory-committee": "Advisory committee" };
 const CAL_KIND: Record<string, string> = { pdufa: "PDUFA date", adcom: "Advisory committee", "readout-expected": "Expected readout", congress: "Congress", policy: "Policy" };
 
 /** Minimal Markdown to HTML for changelog bodies: ### headings, "- " bullets, paragraphs, links, code. */
@@ -155,11 +155,13 @@ export function buildFeeds(root = process.cwd()): string[] {
   const link = (id: string) => { const e = g.get(id); return e ? absoluteUrl(routeFor(e)) : undefined; };
 
   const regulatory: Entry[] = g.kind("drug")
-    .flatMap((d) => d.regulatoryEvents.map((e) => ({ d, e })))
+    // A product can carry two accelerated approvals granted on one day, for different indications, so the index
+    // joins the date and type to keep the two entries apart.
+    .flatMap((d) => d.regulatoryEvents.map((e, i) => ({ d, e, i })))
     .sort((a, b) => dateKey(b.e.date).localeCompare(dateKey(a.e.date)) || a.d.name.localeCompare(b.d.name))
     .slice(0, 100)
-    .map(({ d, e }) => ({
-      id: `${absoluteUrl(routeFor(d))}#regulatory-${dateKey(e.date)}-${e.type}`,
+    .map(({ d, e, i }) => ({
+      id: `${absoluteUrl(routeFor(d))}#regulatory-${dateKey(e.date)}-${e.type}-${i}`,
       title: `${REG_TYPE[e.type] ?? e.type}: ${d.name} (${e.region}, ${e.date})`,
       link: absoluteUrl(routeFor(d)),
       updated: iso(e.date),
