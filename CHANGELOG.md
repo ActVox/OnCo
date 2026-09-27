@@ -6,19 +6,14 @@ All notable changes to OnCo are recorded here. The format follows [Keep a Change
 
 Regenerated from the commit log each time the site ships (`scripts/changelog-sync.ts`); the version sections below are written by hand when a release is cut.
 
+### 27 September 2026
+- Three dated fields the corpus lacked: accelerated approvals with their confirmations, a sourced first-description year on targets, and a trial start date
+- Adenoid cystic carcinoma described without the word relentless
+
 ### 25 September 2026
+- Three dates the timeline was missing: every accelerated approval and what became of it, when each target was first described, and when each trial opened
+- Measure what a reader downloads, not what the tests can render
 - A record for every year and one timeline over all of them, with ten questions asked of the corpus and two it cannot answer
-- Pancreatic reviewed against its sources: duplicates folded, figures settled, 1,006 links checked, mobile overflow fixed
-- Pancreatic cancer deep spike, round four: the molecular landscape with allele-level KRAS shares, subtype classes, precursor sequence and 82 papers
-- Pancreatic cancer deep spike, round three: 30 trials with outcomes, 284 registry trials, verified NICE and label rows, fifteen standard-of-care rows; Ask ranking weights curated records
-- Pancreatic cancer deep spike, round two: the record extended with sourced epidemiology, risk, diagnosis and surveillance, six subtypes, 22 terms, 34 papers and a twelve-era roadmap
-- Pancreatic cancer deep spike, round one: the UK and NHS pathway with the national audit findings, decisions, first 60 days, red cards and the first-treatment aid
-- Cooperative groups have one home: 35 trial groups move from institutions to cooperative-group companies with redirects
-- TNBC reviewed against its sources: figures reconciled, duplicates folded, 822 links checked
-- Wave 4: 99 cancer entity pages under the taxonomy rule; roadmaps page their eras; subtype pages rank below their parents in Ask
-- Cancer hubs with section sub-pages, TNBC deep spike complete (core, treatments and 235 trials, molecular landscape), Ask recall repaired, route progress bar and edge caching, Methods and models glossary with 129 terms
-- Modality hubs for twelve formats, TNBC deep spike round one (UK and NHS pathway, evidence and roadmap, decisions, first 60 days, red cards, after-chemotherapy aid), supportive care flag on 55 drugs, 22 cooperative-group records
-- Front navigation: the kinds drawn as a linked graph, the body map as the entry point on phones; ship chain builds on Vercel only
 - Oncolytic virotherapy in full: four approved replicating viruses and not one randomised survival benefit, and the 2024 self-experiment read from its case report
 - A record for every year in oncology, one timeline over all of them, and what the shape of the dates shows
 - The for-me budget measures its own tiles, not the chrome every page carries
