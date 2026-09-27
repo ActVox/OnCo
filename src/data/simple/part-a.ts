@@ -108,7 +108,7 @@ export const simpleA: Record<string, string> = {
   "pdac-organoid-pharmacotyping": "Growing a patient's pancreatic tumour as tiny blobs in a dish and testing chemotherapies on them to pick the one most likely to work.",
   litt: "A laser fibre guided through a small hole in the skull, watched by MRI, that heats and destroys deep brain tumours a surgeon could not safely reach.",
   "bbb-focused-ultrasound": "Sound waves plus tiny bubbles briefly open the brain's protective barrier so drugs can reach the tumour.",
-  "glioma-car-t": "Engineered immune cells put directly into the brain or spinal fluid. Some children with an incurable brain tumour have had striking, if temporary, responses.",
+  "glioma-car-t": "Engineered immune cells put directly into the brain or spinal fluid. Some children with a brainstem tumour that surgery cannot remove have had striking responses, so far short-lived, and the trials are testing how to make them last.",
   ct: "A fast 3D X-ray that shows how big a tumour is and whether it has spread.",
   mri: "A scan using magnets and radio waves, with no radiation, that gives very detailed pictures of soft parts of the body.",
   ultrasound: "Sound waves make live pictures. Cheap, safe, and used to guide needles into lumps.",

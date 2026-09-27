@@ -114,7 +114,7 @@ export default function V2() {
             <h3 className="relative text-lg font-semibold tracking-tight">What is worth a phone call</h3>
             <p className="text-sm text-muted mt-1 leading-relaxed">
               The symptoms that mean ring tonight rather than wait, on the page for the cancer you have. Spinal cord
-              compression, infection during chemotherapy, and the ones nobody warns you about.
+              compression, infection during chemotherapy, and the ones that are easy to miss because they do not feel like an emergency.
             </p>
             <p className="mt-3 text-sm"><Link href="/cancers/" className="underline decoration-foreground/25 underline-offset-[3px]">Open your cancer&apos;s page</Link>, then the section called When to call.</p>
           </section>

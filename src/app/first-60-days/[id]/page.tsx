@@ -77,11 +77,14 @@ export default async function FirstSixtyDaysPage({ params }: { params: Promise<{
   const checklistGroups = checklist ? [...new Set(checklist.items.map((i) => i.when))].map((when) => [when, checklist.items.filter((i) => i.when === when)] as const) : [];
   return (
     <>
+      {/* The record's TL;DR is written for someone browsing the encyclopaedia; this page is read by someone
+          diagnosed a week ago. The guide's own framing goes first, so what the reader meets is what the page will
+          do for them, and the record summary follows it. One line, 455 guides. */}
       <PageHeader
         kicker={<GroupKicker id="live"><Link href="/first-60-days/" className="kicker hover:text-foreground">· The first 60 days</Link></GroupKicker>}
         logo={<span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent mt-1"><CancerIcon cancerId={c.id} className="h-7 w-7" /></span>}
         title={`The first 60 days: ${c.name}`}
-        ledeNode={<>{c.tldr} Below, week by week, is what OnCo&apos;s record of <Link href={guide.cancer.route} className="underline">{c.name}</Link> says about the first two months: the order is typical, the timing is yours to ask about. Sections appear only where the record has something to say. Orientation, not medical advice.</>} />
+        ledeNode={<>Below, week by week, is what OnCo&apos;s record of <Link href={guide.cancer.route} className="underline">{c.name}</Link> says about the first two months: the order is typical, the timing is yours to ask about. {c.tldr} Sections appear only where the record has something to say. Orientation, not medical advice.</>} />
       <Container className="pb-16">
         <Nav guide={guide} />
         <div className="mt-8 space-y-12 max-w-4xl">

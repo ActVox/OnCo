@@ -220,7 +220,7 @@ export const EN = {
 
   // ---- survival folds ----
   "survival.show": "Show survival figures ({n})",
-  "survival.note": "Averages across everyone diagnosed, often years ago. Your stage, subtype, age, fitness and the treatment you receive matter more than the average, and the numbers are improving quickly.",
+  "survival.note": "Averages across everyone diagnosed, often years ago. A median is the middle of a group: half the people counted lived longer than the figure shown, and some lived far longer. Your stage, subtype, age, fitness and the treatment you receive matter more than the average, and the numbers are improving quickly.",
 
   // ---- statuses ----
   "status.approved": "Approved",

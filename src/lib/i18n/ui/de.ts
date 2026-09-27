@@ -191,7 +191,7 @@ export const de: UiDict = {
   "discuss.newTitle": "Einen neuen Thread zu diesem Objekt starten",
 
   "survival.show": "Überlebenszahlen anzeigen ({n})",
-  "survival.note": "Durchschnittswerte über alle Diagnostizierten, oft von vor Jahren. Ihr Stadium, Subtyp, Alter, Ihre Fitness und die erhaltene Behandlung zählen mehr als der Durchschnitt, und die Zahlen verbessern sich schnell.",
+  "survival.note": "Durchschnittswerte über alle Diagnostizierten, oft von vor Jahren. Der Median ist die Mitte einer Gruppe: Die Hälfte der gezählten Menschen lebte länger als der angezeigte Wert, manche deutlich länger. Ihr Stadium, Subtyp, Alter, Ihre Fitness und die erhaltene Behandlung zählen mehr als der Durchschnitt, und die Zahlen verbessern sich schnell.",
 
   "status.approved": "Zugelassen",
   "status.phase-3": "Phase 3",

@@ -191,7 +191,7 @@ export const fr: UiDict = {
   "discuss.newTitle": "Ouvrir un nouveau fil sur cet objet",
 
   "survival.show": "Afficher les chiffres de survie ({n})",
-  "survival.note": "Moyennes sur toutes les personnes diagnostiquées, souvent il y a des années. Votre stade, sous-type, âge, forme physique et le traitement reçu comptent plus que la moyenne, et les chiffres s'améliorent vite.",
+  "survival.note": "Moyennes sur toutes les personnes diagnostiquées, souvent il y a des années. La médiane est le milieu d'un groupe : la moitié des personnes comptées ont vécu plus longtemps que le chiffre affiché, et certaines bien plus longtemps. Votre stade, sous-type, âge, forme physique et le traitement reçu comptent plus que la moyenne, et les chiffres s'améliorent vite.",
 
   "status.approved": "Autorisé",
   "status.phase-3": "Phase 3",

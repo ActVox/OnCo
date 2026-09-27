@@ -191,7 +191,7 @@ export const pt: UiDict = {
   "discuss.newTitle": "Abrir um novo tópico sobre este objeto",
 
   "survival.show": "Mostrar os números de sobrevivência ({n})",
-  "survival.note": "Médias de todas as pessoas diagnosticadas, muitas vezes há anos. O seu estádio, subtipo, idade, condição física e o tratamento que recebe pesam mais do que a média, e os números melhoram depressa.",
+  "survival.note": "Médias de todas as pessoas diagnosticadas, muitas vezes há anos. A mediana é o meio de um grupo: metade das pessoas contadas viveu mais do que o número mostrado, e algumas muito mais. O seu estádio, subtipo, idade, condição física e o tratamento que recebe pesam mais do que a média, e os números melhoram depressa.",
 
   "status.approved": "Aprovado",
   "status.phase-3": "Fase 3",

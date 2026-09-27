@@ -66,7 +66,7 @@ describe("assembleSituation", () => {
     const where = by(s, "where");
     expect(where.items[0]).toMatchObject({ id: row.id, route: row.decisionHref, tone: "match" });
     // Every NSCLC metastatic row is first line, so nothing later in the course is recorded and the section says so.
-    expect(where.items.some((i) => i.badge === "may come later") || /No row later in the course/.test(where.lead)).toBe(true);
+    expect(where.items.some((i) => i.badge === "may come later") || /last setting OnCo records by line of therapy/.test(where.lead)).toBe(true);
     // An early row does have rows later in the course.
     const early = by(assembleSituation(tnbc, { ...EMPTY_SITUATION, setting: rowLike(tnbc, /Stage II-III/).id }), "where");
     expect(early.items.filter((i) => i.badge === "may come later").length).toBeGreaterThan(0);

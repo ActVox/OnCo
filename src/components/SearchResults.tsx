@@ -38,6 +38,14 @@ const ALL_KINDS: readonly string[] = [...KINDS, "page"];
 /** The concept index once it has arrived, so a later search can fuse in the same frame as the word search. */
 let semanticResolved: SemanticIndex | null | undefined;
 
+/**
+ * Outcome questions typed without a cancer name: "is it curable", "how long", "will I die". These are among the
+ * commonest things a frightened person types and they match no record, so the generic empty state used to answer
+ * them by asking for an NCT number. The same wording, with a cancer named, reaches `tPrognosis` in ask-compose.ts,
+ * which leads with what can be done and never with a bare number; the empty state says so.
+ */
+const OUTCOME_QUESTION = /\b(curable|cure rate|how long|life expectancy|survival rate|prognosis|outlook|terminal|how serious|how bad|my chances|chances? of surviv|am i going to die|will i die|how deadly)\b/i;
+
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 const kindLabel = (k: string) => (k === "page" ? "Page" : KIND_META[k as Kind].label);
 const kindChipClass = (k: string) => (k === "page" ? "border-border text-muted bg-card" : KIND_COLOR[k]);
@@ -304,7 +312,14 @@ export function SearchResults() {
       {rows && rows.length === 0 && (
         <section aria-labelledby="search-empty">
           <SectionHeading id="search-empty" icon={<NavIcon id="search" className="h-4 w-4" />}>Nothing matched</SectionHeading>
-          <p className="text-sm text-muted">Try a product, target, cancer or trial name, a code such as an NCT number, or a plainer phrase. {isQuestion ? "" : "Questions work too: end with a question mark and Ask OnCo has a go."}</p>
+          {/* "is it curable" and "how long" are two of the three things a frightened person types, and both used to
+              land on "try an NCT number". The machinery that answers them well already exists (tPrognosis in
+              ask-compose.ts leads with what can be done, never a bare number); it only needs the cancer named. */}
+          {OUTCOME_QUESTION.test(query) ? (
+            <p className="text-sm">That question needs a cancer named before OnCo can answer it. Add one, as in &ldquo;is pancreatic cancer curable&rdquo; or &ldquo;how long with glioblastoma&rdquo;, and the answer starts with what the standard of care offers and says where the population figures sit. Or pick yours on <Link href="/for-me/" className="underline">For me</Link>.</p>
+          ) : (
+            <p className="text-sm text-muted">Try a product, target, cancer or trial name, a code such as an NCT number, or a plainer phrase. {isQuestion ? "" : "Questions work too: end with a question mark and Ask OnCo has a go."}</p>
+          )}
           <Hubs heading="Start somewhere else" />
         </section>
       )}

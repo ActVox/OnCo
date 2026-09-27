@@ -76,7 +76,13 @@ export const NOT_TESTED = "not-tested";
 export const EMPTY_SITUATION: Situation = { biomarkers: [], hadTreatments: [], wantsTrials: true, diagnosedRecently: false, region: null };
 
 export type SituationSectionId = "where" | "standard" | "biomarkers" | "trials" | "warnings" | "questions" | "first60" | "sheet";
-export const SECTION_ORDER: SituationSectionId[] = ["where", "standard", "biomarkers", "trials", "warnings", "questions", "first60", "sheet"];
+/**
+ * The order the reader meets the sections in. `first60` sits second, not seventh: a reader who has ticked "the
+ * diagnosis is recent" was being shown the guide written for them below biomarker matching, trial matching and six
+ * red emergency cards, which is the most frightening route to the least frightening block. It is only pushed when
+ * the diagnosis is recent, so filtering it out of this list gives the order everyone else sees.
+ */
+export const SECTION_ORDER: SituationSectionId[] = ["where", "first60", "standard", "biomarkers", "trials", "warnings", "questions", "sheet"];
 export const SECTION_TITLE: Record<SituationSectionId, string> = {
   where: "Where you are", standard: "What is standard for this setting", biomarkers: "What your biomarkers change", trials: "Trials that fit",
   warnings: "Warnings", questions: "Questions for your next visit", first60: "The first 60 days", sheet: "Appointment sheet",
@@ -217,7 +223,9 @@ export function assembleSituation(data: SituationData, s: Situation): SituationS
       }
       const next = data.rows.filter((r) => r.id !== row.id && r.lineRank > row.lineRank && r.line !== "special" && r.line !== "other").sort((a, b) => a.lineRank - b.lineRank).slice(0, NEXT_CAP);
       for (const r of next) items.push({ id: r.id, name: r.setting, route: r.decisionHref, badge: "may come later", tone: "plain", note: firstSentence(r.approach) });
-      if (!next.length && data.rows.length > 1) lead += " No row later in the course is recorded after this one.";
+      // A reader who picks the last recorded line meets this sentence at the worst moment, so it says what the
+      // record does hold rather than stopping. Trials and questions are not organised by line of therapy.
+      if (!next.length && data.rows.length > 1) lead += " This is the last setting OnCo records by line of therapy; the trials and questions below are not organised by line.";
     } else if (hadDrugs.length) {
       lead = `You have not chosen a setting. You said you have had ${list(hadDrugs.map((d) => d.name))}.`;
       for (const d of hadDrugs) {
@@ -296,7 +304,7 @@ export function assembleSituation(data: SituationData, s: Situation): SituationS
     const cards = inPlay.size ? data.redCards.filter((card) => card.concerns.some((d) => inPlay.has(d.id))) : data.redCards;
     const names = [...inPlay].map((id) => drugById.get(id)?.name).filter((x): x is string => !!x);
     const lead = inPlay.size
-      ? cards.length ? `${n(cards.length, "warning")} from the labels and guidelines behind ${list(names.slice(0, 4))}${names.length > 4 ? ` and ${names.length - 4} more` : ""}. Your team's thresholds win.` : `None of the red cards recorded for ${c.name} concern ${list(names.slice(0, 4))}${names.length > 4 ? ` and ${names.length - 4} more` : ""}.`
+      ? cards.length ? `${n(cards.length, "warning")} to recognise and act on, from the labels and guidelines behind ${list(names.slice(0, 4))}${names.length > 4 ? ` and ${names.length - 4} more` : ""}. Your team's thresholds win.` : `None of the red cards recorded for ${c.name} concern ${list(names.slice(0, 4))}${names.length > 4 ? ` and ${names.length - 4} more` : ""}.`
       : cards.length ? `No treatment chosen yet, so these are the ${n(cards.length, "red card")} for the whole standard of care of ${c.name}.` : `No red card is recorded for the standard of care of ${c.name}.`;
     sections.push({ id: "warnings", title: SECTION_TITLE.warnings, lead, empty: cards.length ? undefined : "OnCo only shows warnings quoted from a label or guideline; none applies to these records.", items: [], redCards: cards, links: [{ label: "Side effects", href: "/side-effects/" }, { label: "Interaction checker", href: "/interactions/" }] });
   }
@@ -319,6 +327,15 @@ export function assembleSituation(data: SituationData, s: Situation): SituationS
 
   // 8. Appointment sheet.
   sections.push({ id: "sheet", title: SECTION_TITLE.sheet, lead: `One printable page for ${c.name}: ${n(data.sheet.questions, "question")}, ${n(data.sheet.terms, "term")} you may hear and ${n(data.sheet.treatments, "treatment row")}, with space for the answers.`, items: [{ id: "sheet", name: `Appointment sheet: ${c.name}`, route: data.sheet.route, badge: "print", tone: "plain", note: "What you type on it stays in this browser." }], links: [{ label: "All appointment sheets", href: "/prep/" }] });
+
+  // A reader who has ticked "the diagnosis is recent" was being shown the guide written for them in seventh
+  // place, under biomarker matching, trial matching and six red emergency cards. The least frightening and most
+  // actionable block moves up to sit directly under "Where you are"; nothing else changes order.
+  if (s.diagnosedRecently) {
+    const i = sections.findIndex((x) => x.id === "first60");
+    const j = sections.findIndex((x) => x.id === "where");
+    if (i > j && j >= 0) sections.splice(j + 1, 0, ...sections.splice(i, 1));
+  }
 
   return sections;
 }
