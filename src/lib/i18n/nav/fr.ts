@@ -161,6 +161,7 @@ export const navFr: NavDict = {
   "/completeness/": ["Complétude", "Quelle part de ce qui existe se trouve dans OnCo : chaque type comparé à un décompte mondial sourcé, avec les éléments manquants nommés."],
   "/open-tools/": ["Outils ouverts", "Visionneuses, planificateurs, pipelines et matériel open source à utiliser ou sur lesquels bâtir, par front, issus de l'Open Medical Registry."],
   "/open-source/": ["L'open source en oncologie", "Chaque projet open source sur lequel repose la discipline, des détecteurs de variants aux systèmes de planification et aux modèles de fondation, avec licence, ouverture et mainteneur."],
+  "/software/": ["Les logiciels de l'oncologie", "Le reste des logiciels du domaine, surtout commerciaux : dossiers, prescription, planification, algorithmes autorisés, génomique, appariement aux essais et revue de cas, avec la source de chaque ligne."],
   "/startups/": ["Startups", "Les entreprises Y Combinator et financées par le capital-risque qui s'attaquent au cancer, par stade, modalité, cancer, promotion, investisseur et pays."],
   "/startup-requests/": ["Appels à start-ups", "Des problèmes sans aucune entreprise dessus : des idées qui attendent un bâtisseur, des cibles médicamentables sans produit, des goulets sans nouvel entrant."],
   "/investors/": ["Investisseurs", "Les fonds de capital-risque, les branches de capital-risque d'entreprise et les fondations de patients qui soutiennent les sociétés d'oncologie, chacun avec son portefeuille."],
