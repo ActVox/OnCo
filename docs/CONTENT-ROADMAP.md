@@ -315,3 +315,23 @@ complaints about the same page, each of which I have been fixing one at a time: 
 panel, the summary block, the also-known-as line, the section names, the wall of links, and now the machine
 links. Patching them one by one produces a page nobody designed. The deliverable here is a plan the owner reads
 and approves before anything else is changed.
+
+## 12. Every page title, not just the cancer sections (owner, 28 September 2026)
+
+"do a review for poorly worded sections and their improved versions eg Forest plot for https://onco.cc/forest/
+just sits there without any context. we need clean and correct names for all sections that are functional and not
+vague."
+
+`/forest/` is the example and it is a fair one. Its heading is "Forest plot", which names the drawing rather than
+the question, and assumes the reader already knows what a forest plot is. Its own description says what it is
+for and says it well: "Every hazard ratio with its confidence interval in the OnCo trial corpus, side by side on
+one log axis." The heading should carry that, not the chart's name.
+
+Measured: **127 top-level pages carry a title, and 85 of them are one or two words.** Terse is not the same as
+vague, and several are exactly right (`/changelog/`, `/contributors/`, `/corrections/`). What needs changing is
+the title that names a format instead of a question ("Forest plot"), the one that could belong to any site
+("Explore", "Compare", "Atlas", "Evidence"), and the one that needs the reader to know a term before they can
+decide whether to click.
+
+The test to apply to each: read only the heading, and say what you would find on the page and why you would go
+there. If you cannot, the heading is doing the wrong job.
