@@ -1,5 +1,14 @@
 [
   {
+    "branch": "product/software-map",
+    "why": "The software of oncology at /software/: 136 products, 102 independently sourced and 34 the company's own account, saying which on the row. Answers issue 63.",
+    "pr": "https://github.com/judegomila/OnCo/pull/106",
+    "preview": "",
+    "files": 18,
+    "proposed": "2026-09-28",
+    "state": "waiting"
+  },
+  {
     "branch": "product/section-names-and-record-page",
     "why": "Every cancer-page section named for what is in it, plus the years index title. No URLs move.",
     "pr": "https://github.com/judegomila/OnCo/pull/104",
