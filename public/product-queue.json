@@ -1,5 +1,14 @@
 [
   {
+    "branch": "product/record-page-top",
+    "why": "The top of a record page: family strip capped and ordered by depth, summary folded at two paragraphs, aka line readable, model panel last, print control renamed to Patient pack.",
+    "pr": "https://github.com/judegomila/OnCo/pull/107",
+    "preview": "",
+    "files": 18,
+    "proposed": "2026-09-28",
+    "state": "waiting"
+  },
+  {
     "branch": "product/section-names-and-record-page",
     "why": "Every cancer-page section named for what is in it, plus the years index title. No URLs move.",
     "pr": "https://github.com/judegomila/OnCo/pull/104",
