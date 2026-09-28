@@ -12,7 +12,7 @@ import { ChangeKindChip, ChangesGroups, EdgeForCancerLink, FollowLine } from "@/
 import { SectionStrip } from "@/components/SectionStrip";
 
 /**
- * What changed on one cancer (/cancers/<id>/changes/): a page of the "What is coming" section (src/lib/record-sections.ts),
+ * What changed on one cancer (/cancers/<id>/changes/): a page of the "Pipeline and open problems" section (src/lib/record-sections.ts),
  * so it carries the record's section navigator with that section highlighted. A static sibling of /cancers/[id]/[section]/.
  */
 export function generateStaticParams() {

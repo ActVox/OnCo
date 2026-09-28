@@ -21,7 +21,7 @@ const SLOW_MS = Number(process.env.SLOW_TEST_MS ?? 120_000);
  * because the tab bar shared a grid row with the 300 px right column. The bar now spans the full content width and
  * the two columns start beneath it, and every tag chip in the right column is a link to its /tagged/ page.
  * Since the hub-and-sections layout (src/lib/record-sections.ts) a cancer's tabs are its ten sections; `care` is
- * the standard-of-care block inside Treating it and still resolves as an element id.
+ * the standard-of-care block inside Treatment and still resolves as an element id.
  */
 const router: AppRouterInstance = { push: vi.fn(), replace: vi.fn(), prefetch: vi.fn(), back: vi.fn(), forward: vi.fn(), refresh: vi.fn(), bfcacheId: "static" };
 const render = (id: string) => {
@@ -65,12 +65,12 @@ describe("record page layout", () => {
     }, SLOW_MS); // The first render loads the whole graph; under a loaded machine that alone passes the default budget.
   }
 
-  it("the #care block exists on the male breast cancer page inside Treating it, so a hash link has a section to open", () => {
+  it("the #care block exists on the male breast cancer page inside Treatment, so a hash link has a section to open", () => {
     const c = graph().must("male-breast-cancer");
     expect(c.kind).toBe("cancer");
     const html = render("male-breast-cancer");
     expect(html).toContain('data-id="treating-it"');
-    // A small cancer keeps Treating it inline, so the standard-of-care block is on the hub with its id.
+    // A small cancer keeps Treatment inline, so the standard-of-care block is on the hub with its id.
     expect(c.kind === "cancer" && planFor(c, "treating-it").placement).toBe("inline");
     expect(html).toContain('id="sec-treating-it"');
     expect(html).toContain('id="care"');

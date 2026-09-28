@@ -72,9 +72,9 @@ Where each roll-up renders (`src/lib/record-sections.ts`, ids declared as sectio
 
 | kind | section | anchor |
 | --- | --- | --- |
-| trials | Evidence | `#subtype-trials` |
-| medicines | What is coming | `#subtype-pipeline` |
-| expert centres | Where you are | `#subtype-centres` |
+| trials | Trials and papers | `#subtype-trials` |
+| medicines | Pipeline and open problems | `#subtype-pipeline` |
+| expert centres | Countries and centres | `#subtype-centres` |
 
 Each section's `counts` gains an "N in the subtypes" pill, so the hub's summary card and
 `/api/v1/cancers/<id>/sections.json` carry the number even when the section lives on its own page; each section's

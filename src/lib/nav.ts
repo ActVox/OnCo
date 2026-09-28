@@ -24,7 +24,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { href: "/pivot/", label: "Landscape grid", blurb: "Count products, trials, or technologies by cancer, target, treatment type, or company in one grid." },
       { href: "/rankings/", label: "Rankings", blurb: "League tables computed from the corpus: cancers by trials, targets by products, companies by approvals, trials by enrolment, each stating its basis." },
       { href: "/timeline/", label: "Timeline", blurb: "Every dated fact on one timeline: the shape of the whole field, what that shape shows, and a page for every year." },
-      { href: "/years/", label: "Years", blurb: "One page per year: everything the corpus dates to it, from approvals to landmarks, each line linking to the record it came from." },
+      { href: "/years/", label: "Year by year", blurb: "One page per year: everything the corpus dates to it, from approvals to landmarks, each line linking to the record it came from." },
       { href: "/query/", label: "Query", blurb: "Build a graph query and get a table." },
       { href: "/graph/", label: "Graph explorer", blurb: "Navigate the knowledge graph visually." },
       { href: "/saved/", label: "Saved", blurb: "Your saved table views and watched pages, with what changed since you looked. Stored in your browser only." },
