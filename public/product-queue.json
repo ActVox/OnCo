@@ -1,5 +1,14 @@
 [
   {
+    "branch": "product/page-titles",
+    "why": "30 page titles named for the question the page answers; 17 left for the owner. No routes move; old names still reach their pages from search.",
+    "pr": "https://github.com/judegomila/OnCo/pull/105",
+    "preview": "",
+    "files": 75,
+    "proposed": "2026-09-28",
+    "state": "waiting"
+  },
+  {
     "branch": "product/section-names-and-record-page",
     "why": "Every cancer-page section named for what is in it, plus the years index title. No URLs move.",
     "pr": "https://github.com/judegomila/OnCo/pull/104",
