@@ -130,7 +130,10 @@ export const KIND_META: Record<Kind, { plural: string; label: string; route: str
   journal: { plural: "journals", label: "Journal", route: "journals", blurb: "Where the evidence is published: the journals, their scope and access model, and the key papers each one carried.", color: "slate" },
   paper: { plural: "key papers", label: "Key paper", route: "key-papers", blurb: "The papers that changed practice or thinking, each explained: what it found, what it means, and what to be careful about.", color: "sky" },
   bottleneck: { plural: "bottlenecks", label: "Bottleneck", route: "bottlenecks", blurb: "The systemic constraints slowing the whole war on cancer, with the ideas that could break each one.", color: "red" },
-  year: { plural: "years", label: "Year", route: "years", title: "Years and the timeline", blurb: "One record per year: everything the corpus dates to it, each line linking to the record it was read from.", color: "stone" },
+  // "Years and the timeline" named two pages at once: this index is one record per year, and /timeline/ is the chart
+  // over the whole field with the findings read off its shape. The title says which of the two a reader has reached
+  // ("years of what?"); the navigation entry is "Year by year" beside "Timeline" for the same reason.
+  year: { plural: "years", label: "Year", route: "years", title: "Oncology year by year", blurb: "One record per year: everything the corpus dates to it, each line linking to the record it was read from. The whole field on one chart is the timeline.", color: "stone" },
   biomarker: { plural: "biomarkers", label: "Biomarker", route: "biomarkers", title: "Biomarkers & readouts", blurb: "The readouts a pathology report gives (PD-L1 CPS, HER2 IHC 3+, MSI-high), each under its gene or protein, with the thresholds approvals use and the tests that measure them.", color: "violet" },
 };
 

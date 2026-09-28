@@ -269,20 +269,32 @@ might be better."
 What each section actually holds, and a name that says so. The ids do not change, so every published link and
 every anchor keeps working.
 
-| now | holds | proposed |
-| --- | --- | --- |
-| Overview | TL;DR, the family, the organ, who gets it, state of the art | Overview |
-| What it is | anatomy, the subtypes, staging, where it spreads | Types and stages |
-| Finding it | symptoms, how it is confirmed, screening, biomarkers | Diagnosis and screening |
-| Treating it | standard of care by setting, medicines, surgery, radiotherapy, regimens | Treatment |
-| Trials and papers | recruiting trials, landmark trials, key papers, latest literature | Trials and papers |
-| The science | targets and their prevalence, pathways, mechanics, preclinical models | Biology and targets |
-| Where you are | cases by country, national pathways, expert centres | Countries and centres |
-| Living with it | decisions, decision aids, when to call, first sixty days, questions | Decisions and support |
-| What is coming | what is in development, open problems, roadmaps, what reports next | In development |
-| Data | connected records, notes, the machine twins, provenance | Data |
+**Done, 28 September 2026.** The ten titles below are what `src/lib/record-sections.ts` now carries, each with its
+label in the nine site languages. The ids are untouched, so `/cancers/<id>/finding-it/` and every anchor still
+resolve. Two names differ from the proposal above, in both cases because the rendered section was read before the
+name was settled.
 
-Each rename needs the label in all nine languages, as the `evidence` rename did.
+| id | was | now | why this name |
+| --- | --- | --- | --- |
+| `overview` | Overview | Overview | unchanged; it is the hub |
+| `what-it-is` | What it is | Types and stages | the two things inside are the subtypes and the staging (the spread map is part of staging) |
+| `finding-it` | Finding it | Symptoms and diagnosis | **changed from the proposal.** The section renders symptoms, how the diagnosis is confirmed, the late-diagnosis panel and the biomarker panel. It renders no screening block and the record carries no screening field, so "Diagnosis and screening" would have promised a thing the page does not hold; and "symptoms" is the word a reader arrives with |
+| `treating-it` | Treating it | Treatment | the section is the standard of care by setting, with the regimens, sequencing and guideline links |
+| `evidence` | Evidence | Trials and papers | renamed an hour earlier; unchanged here |
+| `science` | The science | Biology and targets | targets, how often each appears, pathways and preclinical models |
+| `where-you-are` | Where you are | Countries and centres | it is two things and the name says both: cases by country with the national pathways, and the named expert centres |
+| `living-with-it` | Living with it | Decisions and support | what is inside is the decisions strip, the decision aids, the red cards, the journeys and the questions to ask, with the first sixty days, the prep sheet, side effects and help with costs beside them. "Living with it" is the phrase the health services use, but it is the survivorship sense of the phrase, and this section is the decisions |
+| `coming` | What is coming | Pipeline and open problems | **changed from the proposal.** "In development" is already the heading of the first block inside the section, so the section page would have printed it twice in a row; and the section also holds the open problems and what changed, which the block's name does not cover. This keeps the owner's word "pipeline" |
+| `data` | Data | Data | unchanged |
+
+What the renames leave stale in `src/components/CancerRecord.tsx` (held open by another agent on 28 September, so
+listed rather than changed):
+
+- The `finding-it` block `id="symptoms"` is titled "Symptoms and diagnosis", which is now also the section title.
+  Its two fields already read "How it shows" and "How it is confirmed", so the block wants a different heading
+  ("How it is found") or none; it needs one because it carries the sources aside.
+- Five `PillRow` labels still name the old titles: "More on what it is", "More on where you are", "More on living
+  with it", "More on what is coming" (`treating-it`'s "More on treatment" already matches).
 
 **2. The right-hand column is a wall of links.** "a massive link panel on the right side bar is not good design eg
 'Sources & links' this might be better as a table at the bottom of the page. it might be ok to have the primary
@@ -294,7 +306,19 @@ this is worst on exactly the pages that had the most work put into them. The sou
 read and sorted; the column should carry what identifies the record.
 
 **3. The years index is weakly titled.** The owner: "this is a weak title for the top bar. years of what?
-Something more functional eg 'Oncology: the timeline' might be better?" The kind's `title` is "Years and the
-timeline" and the navigation entry is the bare word "Years". Same fix as the section names, same nine languages.
-Note there is already a `/timeline/` page: whatever these two are called, a reader should be able to tell which
-is the chart over the whole field and which is the index of single years.
+Something more functional eg 'Oncology: the timeline' might be better?" The kind's `title` was "Years and the
+timeline" and the navigation entry was the bare word "Years".
+
+**Done, 28 September 2026.** The old title was the worse of the two problems: it named both pages at once, so a
+reader who followed it and found no timeline had been told the wrong thing. The pair is now split by what each
+one shows rather than by what it is about.
+
+| page | title | navigation | what it is |
+| --- | --- | --- | --- |
+| `/years/` | Oncology year by year | Year by year | one record per year, each line linking to the record it was read from |
+| `/timeline/` | Every year in oncology, on one timeline | Timeline | the chart over the whole field and the ten findings read off its shape |
+
+"Oncology: the timeline" was the owner's suggestion but belongs to `/timeline/`, which already carries a stronger
+version of it as its heading; putting it on `/years/` would have swapped the confusion rather than ended it.
+"Year by year" says the index is per year, sits next to "Timeline" in the same navigation group, and answers
+"years of what?" in the page title. Nine languages for the title and eight for the navigation entry.

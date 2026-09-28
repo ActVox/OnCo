@@ -24,7 +24,7 @@ export const navPt: NavDict = {
   "/pivot/": ["Grelha do panorama", "Conte produtos, ensaios ou tecnologias por cancro, alvo, tipo de tratamento ou empresa numa grelha."],
   "/rankings/": ["Classificações", "Tabelas classificativas calculadas a partir do corpus: cancros por ensaios, alvos por produtos, empresas por aprovações, ensaios por participantes, cada uma com a sua base declarada."],
   "/timeline/": ["Linha do tempo", "Todos os factos datados numa linha do tempo: a forma de todo o campo, o que essa forma mostra, e uma página por ano."],
-  "/years/": ["Anos", "Uma página por ano: tudo o que o corpus data nele, das aprovações aos marcos, com cada linha ligada ao registo de onde veio."],
+  "/years/": ["Ano a ano", "Uma página por ano: tudo o que o corpus data nele, das aprovações aos marcos, com cada linha ligada ao registo de onde veio."],
   "/query/": ["Consulta", "Construa uma consulta ao grafo e obtenha uma tabela."],
   "/graph/": ["Explorador do grafo", "Navegue visualmente pelo grafo de conhecimento."],
   "/saved/": ["Guardado", "As suas vistas de tabelas guardadas e páginas seguidas, com o que mudou desde que as viu. Guardado apenas no seu navegador."],

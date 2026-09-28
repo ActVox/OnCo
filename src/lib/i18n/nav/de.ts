@@ -24,7 +24,7 @@ export const navDe: NavDict = {
   "/pivot/": ["Landschaftsraster", "Produkte, Studien oder Technologien nach Krebsart, Zielstruktur, Therapieart oder Unternehmen in einem Raster zählen."],
   "/rankings/": ["Ranglisten", "Ranglisten aus dem Korpus berechnet: Krebsarten nach Studien, Zielstrukturen nach Produkten, Unternehmen nach Zulassungen, Studien nach Teilnehmerzahl, jede mit ihrer Grundlage."],
   "/timeline/": ["Zeitleiste", "Jede datierte Tatsache auf einer Zeitleiste: die Form des ganzen Feldes, was diese Form zeigt, und eine Seite pro Jahr."],
-  "/years/": ["Jahre", "Eine Seite pro Jahr: alles, was der Korpus darauf datiert, von Zulassungen bis zu Meilensteinen, jede Zeile verlinkt mit dem Datensatz, aus dem sie stammt."],
+  "/years/": ["Jahr für Jahr", "Eine Seite pro Jahr: alles, was der Korpus darauf datiert, von Zulassungen bis zu Meilensteinen, jede Zeile verlinkt mit dem Datensatz, aus dem sie stammt."],
   "/query/": ["Abfrage", "Eine Graphabfrage bauen und eine Tabelle erhalten."],
   "/graph/": ["Graph-Explorer", "Den Wissensgraphen visuell erkunden."],
   "/saved/": ["Gespeichert", "Ihre gespeicherten Tabellenansichten und beobachteten Seiten, mit dem, was sich seit dem letzten Blick geändert hat. Nur in Ihrem Browser gespeichert."],
