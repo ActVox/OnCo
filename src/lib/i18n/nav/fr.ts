@@ -24,7 +24,7 @@ export const navFr: NavDict = {
   "/pivot/": ["Grille du paysage", "Comptez produits, essais ou technologies par cancer, cible, type de traitement ou entreprise dans une grille."],
   "/rankings/": ["Classements", "Classements calculés à partir du corpus : cancers par essais, cibles par produits, entreprises par approbations, essais par effectif, chacun avec sa base énoncée."],
   "/timeline/": ["Chronologie", "Tous les faits datés sur une seule chronologie : la forme du champ entier, ce que cette forme montre, et une page par année."],
-  "/years/": ["Années", "Une page par année : tout ce que le corpus y date, des autorisations aux jalons, chaque ligne reliée à la fiche dont elle provient."],
+  "/years/": ["Année par année", "Une page par année : tout ce que le corpus y date, des autorisations aux jalons, chaque ligne reliée à la fiche dont elle provient."],
   "/query/": ["Requête", "Construisez une requête sur le graphe et obtenez un tableau."],
   "/graph/": ["Explorateur du graphe", "Naviguez visuellement dans le graphe de connaissances."],
   "/saved/": ["Enregistré", "Vos vues de tableaux enregistrées et pages suivies, avec ce qui a changé depuis. Stocké dans votre navigateur seulement."],
