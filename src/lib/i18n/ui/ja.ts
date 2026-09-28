@@ -333,7 +333,6 @@ export const ja: UiDict = {
   "l.Replication": "再現性",
   "l.Rationale": "根拠",
   "l.Evidence": "エビデンス",
-  "l.Trials and papers": "試験と論文",
   "l.Confidence": "確信度",
   "l.Hypothesis": "仮説",
   "l.Proposed test": "提案される検証",

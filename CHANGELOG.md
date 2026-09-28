@@ -7,6 +7,21 @@ All notable changes to OnCo are recorded here. The format follows [Keep a Change
 Regenerated from the commit log each time the site ships (`scripts/changelog-sync.ts`); the version sections below are written by hand when a release is cut.
 
 ### 28 September 2026
+- The page that shows what is waiting, with the queue read from the open pull requests
+- A command for a person to type is not a change to the product
+- The queue is a rendering of the open pull requests, refreshed on every ship
+- The admin page waiting in its own queue
+- The page that shows what is waiting, and says plainly what it is not
+- Product changes now wait for the owner, and the plan for the cancer page is written
+- The approval mechanism belongs on main; the renames stay in the queue
+- The cancer page measured before it is redesigned, and a plan the owner can approve part by part
+- The machine links, and the admission that seven patches are not a design
+- The years index title, and the question of how it differs from the timeline
+- The section names and the wall of links, with what each section holds and how many links a page carries
+- The section called Evidence is called Trials and papers, which is what is in it
+- Three more record-page asks on the roadmap, with what the print control actually does
+- The fourth ask: the also-known-as line is the smallest type on the page
+- Three owner asks on the roadmap: what a reader meets first on a record page
 - Five weekly runs merged, the agent rules written down with the scripts they point at, and a card that can name no record no longer counts as one that lost one
 - A card that can name no record is not a card that lost one
 - Provenance regenerated with the private name redacted after the weekly run reintroduced it

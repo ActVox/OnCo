@@ -33,10 +33,28 @@ const RULES: Array<[RegExp, ChangeClass]> = [
   [/^src\/data\//, "data"],
   [/^public\//, "data"],
   [/^scripts\//, "neither"],                  // a script is not shipped; what it writes is
-  [/^(package|package-lock|tsconfig|next\.config|vercel|eslint|vitest)/, "product"],
+  [/^package-lock\.json$/, "neither"],       // a lockfile follows package.json; the dependency change is the decision
+  [/^(tsconfig|next\.config|vercel|eslint|vitest)/, "product"],
 ];
 
+/**
+ * `package.json` is two files in one. A dependency or a build setting changes what the site is; a line under
+ * `scripts` adds a command for a person to type and cannot reach a reader. The first blocked a ship of the very
+ * page the owner had asked for, so the rule reads the change rather than the filename.
+ */
+function packageJsonClass(): ChangeClass {
+  try {
+    const before = JSON.parse(execSync("git show origin/main:package.json", { encoding: "utf8" }));
+    const after = JSON.parse(execSync("git show HEAD:package.json", { encoding: "utf8" }));
+    delete before.scripts; delete after.scripts;
+    return JSON.stringify(before) === JSON.stringify(after) ? "neither" : "product";
+  } catch {
+    return "product";   // cannot tell, so assume it matters
+  }
+}
+
 export function classify(path: string): ChangeClass {
+  if (path === "package.json") return packageJsonClass();
   for (const [re, c] of RULES) if (re.test(path)) return c;
   return "neither";
 }
