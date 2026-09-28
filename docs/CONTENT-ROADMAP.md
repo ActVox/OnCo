@@ -292,3 +292,9 @@ Measured: `e.links` renders as an unbounded list in the aside. Triple-negative b
 pancreatic **124**, colorectal 106, gallbladder 99. 47 records carry more than eight and 15 more than twenty, so
 this is worst on exactly the pages that had the most work put into them. The sources belong where they can be
 read and sorted; the column should carry what identifies the record.
+
+**3. The years index is weakly titled.** The owner: "this is a weak title for the top bar. years of what?
+Something more functional eg 'Oncology: the timeline' might be better?" The kind's `title` is "Years and the
+timeline" and the navigation entry is the bare word "Years". Same fix as the section names, same nine languages.
+Note there is already a `/timeline/` page: whatever these two are called, a reader should be able to tell which
+is the chart over the whole field and which is the index of single years.
