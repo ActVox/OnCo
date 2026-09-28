@@ -70,6 +70,7 @@
     "issue-forms:check": "tsx scripts/gen-issue-forms.ts --check",
     "fetch:votes": "tsx scripts/fetch-votes.ts",
     "fetch:open-source": "tsx scripts/fetch-open-source.ts",
+    "fetch:software": "tsx scripts/fetch-software.ts",
     "newsletter": "tsx scripts/newsletter.ts",
     "bench:ask": "tsx scripts/benchmark-ask.ts",
     "fetch:wikidata": "tsx scripts/fetch-wikidata.ts",
