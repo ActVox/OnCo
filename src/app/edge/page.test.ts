@@ -54,8 +54,15 @@ describe("/edge/ filter markup", () => {
   it("gives every card its kind and record ids, and links its kind pill to the ?type= view", () => {
     const cards = html.match(/<li data-kind="[a-z]+" data-refs="[^"]*"/g) ?? [];
     expect(cards.length).toBe(items.length);
+    // The filter finds a card by the records it names, so a card that names one must carry it in the markup. Some
+    // cards legitimately name none: a proposal to add a product OnCo does not hold yet has no record to point at,
+    // and nor does a site issue. A flat 90 per cent share failed the day a weekly run produced fifteen new-product
+    // proposals, which was the measure being wrong rather than the page. So compare the markup with the feed, and
+    // keep a ceiling on the unlinkable share so that refs being dropped still fails.
     const withRefs = cards.filter((c) => !/data-refs=""/.test(c)).length;
-    expect(withRefs).toBeGreaterThan(items.length * 0.9);
+    const linkable = items.filter((it) => it.refs.length > 0).length;
+    expect(withRefs, "every card that names a record carries it").toBe(linkable);
+    expect(items.length - linkable, "cards that can name no record").toBeLessThan(items.length * 0.2);
     for (const k of EDGE_KINDS) if (counts[k] > 0) {
       const pill = html.match(new RegExp(`<a [^>]*data-edge-type="${k}"[^>]*>`))?.[0];
       expect(pill, `${k} kind pill`).toBeTruthy();
