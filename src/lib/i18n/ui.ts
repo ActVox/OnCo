@@ -365,7 +365,6 @@ export const EN = {
   "l.Replication": "Replication",
   "l.Rationale": "Rationale",
   "l.Evidence": "Evidence",
-  "l.Trials and papers": "Trials and papers",
   "l.Confidence": "Confidence",
   "l.Hypothesis": "Hypothesis",
   "l.Proposed test": "Proposed test",

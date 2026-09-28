@@ -26,6 +26,28 @@ LOCK=/tmp/onco-api-build.lock
 for i in $(seq 1 240); do mkdir "$LOCK" 2>/dev/null && break; sleep 5; done
 if [ ! -d "$LOCK" ]; then echo "LOCK-FAILED: could not take /tmp/onco-api-build.lock"; exit 1; fi
 trap 'rmdir "$LOCK" 2>/dev/null' EXIT INT TERM
+
+# The owner's rule, 28 September 2026: data ships, product waits for him. A wave of fetched trials is freshness
+# and goes live; moving a block, renaming a section or editing a component changes the product he is responsible
+# for, and he has not seen it. scripts/change-class.ts draws the line and scripts/change-class.test.ts holds it.
+#
+# This refuses rather than silently doing something else, because a chain that quietly changes what it does is
+# worse than one that stops. To send a product change for review instead: scripts/propose-product-change.sh.
+# Nothing here can bind an agent holding the owner's credentials; what it does is make the safe path the default,
+# make every product change visible before it ships, and leave a trail. Real enforcement is the Vercel setting
+# that restricts production to a branch only he merges, which is his to turn on.
+if [ -z "$ONCO_PRODUCT_APPROVED" ]; then
+  npx tsx scripts/change-class.ts "origin/main..HEAD" > /tmp/onco-change-class.txt 2>&1
+  if [ $? -eq 2 ]; then
+    echo "PRODUCT-CHANGE-NOT-APPROVED: this ship contains changes to the product, not just the data."
+    cat /tmp/onco-change-class.txt
+    echo ""
+    echo "Send it for the owner's review:  scripts/propose-product-change.sh \"<what changed and why>\""
+    echo "Or, if he has approved it:       ONCO_PRODUCT_APPROVED=\"<where he said so>\" scripts/ship.sh ..."
+    exit 1
+  fi
+fi
+
 npm run -s build:api || { echo "BUILD-API-FAILED"; exit 1; }
 # A check written as id:<entity-id> is resolved to the record's real route from the built API, because guessing a
 # route is the one way this verification fails on a deploy that actually worked: /glossary/<id>/ looked obvious and

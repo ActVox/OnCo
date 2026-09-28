@@ -134,11 +134,7 @@ export const SECTIONS: readonly SectionDef[] = [
     estimate: (c) => ({ rows: c.standardOfCare.length + regimensFor(c.id).length, kb: 8 + c.standardOfCare.length * 1.8 + (ukPathwayFor(c.id) ? 3 : 0) + (decisionsFor(c.id) ? 2 : 0) + (toolsFor(c.id).length ? 2 : 0) }),
   },
   {
-    // Every other section on a cancer page is named for what a reader would do or ask ("What it is", "Finding it",
-    // "Treating it", "Living with it"). "Evidence" was the one abstract noun, and it did not say what was inside:
-    // trials recruiting now, the landmark trials, the trials on this cancer's subtypes, the key papers and the
-    // latest literature. The id stays `evidence`, so /cancers/<id>/evidence/ and every link to it keep working.
-    id: "evidence", title: "Trials and papers", glyph: "flask",
+    id: "evidence", title: "Evidence", glyph: "flask",
     purpose: "Trials recruiting now, the landmark trials, the trials held by this cancer's subtypes, the key papers and what they mean, the latest literature, and the milestones year by year.",
     fields: ["history", "keyPapers", "trials"],
     patches: ["spikes/<cancer>-evidence*.ts", "spikes/<cancer>-registry-trials.ts", "data/key-papers/", "Europe PMC (LatestPapers)", "lib/cancer-rollup.ts (family roll-up)"],
