@@ -8,6 +8,7 @@ Regenerated from the commit log each time the site ships (`scripts/changelog-syn
 
 ### 28 September 2026
 - The page that shows what is waiting, with the queue read from the open pull requests
+- A command for a person to type is not a change to the product
 - The queue is a rendering of the open pull requests, refreshed on every ship
 - The admin page waiting in its own queue
 - The page that shows what is waiting, and says plainly what it is not
