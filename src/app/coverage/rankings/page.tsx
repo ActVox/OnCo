@@ -111,7 +111,7 @@ export default function CoverageRankingsPage() {
         </Section>
 
         <Section id="international" title="Drug payment in ten countries" aside={<span className="text-sm text-muted">{INTL_ROWS.length} countries</span>}>
-          <p className="text-sm text-muted mb-3 max-w-3xl">Funding model, what the patient typically pays as the source states it, and who decides whether a new drug is funded. Appraisal verdicts per product and country are on the <Link className="underline" href="/hta/">HTA decisions</Link> page.</p>
+          <p className="text-sm text-muted mb-3 max-w-3xl">Funding model, what the patient typically pays as the source states it, and who decides whether a new drug is funded. Appraisal verdicts per product and country are on <Link className="underline" href="/hta/">funding verdicts by country</Link>.</p>
           <div className="card results-table overflow-x-auto">
             <table className="onco">
               <thead><tr><th scope="col">Country</th><th scope="col">Funding model</th><th scope="col">Typical patient share</th><th scope="col" className="hidden lg:table-cell">Who decides</th><th scope="col" className="hidden md:table-cell">Source</th></tr></thead>

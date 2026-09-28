@@ -13,7 +13,7 @@ const PAGES: Array<{ href: string; title: string; blurb: string }> = [
   { href: "/coverage/uk/", title: "United Kingdom", blurb: "NICE technology appraisals, the Cancer Drugs Fund and SMC decisions for every approved product, plus how NHS cancer care works." },
   { href: "/coverage/us/", title: "United States", blurb: "Medicare, Medicaid and commercial coverage rules, published prices, prior authorisation, and manufacturer assistance for each product." },
   { href: "/coverage/rankings/", title: "Coverage rankings", blurb: "US insurers and plan types ranked by one published metric at a time: denial and overturn rates, Star Ratings, enrolment." },
-  { href: "/hta/", title: "HTA decisions", blurb: "Health technology assessment verdicts by country: NICE, SMC, Germany's G-BA, France's HAS, Canada's CDA and Australia's PBAC." },
+  { href: "/hta/", title: "Funding verdicts by country", blurb: "Health technology assessment verdicts by country: NICE, SMC, Germany's G-BA, France's HAS, Canada's CDA and Australia's PBAC." },
   { href: "/assistance/", title: "Financial help", blurb: "Manufacturer programmes, charities and national schemes by country and product, with eligibility and how to apply." },
   { href: "/costs/", title: "Cutting cancer care costs", blurb: "Each cost driver paired with what is being done about it, with year and source, and the ideas that could do more." },
 ];

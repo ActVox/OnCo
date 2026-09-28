@@ -5,7 +5,7 @@ import { GroupLanding } from "@/components/GroupLanding";
 import { graph } from "@/lib/graph";
 import { KIND_META, KINDS } from "@/lib/schema";
 import { KIND_COLOR } from "@/lib/text";
-export const metadata: Metadata = pageMeta({ title: "Map", description: "The corpus by kind: every object with a TL;DR and everything connected to it.", path: "/map/" });
+export const metadata: Metadata = pageMeta({ title: "Cancers & treatments", description: "The corpus by kind: every object with a TL;DR and everything connected to it.", path: "/map/" });
 export default function Page() {
   const g = graph();
   return (

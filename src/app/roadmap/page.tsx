@@ -269,7 +269,7 @@ export default function RoadmapPage() {
             <div className="mt-3 flex flex-wrap gap-2">
               <a href={proposeUrl} rel="noopener" className="rounded-lg bg-foreground text-background px-3 py-1.5 text-xs font-medium hover:brightness-110">Propose an idea on GitHub</a>
               <Link href="/gaps/" className="rounded-lg border border-border px-3 py-1.5 text-xs hover:bg-foreground/5">Gaps to fill</Link>
-              <Link href="/audit/" className="rounded-lg border border-border px-3 py-1.5 text-xs hover:bg-foreground/5">Audit</Link>
+              <Link href="/audit/" className="rounded-lg border border-border px-3 py-1.5 text-xs hover:bg-foreground/5">Automated checks</Link>
               <Link href="/suggest/" className="rounded-lg border border-border px-3 py-1.5 text-xs hover:bg-foreground/5">Suggest an edit</Link>
             </div>
           </div>

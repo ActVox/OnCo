@@ -315,3 +315,60 @@ complaints about the same page, each of which I have been fixing one at a time: 
 panel, the summary block, the also-known-as line, the section names, the wall of links, and now the machine
 links. Patching them one by one produces a page nobody designed. The deliverable here is a plan the owner reads
 and approves before anything else is changed.
+
+## 12. Every page title, not just the cancer sections (owner, 28 September 2026)
+
+"do a review for poorly worded sections and their improved versions eg Forest plot for https://onco.cc/forest/
+just sits there without any context. we need clean and correct names for all sections that are functional and not
+vague."
+
+`/forest/` is the example and it is a fair one. Its heading is "Forest plot", which names the drawing rather than
+the question, and assumes the reader already knows what a forest plot is. Its own description says what it is
+for and says it well: "Every hazard ratio with its confidence interval in the OnCo trial corpus, side by side on
+one log axis." The heading should carry that, not the chart's name.
+
+Measured: **127 top-level pages carry a title, and 85 of them are one or two words.** Terse is not the same as
+vague, and several are exactly right (`/changelog/`, `/contributors/`, `/corrections/`). What needs changing is
+the title that names a format instead of a question ("Forest plot"), the one that could belong to any site
+("Explore", "Compare", "Atlas", "Evidence"), and the one that needs the reader to know a term before they can
+decide whether to click.
+
+The test to apply to each: read only the heading, and say what you would find on the page and why you would go
+there. If you cannot, the heading is doing the wrong job.
+
+**Done, 28 September 2026.** Every page, kind index and navigation label was read against that test and the
+review is written down page by page in `docs/PAGE-TITLES.md`: 30 titles changed (22 of them navigation labels
+too, with the eight translations and every inbound link moved with them), 17 proposed and left to the owner
+because they are taste or carry a cost outside the title. `/forest/` is now "How much each trial changed the
+risk". No route changed, and renamed pages keep their old names as search aliases through a new `aka` field on
+`NavItem`.
+
+## 13. Visual first (owner, 28 September 2026)
+
+"i dont want the custom animations to fall too far below the main text on the page, can you bring them up, so its
+more visual first for pages."
+
+The drawings the site makes for itself (the molecule viewer, the mechanism animation, the drug schematic, the
+organ drawings) render after the prose blocks on a record page: on a drug page `SeeItInAction` comes below the
+summary and the fields. A reader arrives at a page of text with the picture below the fold, when the picture is
+often the faster answer and is the thing this site has that others do not.
+
+This is a question of block order, so it belongs to the cancer-page plan (section 11) rather than to a separate
+patch, and the plan should treat "visual first" as a stated preference of the owner's rather than an open
+question. The measurement to take is where the first custom drawing appears in document order at 390 px, per
+kind of record, not where the first `<svg>` appears: every page has icons in its header, so a naive search says
+one per cent and means nothing.
+
+## 14. The prevalence table scrolls sideways before it says anything (owner, 28 September 2026)
+
+"`/prevalence/` has a table that has massive horizontal scrolling straight off the bat."
+
+Measured: **23 columns and 208 rows**, one column per cancer, so the table is as wide as the corpus is broad and
+gets wider every time a cancer is added. It is wrapped in a horizontal scroller, which is why it does not break
+the layout, and why the reader meets a wall instead. A target's prevalence in one cancer is the fact a reader
+wants; the matrix is the shape the data is stored in, not the shape the question has.
+
+Worth considering rather than assuming: pick the cancer first and show one column as a list; or keep the matrix
+for the desktop reader who genuinely wants to compare across cancers and give everyone else the single-cancer
+view by default. Whatever is chosen, a table that grows a column per cancer cannot be the first thing on the
+page. Note `/biomarker-matrix/` is likely the same shape and should be checked at the same time.

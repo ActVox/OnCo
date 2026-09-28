@@ -8,7 +8,7 @@ import { CompletenessTable, ofText } from "@/components/CompletenessTable";
 import { Container, GroupKicker, PageHeader } from "@/components/ui";
 
 export const metadata: Metadata = pageMeta({
-  title: "Completeness",
+  title: "How much of what exists is in OnCo",
   description: "How much of what exists is in OnCo: every kind against a sourced count of the world (FDA-approved cancer drugs, NCI-designated centres, OECI members, MEDLINE oncology journals, ClinicalTrials.gov, and more), with the missing items named and an add-this link for each.",
   path: "/completeness/",
 });
@@ -82,7 +82,7 @@ export default function CompletenessPage() {
   const ownKinds = rows.filter((r) => r.den.total === null);
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="learn" />} title="Completeness"
+      <PageHeader kicker={<GroupKicker id="learn" />} title="How much of what exists is in OnCo"
         lede="Coverage gauges say whether each record is complete. This page asks the other question: of everything that exists, how much is here? Each row sets an OnCo count against a sourced count of the world, on the same scope, and names what is missing." />
       <Container className="pb-16">
         <p className="text-sm text-muted mb-6 max-w-3xl">

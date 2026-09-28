@@ -9,7 +9,7 @@ import { SpreadMap, WhatHelpsLine } from "@/components/SpreadMap";
 import { GentleSection } from "@/components/GentleSection";
 import { WhatIsBeingDone } from "@/components/WhatIsBeingDone";
 
-export const metadata: Metadata = pageMeta({ title: `Atlas: ${SPREAD_LABELS.title.toLowerCase()}`, description: "For each cancer, what treats advanced disease and how detection has improved, then the sourced maps of the sites it can reach, ranked by how often, on the body map.", path: "/atlas/spread/" });
+export const metadata: Metadata = pageMeta({ title: SPREAD_LABELS.title, description: "For each cancer, what treats advanced disease and how detection has improved, then the sourced maps of the sites it can reach, ranked by how often, on the body map.", path: "/atlas/spread/" });
 
 /** Detection advances named in the corpus, linked to their technology pages where one exists. */
 const DETECTION: Array<{ id: string; text: string }> = [
@@ -26,7 +26,7 @@ export default function SpreadAtlasPage() {
   const detection = DETECTION.map((d) => ({ ...d, e: g.get(d.id) }));
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="map"><Link href="/atlas/" className="kicker hover:text-foreground">· Atlas</Link></GroupKicker>} title={SPREAD_LABELS.title}
+      <PageHeader kicker={<GroupKicker id="map"><Link href="/atlas/" className="kicker hover:text-foreground">· Where a cancer starts and spreads</Link></GroupKicker>} title={SPREAD_LABELS.title}
         lede={`For ${entries.length} cancers: what treats advanced disease today, how detection has improved, and then, behind a click, the sourced maps of the sites each cancer can reach over the whole course of the illness. Most people reading this do not have advanced disease; where a cancer can go decides which scans are done at staging and follow-up, and every site listed has a treatment approach.`} />
       <Container className="pb-16 space-y-8">
         <section className="grid gap-4 lg:grid-cols-2">

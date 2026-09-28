@@ -27,7 +27,7 @@ export default function TaggedIndex() {
     <>
       <PageHeader kicker={<GroupKicker id="find"><span className="chip border bg-accent-soft text-accent border-accent/30 inline-flex items-center gap-1"><TagGlyph />{tags.length} tags</span></GroupKicker>} title="Tags"
         lede={`${tags.length} tags on ${records.size.toLocaleString("en-GB")} records. A tag groups records across kinds: a cancer, its trials, the people who work on it. Each tag page is a power search over everything carrying it, with kind, cancer, phase and year filters. ${described} tags have a one-line description written from how they are used; the rest say so.`}
-        right={<Link href="/explore/" className="chip border bg-card border-border hover:bg-foreground/5 text-sm" title="Pick a cancer, switch kind, get a ranked and sortable list">Explore →</Link>} />
+        right={<Link href="/explore/" className="chip border bg-card border-border hover:bg-foreground/5 text-sm" title="Pick a cancer, switch kind, get a ranked and sortable list">Browse →</Link>} />
       <Container className="pb-16 space-y-10">
         {BANDS.map((band, i) => {
           const max = i === 0 ? Infinity : BANDS[i - 1].min;

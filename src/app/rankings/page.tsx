@@ -16,7 +16,7 @@ export default function RankingsHub() {
   return (
     <>
       <PageHeader
-        kicker={<GroupKicker id="find"><span className="kicker">·</span><Link href="/explore/" className="kicker hover:underline">Explore</Link><span className="kicker">·</span><Link href="/coverage/rankings/" className="kicker hover:underline">Coverage rankings</Link></GroupKicker>}
+        kicker={<GroupKicker id="find"><span className="kicker">·</span><Link href="/explore/" className="kicker hover:underline">Browse by cancer and kind</Link><span className="kicker">·</span><Link href="/coverage/rankings/" className="kicker hover:underline">Coverage rankings</Link></GroupKicker>}
         title="Rankings"
         lede={`${all.length} league tables, each computed from counts and dates already in the corpus: no weighting, no composite score, no number that cannot be traced to a record. Every table says in one sentence what it counts, shows the top ${TOP}, and discloses how completely the counted field is filled. Ties are broken by name.`}
       />

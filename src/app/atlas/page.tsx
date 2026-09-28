@@ -8,14 +8,14 @@ import { Container, GroupKicker, PageHeader } from "@/components/ui";
 import { OrganSchematic } from "@/components/OrganSchematic";
 import { SpreadMap } from "@/components/SpreadMap";
 
-export const metadata: Metadata = pageMeta({ title: "Atlas", description: "Visual atlas: organ schematics with subsites and lymph node stations, and metastatic spread maps for each cancer.", path: "/atlas/" });
+export const metadata: Metadata = pageMeta({ title: "Where a cancer starts and spreads", description: "Visual atlas: organ schematics with subsites and lymph node stations, and metastatic spread maps for each cancer.", path: "/atlas/" });
 
 export default function AtlasPage() {
   const g = graph();
   const crc = SPREAD.find((s) => s.cancer === "colorectal") ?? SPREAD[0];
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="map" />} title="Atlas" lede="Two ways of seeing a cancer's geography: the organ it starts in, with subsites and the lymph node stations it drains to, and the body map of where it spreads." />
+      <PageHeader kicker={<GroupKicker id="map" />} title="Where a cancer starts and spreads" lede="Two ways of seeing a cancer's geography: the organ it starts in, with subsites and the lymph node stations it drains to, and the body map of where it spreads." />
       <Container className="pb-16">
         <div className="grid gap-6 md:grid-cols-2">
           <Link href="/atlas/organs/" className="card overflow-hidden hover:shadow-md transition block">

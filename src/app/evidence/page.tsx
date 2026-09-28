@@ -8,7 +8,7 @@ import { StaticTable } from "@/components/filters/StaticTable";
 import { pageRows } from "@/lib/static-tables";
 import { EVIDENCE_COLUMNS, EVIDENCE_TABLE, evidenceRanked, evidenceRows } from "@/lib/tables/evidence";
 
-export const metadata: Metadata = pageMeta({ title: "Evidence", description: "Every trial ranked by evidence strength, with its primary endpoint drawn as people out of 100, and the scoring formula disclosed.", path: "/evidence/" });
+export const metadata: Metadata = pageMeta({ title: "Trials ranked by strength of evidence", description: "Every trial ranked by evidence strength, with its primary endpoint drawn as people out of 100, and the scoring formula disclosed.", path: "/evidence/" });
 
 export default function EvidencePage() {
   const ranked = evidenceRanked();
@@ -17,7 +17,7 @@ export default function EvidencePage() {
   const table = pageRows(EVIDENCE_TABLE, evidenceRows(ranked));
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="intel" />} title="Evidence"
+      <PageHeader kicker={<GroupKicker id="intel" />} title="Trials ranked by strength of evidence"
         lede="Every trial in OnCo ranked by a disclosed evidence-strength score, with its primary endpoint drawn as people out of 100 or as median months. The score measures how much and what kind of evidence exists, not how large the benefit is." />
       <Container className="pb-16">
         <details className="card p-4 text-sm mb-8">

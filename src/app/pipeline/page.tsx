@@ -28,7 +28,7 @@ active assets     = corpus products aimed at the target, excluding
 addressable/year  = sum over cancers with a prevalence figure of
                     GLOBOCAN incidence (world) x subtype share
                     x prevalence x first setting share, midpoint`}</pre>
-            <p>The population term is the <Link href="/market/" className="underline">addressable population estimator</Link> run for the world with the broadest setting. Targets whose cancers have no GLOBOCAN estimate (sarcoma, neuroendocrine tumours) or no parseable prevalence get no index, not a zero.</p>
+            <p>The population term is <Link href="/market/" className="underline">how many people a treatment could reach</Link>, run for the world with the broadest setting. Targets whose cancers have no GLOBOCAN estimate (sarcoma, neuroendocrine tumours) or no parseable prevalence get no index, not a zero.</p>
           </div>
           <div className="card p-5 space-y-2">
             <h2 className="font-semibold text-base">What it does and does not say</h2>

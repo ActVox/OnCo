@@ -207,7 +207,7 @@ export function Dossier({ target: t }: { target: Target }) {
       </Section>
 
       <Section id="resistance" title="Resistance routes" aside={<Link href="/resistance/gaps/" className="text-xs underline text-muted">Unaddressed routes →</Link>}>
-        {d.mechanisms.length === 0 ? <p className="text-sm text-muted">The resistance atlas has no route that names this target.</p> : (
+        {d.mechanisms.length === 0 ? <p className="text-sm text-muted">No recorded escape route names this target.</p> : (
           <div className="grid gap-3 md:grid-cols-2">
             {d.mechanisms.map(({ classId, drugClass, m }) => {
               const cat = CATEGORY_BY_ID[m.category];

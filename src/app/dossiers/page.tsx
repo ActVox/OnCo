@@ -35,7 +35,7 @@ export default function DossiersIndex() {
     { key: "trials", label: "Trials", sortable: true, numeric: true, hide: "hidden sm:table-cell" },
     { key: "prevalence", label: "Prevalence rows", sortable: true, numeric: true, hide: "hidden md:table-cell", tip: "Cancers with a sourced prevalence figure for this target." },
     { key: "pathways", label: "Pathways", sortable: true, numeric: true, hide: "hidden lg:table-cell", tip: "Pathway diagrams where this target is a node." },
-    { key: "resistance", label: "Resistance routes", sortable: true, numeric: true, hide: "hidden lg:table-cell", tip: "Escape routes in the resistance atlas that involve this target." },
+    { key: "resistance", label: "Resistance routes", sortable: true, numeric: true, hide: "hidden lg:table-cell", tip: "Recorded escape routes that involve this target." },
     { key: "questions", label: "Open questions", sortable: true, numeric: true, hide: "hidden xl:table-cell" },
   ];
   const withHotspots = rows.filter((r) => r.facets.hotspots[0] === "Hotspot map").length;

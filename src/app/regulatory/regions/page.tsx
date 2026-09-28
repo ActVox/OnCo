@@ -7,7 +7,7 @@ import { Container, GroupKicker, PageHeader } from "@/components/ui";
 import { RegionMatrix, type MatrixRow } from "@/components/RegionMatrix";
 import { REGIONS, REGION_META, regionalApprovals, approvedRegions } from "@/data/regional-approvals";
 
-export const metadata: Metadata = pageMeta({ title: "Regulatory regions", description: "Which cancer drugs are approved in the US, EU, UK, Japan, China, Australia and India, where the gaps are, who approves first, and how long the rest of the world waits.", path: "/regulatory/regions/" });
+export const metadata: Metadata = pageMeta({ title: "Approval differences by country", description: "Which cancer drugs are approved in the US, EU, UK, Japan, China, Australia and India, where the gaps are, who approves first, and how long the rest of the world waits.", path: "/regulatory/regions/" });
 
 export default function RegionsPage() {
   const g = graph();

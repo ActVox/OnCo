@@ -83,7 +83,7 @@ export default function PreprintsPage() {
               <span>Since published: <b className="text-foreground">{published.length.toLocaleString("en-GB")}</b></span>
               <span>Topics covered so far: <b className="text-foreground">{Object.keys(index.entities).length.toLocaleString("en-GB")}</b> of {totalTopics.toLocaleString("en-GB")} ({active.toLocaleString("en-GB")} with a preprint in the window)</span>
               <span>Source: {index.source}</span>
-              <span>Refreshed weekly; schedule on the <Link className="underline" href="/status/">data currency page</Link></span>
+              <span>Refreshed weekly; schedule on <Link className="underline" href="/status/">when each feed last ran</Link></span>
             </div>
 
             {partial && <p className="card p-4 text-sm text-muted max-w-3xl">Coverage is partial: {Object.keys(index.entities).length.toLocaleString("en-GB")} of {totalTopics.toLocaleString("en-GB")} targets, products and technologies have been fetched so far. The weekly workflow resumes from this snapshot and completes the rest; topics not yet covered still have a live preprint feed on their own pages under &ldquo;Latest papers&rdquo;.</p>}

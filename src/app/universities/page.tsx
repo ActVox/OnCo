@@ -9,7 +9,7 @@ import { OPENALEX, OutputTable, UniversityOutputTable, readResearchIndex } from 
 import { pageRows } from "@/lib/static-tables";
 import { CORPUS_COLUMNS, UNIVERSITY_GROUPED_TABLE, UNIVERSITY_OUTPUT_TABLE, UNIVERSITY_SCORE_TABLE, universityGroupedRankingRows, universityOutputRankingRows, universityScoreRows } from "@/lib/tables/universities";
 
-export const metadata: Metadata = pageMeta({ title: "Research output ranking", description: "Universities and cancer centres ranked by oncology research output: OpenAlex counts, external bibliometric leaders, and the corpus-derived score.", path: "/universities/" });
+export const metadata: Metadata = pageMeta({ title: "Universities by research output", description: "Universities and cancer centres ranked by oncology research output: OpenAlex counts, external bibliometric leaders, and the corpus-derived score.", path: "/universities/" });
 
 export default function Universities() {
   const g = graph();
@@ -23,7 +23,7 @@ export default function Universities() {
   const total = (t: { rows: unknown[]; more?: { total: number } }) => t.more?.total ?? t.rows.length;
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="who" />} title="University research output"
+      <PageHeader kicker={<GroupKicker id="who" />} title="Universities by research output"
         lede="Three layers, each disclosed. First, the external bibliometric leaders. Second, oncology publication counts pulled from OpenAlex for every institution in OnCo, with the exact query. Third, the corpus-derived score, which measures presence in this evidence base rather than output."
         right={<div className="flex gap-2"><Link href="/institutions/" className="rounded-lg border border-border bg-card px-4 py-2 text-sm font-medium">Map & ranking</Link><Link href="/leadership/" className="rounded-lg border border-border bg-card px-4 py-2 text-sm font-medium">Trial leadership</Link></div>} />
       <Container className="pb-16">
