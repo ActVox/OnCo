@@ -219,3 +219,99 @@ through a summary of it.
 3. **A page for oncolytic virotherapy**, and the technologies and people it depends on, prompted by the account of
    Beata Halassy, the Croatian virologist who treated her own recurrent breast cancer with intratumoural measles
    virus and then vesicular stomatitis virus, and published it.
+
+## 8. What a reader meets first on a record page (owner, 28 September 2026)
+
+Three asks in one sitting, all the same problem: the top of a record page is full of things that are not the
+record. Measured before any change.
+
+1. **The family strip.** `/cancers/tnbc/` lists its parent and all fourteen subtypes before anything else. Sixteen
+   families have more than six children; sarcoma has 26 and non-small-cell lung cancer 22, about a thousand
+   characters of chips. Show a few and collapse the rest. Ordering matters as much as the count: alphabetically,
+   triple-negative breast cancer leads with adenoid cystic and apocrine carcinoma, which almost nobody reading
+   that page has. Ordered by what the corpus actually holds for each child, it leads with metastatic and early
+   triple-negative disease, sarcoma leads with gastrointestinal stromal tumour and osteosarcoma, and non-small-cell
+   lung cancer with the EGFR-mutated and resectable pages. That is measurable rather than taste.
+2. **The model panel** sits high in the right-hand column. It belongs at the bottom if it is worth keeping.
+3. **The summary block.** 1,329 records carry a summary over 1,800 characters and 282 over 3,000; the longest are
+   21,489 characters over twelve paragraphs (pancreatic) and 21,322 (triple-negative breast cancer). Show about
+   two paragraphs with a way to expand, so the rest of the page is reachable.
+4. **The also-known-as line.** Rendered as `text-xs text-muted text-end max-w-xs` in the page header's right
+   slot: the smallest type on the page, grey, right-aligned, in a narrow column, as one comma-separated run. On
+   `/cancers/tnbc/` that is five alternative names a reader might have been given by a doctor, set in the least
+   readable thing on the page. 6,995 records carry one, 819 carry more than six names and 259 more than twelve.
+   These are the words a person heard in a clinic and is searching for; they should be easy to read.
+
+## 9. Three more on the record page (owner, 28 September 2026)
+
+1. **"Evidence" is not a useful section name.** Every other section on a cancer page is in the reader's own
+   words ("What it is", "Finding it", "Treating it", "Living with it", "What is coming"); "Evidence" is the
+   only abstract noun among them. What the section actually holds is trials recruiting now, the landmark
+   trials, the trials on this cancer's subtypes, the key papers and what they found, and the latest literature.
+   Rename the title; keep the `evidence` slug so published links keep working.
+2. **The print control.** The owner's objection is that printing is a browser function and does not need a
+   button. That is true of one of its three modes and not the other two. `src/components/PrintButton.tsx`
+   offers Full page, This section, and **Patient pack**: every section in plain language, dated, with a QR code
+   back to the page and the disclaimer. The pack is not something a browser does. So: take the control off the
+   pages where it only reprints what is on screen, and where the pack is the point, label it as the pack rather
+   than as printing. It appears on eighteen surfaces today, including the red-flag card and the appointment pack.
+3. **The human-review block.** "Human reviews sit on top of the panel. Add a clinical review or see the review
+   queue" comes off the record pages. The owner suggests instead a way to open a GitHub issue for the page, so
+   the invitation is closer to an action. This is the same component as the model panel move already in hand.
+
+## 10. Section names and the right-hand column (owner, 28 September 2026)
+
+**1. The section names are vague, and several lean on "it".** The owner: "the title 'Finding it' seems very
+unclear ie dont use 'it' ... if this is diagnosis then call it that. 'the science' is vague as well, what is the
+section name really. 'where you are' is also vague, 'what is coming' is vague -> 'Pipeline to combat this cancer'
+might be better."
+
+What each section actually holds, and a name that says so. The ids do not change, so every published link and
+every anchor keeps working.
+
+| now | holds | proposed |
+| --- | --- | --- |
+| Overview | TL;DR, the family, the organ, who gets it, state of the art | Overview |
+| What it is | anatomy, the subtypes, staging, where it spreads | Types and stages |
+| Finding it | symptoms, how it is confirmed, screening, biomarkers | Diagnosis and screening |
+| Treating it | standard of care by setting, medicines, surgery, radiotherapy, regimens | Treatment |
+| Trials and papers | recruiting trials, landmark trials, key papers, latest literature | Trials and papers |
+| The science | targets and their prevalence, pathways, mechanics, preclinical models | Biology and targets |
+| Where you are | cases by country, national pathways, expert centres | Countries and centres |
+| Living with it | decisions, decision aids, when to call, first sixty days, questions | Decisions and support |
+| What is coming | what is in development, open problems, roadmaps, what reports next | In development |
+| Data | connected records, notes, the machine twins, provenance | Data |
+
+Each rename needs the label in all nine languages, as the `evidence` rename did.
+
+**2. The right-hand column is a wall of links.** "a massive link panel on the right side bar is not good design eg
+'Sources & links' this might be better as a table at the bottom of the page. it might be ok to have the primary
+links eg wikipedia but maybe its better to have more 'object' focused data eg the AKA or other things in there."
+
+Measured: `e.links` renders as an unbounded list in the aside. Triple-negative breast cancer has **109** links,
+pancreatic **124**, colorectal 106, gallbladder 99. 47 records carry more than eight and 15 more than twenty, so
+this is worst on exactly the pages that had the most work put into them. The sources belong where they can be
+read and sorted; the column should carry what identifies the record.
+
+**3. The years index is weakly titled.** The owner: "this is a weak title for the top bar. years of what?
+Something more functional eg 'Oncology: the timeline' might be better?" The kind's `title` is "Years and the
+timeline" and the navigation entry is the bare word "Years". Same fix as the section names, same nine languages.
+Note there is already a `/timeline/` page: whatever these two are called, a reader should be able to tell which
+is the chart over the whole field and which is the index of single years.
+
+## 11. The cancer page: machine links, and a plan (owner, 28 September 2026)
+
+**1. The machine links are in a reader's way.** "having 'JSON for agents' at the top of pages gets in the way of
+things for humans, have them at the bottom of the page." On `/cancers/tnbc/` a "Data · JSON" control sits in the
+right-hand column about two fifths of the way down the markup, which on a phone stacks above the reader's own
+content. Agents and crawlers are served first by `<link rel="alternate">` in the head, the context files and the
+API, none of which a reader sees; the visible block can sit at the foot of the page without losing any of that.
+
+**2. The information architecture needs a plan, not another patch.** "the cancer pages have become very poor info
+arch. i want to see an amzinfg plan on how to improve them."
+
+This is the honest reading of everything above it in this document. Sections 8, 9 and 10 are seven separate
+complaints about the same page, each of which I have been fixing one at a time: the family strip, the model
+panel, the summary block, the also-known-as line, the section names, the wall of links, and now the machine
+links. Patching them one by one produces a page nobody designed. The deliverable here is a plan the owner reads
+and approves before anything else is changed.

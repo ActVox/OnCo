@@ -333,6 +333,7 @@ export const ar: UiDict = {
   "l.Replication": "التكرار",
   "l.Rationale": "المسوغ",
   "l.Evidence": "الأدلة",
+  "l.Trials and papers": "التجارب والأوراق البحثية",
   "l.Confidence": "درجة الثقة",
   "l.Hypothesis": "الفرضية",
   "l.Proposed test": "الاختبار المقترح",
