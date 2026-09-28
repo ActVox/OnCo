@@ -365,3 +365,24 @@ Worth considering rather than assuming: pick the cancer first and show one colum
 for the desktop reader who genuinely wants to compare across cancers and give everyone else the single-cancer
 view by default. Whatever is chosen, a table that grows a column per cancer cannot be the first thing on the
 page. Note `/biomarker-matrix/` is likely the same shape and should be checked at the same time.
+
+## 15. The front page does not lift the best of the site (owner, 28 September 2026)
+
+"we have some really nice pages eg /drugs/ and /fronts/ and the molecules that have great visuals, especially
+molecules, we could turn the main homepage to have these sections that go off to other parts of the site in
+sections. we do this partially but dont really lift the best areas of the site much to the front page."
+
+Measured: the home page links to **140 distinct sections**, which is the problem rather than the achievement. It
+links to everything and shows almost none of it. `/drugs/` renders 110 drawings, `/fronts/` 90, `/molecules/` 57
+in a page that is 1.2 MB largely because the structures are real. The home page carries 145, but most are icons
+and chrome rather than the work.
+
+So the ask is not more links. It is that the front page should **show** two or three of the site's best things at
+the size they deserve and let a reader fall into them, rather than listing 140 destinations in text. The
+molecules are the clearest case: nothing else on the open web renders oncology chemistry like that, and on the
+front page it is a word in a list.
+
+This belongs to `/v2/`, which exists precisely so the front page is not changed without review. `/v2/` currently
+argues about order and tasks and is deliberately plain; the next version should test whether the best of the site,
+shown rather than named, is a better first screen than either the graph, the list or the task blocks. The owner
+reviews `/v2/`; the live front page does not change until he says so.
