@@ -1,14 +1,5 @@
 [
   {
-    "branch": "product/section-names-and-record-page",
-    "why": "every cancer-page section named for what is in it",
-    "pr": "https://github.com/judegomila/OnCo/pull/104",
-    "preview": "",
-    "files": 34,
-    "proposed": "2026-09-28",
-    "state": "waiting"
-  },
-  {
     "branch": "product/page-titles",
     "why": "30 page titles named for the question the page answers",
     "pr": "https://github.com/judegomila/OnCo/pull/105",
