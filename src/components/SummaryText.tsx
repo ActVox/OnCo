@@ -3,10 +3,10 @@
 import { useState, type ReactNode } from "react";
 import { LANGS, useLayer } from "@/lib/layer";
 import { dirFor, useT } from "@/lib/i18n/ui";
-import { paragraphs } from "@/lib/text";
 import { translationFixUrl } from "@/lib/issue-links";
 import type { Kind } from "@/lib/kinds";
 import type { SummaryLang, SummaryTranslations } from "@/lib/summary-translations";
+import { ReadMore, splitSummary } from "./ReadMore";
 
 /**
  * The long summary of a record in the reader's language when a valid machine translation exists, else the English.
@@ -24,6 +24,7 @@ export function SummaryText({ e, translations, children }: { e: { kind: Kind; id
   const lang = layer.lang;
   const tr = lang === "en" ? undefined : translations[lang as SummaryLang];
   if (!tr) return <>{children}</>;
+  const translated = splitSummary(tr.text);
   const native = LANGS.find((l) => l.code === lang)?.native ?? lang;
   const label = LANGS.find((l) => l.code === lang)?.label ?? lang;
   const line = "mt-2 text-xs text-muted flex flex-wrap items-center gap-x-2 gap-y-1";
@@ -39,8 +40,11 @@ export function SummaryText({ e, translations, children }: { e: { kind: Kind; id
   }
   return (
     <div>
+      {/* The translation folds on the same rule as the English (ReadMore.tsx), so a reader in Spanish or Chinese
+          meets the same opening and the same way to the rest of the page. */}
       <div lang={lang} dir={dirFor(lang)} className="prose-onco text-[15px] leading-relaxed max-w-3xl">
-        {paragraphs(tr.text).map((p, i) => <p key={i}>{p}</p>)}
+        {translated.lead.map((p, i) => <p key={i}>{p}</p>)}
+        {translated.rest.length > 0 && <ReadMore count={translated.rest.length}>{translated.rest.map((p, i) => <p key={i}>{p}</p>)}</ReadMore>}
       </div>
       <p className={line} lang={lang} dir={dirFor(lang)} title={`${tr.model}, ${tr.date}`}>
         <span>{t("summary.mt")};</span>

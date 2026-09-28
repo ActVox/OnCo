@@ -96,7 +96,7 @@ export function AssistanceBrowser({ rows, schemes, orgs }: { rows: AccessRow[]; 
           <span className="ml-auto text-sm text-muted tabular-nums">{filtered.length} rows · {withAssistance} with a manufacturer programme</span>
           <PrintButton className="text-sm text-muted" />
         </div>
-        <p className="text-[11px] text-muted mt-2">Country follows the region switcher in the header; products are seeded from the treatments in your browser profile. Nothing leaves your device. Print gives a one-page list to take to a social worker or financial navigator.</p>
+        <p className="text-[11px] text-muted mt-2">Country follows the region switcher in the header; products are seeded from the treatments in your browser profile. Nothing leaves your device. The patient pack gives a one-page list to take to a social worker or financial navigator.</p>
       </div>
 
       <div className="hidden print:block mb-4">

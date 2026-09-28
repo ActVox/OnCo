@@ -681,6 +681,15 @@ html[dir="rtl"] code, html[dir="rtl"] kbd, html[dir="rtl"] .tabular-nums { unico
   [data-print="pack"] .print-technical { display: none !important; }
   /* Interactive-only affordances. */
   button, [role="menu"], .skip-link, kbd { display: none !important; }
+  /*
+    Folds (the summary's "Read more", the family strip's extra subtypes, the rest of the also-known-as names) print
+    their contents and not their handle. PrintButton opens every [data-fold] before it calls window.print(), which
+    covers the pack and both print modes; the pseudo-element rule covers a plain Cmd-P with JavaScript off, where
+    the browser would otherwise skip a collapsed fold. Deliberate folds such as the survival tables (GentleSection)
+    are not touched: they are closed so that a reader is not ambushed by them, on paper as on screen.
+  */
+  details[data-fold] > summary { display: none !important; }
+  details[data-fold]::details-content { content-visibility: visible; }
   @page { margin: 14mm 12mm 16mm; }
 }
 

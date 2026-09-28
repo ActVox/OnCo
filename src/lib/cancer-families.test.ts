@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { graph } from "./graph";
+import { FAMILY_CHIPS, corpusDepth, familyChildren, familyStrip } from "./cancer-families";
 import type { Cancer } from "./schema";
 
 /**
@@ -166,5 +167,60 @@ describe("cancer families", () => {
       expect(re, `no parent phrase for ${c.parent}`).toBeDefined();
       expect(re.test(c.tldr), `${c.id} tldr does not name ${c.parent}: ${c.tldr.slice(0, 80)}`).toBe(true);
     }
+  });
+});
+
+/**
+ * The order and the cap of the family strip (src/lib/cancer-families.ts). The owner measured the fault on
+ * /cancers/tnbc/ on 28 September 2026: the strip led with adenoid cystic and apocrine carcinoma of the breast,
+ * which almost nobody reading that page has, and the two pages most of them need were seventh and eighth.
+ */
+describe("family strip order and cap", () => {
+  const g = graph();
+  const cancers = g.kind("cancer") as Cancer[];
+  const childrenOf = (id: string) => cancers.filter((c) => c.parent === id);
+
+  it("leads with the children the corpus holds most for, not the alphabet", () => {
+    const leaders: Record<string, string[]> = {
+      tnbc: ["tnbc-early", "tnbc-metastatic"],
+      sarcoma: ["osteosarcoma", "gist"],
+      nsclc: ["egfr-mutant-nsclc", "resectable-nsclc"],
+      pancreatic: ["metastatic-pdac", "locally-advanced-pdac"],
+    };
+    for (const [parent, first] of Object.entries(leaders)) {
+      const ordered = familyChildren(parent, g).map((x) => x.id);
+      expect(ordered.slice(0, first.length).sort(), `${parent} leaders`).toEqual([...first].sort());
+      // And it is genuinely a different order: the alphabetically first child is not the leader.
+      const alphabetical = childrenOf(parent).slice().sort((a, b) => a.name.localeCompare(b.name))[0];
+      expect(corpusDepth(g.must(ordered[0]) as Cancer, g), `${parent}: ${ordered[0]} against ${alphabetical.id}`).toBeGreaterThan(corpusDepth(alphabetical, g));
+    }
+  });
+
+  it("orders every family deepest first, with ties by name, and ranks every child", () => {
+    for (const c of cancers) {
+      const kids = familyChildren(c.id, g);
+      for (let i = 1; i < kids.length; i++) {
+        const a = corpusDepth(kids[i - 1], g), b = corpusDepth(kids[i], g);
+        expect(a >= b, `${c.id}: ${kids[i - 1].id} (${a}) before ${kids[i].id} (${b})`).toBe(true);
+        if (a === b) expect(kids[i - 1].name.localeCompare(kids[i].name), `${c.id}: ${kids[i - 1].id} and ${kids[i].id} tie`).toBeLessThanOrEqual(0);
+      }
+      // A child with no content of its own could not be ranked and would sort by accident; none exists.
+      for (const k of kids) expect(corpusDepth(k, g), `${k.id} has nothing in the corpus`).toBeGreaterThan(0);
+    }
+  });
+
+  it("shows the parent and at most six children, and folds the rest rather than dropping them", () => {
+    let folded = 0;
+    for (const c of cancers) {
+      const strip = familyStrip(c, g);
+      expect(strip.shown.length, `${c.id} shows ${strip.shown.length} children`).toBeLessThanOrEqual(FAMILY_CHIPS);
+      expect([...strip.shown, ...strip.folded].map((x) => x.id).sort(), `${c.id} keeps every child`).toEqual(childrenOf(c.id).map((x) => x.id).sort());
+      // The parent is never folded: it is the most useful chip on the strip.
+      if (c.parent) expect(strip.parent?.id, `${c.id} parent chip`).toBe(c.parent);
+      if (strip.folded.length) folded++;
+    }
+    // Sixteen families carry more than six children; only those fold, so 70 of the 86 families are unchanged.
+    expect(folded, "families with a fold").toBe(cancers.filter((c) => childrenOf(c.id).length > FAMILY_CHIPS).length);
+    expect(folded).toBeGreaterThanOrEqual(16);
   });
 });

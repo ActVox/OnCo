@@ -241,3 +241,95 @@ record. Measured before any change.
    `/cancers/tnbc/` that is five alternative names a reader might have been given by a doctor, set in the least
    readable thing on the page. 6,995 records carry one, 819 carry more than six names and 259 more than twelve.
    These are the words a person heard in a clinic and is searching for; they should be easy to read.
+
+### What changed, 28 September 2026
+
+All four, as one pass, because they interact: the family strip, the summary and the also-known-as line are the
+three things between the title and the first section, and the review panel was the fourth. Judged on the rendered
+pages at 390 px and 1440 px, not on the diff.
+
+| Ask | What it does now | Where |
+|---|---|---|
+| Family strip | The parent chip, then the six children the corpus holds most for, then a "{n} more types" fold. Sixteen families fold; the other 70 are unchanged. On `/cancers/tnbc/` the strip is 242 characters of chips instead of 619, and leads with early and metastatic disease instead of adenoid cystic and apocrine carcinoma. | `src/lib/cancer-families.ts`, `scripts/cancer-family-order.ts` |
+| Summary | A summary over 1,800 characters shows two paragraphs (one when the first is already 1,200 characters) and folds the rest behind "Read more · {n} more paragraphs". 1,244 of the 1,329 long summaries fold; the 85 that do not are written as one or two paragraphs with nothing after them. | `src/components/ReadMore.tsx` |
+| Also-known-as | A full-width line under the lede at 15 px: "Also called: name · name · …", up to six names and 160 characters of them, the rest behind a "· {n} more" fold. No longer `text-xs text-muted text-end max-w-xs` in the header's right slot. | `src/components/AkaLine.tsx`, `PageHeader`'s new `under` slot |
+| Review panel | Last card in the right-hand column, after the actions. Its foot no longer says "Human reviews sit on top of the panel"; it says no human has checked the page and links the review issue form for that record. | `RecordAside` in `src/components/EntityDetail.tsx` |
+
+Ordering, for the record, from `scripts/cancer-family-order.ts`: depth = 3 x standard-of-care rows + history
+events + pipeline entries + trials pointing at the page. Weights of 1, 2, 3 and 4 on the rows give the same
+leaders, so the order is a property of the corpus rather than of the multiplier. Every one of the 402 subtypes has
+a depth above zero, so the fold never hides a page the measure could not rank.
+
+**The cost.** Every fold keeps its content in the markup, so the saving is attention, not bytes, and `npm run
+audit:weight` against a local export says so:
+
+| Page | Total | Markup | Payload |
+|---|---|---|---|
+| `/cancers/tnbc/` before | 621 KB | 265 KB | 356 KB (57%) |
+| `/cancers/tnbc/` after | 626 KB | 267 KB | 359 KB (57%) |
+| `/cancers/pancreatic/` before | 641 KB | 266 KB | 375 KB (58%) |
+| `/cancers/pancreatic/` after | 646 KB | 268 KB | 378 KB (59%) |
+
+About 5 KB a page, which is the fold furniture itself: the summary block already crosses into a client component
+as children (the machine-translation swap), so its paragraphs were in the hydration payload before this change and
+the `<details>` around them is now in it too. No page budget moved, no per-row cost changed, and `npm run
+audit:mobile` still measures every record page at 390 px wide with no sideways scroll.
+
+**Still open, for the owner rather than for me.**
+
+- On a phone six subtype chips are still six rows, because the names repeat their parent ("Early triple-negative
+  breast cancer", "Metastatic triple-negative breast cancer"). The knob is `FAMILY_CHIPS`; the other answer is
+  shorter subtype names, which is a corpus decision.
+- 1,569 of the 24,612 names in `aka` are over 40 characters and the longest is 139: they are subtype descriptions
+  written into a name field, and the line caps its length to survive them rather than because that reads well.
+- 85 long summaries cannot fold because they are a single paragraph; the longest, the nct05269381 trial, is 5,045
+  characters in one paragraph.
+- The model panel exists on 21 records and no record has a human review, so on ~19,000 pages the card at the foot
+  of the column says only that nobody has checked the page. It now sits where it can be ignored; whether machine
+  commentary belongs on a record at all, or only on `/review/`, is a product call.
+
+## 9. The review invitation and the print control (owner, 28 September 2026)
+
+Two more asks from the same sitting, both about a control that promised more than it did.
+
+**The text under the model panel.** "Human reviews sit on top of the panel. Add a clinical review or see the review
+queue." came off: an invitation with nowhere useful to go, since the queue is a list of other pages and almost
+nobody reading a cancer page can sign one off. The foot of the panel now states what is true of that page and
+gives the one action that fits it: `No human has checked this page. Open a review issue for it`, linking
+`reviewIssueUrl` - the same prefilled issue form that `/review/` and the unreviewed card already open, with the
+record and the track it needs filled in. No second route was added: corrections keep going through the Suggest an
+edit card in the same column, and a second button there would have been clutter.
+
+**The print control.** "Print / save PDF" is now **Patient pack**, and the menu offers the pack first. Printing is
+a browser function and two of the three modes only reprint what is on screen; the third cannot be had any other
+way, and it is the reason the control exists: every section in plain language, dated, with the record's
+"facts last checked" date, a QR code back to the page and the disclaimer. So the control is named after the pack,
+and "This section" now appears only on pages that have sections (on the standalone packs it did nothing).
+
+| Surface | Kept | Why |
+|---|---|---|
+| Red-flag card (`RedFlagCard`) | yes | Goes on a fridge; the pack is the whole point |
+| Appointment prep (`PrepPack`) | yes | The pack is the product of the page |
+| The first 60 days (`/first-60-days/<id>/`) | yes | A checklist someone works through on paper |
+| Regimen records (`/regimens/<id>/`) | yes | Cycle, doses and days, carried to chemotherapy |
+| Decisions (`/cancers/<id>/decisions/`) | yes | Written to be taken to an appointment |
+| NHS pathway (`/cancers/<id>/uk/`) | yes | Waiting-time standards and what to ask for |
+| Cancer section pages (`/cancers/<id>/<section>/`) | yes | The plain-language version of one section |
+| Decision aids (`/tools/<id>/`) | yes | The aid's result, with its sources |
+| Treatment sequencing (`/sequencing/<id>/`) | yes | A map discussed with a clinician |
+| irAE guide (`/irae/`) | yes | Already labelled "card fits one page" |
+| Survivorship plan | yes | Prints as one list by organ system, with sources |
+| Financial help (`AssistanceBrowser`) | yes | One-page list for a social worker; its own copy says so |
+| Report reader | yes | The reader's own values with the plain-language reading |
+| Symptom pathway | yes | The steps for one symptom, taken to an appointment |
+| Records: cancer, product, trial, term | yes | The patient-facing record kinds |
+| Records: company, institution, person, paper, journal, target, pathway, technology, idea, roadmap and the rest | **no** | Reference pages: all three modes are the browser's own print |
+| Cancers compared (`/cancers/<id>/compared/`) | **no** | A comparison grid; the pack only reprints what is on screen |
+
+A fold would have cost the pack its text, so `PrintButton` opens every `[data-fold]` before the print dialog and
+closes again afterwards, and the print stylesheet hides the fold handles and reveals their contents for a plain
+Cmd-P with no JavaScript. The deliberate folds (survival tables, `GentleSection`) are untouched: they are closed
+so that nobody is ambushed by them, on paper as on screen.
+
+`/teach/` keeps its own "Print / save PDF" button, which is a different component (`SlideDeck`) and genuinely a
+print: one slide per page, done by the print stylesheet. Renaming that one was not part of the ask.
