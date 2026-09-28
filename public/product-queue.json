@@ -1,0 +1,11 @@
+[
+  {
+    "branch": "product/section-names-and-record-page",
+    "why": "Every cancer-page section named for what is in it, plus the years index title. No URLs move.",
+    "pr": "https://github.com/judegomila/OnCo/pull/104",
+    "preview": "",
+    "files": 23,
+    "proposed": "2026-09-28",
+    "state": "waiting"
+  }
+]
