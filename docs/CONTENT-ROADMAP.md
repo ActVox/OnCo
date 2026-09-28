@@ -241,3 +241,20 @@ record. Measured before any change.
    `/cancers/tnbc/` that is five alternative names a reader might have been given by a doctor, set in the least
    readable thing on the page. 6,995 records carry one, 819 carry more than six names and 259 more than twelve.
    These are the words a person heard in a clinic and is searching for; they should be easy to read.
+
+## 9. Three more on the record page (owner, 28 September 2026)
+
+1. **"Evidence" is not a useful section name.** Every other section on a cancer page is in the reader's own
+   words ("What it is", "Finding it", "Treating it", "Living with it", "What is coming"); "Evidence" is the
+   only abstract noun among them. What the section actually holds is trials recruiting now, the landmark
+   trials, the trials on this cancer's subtypes, the key papers and what they found, and the latest literature.
+   Rename the title; keep the `evidence` slug so published links keep working.
+2. **The print control.** The owner's objection is that printing is a browser function and does not need a
+   button. That is true of one of its three modes and not the other two. `src/components/PrintButton.tsx`
+   offers Full page, This section, and **Patient pack**: every section in plain language, dated, with a QR code
+   back to the page and the disclaimer. The pack is not something a browser does. So: take the control off the
+   pages where it only reprints what is on screen, and where the pack is the point, label it as the pack rather
+   than as printing. It appears on eighteen surfaces today, including the red-flag card and the appointment pack.
+3. **The human-review block.** "Human reviews sit on top of the panel. Add a clinical review or see the review
+   queue" comes off the record pages. The owner suggests instead a way to open a GitHub issue for the page, so
+   the invitation is closer to an action. This is the same component as the model panel move already in hand.
