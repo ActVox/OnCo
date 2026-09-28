@@ -333,6 +333,7 @@ export const zh: UiDict = {
   "l.Replication": "重复验证",
   "l.Rationale": "依据",
   "l.Evidence": "证据",
+  "l.Trials and papers": "试验与论文",
   "l.Confidence": "置信度",
   "l.Hypothesis": "假说",
   "l.Proposed test": "拟议的验证",

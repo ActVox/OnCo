@@ -333,6 +333,7 @@ export const de: UiDict = {
   "l.Replication": "Replikation",
   "l.Rationale": "Begründung",
   "l.Evidence": "Evidenz",
+  "l.Trials and papers": "Studien und Publikationen",
   "l.Confidence": "Vertrauen",
   "l.Hypothesis": "Hypothese",
   "l.Proposed test": "Vorgeschlagener Test",

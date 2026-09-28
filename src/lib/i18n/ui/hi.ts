@@ -333,6 +333,7 @@ export const hi: UiDict = {
   "l.Replication": "पुनरावृत्ति",
   "l.Rationale": "तर्क",
   "l.Evidence": "साक्ष्य",
+  "l.Trials and papers": "परीक्षण और शोधपत्र",
   "l.Confidence": "विश्वास",
   "l.Hypothesis": "परिकल्पना",
   "l.Proposed test": "प्रस्तावित परीक्षण",
