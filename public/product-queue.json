@@ -1,19 +1,46 @@
 [
   {
-    "branch": "product/admin-queue",
-    "why": "The page at /admin/ that lists what is waiting for approval, and says plainly that it is a reading surface rather than a lock.",
-    "pr": "https://github.com/judegomila/OnCo/pull/109",
+    "branch": "product/section-names-and-record-page",
+    "why": "every cancer-page section named for what is in it",
+    "pr": "https://github.com/judegomila/OnCo/pull/104",
     "preview": "",
-    "files": 2,
+    "files": 34,
     "proposed": "2026-09-28",
     "state": "waiting"
   },
   {
-    "branch": "product/section-names-and-record-page",
-    "why": "Every cancer-page section named for what is in it, plus the years index title. No URLs move.",
-    "pr": "https://github.com/judegomila/OnCo/pull/104",
+    "branch": "product/page-titles",
+    "why": "30 page titles named for the question the page answers",
+    "pr": "https://github.com/judegomila/OnCo/pull/105",
     "preview": "",
-    "files": 23,
+    "files": 78,
+    "proposed": "2026-09-28",
+    "state": "waiting"
+  },
+  {
+    "branch": "product/software-map",
+    "why": "/software/, the software of oncology, which answers issue 63",
+    "pr": "https://github.com/judegomila/OnCo/pull/106",
+    "preview": "",
+    "files": 27,
+    "proposed": "2026-09-28",
+    "state": "waiting"
+  },
+  {
+    "branch": "product/record-page-top",
+    "why": "the top of a record page, all four asks as one pass",
+    "pr": "https://github.com/judegomila/OnCo/pull/107",
+    "preview": "",
+    "files": 19,
+    "proposed": "2026-09-28",
+    "state": "waiting"
+  },
+  {
+    "branch": "product/v2-shows-the-work",
+    "why": "/v2/ shows the work instead of listing it",
+    "pr": "https://github.com/judegomila/OnCo/pull/108",
+    "preview": "",
+    "files": 5,
     "proposed": "2026-09-28",
     "state": "waiting"
   }
