@@ -54,3 +54,6 @@ next-env.d.ts
 
 # bundled CLI and MCP packages
 /packages/*/dist/
+
+# locally installed agent skills, not part of this project
+.agents/
