@@ -335,3 +335,19 @@ decide whether to click.
 
 The test to apply to each: read only the heading, and say what you would find on the page and why you would go
 there. If you cannot, the heading is doing the wrong job.
+
+## 13. Visual first (owner, 28 September 2026)
+
+"i dont want the custom animations to fall too far below the main text on the page, can you bring them up, so its
+more visual first for pages."
+
+The drawings the site makes for itself (the molecule viewer, the mechanism animation, the drug schematic, the
+organ drawings) render after the prose blocks on a record page: on a drug page `SeeItInAction` comes below the
+summary and the fields. A reader arrives at a page of text with the picture below the fold, when the picture is
+often the faster answer and is the thing this site has that others do not.
+
+This is a question of block order, so it belongs to the cancer-page plan (section 11) rather than to a separate
+patch, and the plan should treat "visual first" as a stated preference of the owner's rather than an open
+question. The measurement to take is where the first custom drawing appears in document order at 390 px, per
+kind of record, not where the first `<svg>` appears: every page has icons in its header, so a naive search says
+one per cent and means nothing.
