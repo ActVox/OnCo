@@ -16,6 +16,17 @@ import { basename, join, relative } from "node:path";
 import { graph } from "../src/lib/graph";
 
 type Prov = { commit: string; date: string; author: string; message: string; file: string };
+
+/**
+ * Commit subjects are republished here, so anything written in one becomes a public, machine-readable artefact.
+ * A commit of 10 September 2026 named a private project and that name reached public/provenance.json. The name is
+ * in the repository's own history either way and rewriting public history for it would be disproportionate, but
+ * this file should not repeat it, and nor should the next one. Names of the owner's private projects are redacted
+ * here; add to the list rather than editing the generated file, which is rewritten on every build.
+ */
+const PRIVATE_NAMES = [/katsutake/gi];
+const redact = (summary: string) => PRIVATE_NAMES.reduce((s, re) => s.replace(re, "a private project"), summary);
+
 type Contributor = { name: string; commits: number; records: number; kinds: Record<string, number>; first: string; last: string; files: number };
 
 const root = process.cwd();
@@ -109,7 +120,7 @@ for (const file of files) {
     const k2 = g.get(id)?.kind ?? kind ?? fileKind ?? "other";
     for (const name of authorsHere) { const a = touch(name); if (!a.records.has(id)) { a.records.add(id); a.kinds[k2] = (a.kinds[k2] ?? 0) + 1; } }
     if (prov[id] && prov[id].date >= iso(best.time)) continue; // keep newest across files
-    prov[id] = { commit: best.commit.slice(0, 10), date: iso(best.time), author: best.author, message: best.summary.slice(0, 120), file: rel };
+    prov[id] = { commit: best.commit.slice(0, 10), date: iso(best.time), author: best.author, message: redact(best.summary).slice(0, 120), file: rel };
   }
 }
 
