@@ -258,3 +258,37 @@ record. Measured before any change.
 3. **The human-review block.** "Human reviews sit on top of the panel. Add a clinical review or see the review
    queue" comes off the record pages. The owner suggests instead a way to open a GitHub issue for the page, so
    the invitation is closer to an action. This is the same component as the model panel move already in hand.
+
+## 10. Section names and the right-hand column (owner, 28 September 2026)
+
+**1. The section names are vague, and several lean on "it".** The owner: "the title 'Finding it' seems very
+unclear ie dont use 'it' ... if this is diagnosis then call it that. 'the science' is vague as well, what is the
+section name really. 'where you are' is also vague, 'what is coming' is vague -> 'Pipeline to combat this cancer'
+might be better."
+
+What each section actually holds, and a name that says so. The ids do not change, so every published link and
+every anchor keeps working.
+
+| now | holds | proposed |
+| --- | --- | --- |
+| Overview | TL;DR, the family, the organ, who gets it, state of the art | Overview |
+| What it is | anatomy, the subtypes, staging, where it spreads | Types and stages |
+| Finding it | symptoms, how it is confirmed, screening, biomarkers | Diagnosis and screening |
+| Treating it | standard of care by setting, medicines, surgery, radiotherapy, regimens | Treatment |
+| Trials and papers | recruiting trials, landmark trials, key papers, latest literature | Trials and papers |
+| The science | targets and their prevalence, pathways, mechanics, preclinical models | Biology and targets |
+| Where you are | cases by country, national pathways, expert centres | Countries and centres |
+| Living with it | decisions, decision aids, when to call, first sixty days, questions | Decisions and support |
+| What is coming | what is in development, open problems, roadmaps, what reports next | In development |
+| Data | connected records, notes, the machine twins, provenance | Data |
+
+Each rename needs the label in all nine languages, as the `evidence` rename did.
+
+**2. The right-hand column is a wall of links.** "a massive link panel on the right side bar is not good design eg
+'Sources & links' this might be better as a table at the bottom of the page. it might be ok to have the primary
+links eg wikipedia but maybe its better to have more 'object' focused data eg the AKA or other things in there."
+
+Measured: `e.links` renders as an unbounded list in the aside. Triple-negative breast cancer has **109** links,
+pancreatic **124**, colorectal 106, gallbladder 99. 47 records carry more than eight and 15 more than twenty, so
+this is worst on exactly the pages that had the most work put into them. The sources belong where they can be
+read and sorted; the column should carry what identifies the record.
