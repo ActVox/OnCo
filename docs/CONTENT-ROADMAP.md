@@ -236,3 +236,8 @@ record. Measured before any change.
 3. **The summary block.** 1,329 records carry a summary over 1,800 characters and 282 over 3,000; the longest are
    21,489 characters over twelve paragraphs (pancreatic) and 21,322 (triple-negative breast cancer). Show about
    two paragraphs with a way to expand, so the rest of the page is reachable.
+4. **The also-known-as line.** Rendered as `text-xs text-muted text-end max-w-xs` in the page header's right
+   slot: the smallest type on the page, grey, right-aligned, in a narrow column, as one comma-separated run. On
+   `/cancers/tnbc/` that is five alternative names a reader might have been given by a doctor, set in the least
+   readable thing on the page. 6,995 records carry one, 819 carry more than six names and 259 more than twelve.
+   These are the words a person heard in a clinic and is searching for; they should be easy to read.
