@@ -53,7 +53,7 @@ export function ReviewBadge({ id }: { id: string }) {
     return (
       <>
         <ModelPanel reviews={models} recordId={id} humanReviewUrl={issue}>
-          {list.length ? <>Human reviews below sit on top of the panel.</> : undefined}
+          {list.length ? <>A named reviewer signed this page off; their entry is below.</> : undefined}
         </ModelPanel>
         {human}
       </>

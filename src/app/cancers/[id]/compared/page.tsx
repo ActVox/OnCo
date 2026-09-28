@@ -9,7 +9,6 @@ import { toolsFor, toolRoute } from "@/lib/decision-tools";
 import { Container, GroupKicker, PageHeader } from "@/components/ui";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CancerIcon } from "@/components/CancerIcon";
-import { PrintButton } from "@/components/PrintButton";
 import { CompareCancers } from "@/components/CompareCancers";
 import { ToolGlyph } from "@/components/ToolGlyph";
 import { SectionStrip } from "@/components/SectionStrip";
@@ -45,7 +44,7 @@ export default async function ComparedPage({ params }: { params: Promise<{ id: s
         title={`${c.name.replace(/\s*\(.*?\)\s*$/, "")} compared with its neighbours`}
         lede={`${set.lede} ${filled} of ${total} cells are filled from ${cancers.length} records and the papers linked in them; checked ${set.asOf}.`}
         logo={<span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent"><CancerIcon cancerId={c.id} className="h-8 w-8" /></span>}
-        right={<div className="flex flex-col items-end gap-2 text-xs text-muted"><PrintButton /><Link href={`/compare/?ids=${set.ids.join(",")}`} className="underline">Generic compare view →</Link><Link href={routeFor(c)} className="underline">Cancer page →</Link></div>} />
+        right={<div className="flex flex-col items-end gap-2 text-xs text-muted"><Link href={`/compare/?ids=${set.ids.join(",")}`} className="underline">Generic compare view →</Link><Link href={routeFor(c)} className="underline">Cancer page →</Link></div>} />
       <Container className="pb-16">
         <SectionStrip cancerId={id} current="what-it-is" />
         <nav aria-label="Cancers compared" className="mb-4 flex flex-wrap gap-1.5 text-sm">

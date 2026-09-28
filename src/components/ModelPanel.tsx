@@ -91,8 +91,17 @@ export function ModelPanel({ reviews, recordId, humanReviewUrl, children }: { re
         })}
       </div>
 
+      {/*
+        The foot of the panel used to read "Human reviews sit on top of the panel. Add a clinical review or see the
+        review queue." - an invitation with nowhere useful to go: the queue is a list of other pages, and almost
+        nobody reading a cancer page can sign one off. What it says now is what is true of this page (no human has
+        checked it) next to the one action that fits: the review issue form for this record, prefilled with the
+        record and the track it needs. No new route: `reviewIssueUrl` is the form the review queue and the
+        unreviewed card already open, and corrections still go through the Suggest an edit card lower in the
+        column rather than through a second button here.
+      */}
       <div className="border-t border-border pt-2 text-muted">
-        <span className="inline-flex items-center gap-1.5"><HumanIcon className="h-4 w-4" />{children ?? <>Human reviews sit on top of the panel. {humanReviewUrl ? <><a className="underline" href={humanReviewUrl} rel="noopener">Add a clinical review</a> or see the </> : "See the "}<Link className="underline" href="/review/#queue">review queue</Link>.</>}</span>
+        <span className="inline-flex items-center gap-1.5"><HumanIcon className="h-4 w-4" />{children ?? (humanReviewUrl ? <>No human has checked this page. <a className="underline" href={humanReviewUrl} rel="noopener">Open a review issue for it</a>.</> : <>No human has checked this page.</>)}</span>
         <span className="sr-only">Record {recordId}</span>
       </div>
     </div>
