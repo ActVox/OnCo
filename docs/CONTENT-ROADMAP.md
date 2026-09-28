@@ -219,3 +219,20 @@ through a summary of it.
 3. **A page for oncolytic virotherapy**, and the technologies and people it depends on, prompted by the account of
    Beata Halassy, the Croatian virologist who treated her own recurrent breast cancer with intratumoural measles
    virus and then vesicular stomatitis virus, and published it.
+
+## 8. What a reader meets first on a record page (owner, 28 September 2026)
+
+Three asks in one sitting, all the same problem: the top of a record page is full of things that are not the
+record. Measured before any change.
+
+1. **The family strip.** `/cancers/tnbc/` lists its parent and all fourteen subtypes before anything else. Sixteen
+   families have more than six children; sarcoma has 26 and non-small-cell lung cancer 22, about a thousand
+   characters of chips. Show a few and collapse the rest. Ordering matters as much as the count: alphabetically,
+   triple-negative breast cancer leads with adenoid cystic and apocrine carcinoma, which almost nobody reading
+   that page has. Ordered by what the corpus actually holds for each child, it leads with metastatic and early
+   triple-negative disease, sarcoma leads with gastrointestinal stromal tumour and osteosarcoma, and non-small-cell
+   lung cancer with the EGFR-mutated and resectable pages. That is measurable rather than taste.
+2. **The model panel** sits high in the right-hand column. It belongs at the bottom if it is worth keeping.
+3. **The summary block.** 1,329 records carry a summary over 1,800 characters and 282 over 3,000; the longest are
+   21,489 characters over twelve paragraphs (pancreatic) and 21,322 (triple-negative breast cancer). Show about
+   two paragraphs with a way to expand, so the rest of the page is reachable.
