@@ -351,3 +351,17 @@ patch, and the plan should treat "visual first" as a stated preference of the ow
 question. The measurement to take is where the first custom drawing appears in document order at 390 px, per
 kind of record, not where the first `<svg>` appears: every page has icons in its header, so a naive search says
 one per cent and means nothing.
+
+## 14. The prevalence table scrolls sideways before it says anything (owner, 28 September 2026)
+
+"`/prevalence/` has a table that has massive horizontal scrolling straight off the bat."
+
+Measured: **23 columns and 208 rows**, one column per cancer, so the table is as wide as the corpus is broad and
+gets wider every time a cancer is added. It is wrapped in a horizontal scroller, which is why it does not break
+the layout, and why the reader meets a wall instead. A target's prevalence in one cancer is the fact a reader
+wants; the matrix is the shape the data is stored in, not the shape the question has.
+
+Worth considering rather than assuming: pick the cancer first and show one column as a list; or keep the matrix
+for the desktop reader who genuinely wants to compare across cancers and give everyone else the single-cancer
+view by default. Whatever is chosen, a table that grows a column per cancer cannot be the first thing on the
+page. Note `/biomarker-matrix/` is likely the same shape and should be checked at the same time.
