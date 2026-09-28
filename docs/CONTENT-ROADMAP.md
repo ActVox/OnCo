@@ -298,3 +298,20 @@ Something more functional eg 'Oncology: the timeline' might be better?" The kind
 timeline" and the navigation entry is the bare word "Years". Same fix as the section names, same nine languages.
 Note there is already a `/timeline/` page: whatever these two are called, a reader should be able to tell which
 is the chart over the whole field and which is the index of single years.
+
+## 11. The cancer page: machine links, and a plan (owner, 28 September 2026)
+
+**1. The machine links are in a reader's way.** "having 'JSON for agents' at the top of pages gets in the way of
+things for humans, have them at the bottom of the page." On `/cancers/tnbc/` a "Data · JSON" control sits in the
+right-hand column about two fifths of the way down the markup, which on a phone stacks above the reader's own
+content. Agents and crawlers are served first by `<link rel="alternate">` in the head, the context files and the
+API, none of which a reader sees; the visible block can sit at the foot of the page without losing any of that.
+
+**2. The information architecture needs a plan, not another patch.** "the cancer pages have become very poor info
+arch. i want to see an amzinfg plan on how to improve them."
+
+This is the honest reading of everything above it in this document. Sections 8, 9 and 10 are seven separate
+complaints about the same page, each of which I have been fixing one at a time: the family strip, the model
+panel, the summary block, the also-known-as line, the section names, the wall of links, and now the machine
+links. Patching them one by one produces a page nobody designed. The deliverable here is a plan the owner reads
+and approves before anything else is changed.
