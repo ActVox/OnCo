@@ -6,8 +6,21 @@ All notable changes to OnCo are recorded here. The format follows [Keep a Change
 
 Regenerated from the commit log each time the site ships (`scripts/changelog-sync.ts`); the version sections below are written by hand when a release is cut.
 
+### 28 September 2026
+- Five weekly runs merged, the agent rules written down with the scripts they point at, and a card that can name no record no longer counts as one that lost one
+- A card that can name no record is not a card that lost one
+- Provenance regenerated with the private name redacted after the weekly run reintroduced it
+- A locally installed skill directory is not part of this project
+- The rules an agent needs, in the file every agent reads, with the scripts they point at now in the repository
+- chore: render this week's issue to public/newsletter/
+- chore: weekly fact check, audit, and provenance refresh
+- chore: refresh public/votes.json from Discussions reactions
+- chore: refresh trial counts from ClinicalTrials.gov
+- chore: draft change proposals that need review
+
 ### 27 September 2026
 - A total review of fatalistic language: 153 phrases rewritten, the survival guard now says what a median is, and the red-flag card leads with calling
+- A cancer with no NHS pathway page now says so in development as it does in production
 - A word that is the source's is shown as the source's
 - The half a keyword search cannot find: order, framing and the numbers printed as verdicts
 - Say what the cancer does, not how to feel about it: fatalistic language out of OnCo's own voice, every quotation left exactly as its author wrote it
