@@ -1,5 +1,14 @@
 [
   {
+    "branch": "product/admin-queue",
+    "why": "The page at /admin/ that lists what is waiting for approval, and says plainly that it is a reading surface rather than a lock.",
+    "pr": "https://github.com/judegomila/OnCo/pull/109",
+    "preview": "",
+    "files": 2,
+    "proposed": "2026-09-28",
+    "state": "waiting"
+  },
+  {
     "branch": "product/section-names-and-record-page",
     "why": "Every cancer-page section named for what is in it, plus the years index title. No URLs move.",
     "pr": "https://github.com/judegomila/OnCo/pull/104",
