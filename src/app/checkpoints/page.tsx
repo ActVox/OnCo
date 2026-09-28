@@ -10,7 +10,7 @@ import { CheckpointSwitch } from "@/components/CheckpointSwitch";
 import { Container, GroupKicker, PageHeader } from "@/components/ui";
 
 export const metadata: Metadata = pageMeta({
-  title: "Checkpoint families",
+  title: "Checkpoints: one word, two biologies",
   description: "The word checkpoint means two unrelated things in cancer: brakes on immune cells that tumours press and checkpoint inhibitors release, and gates inside every dividing cell that stop it copying or splitting damaged DNA. One hub for each, with every member, partner, expression site and drug.",
   path: "/checkpoints/",
 });
@@ -80,7 +80,7 @@ function Panel({ root, view }: { root: CheckpointRoot; view: HubView }) {
               <li><Link className="underline" href="/technologies/checkpoint-inhibitor/">Immune checkpoint inhibitors</Link>, the technology</li>
               <li><Link className="underline" href="/mechanics/checkpoints/">Mechanics: checkpoints PD-1, CTLA-4, LAG-3</Link></li>
               <li><Link className="underline" href="/pathways/pd1-checkpoint/">PD-1 / PD-L1 pathway drawing</Link></li>
-              <li><Link className="underline" href="/irae/">irAE guide</Link>, when the brakes come off</li>
+              <li><Link className="underline" href="/irae/">Checkpoint side effects by organ</Link>, when the brakes come off</li>
             </> : <>
               <li><Link className="underline" href="/terms/cell-cycle/">Cell cycle</Link></li>
               <li><Link className="underline" href="/terms/synthetic-lethality/">Synthetic lethality</Link></li>

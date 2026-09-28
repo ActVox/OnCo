@@ -173,7 +173,7 @@ export default function HairPage() {
 
         <div className="mt-10"><WhatIsBeingDone topic="side-effects" compact /></div>
 
-        <p className="text-xs text-muted mt-8 max-w-3xl">Related: <Link className="underline" href="/live/complementary/">complementary and supportive approaches</Link> · <Link className="underline" href="/side-effects/">side effects, symptom first</Link> · <Link className="underline" href="/toxicity/">toxicity compare</Link> · <Link className="underline" href="/survivorship/">survivorship planner</Link>. Rates come from labels and pivotal trials and are not adjusted for differences between trial populations. OnCo is orientation, not medical advice; your team&apos;s advice about your regimen takes precedence.</p>
+        <p className="text-xs text-muted mt-8 max-w-3xl">Related: <Link className="underline" href="/live/complementary/">complementary and supportive approaches</Link> · <Link className="underline" href="/side-effects/">side effects, symptom first</Link> · <Link className="underline" href="/toxicity/">side effects across a drug class</Link> · <Link className="underline" href="/survivorship/">survivorship planner</Link>. Rates come from labels and pivotal trials and are not adjusted for differences between trial populations. OnCo is orientation, not medical advice; your team&apos;s advice about your regimen takes precedence.</p>
       </Container>
     </>
   );

@@ -29,8 +29,8 @@ const PAGE_MATCHES = 3;
 
 const PAGES: Item[] = ([
   { id: "p-search", name: "Search: words and concepts", tldr: "Full results with the reason each matched", route: "/search/", action: true },
-  { id: "p-path", name: "Path finder", tldr: "Shortest routes between any two objects", route: "/path/", action: true },
-  { id: "p-explore", name: "Explore", tldr: "Pick a cancer, switch kind, sort and filter", route: "/explore/", action: true },
+  { id: "p-path", name: "How two things are connected", tldr: "Shortest routes between any two objects", route: "/path/", action: true },
+  { id: "p-explore", name: "Browse by cancer and kind", tldr: "Pick a cancer, switch kind, sort and filter", route: "/explore/", action: true },
   { id: "p-for-me", name: "For me", tldr: "What works and what could work for your cancer(s)", route: "/for-me/", action: true },
   { id: "p-tumor-board", name: "Tumour board", tldr: "Enter biomarkers, get matched options", route: "/tumor-board/", action: true },
   { id: "p-graph", name: "Graph explorer", tldr: "Navigate the knowledge graph visually", route: "/graph/", action: true },
@@ -38,7 +38,7 @@ const PAGES: Item[] = ([
   { id: "p-calendar", name: "Readout calendar", tldr: "Upcoming decisions, readouts, congresses", route: "/calendar/", action: true },
   { id: "p-digests", name: "Congress digests", tldr: "ASCO, ESMO, AACR, ASCO GU", route: "/digests/", action: true },
   { id: "p-failures", name: "Failure museum", tldr: "What did not work and why", route: "/failures/", action: true },
-  { id: "p-resistance", name: "Resistance atlas", tldr: "Escape routes per drug class", route: "/resistance/", action: true },
+  { id: "p-resistance", name: "How tumours escape each drug class", tldr: "Escape routes per drug class", route: "/resistance/", action: true },
   { id: "p-paths", name: "Reading paths", tldr: "Curated sequences of pages", route: "/paths/", action: true },
   { id: "p-institutions", name: "Institutions map and ranking", tldr: "Who matters, where", route: "/institutions/", action: true },
   { id: "p-saved", name: "Saved views and watchlist", tldr: "Your saved tables and starred pages, with what changed since you looked", route: "/saved/", action: true },
@@ -58,7 +58,7 @@ const GOTO: Array<{ key: string; route: string; label: string }> = [
   { key: "d", route: "/drugs/", label: "Treatments and tests" },
   { key: "t", route: "/trials/", label: "Trials" },
   { key: "a", route: "/targets/", label: "Targets" },
-  { key: "e", route: "/explore/", label: "Explore" },
+  { key: "e", route: "/explore/", label: "Browse" },
   { key: "s", route: "/saved/", label: "Saved views and watchlist" },
 ];
 

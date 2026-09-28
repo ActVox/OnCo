@@ -130,7 +130,7 @@ export type SideEffectRow = {
   note?: string;
 };
 
-/** Short class label for a modality string, shared with the toxicity compare page's grouping. */
+/** Short class label for a modality string, shared with the grouping on /toxicity/. */
 export function modalityClass(m: string): string {
   if (/bispecific adc/i.test(m)) return "Bispecific ADC";
   if (/^adc/i.test(m)) return "ADC";

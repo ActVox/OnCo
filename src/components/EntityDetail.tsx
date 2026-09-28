@@ -365,7 +365,7 @@ function kindTabs(e: Entity): Tab[] {
         ...(e.toxicity.length || agentById(e.id) ? [{ id: "safety", label: "Safety", count: e.toxicity.length || undefined, content: (<>
           {e.toxicity.length > 0 && <ToxicityTable toxicity={e.toxicity} />}
           {agentById(e.id) && <p className="text-sm mt-3"><Link href={`/interactions/?drugs=${e.id}`} className="underline">Check interactions for {e.name} →</Link></p>}
-          {/anti-pd|anti-ctla|pd-1|pd-l1|ctla-4|checkpoint/i.test(e.modality + " " + e.mechanism) && <p className="text-sm mt-1"><Link href="/irae/" className="underline">Immune-related side effects: management guide →</Link></p>}
+          {/anti-pd|anti-ctla|pd-1|pd-l1|ctla-4|checkpoint/i.test(e.modality + " " + e.mechanism) && <p className="text-sm mt-1"><Link href="/irae/" className="underline">Checkpoint side effects by organ →</Link></p>}
         </>) }] : []),
         ...(e.access.length ? [{ id: "access", label: "Cost & access", count: e.access.length, content: <AccessTable access={e.access} /> }] : []),
         { id: "trials", label: "Trials", content: <><TrialCounts drugId={e.id} /><Block title="Trials recruiting now"><TrialFinder intervention={interventionQuery(e.name)} title={e.name} /></Block>{e.trials.length > 0 && <Block title="Landmark trials"><Refs ids={e.trials} /></Block>}</> },

@@ -246,7 +246,7 @@ export default function TrialDesignsPage() {
               <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent">{svg("M3 12h18M6 12a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm6 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm6 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM6 15v3m6-3v3m6-3v3")}</span>
               <h2 className="text-xl font-semibold"><a href="#lifecycle" className="hover:underline">The lifecycle every trial passes through</a></h2>
             </div>
-            <p className="text-sm text-muted mb-4 max-w-3xl">Protocol, ethics review, registration, enrolment, monitoring, readout, publication, label. The <Link href="/regulatory/" className="underline">regulatory timeline</Link> dates the last step for every product in OnCo and the <Link href="/catalysts/" className="underline">catalyst calendar</Link> lists the readouts still to come.</p>
+            <p className="text-sm text-muted mb-4 max-w-3xl">Protocol, ethics review, registration, enrolment, monitoring, readout, publication, label. The <Link href="/regulatory/" className="underline">regulatory timeline</Link> dates the last step for every product in OnCo and <Link href="/catalysts/" className="underline">what is due next</Link> lists the readouts still to come.</p>
             <div className="flex flex-wrap gap-2">
               {LIFECYCLE.map((r) => { const t = term(r.term); return t ? <Link key={r.term} href={routeFor(t)} className="chip border border-border bg-card hover:bg-foreground/5 inline-flex items-center gap-1.5"><KindIcon kind="term" className="h-4 w-4 text-accent" />{r.label}</Link> : null; })}
             </div>

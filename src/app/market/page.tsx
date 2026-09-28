@@ -6,14 +6,14 @@ import { MarketEstimator } from "@/components/MarketEstimator";
 import { marketInputs } from "@/lib/market";
 import { settingShares } from "@/data/setting-shares";
 
-export const metadata: Metadata = pageMeta({ title: "Addressable population", description: "Patients per year for a target in a cancer and region: GLOBOCAN incidence times biomarker prevalence times treatment-setting share, every input linked, with a deliberately wide uncertainty band.", path: "/market/" });
+export const metadata: Metadata = pageMeta({ title: "How many people a treatment could reach", description: "Patients per year for a target in a cancer and region: GLOBOCAN incidence times biomarker prevalence times treatment-setting share, every input linked, with a deliberately wide uncertainty band.", path: "/market/" });
 
 export default function MarketPage() {
   const { cancers, targets, globocan } = marketInputs();
   const pairs = targets.reduce((n, t) => n + t.prevalence.filter((p) => p.range).length, 0);
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="intel" />} title="Addressable population"
+      <PageHeader kicker={<GroupKicker id="intel" />} title="How many people a treatment could reach"
         lede={`Market sizing is three numbers multiplied: how many people get the cancer, what share carry the target, and what share reach the treatment setting. All three already live in this corpus. This page multiplies them for ${pairs} target and cancer pairs across ${cancers.length} cancers, shows every input with its source, and reports a range rather than a point.`} />
       <Container className="pb-16">
         <MarketEstimator cancers={cancers} targets={targets} globocan={globocan} />

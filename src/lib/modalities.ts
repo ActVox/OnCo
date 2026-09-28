@@ -26,7 +26,7 @@ import trialsIndex from "../../public/trials/index.json";
 
 type RegistryEntry = { total: number; recruiting: number; fetched: string };
 const REGISTRY = trialsIndex as Record<string, RegistryEntry>;
-/** Anchor ids of the resistance atlas (src/app/resistance/page.tsx builds them the same way). */
+/** Anchor ids of the resistance page (src/app/resistance/page.tsx builds them the same way). */
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
 /** A record named by a section: enough to link it and say what kind it is. */

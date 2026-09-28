@@ -47,7 +47,7 @@ export default function ApiDocs() {
           </tbody>
         </table>
         </div>
-        <p className="text-sm text-muted mt-3">Every table on the site also has CSV and JSON buttons that export exactly the rows shown after filtering, and the <Link className="underline" href="/pivot/">landscape grid</Link> exports the grid.</p>
+        <p className="text-sm text-muted mt-3">Every table on the site also has CSV and JSON buttons that export exactly the rows shown after filtering, and <Link className="underline" href="/pivot/">count what exists, and where</Link> exports its grid.</p>
 
         <h2 id="feeds" className="text-xl font-semibold mt-10 mb-2 scroll-mt-24">Feeds</h2>
         <p className="text-[15px] leading-relaxed mb-3">Atom 1.0 feeds for the parts of OnCo that move. Subscribe in any feed reader; the entries link back to the page and to the primary source.</p>

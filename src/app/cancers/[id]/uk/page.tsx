@@ -219,7 +219,7 @@ function Page({ p, id }: { p: UkPathway; id: string }) {
             </table>
           </div>
           {p.fundingNote && <div className="mt-3 text-sm text-muted leading-relaxed"><p>{p.fundingNote.text}</p><Sources items={p.fundingNote.sources} className="mt-1" /></div>}
-          <p className="text-xs text-muted mt-2">The NHS position of every approved product is on the <Link className="underline" href="/coverage/uk/">NHS coverage</Link> page; the same decisions by country are on <Link className="underline" href="/hta/">HTA decisions</Link>.</p>
+          <p className="text-xs text-muted mt-2">The NHS position of every approved product is on the <Link className="underline" href="/coverage/uk/">NHS coverage</Link> page; the same decisions by country are on <Link className="underline" href="/hta/">funding verdicts by country</Link>.</p>
         </section>
 
         <section className="mb-10">

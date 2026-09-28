@@ -88,7 +88,7 @@ export default function LawPage() {
   return (
     <>
       <PageHeader
-        kicker={<GroupKicker id="intel"><span className="kicker">·</span><Link href="/regulatory/" className="kicker hover:underline">Regulatory timeline</Link><span className="kicker">·</span><Link href="/hta/" className="kicker hover:underline">HTA decisions</Link><span className="kicker">·</span><Link href="/exclusivity/" className="kicker hover:underline">Exclusivity expiry</Link></GroupKicker>}
+        kicker={<GroupKicker id="intel"><span className="kicker">·</span><Link href="/regulatory/" className="kicker hover:underline">Regulatory timeline</Link><span className="kicker">·</span><Link href="/hta/" className="kicker hover:underline">Funding verdicts by country</Link><span className="kicker">·</span><Link href="/exclusivity/" className="kicker hover:underline">Exclusivity expiry</Link></GroupKicker>}
         title="Laws around oncology"
         lede={`${rows.length} statutes, regulations, guidance documents, schemes and ${rulings} court rulings across ${jurisdictions.length} jurisdictions, from the 1938 Food, Drug, and Cosmetic Act to the 2025 European Health Data Space. Each entry states the instrument, the year and the primary text, then what it changed for patients and companies and what is argued about it.`}
         right={<Link href={GLOSSARY_FILTER} className="rounded-lg border border-border bg-card px-4 py-2 text-sm font-medium">Regulation &amp; policy glossary →</Link>}
@@ -193,7 +193,7 @@ export default function LawPage() {
           </div>
           <div className="card p-5 space-y-2">
             <h2 className="font-semibold text-base flex items-center gap-2"><IconGavel className="h-4 w-4 text-accent" />Where the laws bite</h2>
-            <p>The <Link href="/exclusivity/" className="underline">exclusivity timeline</Link> applies Hatch-Waxman, the BPCIA and the supplementary protection certificate to each product. <Link href="/hta/" className="underline">HTA decisions</Link> are NICE, G-BA and PBAC verdicts made under the methods and statutes here. <Link href="/coverage/us/" className="underline">Paying for care in the US</Link> and <Link href="/coverage/uk/" className="underline">NHS coverage</Link> show what the Inflation Reduction Act, 340B and the Cancer Drugs Fund mean for a given drug. <Link href="/costs/" className="underline">Cutting cancer care costs</Link> pairs each cost driver with the ideas that could do more.</p>
+            <p>The <Link href="/exclusivity/" className="underline">exclusivity timeline</Link> applies Hatch-Waxman, the BPCIA and the supplementary protection certificate to each product. <Link href="/hta/" className="underline">Funding verdicts by country</Link> are NICE, G-BA and PBAC verdicts made under the methods and statutes here. <Link href="/coverage/us/" className="underline">Paying for care in the US</Link> and <Link href="/coverage/uk/" className="underline">NHS coverage</Link> show what the Inflation Reduction Act, 340B and the Cancer Drugs Fund mean for a given drug. <Link href="/costs/" className="underline">Cutting cancer care costs</Link> pairs each cost driver with the ideas that could do more.</p>
             <p>Add a law in <code className="text-xs">src/data/law-wave.ts</code>: a glossary term in the Regulation &amp; policy category plus a row in <code className="text-xs">LAW_INDEX</code> giving its jurisdiction, year, instrument and themes.</p>
           </div>
         </section>

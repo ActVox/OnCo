@@ -53,7 +53,7 @@ export const TOPICS: Record<ProblemTopic, TopicMeta> = {
     bottlenecks: ["b-resistance", "b-tumor-heterogeneity"],
     seeds: ["protac-degrader", "dual-payload-adc", "bispecific-adc", "liquid-biopsy", "kinase-inhibitors", "adc-payload-neutralizer", "single-cell-spatial", "osimertinib", "amivantamab", "camizestrant", "pirtobrutinib", "bgb-16673", "lorlatinib", "serena-6", "mariposa", "flaura2", "bruin-cll-321", "resistance", "efflux-pump", "cross-resistance", "antigen-escape", "gatekeeper-mutation", "adc-sequencing", "esr1-mutation", "c797s"],
     keywords: /\b(resist\w*|refractory|stops? working|stopped working|escape\w*|bypass|progression on|no longer (works|respond)|reversion|cross-resist\w*)/i,
-    pages: [{ label: "Resistance atlas", href: "/resistance/" }, { label: "Lines of therapy", href: "/sequencing/" }],
+    pages: [{ label: "How tumours escape each drug class", href: "/resistance/" }, { label: "Lines of therapy", href: "/sequencing/" }],
   },
   "side-effects": {
     label: "Side effects and quality of life",
@@ -61,7 +61,7 @@ export const TOPICS: Record<ProblemTopic, TopicMeta> = {
     bottlenecks: ["b-toxicity-qol", "b-cachexia-supportive"],
     seeds: ["scalp-cooling", "cardio-oncology", "exercise-oncology", "geriatric-assessment", "masked-adc", "site-specific-conjugation", "proton-therapy", "imrt-igrt", "sentinel-node", "robotic-surgery", "nutrition-screening-mnt", "structured-exercise-survivorship", "irae", "toxicity-grade", "quality-of-life", "de-escalation", "ctcae-grading", "supportive-care"],
     keywords: /\b(toxic\w*|side[- ]effect\w*|adverse|irae\w*|neuropath\w*|cardiotox\w*|quality of life|late effect\w*|cytokine release|neurotox\w*|infertil\w*|hearing loss|fatigue|nausea|morbidity|tolerab\w*)/i,
-    pages: [{ label: "Side effects by symptom", href: "/side-effects/" }, { label: "Immune-related side effects", href: "/irae/" }, { label: "Toxicity compare", href: "/toxicity/" }, { label: "Survivorship planner", href: "/survivorship/" }],
+    pages: [{ label: "Side effects by symptom", href: "/side-effects/" }, { label: "Checkpoint side effects by organ", href: "/irae/" }, { label: "Side effects across a drug class", href: "/toxicity/" }, { label: "Survivorship planner", href: "/survivorship/" }],
     skipBottleneckRelations: true,
   },
   "late-diagnosis": {
@@ -78,7 +78,7 @@ export const TOPICS: Record<ProblemTopic, TopicMeta> = {
     bottlenecks: ["b-drug-pricing", "b-global-access"],
     seeds: ["trastuzumab-biosimilars", "imatinib", "hpv-vaccine", "biosimilar", "accelerated-approval", "real-world-evidence", "idea-single-dose-hpv-self-sampling-elimination"],
     keywords: /\b(\bcost\w*|access\w*|afford\w*|pric\w*|low- and middle|lmic\w*|inequit\w*|dispar\w*|supply|shortage\w*|capacity|unavailable|reimburse\w*|coverage)/i,
-    pages: [{ label: "Financial help", href: "/assistance/" }, { label: "Coverage by country", href: "/coverage/" }, { label: "HTA decisions", href: "/hta/" }],
+    pages: [{ label: "Financial help", href: "/assistance/" }, { label: "Coverage by country", href: "/coverage/" }, { label: "Funding verdicts by country", href: "/hta/" }],
     skipBottleneckRelations: true,
   },
   rare: {

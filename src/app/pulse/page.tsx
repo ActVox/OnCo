@@ -11,7 +11,7 @@ import { PulseBoard, type PulseSource, type RefLite } from "@/components/PulseBo
 import { AutoPulse, type AutoPulseSnapshot } from "@/components/AutoPulse";
 import { readPublicJson } from "@/lib/feed-meta";
 
-export const metadata: Metadata = pageMeta({ title: "Research pulse", description: "What the leading oncology journals, preprint servers, regulators, and news outlets are saying right now, and the cross-source themes.", path: "/pulse/" });
+export const metadata: Metadata = pageMeta({ title: "What the journals said this month", description: "What the leading oncology journals, preprint servers, regulators, and news outlets are saying right now, and the cross-source themes.", path: "/pulse/" });
 
 const TYPE_OF = (tags: string[]) => tags.find((t) => ["journal", "news", "preprint", "congress", "patient", "data"].includes(t)) ?? "other";
 
@@ -37,7 +37,7 @@ export default function PulsePage() {
 
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="intel" />} title="Research pulse"
+      <PageHeader kicker={<GroupKicker id="intel" />} title="What the journals said this month"
         lede="What the leading journals, preprint servers, regulators, congress portals, and news outlets are saying about cancer right now, item by item with links, and the themes that run across them. A human reading of the field, not a feed."
         right={<Link href="/collections/" className="rounded-lg border border-border bg-card px-4 py-2 text-sm font-medium">All sources →</Link>} />
       <Container className="pb-16">

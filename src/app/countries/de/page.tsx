@@ -142,7 +142,7 @@ export default function GermanyPage() {
 
         <Section id="paying" title="Health system and paying for care">
           <Cards cards={DE_PAYING} />
-          <p className="mt-3 text-sm text-muted">Compare the mechanism with other countries on the <Link href="/coverage/" className="underline">coverage</Link> page, and see the appraisal register on <Link href="/hta/" className="underline">HTA decisions</Link>.</p>
+          <p className="mt-3 text-sm text-muted">Compare the mechanism with other countries on the <Link href="/coverage/" className="underline">coverage</Link> page, and see the appraisal register on <Link href="/hta/" className="underline">funding verdicts by country</Link>.</p>
         </Section>
 
         <Section id="assessment" title="The benefit assessment" aside={<a href="https://www.g-ba.de/english/benefitassessment/" className="text-sm underline" rel="noopener">G-BA: benefit assessment →</a>}>

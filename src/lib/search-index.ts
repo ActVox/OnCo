@@ -30,10 +30,11 @@ function pageDocs(): SearchDoc[] {
     ...DECISION_TOOLS.map((t) => ({ href: toolRoute(t.id), label: `${t.short}: ${t.title}`, blurb: t.lede })),
     ...COMPARE_SETS.map((s) => ({ href: compareRoute(s.anchorId), label: `${graph().must(s.anchorId).name} compared with its neighbours`, blurb: s.title })),
   ];
-  const pages = [...NAV_GROUPS.flatMap((gp) => [{ href: gp.href, label: gp.label, blurb: gp.blurb }, ...gp.items]), ...SITE_PAGES, ...enginePages, ...modalityPages, ...toolPages];
+  const pages: ReadonlyArray<{ href: string; label: string; blurb: string; aka?: string }> = [...NAV_GROUPS.flatMap((gp) => [{ href: gp.href, label: gp.label, blurb: gp.blurb }, ...gp.items]), ...SITE_PAGES, ...enginePages, ...modalityPages, ...toolPages];
   for (const it of pages) {
     if (seen.has(it.href)) continue; seen.add(it.href);
-    out.push({ id: "page:" + it.href, kind: "page", name: it.label, aka: "", tldr: it.blurb, tags: "page", route: it.href, status: "" });
+    // `aka` carries the page's former name, so a reader searching "forest plot" still reaches the renamed page.
+    out.push({ id: "page:" + it.href, kind: "page", name: it.label, aka: it.aka ?? "", tldr: it.blurb, tags: "page", route: it.href, status: "" });
   }
   // Mechanics atlas stages: one page each, found by title and first sentence.
   for (const c of MECHANICS) for (const st of c.stages) {

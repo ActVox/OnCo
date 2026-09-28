@@ -106,7 +106,7 @@ export default function DataSourcesPage() {
               <li>A script under <code className="text-xs">scripts/</code> queries a public API with a named <code className="text-xs">User-Agent</code> and a contact address, one request at a time with backoff, and writes a compact snapshot under <code className="text-xs">public/</code>. Each snapshot carries <code className="text-xs">source</code>, <code className="text-xs">fetched</code> and, where the source states one, <code className="text-xs">license</code>.</li>
               <li>GitHub Actions rerun the trial, literature and fact-check scripts weekly and open a pull request with the diff, so every refresh is reviewed before it lands. Other snapshots are refreshed by hand by a maintainer.</li>
               <li>The build reads the snapshots and the hand-written corpus in <code className="text-xs">src/data/</code>, validates every id and reference, and renders static pages and the <Link href="/api/" className="underline">JSON API</Link>. Nothing is fetched at request time; a few components query ClinicalTrials.gov, Europe PMC or Nominatim live in the browser when a reader asks.</li>
-              <li>A weekly fact check compares recorded approvals and trial statuses against openFDA and ClinicalTrials.gov; mismatches appear on the <Link href="/audit/" className="underline">Audit</Link> page.</li>
+              <li>A weekly fact check compares recorded approvals and trial statuses against openFDA and ClinicalTrials.gov; mismatches appear on the <Link href="/audit/" className="underline">automated checks</Link> page.</li>
             </ol>
           </div>
           <div className="card p-4 text-sm">

@@ -15,7 +15,7 @@ export default function OrganAtlasPage() {
   const uncovered = g.kind("cancer").filter((c) => !covered.has(c.id));
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="map"><Link href="/atlas/" className="kicker hover:text-foreground">· Atlas</Link></GroupKicker>} title="Organ schematics"
+      <PageHeader kicker={<GroupKicker id="map"><Link href="/atlas/" className="kicker hover:text-foreground">· Where a cancer starts and spreads</Link></GroupKicker>} title="Organ schematics"
         lede={`${ORGAN_SCHEMATICS.length} organ systems covering ${covered.size} cancers, drawn as rotating wireframes in the site's style. Each shows where the cancer's subtypes begin (the marked subsites) and the lymph node stations it drains to, which is what staging scans, sentinel node biopsies and radiotherapy fields are built around.`} />
       <Container className="pb-16">
         <div className="space-y-10">

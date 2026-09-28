@@ -8,7 +8,7 @@ import { Container, GroupKicker, PageHeader } from "@/components/ui";
 import { ForestPlot, type ForestRow } from "@/components/ForestPlot";
 import { FAMILY_LABEL, settingClass } from "@/lib/forest";
 
-export const metadata: Metadata = pageMeta({ title: "Forest plot", description: "Every hazard ratio with its confidence interval in the OnCo trial corpus, side by side on one log axis. Filter by cancer, setting and endpoint; download the rows as CSV.", path: "/forest/" });
+export const metadata: Metadata = pageMeta({ title: "How much each trial changed the risk", description: "Every hazard ratio with its confidence interval in the OnCo trial corpus, side by side on one log axis. Filter by cancer, setting and endpoint; download the rows as CSV.", path: "/forest/" });
 
 export default function ForestPage() {
   const g = graph();
@@ -31,7 +31,7 @@ export default function ForestPage() {
   const trials = new Set(rows.map((r) => r.id.replace(/-\d+$/, ""))).size;
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="intel" />} title="Forest plot"
+      <PageHeader kicker={<GroupKicker id="intel" />} title="How much each trial changed the risk"
         lede={`${rows.length} hazard ratios from ${trials} trials on one axis. A hazard ratio below 1 means the experimental arm did better on that endpoint; the line is the 95% confidence interval. Pick a cancer, a setting and an endpoint to see comparable trials side by side, then download the rows.`} />
       <Container className="pb-16">
         <p className="card p-4 mb-6 text-sm leading-relaxed max-w-3xl border-accent/30 bg-accent-soft/40">

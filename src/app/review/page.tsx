@@ -96,7 +96,7 @@ export default function ReviewPage() {
 
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="learn" />} title="Review"
+      <PageHeader kicker={<GroupKicker id="learn" />} title="Review: model panel and human queue"
         lede={`Two layers sit on every record. A panel of named AI models comments on what is right, what is missing and what is disputed, each claim tied to the record's own sources: machine commentary, not clinical review. Human reviewers sign pages off on top of it. ${cov.reviewed
           ? `${cov.reviewed.toLocaleString("en-GB")} of ${cov.total.toLocaleString("en-GB")} reviewable pages carry a named human review; the queue below ranks the rest by reach, stakes and staleness.`
           : `${cov.total.toLocaleString("en-GB")} pages are open for a named human review and none has one yet; the queue below ranks them by reach, stakes and staleness.`}`} />

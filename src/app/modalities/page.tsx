@@ -10,10 +10,10 @@ import { modalityHubs } from "@/lib/modalities";
 import { modalityFile, modalityRoute } from "@/lib/modular-formats";
 
 const DESCRIPTION = "One hub per shape of medicine (ADC, radioligand, CAR-T, TCR-T, bispecific, degrader, small molecule, antibody, cytokine, vaccine, oncolytic virus, other cell therapy): how it works, approved medicines with their cancers and years, phase 3, the parts, the companies, the trials recruiting, side effects, resistance, key papers, roadmap eras, open questions and manufacturing, every section naming its records.";
-export const metadata: Metadata = pageMeta({ title: "Modalities", description: DESCRIPTION, path: modalityRoute() });
+export const metadata: Metadata = pageMeta({ title: "Medicines by shape: ADC, CAR-T, radioligand", description: DESCRIPTION, path: modalityRoute() });
 
 const n = (x: number) => x.toLocaleString("en-GB");
-const CRUMBS = [{ label: "Home", href: "/" }, { label: "Pipeline funnel", href: "/pipeline/" }, { label: "Modalities", href: modalityRoute() }];
+const CRUMBS = [{ label: "Home", href: "/" }, { label: "Pipeline funnel", href: "/pipeline/" }, { label: "Medicines by shape", href: modalityRoute() }];
 
 export default function ModalitiesPage() {
   const hubs = modalityHubs();
@@ -21,9 +21,9 @@ export default function ModalitiesPage() {
   return (
     <>
       <BreadcrumbJsonLd items={CRUMBS} />
-      <WebPageJsonLd path={modalityRoute()} name="Modalities" description={DESCRIPTION} />
+      <WebPageJsonLd path={modalityRoute()} name="Medicines by shape" description={DESCRIPTION} />
       <Breadcrumbs items={CRUMBS} />
-      <PageHeader kicker={<GroupKicker id="intel" />} title="Modalities"
+      <PageHeader kicker={<GroupKicker id="intel" />} title="Medicines by shape: ADC, CAR-T, radioligand"
         lede={`A medicine has a shape before it has a target: an antibody carrying a poison, a peptide carrying an isotope, a T cell carrying a receptor. These ${hubs.length} hubs read the corpus by shape. Each one gathers what OnCo already records about a format, ${n(totals.drugs)} medicines in all with ${n(totals.approved)} approved and ${n(totals.trials)} trials recruiting, and every section names the records it came from; where the corpus has nothing, the section says so rather than filling in.`}
         right={<div className="flex flex-wrap gap-2 justify-end"><a href={modalityFile("index")} className="chip border bg-card border-border hover:bg-foreground/5 text-sm" title="Every format with its counts and the route and file of its hub, as JSON">JSON for agents</a><Link href="/pipeline/engine/" className="chip border bg-card border-border hover:bg-foreground/5 text-sm" title="The same formats taken apart into their parts: the permutation grid of every combination">Open drug engine →</Link></div>} />
       <Container className="pb-16">
