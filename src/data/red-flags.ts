@@ -169,13 +169,55 @@ export const redFlagSets: RedFlagSet[] = [
     label: "Other antibody-drug conjugates",
     modalityRe: "^adc|bispecific adc",
     flags: [
+      { symptom: "Neutropenic fever", threshold: "Temperature of 38 C or higher, or feeling shivery and unwell even without a fever. Antibody-drug conjugates suppress the bone marrow, and several carry a boxed warning for severe neutropenia.", action: "call-now", source: NICE_CG151 },
+    ],
+  },
+  // Split out of the class set on 29 September 2026. The class card named enfortumab's and sacituzumab's boxed
+  // warnings on the page of every ADC, so a reader on brentuximab vedotin was told to watch for a Stevens-Johnson
+  // reaction sourced to a drug they are not taking, and so was a reader on an investigational ADC with no such
+  // warning. A card that names a drug the reader is not on is worse than no card: it is the same failure as the
+  // `imid` fragment. Each of these now attaches by product id to the products whose label carries the warning.
+  {
+    id: "adc-sacituzumab",
+    label: "Sacituzumab govitecan",
+    drugIds: ["sacituzumab-govitecan"],
+    flags: [
       { symptom: "Neutropenic fever", threshold: "Temperature of 38 C or higher. Sacituzumab govitecan carries a boxed warning for severe or life-threatening neutropenia.", action: "call-now", source: label("Trodelvy") },
       { symptom: "Severe diarrhoea", threshold: "Diarrhoea not controlled by loperamide, or with fever or dehydration. Sacituzumab govitecan carries a boxed warning for severe diarrhoea.", action: "call-now", source: label("Trodelvy") },
+    ],
+  },
+  {
+    id: "adc-enfortumab",
+    label: "Enfortumab vedotin",
+    drugIds: ["enfortumab-vedotin"],
+    flags: [
       { symptom: "Skin reaction", threshold: "Blisters, peeling, or sores in the mouth or eyes with a rash. Enfortumab vedotin carries a boxed warning for Stevens-Johnson syndrome and toxic epidermal necrolysis, mostly in the first cycle.", action: "emergency", source: label("Padcev") },
-      { symptom: "High blood sugar (enfortumab)", threshold: "Excessive thirst, frequent urination, or home readings above the level the team set; ketoacidosis has occurred in patients with and without diabetes.", action: "call-today", source: label("Padcev") },
-      { symptom: "Eye symptoms (belantamab, tisotumab, mirvetuximab)", threshold: "Blurred vision, dry or gritty eyes, eye pain or light sensitivity; these products carry boxed warnings or requirements for eye examinations before each dose.", action: "call-today", source: label("Tivdak") },
-      { symptom: "Lung symptoms", threshold: "New cough or breathlessness; pneumonitis is a labelled warning for several ADCs including enfortumab vedotin and mirvetuximab soravtansine.", action: "call-now", source: label("Padcev") },
-      { symptom: "Numbness or weakness", threshold: "Tingling, numbness or weakness that affects walking or using the hands; peripheral neuropathy is common with MMAE-containing ADCs and doses are reduced or stopped at grade 2 to 3.", action: "call-today", source: label("Padcev") },
+      { symptom: "High blood sugar", threshold: "Excessive thirst, frequent urination, or home readings above the level the team set; ketoacidosis has occurred in patients with and without diabetes.", action: "call-today", source: label("Padcev") },
+      { symptom: "Lung symptoms", threshold: "New cough or breathlessness; pneumonitis and interstitial lung disease are labelled warnings.", action: "call-now", source: label("Padcev") },
+    ],
+  },
+  {
+    id: "adc-brentuximab",
+    label: "Brentuximab vedotin",
+    drugIds: ["brentuximab-vedotin"],
+    flags: [
+      { symptom: "Confusion, weakness on one side, or loss of speech or vision", threshold: "Any new neurological symptom that is not explained. Brentuximab vedotin carries a boxed warning for progressive multifocal leukoencephalopathy, a brain infection; the label says to hold the drug and investigate at the first suspicion.", action: "emergency", source: label("Adcetris") },
+    ],
+  },
+  {
+    id: "adc-ocular",
+    label: "Antibody-drug conjugates that injure the eye",
+    drugIds: ["belantamab-mafodotin", "tisotumab-vedotin", "mirvetuximab-soravtansine"],
+    flags: [
+      { symptom: "Eye symptoms", threshold: "Blurred vision, dry or gritty eyes, eye pain or light sensitivity; these products carry boxed warnings or requirements for eye examinations before each dose.", action: "call-today", source: label("Tivdak") },
+    ],
+  },
+  {
+    id: "adc-tubulin-payload",
+    label: "Antibody-drug conjugates with a tubulin payload",
+    drugIds: ["brentuximab-vedotin", "enfortumab-vedotin", "polatuzumab-vedotin", "tisotumab-vedotin", "disitamab-vedotin"],
+    flags: [
+      { symptom: "Numbness or weakness", threshold: "Tingling, numbness or weakness that affects walking or using the hands; peripheral neuropathy is common with the vedotin (MMAE) payload and doses are reduced or stopped at grade 2 to 3.", action: "call-today", source: label("Adcetris") },
     ],
   },
   {
@@ -318,7 +360,7 @@ export const redFlagSets: RedFlagSet[] = [
   {
     id: "differentiation-agents",
     label: "IDH, menin and differentiation agents",
-    modalityRe: "idh1|idh2|idh1/2|menin|arsenical|retinoid",
+    modalityRe: "idh1|idh2|idh1/2|menin|differentiation agent|differentiating agent",
     window: "Differentiation syndrome usually starts within the first weeks to months of treatment and carries a boxed warning.",
     flags: [
       { symptom: "Differentiation syndrome", threshold: "Fever, cough or breathlessness, rapid weight gain or swelling, bone pain, low blood pressure or reduced urine; the labels say to start steroids and monitor at the first suspicion, and the syndrome has been fatal.", action: "emergency", source: label("Idhifa") },

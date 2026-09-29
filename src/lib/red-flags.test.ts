@@ -159,3 +159,54 @@ describe("a red card reaches only the drugs it is for", () => {
     expect(bad).toEqual([]);
   });
 });
+
+describe("a card never names a drug the reader is not taking", () => {
+  /**
+   * Found on 29 September 2026 while writing the lymphoma standard-of-care rows. Two class-wide sets were
+   * printing another product's boxed warning on a page about a different drug:
+   *   - the antibody-drug conjugate set matched every product whose modality is "ADC", so a reader on
+   *     brentuximab vedotin was told to watch for the Stevens-Johnson reaction that enfortumab vedotin
+   *     carries, and a reader on an investigational ADC with no warnings at all got the same card;
+   *   - the differentiation-agent set matched the fragment "retinoid", so bexarotene, an RXR agonist given
+   *     for cutaneous T-cell lymphoma, carried the differentiation syndrome card that belongs to ATRA and
+   *     arsenic trioxide in acute promyelocytic leukaemia.
+   * The fix was to attach those cards by product id. This test holds the line: a card's text may name a drug
+   * only when that drug is one of the products the card reaches.
+   */
+  const NAMED = [
+    ["enfortumab vedotin", "enfortumab-vedotin"],
+    ["sacituzumab govitecan", "sacituzumab-govitecan"],
+    ["brentuximab vedotin", "brentuximab-vedotin"],
+    ["polatuzumab", "polatuzumab-vedotin"],
+    ["bexarotene", "bexarotene"],
+  ] as const;
+
+  it("no set prints a named product's warning to a drug outside that set", () => {
+    const g = graph();
+    const drugs = g.kind("drug");
+    const bad: string[] = [];
+    for (const [phrase, drugId] of NAMED) {
+      for (const s of redFlagSets) {
+        const mentions = s.flags.some((f) => `${f.symptom} ${f.threshold}`.toLowerCase().includes(phrase));
+        if (!mentions) continue;
+        for (const d of drugs) {
+          if (d.id === drugId) continue;
+          if (redFlagsFor(d.id, d.modality).some((m) => m.id === s.id)) bad.push(`${s.id} names "${phrase}" and reaches ${d.id}`);
+        }
+      }
+    }
+    expect(bad.slice(0, 5)).toEqual([]);
+  });
+
+  it("differentiation syndrome reaches the differentiation agents and not the other retinoids", () => {
+    const g = graph();
+    const cards = (id: string) => {
+      const d = g.must(id);
+      return d.kind === "drug" ? redFlagsFor(d.id, d.modality).flatMap((s) => s.flags.map((f) => f.symptom)) : [];
+    };
+    expect(cards("tretinoin-atra")).toContain("Differentiation syndrome");
+    expect(cards("arsenic-trioxide")).toContain("Differentiation syndrome");
+    expect(cards("bexarotene")).not.toContain("Differentiation syndrome");
+    expect(cards("acitretin")).not.toContain("Differentiation syndrome");
+  });
+});
