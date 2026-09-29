@@ -39,6 +39,15 @@ describe("product or data", () => {
     ]) expect(classify(f), f).toBe("neither");
   });
 
+  it("reads package.json rather than its name: a script entry is not a product change", () => {
+    // A dependency or a build setting changes what the site is; a command for a person to type does not. Treating
+    // the filename as product blocked a ship of the page the owner had just asked for, which is how this was found.
+    expect(classify("package-lock.json")).toBe("neither");
+    // package.json is classified by comparing the file either side of the change, so it needs a repository to
+    // read; here we assert only that it is not decided by the name, which is what the old rule did.
+    expect(["product", "neither"]).toContain(classify("package.json"));
+  });
+
   it("puts the labels above the data rule, because src/data also holds prose a reader sees", () => {
     // i18n sits under src/lib but is entirely reader-facing text, so it must not fall through to the lib rule
     // by accident: the ordering of the rules is the thing being asserted here.

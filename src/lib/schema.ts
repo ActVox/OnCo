@@ -106,7 +106,7 @@ export const CancerSchema = Base.extend({
   /** What is state of the art today, in one paragraph per point. */
   stateOfArt: z.array(z.string()).default([]),
   history: z.array(TimelineEventSchema).default([]),
-  /** What is coming: ids of drugs/technologies/trials/ideas. */
+  /** Pipeline and open problems: ids of drugs/technologies/trials/ideas. */
   pipeline: z.array(id).default([]),
   openProblems: z.array(z.string()).default([]),
   /**

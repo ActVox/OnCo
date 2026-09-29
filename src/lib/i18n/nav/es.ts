@@ -24,7 +24,7 @@ export const navEs: NavDict = {
   "/pivot/": ["Cuadrícula del panorama", "Cuenta productos, ensayos o tecnologías por cáncer, diana, tipo de tratamiento o empresa en una cuadrícula."],
   "/rankings/": ["Clasificaciones", "Tablas clasificatorias calculadas a partir del corpus: cánceres por ensayos, dianas por productos, empresas por aprobaciones, ensayos por participantes, cada una con su base declarada."],
   "/timeline/": ["Línea de tiempo", "Todos los hechos fechados en una línea de tiempo: la forma de todo el campo, lo que esa forma muestra y una página por año."],
-  "/years/": ["Años", "Una página por año: todo lo que el corpus fecha en él, de las aprobaciones a los hitos, con cada línea enlazada al registro del que procede."],
+  "/years/": ["Año a año", "Una página por año: todo lo que el corpus fecha en él, de las aprobaciones a los hitos, con cada línea enlazada al registro del que procede."],
   "/query/": ["Consulta", "Construye una consulta al grafo y obtén una tabla."],
   "/graph/": ["Explorador del grafo", "Navega visualmente por el grafo de conocimiento."],
   "/saved/": ["Guardado", "Tus vistas de tablas guardadas y páginas seguidas, con lo que cambió desde que las viste. Solo se guarda en tu navegador."],
