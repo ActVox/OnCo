@@ -161,6 +161,7 @@ export const navEs: NavDict = {
   "/completeness/": ["Completitud", "Cuánto de lo que existe está en OnCo: cada tipo frente a un recuento del mundo con fuente, con los elementos que faltan nombrados."],
   "/open-tools/": ["Herramientas abiertas", "Visores, planificadores, flujos y hardware de código abierto que puedes usar o sobre los que construir, por frente, del Open Medical Registry."],
   "/open-source/": ["Código abierto en oncología", "Cada proyecto de código abierto del que depende el campo, desde detectores de variantes hasta sistemas de planificación y modelos fundacionales, con licencia, apertura y mantenedor."],
+  "/software/": ["El software de la oncología", "El resto del software del campo, en su mayoría comercial: registros, prescripción, planificación, algoritmos autorizados, genómica, emparejamiento de ensayos y revisión de casos, con la fuente de cada fila."],
   "/startups/": ["Startups", "Empresas de Y Combinator y respaldadas por capital riesgo que atacan el cáncer, por fase, modalidad, cáncer, promoción, inversor y país."],
   "/startup-requests/": ["Peticiones de startups", "Problemas sin ninguna empresa detrás: ideas que necesitan quien las construya, dianas farmacológicas sin producto y cuellos de botella sin entrante en el mercado."],
   "/investors/": ["Inversores", "Los fondos de capital riesgo, brazos corporativos y fundaciones de pacientes que respaldan empresas oncológicas, cada uno con su cartera."],

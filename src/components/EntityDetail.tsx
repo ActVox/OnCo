@@ -93,6 +93,7 @@ import { EN_TEXT, nameAttrs } from "@/lib/translate";
 import { HotspotPlot } from "./HotspotPlot";
 import { OpenMedicalPanel } from "./OpenMedicalPanel";
 import { OpenSourcePanel } from "./OpenSourcePanel";
+import { SoftwarePanel } from "./SoftwarePanel";
 import { hotspotsFor } from "@/data/hotspots";
 import { questionsFor } from "@/data/open-questions";
 import { assaysForTarget, assaysForDrug } from "@/data/assays";
@@ -160,7 +161,8 @@ export function EntityDetail({ e }: { e: Entity }) {
   const aside = <RecordAside e={e} />;
   const openMedical = (e.kind === "section" || e.kind === "technology") ? <OpenMedicalPanel id={e.id} kind={e.kind} limit={e.kind === "section" ? 12 : undefined} /> : null;
   const openSource = (e.kind === "technology" || e.kind === "collection" || e.kind === "institution" || e.kind === "company") ? <OpenSourcePanel id={e.id} name={e.name} kind={e.kind} /> : null;
-  const afterTabs = (openSource || openMedical) ? <>{openSource}{openMedical}</> : null;
+  const software = (e.kind === "technology" || e.kind === "company" || e.kind === "institution" || e.kind === "cancer") ? <SoftwarePanel id={e.id} name={e.name} kind={e.kind} /> : null;
+  const afterTabs = (openSource || openMedical || software) ? <>{openSource}{software}{openMedical}</> : null;
 
   return (
     <>
