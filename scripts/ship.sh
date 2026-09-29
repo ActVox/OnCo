@@ -48,6 +48,7 @@ if [ -z "$ONCO_PRODUCT_APPROVED" ]; then
   fi
 fi
 
+npm run -s queue:sync >/dev/null 2>&1 || true   # /admin/ shows what is open, so refresh it before every build
 npm run -s build:api || { echo "BUILD-API-FAILED"; exit 1; }
 # A check written as id:<entity-id> is resolved to the record's real route from the built API, because guessing a
 # route is the one way this verification fails on a deploy that actually worked: /glossary/<id>/ looked obvious and

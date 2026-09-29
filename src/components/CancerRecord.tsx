@@ -227,7 +227,7 @@ export function CancerSection({ c, id, plan }: { c: Cancer; id: SectionId; plan?
     </>);
 
     case "what-it-is": return (<>
-      <PillRow label="More on what it is" items={[...pages, { href: `/staging/#${c.id}`, text: "Staging and risk scores →", glyph: <ToolGlyph name="layers" className="h-3.5 w-3.5" /> }, ...(compareSetFor(c.id) ? [] : [])]} />
+      <PillRow label="More on types and stages" items={[...pages, { href: `/staging/#${c.id}`, text: "Staging and risk scores →", glyph: <ToolGlyph name="layers" className="h-3.5 w-3.5" /> }, ...(compareSetFor(c.id) ? [] : [])]} />
       <Block id="subtypes" title="Subtypes">{c.subtypes.length ? <LinkedBullets items={c.subtypes} skipId={c.id} /> : <p className="text-sm text-muted">No subtypes recorded beyond the ones named in the family strip above.</p>}</Block>
       {(c.basics?.staging.length ?? 0) > 0 && <Block id="staging" title="How it is staged" aside={<Sources list={c.basics!.sources} />}><LinkedBullets items={c.basics!.staging} skipId={c.id} /></Block>}
       {spreadFor(c.id) && (
@@ -246,7 +246,7 @@ export function CancerSection({ c, id, plan }: { c: Cancer; id: SectionId; plan?
 
     case "finding-it": { const b = c.basics; return (<>
       {b && (b.symptoms.length > 0 || b.diagnosis.length > 0) && (
-        <Block id="symptoms" title="Symptoms and diagnosis" aside={<Sources list={b.sources} />}>
+        <Block id="symptoms" title="How it is found" aside={<Sources list={b.sources} />}>
           <div className="grid *:min-w-0 gap-6 sm:grid-cols-2">
             {b.symptoms.length > 0 && <Field label="How it shows"><LinkedBullets items={b.symptoms} skipId={c.id} /></Field>}
             {b.diagnosis.length > 0 && <Field label="How it is confirmed"><LinkedBullets items={b.diagnosis} skipId={c.id} /></Field>}
@@ -309,7 +309,7 @@ export function CancerSection({ c, id, plan }: { c: Cancer; id: SectionId; plan?
     </>); }
 
     case "where-you-are": return (<>
-      <PillRow label="More on where you are" items={[...pages, { href: "/countries/", text: "Every country →", glyph: <ToolGlyph name="globe" className="h-3.5 w-3.5" /> }, { href: "/coverage/", text: "Coverage by country →", glyph: <ToolGlyph name="flag" className="h-3.5 w-3.5" /> }]} />
+      <PillRow label="More on countries and centres" items={[...pages, { href: "/countries/", text: "Every country →", glyph: <ToolGlyph name="globe" className="h-3.5 w-3.5" /> }, { href: "/coverage/", text: "Coverage by country →", glyph: <ToolGlyph name="flag" className="h-3.5 w-3.5" /> }]} />
       {geographyFor(c.id) ? <CancerGeographySection c={c} /> : <Block id="geography" title="Cases by country"><CountryCasesMini cancerId={c.id} limit={10} /></Block>}
       <div className="mt-8"><UkPathwayStrip c={c} id="uk" /></div>
       <Block id="centres" title="Expert centres"><ExpertCentres cancerId={c.id} /></Block>
@@ -317,7 +317,7 @@ export function CancerSection({ c, id, plan }: { c: Cancer; id: SectionId; plan?
     </>);
 
     case "living-with-it": return (<>
-      <PillRow label="More on living with it" items={[
+      <PillRow label="More on decisions and support" items={[
         { href: `/first-60-days/${c.id}/`, text: "The first 60 days →", glyph: <ToolGlyph name="clock" className="h-3.5 w-3.5" />, accent: true },
         { href: `/prep/${c.id}/`, text: "Appointment prep sheet →", glyph: <ToolGlyph name="talk" className="h-3.5 w-3.5" /> },
         { href: "/side-effects/", text: "Side effects →", glyph: <ToolGlyph name="pain" className="h-3.5 w-3.5" /> },
@@ -331,7 +331,7 @@ export function CancerSection({ c, id, plan }: { c: Cancer; id: SectionId; plan?
     </>);
 
     case "coming": { const changes = splitUpcoming(changesForCancer(g, c), new Date().toISOString().slice(0, 10)).past; return (<>
-      <PillRow label="More on what is coming" items={[...pages, { href: `/edge/?cancer=${encodeURIComponent(c.id)}`, text: "Edge: the freshest items →", glyph: <ToolGlyph name="trend" className="h-3.5 w-3.5" />, accent: true }, { href: `/roadmap/`, text: "Roadmaps →", glyph: <ToolGlyph name="compass" className="h-3.5 w-3.5" /> }]} />
+      <PillRow label="More on the pipeline" items={[...pages, { href: `/edge/?cancer=${encodeURIComponent(c.id)}`, text: "Edge: the freshest items →", glyph: <ToolGlyph name="trend" className="h-3.5 w-3.5" />, accent: true }, { href: `/roadmap/`, text: "Roadmaps →", glyph: <ToolGlyph name="compass" className="h-3.5 w-3.5" /> }]} />
       <Block id="pipeline" title="In development"><CancerPipeline c={c} /></Block>
       <FamilyRollup c={c} kind="drug" id="subtype-pipeline" />
       {c.openProblems.length > 0 && <Block id="open-problems" title="Open problems and what is being done"><ul className="space-y-4">{c.openProblems.map((pr, i) => <li key={i}><p className="text-[15px] leading-relaxed">{withTermHovers(pr, { skipId: c.id })}</p><div className="mt-2"><WhatIsBeingDoneFor text={pr} cancerId={c.id} /></div></li>)}</ul></Block>}

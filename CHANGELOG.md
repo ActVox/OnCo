@@ -7,9 +7,23 @@ All notable changes to OnCo are recorded here. The format follows [Keep a Change
 Regenerated from the commit log each time the site ships (`scripts/changelog-sync.ts`); the version sections below are written by hand when a release is cut.
 
 ### 28 September 2026
+- Every cancer-page section named for what is in it, in nine languages
+- The block inside Symptoms and diagnosis is not called that too, and four pill labels follow the new names
+- The page that shows what is waiting, with the queue read from the open pull requests
+- A command for a person to type is not a change to the product
+- The queue is a rendering of the open pull requests, refreshed on every ship
+- The admin page waiting in its own queue
+- The page that shows what is waiting, and says plainly what it is not
 - Product changes now wait for the owner, and the plan for the cancer page is written
 - The approval mechanism belongs on main; the renames stay in the queue
 - The cancer page measured before it is redesigned, and a plan the owner can approve part by part
+- The first product change waiting in the queue
+- Product changes wait for the owner; data ships
+- Each section of a cancer page is now named for what is inside it, and the years index says which years it holds
+- The front page links to 140 sections and shows almost none of them
+- The prevalence matrix: 23 columns wide and growing with the corpus
+- Visual first, and the measurement that would be misleading if taken naively
+- Every page title, with the count of how many are one or two words
 - The machine links, and the admission that seven patches are not a design
 - The years index title, and the question of how it differs from the timeline
 - The section names and the wall of links, with what each section holds and how many links a page carries

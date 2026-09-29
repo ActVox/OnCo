@@ -92,6 +92,19 @@ const pluralise = (n: number, one: string, many = `${one}s`) => (n === 1 ? one :
 /** The family roll-up count a section's card shows: what the subtypes hold and this record does not (src/lib/cancer-rollup.ts). */
 const rolled = (g: G, c: Cancer, k: RollupKind, one: string): SectionCount => { const n = familyRollup(c, k, g).total; return { n, label: `${pluralise(n, one)} in the subtypes` }; };
 
+/**
+ * Section names, 28 September 2026. A section is named for what is inside it, in the words a reader would use.
+ * Half the names leaned on "it" ("Finding it", "Treating it", "Living with it", "What it is"), which makes the
+ * reader carry an antecedent from the page title down into the strip, and three more were abstract nouns that
+ * could have sat on any page of any site ("Evidence", "The science", "Where you are", "What is coming"). The ids
+ * are unchanged, so /cancers/<id>/finding-it/, every anchor and every published link keep working; only the
+ * titles moved, and each one has its label in the nine site languages (src/lib/i18n/ui.ts).
+ *
+ * Two names differ from what the section's `purpose` string promised, because the rendered section was read
+ * before the name was chosen: `finding-it` renders symptoms, how the diagnosis is confirmed and the biomarker
+ * panel but no screening block, so it is not called screening; `coming` renders the pipeline, the open problems
+ * and what changed, so it is not called by the name of its first block alone.
+ */
 export const SECTIONS: readonly SectionDef[] = [
   {
     id: "overview", title: "Overview", glyph: "compass", pinned: true,
@@ -104,7 +117,7 @@ export const SECTIONS: readonly SectionDef[] = [
     estimate: (c, g) => { const routing = c.notes.filter((n) => /^Which page is mine/i.test(n)); return { rows: c.stateOfArt.length + children(g, c) + routing.length, kb: 30 + c.stateOfArt.length * 0.6 + children(g, c) * 0.3 + routing.reduce((n, t) => n + t.length / 1024, 0) + (organFor(c.id) ? 10 : 0) }; },
   },
   {
-    id: "what-it-is", title: "What it is", glyph: "anatomy",
+    id: "what-it-is", title: "Types and stages", glyph: "anatomy",
     purpose: "Anatomy, the subtypes and how they differ, how it is staged, and where advanced disease spreads.",
     fields: ["subtypes", "basics.staging", "parent"],
     patches: ["spikes/<cancer>-core.ts (subtype records)", "data/spread.ts", "data/organ-schematics.ts"],
@@ -114,8 +127,8 @@ export const SECTIONS: readonly SectionDef[] = [
     estimate: (c, g) => { const s = spreadFor(c.id)?.sites.length ?? 0; const rows = c.subtypes.length + children(g, c) + (c.basics?.staging.length ?? 0) + s; return { rows, kb: 4 + rows * 0.6 + (s ? 10 : 0) }; },
   },
   {
-    id: "finding-it", title: "Finding it", glyph: "magnifier",
-    purpose: "How it shows itself, how it is confirmed, what screening exists, and the biomarkers clinicians test for.",
+    id: "finding-it", title: "Symptoms and diagnosis", glyph: "magnifier",
+    purpose: "How this cancer shows itself, how the diagnosis is confirmed, and the biomarkers clinicians test for.",
     fields: ["basics.symptoms", "basics.diagnosis", "biomarkers"],
     patches: ["spikes/<cancer>-core.ts (basics)", "target records' prevalence rows"],
     anchors: ["symptoms", "biology"],
@@ -124,7 +137,7 @@ export const SECTIONS: readonly SectionDef[] = [
     estimate: (c, g) => { const rows = (c.basics?.symptoms.length ?? 0) + (c.basics?.diagnosis.length ?? 0) + c.biomarkers.length + prevalenceRows(g, c); return { rows, kb: 3 + rows * 0.45 }; },
   },
   {
-    id: "treating-it", title: "Treating it", glyph: "pill",
+    id: "treating-it", title: "Treatment", glyph: "pill",
     purpose: "The standard of care by setting, the medicines, surgery and radiotherapy named in it, and the regimens behind them.",
     fields: ["standardOfCare"],
     patches: ["spikes/<cancer>-treatment.ts", "lib/regimens.ts", "lib/sequencing.ts", "lib/guidelines.ts", "lib/decisions.ts", "lib/uk-pathway.ts", "lib/decision-tools.ts"],
@@ -134,7 +147,7 @@ export const SECTIONS: readonly SectionDef[] = [
     estimate: (c) => ({ rows: c.standardOfCare.length + regimensFor(c.id).length, kb: 8 + c.standardOfCare.length * 1.8 + (ukPathwayFor(c.id) ? 3 : 0) + (decisionsFor(c.id) ? 2 : 0) + (toolsFor(c.id).length ? 2 : 0) }),
   },
   {
-    id: "evidence", title: "Evidence", glyph: "flask",
+    id: "evidence", title: "Trials and papers", glyph: "flask",
     purpose: "Trials recruiting now, the landmark trials, the trials held by this cancer's subtypes, the key papers and what they mean, the latest literature, and the milestones year by year.",
     fields: ["history", "keyPapers", "trials"],
     patches: ["spikes/<cancer>-evidence*.ts", "spikes/<cancer>-registry-trials.ts", "data/key-papers/", "Europe PMC (LatestPapers)", "lib/cancer-rollup.ts (family roll-up)"],
@@ -144,7 +157,7 @@ export const SECTIONS: readonly SectionDef[] = [
     estimate: (c, g) => { const t = forCancerCount(g, c, "trial"); const p = keyPaperCount(g, c); const r = rollupEstimate(c, "trial", g); return { rows: t + p + c.history.length + r.rows, kb: 6 + cap(t) * 0.45 + cap(p) * 1.1 + c.history.length * 0.7 + (paperQuery(c) ? 4 : 0) + r.kb }; },
   },
   {
-    id: "science", title: "The science", glyph: "dna",
+    id: "science", title: "Biology and targets", glyph: "dna",
     purpose: "The molecular landscape: the targets and how often each appears, the pathways, the mechanics stages and the preclinical models.",
     fields: ["targets", "pathways", "technologies"],
     patches: ["spikes/<cancer>-molecular.ts", "data/preclinical-models.ts", "data/mechanics-*.ts", "target records' prevalence rows"],
@@ -154,7 +167,7 @@ export const SECTIONS: readonly SectionDef[] = [
     estimate: (c, g) => { const rows = forCancerCount(g, c, "target") + forCancerCount(g, c, "pathway") + prevalenceRows(g, c); return { rows, kb: 4 + cap(forCancerCount(g, c, "target")) * 0.5 + cap(forCancerCount(g, c, "pathway")) * 0.5 + prevalenceRows(g, c) * 0.7 + (modelsFor(c.id) ? 2 : 0) }; },
   },
   {
-    id: "where-you-are", title: "Where you are", glyph: "pin", alwaysPage: true,
+    id: "where-you-are", title: "Countries and centres", glyph: "pin", alwaysPage: true,
     purpose: "Cases by country, the UK and NHS pathway and other country lenses, the expert centres with trials on record, and the centres named on this cancer's subtypes.",
     fields: ["institutions"],
     patches: ["spikes/<cancer>-geography.ts", "spikes/<cancer>-uk.ts", "lib/centre-table.ts", "lib/cancer-rollup.ts (family roll-up)", "GLOBOCAN (data/globocan-map.ts)"],
@@ -164,7 +177,7 @@ export const SECTIONS: readonly SectionDef[] = [
     estimate: (c, g) => { const r = rollupEstimate(c, "institution", g); return { rows: forCancerCount(g, c, "institution") + (geographyFor(c.id)?.regions.length ?? 0) + r.rows, kb: (geographyFor(c.id) ? 130 : 12) + 6 + cap(forCancerCount(g, c, "institution")) * 1.6 + (ukPathwayFor(c.id) ? 4 : 0) + r.kb }; },
   },
   {
-    id: "living-with-it", title: "Living with it", glyph: "heart",
+    id: "living-with-it", title: "Decisions and support", glyph: "heart",
     purpose: "The decisions you may face, the aids that walk through them, the warnings on record, the first sixty days and the questions to ask.",
     fields: ["standardOfCare (warnings)"],
     patches: ["spikes/<cancer>-living.ts", "lib/decisions.ts", "lib/decision-tools.ts", "lib/red-cards.ts", "lib/first-60-days.ts", "lib/questions.ts", "data/journeys.ts"],
@@ -174,7 +187,7 @@ export const SECTIONS: readonly SectionDef[] = [
     estimate: (c, g) => { const rows = questionsFor(c).items.length + redCardsForCancer(g, c).length + journeysForCancer(c.id).length + toolsFor(c.id).length; return { rows, kb: 10 + rows * 0.6 + (decisionsFor(c.id) ? 3 : 0) }; },
   },
   {
-    id: "coming", title: "What is coming", glyph: "rocket", alwaysPage: true,
+    id: "coming", title: "Pipeline and open problems", glyph: "rocket", alwaysPage: true,
     purpose: "Everything in development, the medicines held by this cancer's subtypes, the open problems and what is being done about them, the roadmaps, and what changed on this record.",
     fields: ["pipeline", "openProblems", "roadmaps"],
     patches: ["spikes/<cancer>-evidence-roadmap.ts", "lib/cancer-changes.ts", "data/ideas*.ts", "lib/cancer-rollup.ts (family roll-up)", "Edge (lib/edge.ts)"],
@@ -263,7 +276,7 @@ export function cancerAnchorHref(cancerId: string, anchor: string, g: G = graph(
 
 /**
  * Hash to address, for every anchor the hub does not carry itself: the section navigator reads this on load and
- * forwards a reader who arrived at `/cancers/<id>/#care` when Treating it lives on its own page. Anchors of inline
+ * forwards a reader who arrived at `/cancers/<id>/#care` when Treatment lives on its own page. Anchors of inline
  * sections are left out (the hub has the element), and the `sec-` form of each id is included because earlier
  * links were written that way.
  */
