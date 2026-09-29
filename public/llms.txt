@@ -241,6 +241,7 @@
 - [Open data](https://onco.cc/data-sources/): Every open database OnCo pulls from, with licences and cadence, and the ones we could add next.
 - [Open tools](https://onco.cc/open-tools/): Open-source viewers, planners, pipelines and hardware you can use or build on, by front, from the Open Medical Registry.
 - [Open source in oncology](https://onco.cc/open-source/): Every open-source project the field runs on, from variant callers to planning systems and foundation models, with licence, openness and maintainer.
+- [The software of oncology](https://onco.cc/software/): The rest of the field's software, most of it commercial: records, prescribing, planning, cleared algorithms, genomics, trial matching and case review, each row marked with what is behind it.
 
 ## Optional
 

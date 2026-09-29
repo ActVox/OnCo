@@ -6,6 +6,9 @@ All notable changes to OnCo are recorded here. The format follows [Keep a Change
 
 Regenerated from the commit log each time the site ships (`scripts/changelog-sync.ts`); the version sections below are written by hand when a release is cut.
 
+### 29 September 2026
+- The software of oncology, and the top of a record page
+
 ### 28 September 2026
 - Every cancer-page section named for what is in it, in nine languages
 - The block inside Symptoms and diagnosis is not called that too, and four pill labels follow the new names
@@ -14,6 +17,10 @@ Regenerated from the commit log each time the site ships (`scripts/changelog-syn
 - The queue is a rendering of the open pull requests, refreshed on every ship
 - The admin page waiting in its own queue
 - The page that shows what is waiting, and says plainly what it is not
+- The record page top waiting in the queue
+- The top of a record page is the record again: a family strip of six, two paragraphs of summary, the clinic names readable, the model panel last
+- The software map waiting in the queue
+- The map a product proposal belongs in: 136 pieces of oncology software, each row saying whether anything outside the company backs it up
 - Product changes now wait for the owner, and the plan for the cancer page is written
 - The approval mechanism belongs on main; the renames stay in the queue
 - The cancer page measured before it is redesigned, and a plan the owner can approve part by part
