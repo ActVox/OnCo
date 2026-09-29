@@ -3,7 +3,7 @@ import { enrolmentLabel } from "@/lib/enrolment";
 import { publicTags, tagRoute } from "@/lib/tags";
 import { Fragment, type ReactNode } from "react";
 import { EVIDENCE_TIER_LABEL, TARGET_ROLE_LABEL, type Entity, type Roadmap, type Term } from "@/lib/schema";
-import { KIND_META, phaseLabel, routeFor } from "@/lib/kinds";
+import { KIND_META, phaseLabel, routeFor, type Kind } from "@/lib/kinds";
 import { graph } from "@/lib/graph";
 import { Bullets, ChipList, Container, KindChip, PageHeader, StatusChip } from "./ui";
 import { Block, Field, KeyPapers, keyPapersFor, LatestLiterature, Refs, Summary, ToolsStrip } from "./record-blocks";
@@ -23,6 +23,7 @@ import { Logo } from "./Logo";
 import { Portrait, PortraitCredit } from "./Portrait";
 import { JsonLd } from "./JsonLd";
 import { MachineLinks } from "./MachineLinks";
+import { AkaLine } from "./AkaLine";
 import { CheckpointPills } from "./CheckpointPills";
 import { ModalityPills } from "./ModalityPills";
 import { PrintButton } from "./PrintButton";
@@ -89,7 +90,7 @@ import { coverageUk } from "@/data/coverage-uk";
 import { similarLinks } from "@/lib/similar";
 import { agentById } from "@/lib/interactions";
 import { IdentifierRow, XrefStrip } from "./XrefStrip";
-import { EN_TEXT, nameAttrs } from "@/lib/translate";
+import { nameAttrs } from "@/lib/translate";
 import { HotspotPlot } from "./HotspotPlot";
 import { OpenMedicalPanel } from "./OpenMedicalPanel";
 import { OpenSourcePanel } from "./OpenSourcePanel";
@@ -173,7 +174,7 @@ export function EntityDetail({ e }: { e: Entity }) {
         titleAttrs={nameAttrs(e.kind)}
         ledeNode={<TldrText id={e.id} tldr={e.tldr} simple={e.simple} />}
         logo={e.kind === "cancer" ? <span className="inline-flex h-16 w-16 items-center justify-center rounded-2xl border border-accent/30 bg-accent-soft text-accent"><CancerIcon cancerId={e.id} className="h-10 w-10" /></span> : e.kind === "section" ? <span className="inline-flex h-16 w-16 items-center justify-center rounded-2xl border border-accent/30 bg-accent-soft text-accent"><FrontIcon id={e.id} className="h-9 w-9" /></span> : "website" in e ? <Logo id={e.id} website={e.website} name={e.name} size={64} /> : "url" in e && (e.kind === "collection" || e.kind === "journal") ? <Logo id={e.id} website={e.url} name={e.name} size={64} /> : undefined}
-        right={e.aka.length > 0 ? <div {...EN_TEXT} className="text-xs text-muted text-end max-w-xs">aka <span {...nameAttrs(e.kind)}>{e.aka.join(", ")}</span></div> : undefined}
+        under={<AkaLine e={e} />}
       />
       <Container className="pb-16">
         {(e.kind === "target" || e.kind === "pathway") && <MechanicsPills id={e.id} className="mb-6" />}
@@ -196,14 +197,29 @@ function keyedContent(tabs: Tab[]): Tab[] {
   return tabs.map((t) => ({ ...t, content: <Fragment key={`${t.id}-content`}>{t.content}</Fragment> }));
 }
 
-/** The right-hand column of a record page: evidence, review and provenance, links and tags, data, suggest an edit, quick links. */
+/**
+ * Record kinds where the patient pack earns the control in the Data row: the pages a patient or a carer takes to
+ * an appointment, where "every section in plain language, dated, with a QR code back to the page and the
+ * disclaimer" is something a browser cannot produce. On a company, journal, person or paper page the three modes
+ * collapse into the browser's own print command, so the control is not shown there (see the note in PrintButton).
+ */
+const PACK_KINDS: ReadonlySet<Kind> = new Set<Kind>(["cancer", "drug", "trial", "term"]);
+
+/**
+ * The right-hand column of a record page: evidence, provenance, links and tags, data, suggest an edit, quick
+ * links, and last of all the review panel.
+ *
+ * The review panel used to sit second, above everything a reader came for. It is the page talking about itself:
+ * machine commentary on 21 records, and on the other ~19,000 a card saying nobody has reviewed the page yet.
+ * Neither is what a reader opens a cancer page for, so it goes at the foot of the column, after the actions.
+ * `src/app/record-top.test.ts` keeps it there.
+ */
 export function RecordAside({ e }: { e: Entity }) {
   return (
           <StickyAside>
             {e.kind === "person" && <PortraitCredit id={e.id} />}
             {e.kind === "technology" && e.tags.some((t) => t.startsWith("evidence:")) && <div className="card p-4 text-sm"><div className="kicker mb-1.5">Evidence grade</div><EvidenceGradeChip tags={e.tags} /><p className="text-[11px] text-muted mt-2">How much and what kind of evidence, for the stated purpose. Grades are explained on the <Link className="underline" href="/live/complementary/">complementary approaches page</Link>.</p></div>}
             {(e.kind === "drug" || e.kind === "technology" || e.kind === "target" || e.kind === "trial") && <EvidenceBar e={e} />}
-            <ReviewBadge id={e.id} />
             <ProvenanceLine id={e.id} />
             <div className="card p-4 text-sm space-y-3">
               {e.wikipedia && <div><div className="kicker mb-1"><TL text="Wikipedia" /></div><a className="underline break-all" href={e.wikipedia} rel="noopener">{decodeURIComponent(e.wikipedia.replace("https://en.wikipedia.org/wiki/", "")).replace(/_/g, " ")}</a></div>}
@@ -216,13 +232,12 @@ export function RecordAside({ e }: { e: Entity }) {
               {publicTags(e.tags).length > 0 && <div><div className="kicker mb-1"><Link href="/tagged/" className="hover:underline"><TL text="Tags" /></Link></div><div className="flex flex-wrap gap-1" data-tag-chips>{publicTags(e.tags).map((t) => <Link key={t} href={tagRoute(t)} className="chip bg-foreground/5 hover:bg-accent-soft hover:text-accent" title={`Every record tagged ${t}`}>{t}</Link>)}</div></div>}
               <div><div className="kicker mb-1"><TL text="Data" /></div>
                 <a className="underline" href={`/api/v1/entities/${e.id}.json`}>JSON</a>
-                <span className="text-muted"> · </span>
-                <span className="text-muted"> · </span>
-                <PrintButton className="underline" asOf={e.asOf} title={e.name} />
+                {PACK_KINDS.has(e.kind) && <><span className="text-muted"> · </span><PrintButton className="underline" asOf={e.asOf} title={e.name} /></>}
               </div>
             </div>
             <SuggestEdit id={e.id} kind={e.kind} name={e.name} fields={Object.keys(e)} source={sourceLocation(e.id, e.kind)} route={routeFor(e)} asOf={e.asOf} />
             {e.kind !== "cancer" && <QuickLinks e={e} />}
+            <div data-review><ReviewBadge id={e.id} /></div>
           </StickyAside>
   );
 }
@@ -242,7 +257,7 @@ function QuickLinks({ e }: { e: Entity }) {
   const nonEmpty = rows.filter(([, ids]) => ids.length);
   if (!nonEmpty.length) return null;
   return (
-    <div className="card p-4 text-sm space-y-3">
+    <div className="card p-4 text-sm space-y-3" data-quick-links>
       {nonEmpty.map(([label, ids]) => (
         <div key={label}>
           <div className="kicker mb-1"><TL text={label} /></div>

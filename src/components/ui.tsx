@@ -85,7 +85,7 @@ export function GroupKicker({ id, children }: { id: string; children?: React.Rea
  * title so pages differ; hidden on phones). `tone="band"` adds the soft garden wash used by group
  * landing pages, echoing the home hero.
  */
-export function PageHeader({ kicker, title, lede, ledeNode, right, logo, tone = "plain", seed, titleAttrs }: { kicker?: React.ReactNode; title: React.ReactNode; lede?: string; ledeNode?: React.ReactNode; right?: React.ReactNode; logo?: React.ReactNode; tone?: "plain" | "band"; /** Stable string for the decorative seed when `title` is not a plain string. */ seed?: string; /** `lang` and `translate` for the h1 (see `nameAttrs` in src/lib/translate.ts): a drug or gene name must not be translated, an English heading may be. */ titleAttrs?: ReturnType<typeof nameAttrs> }) {
+export function PageHeader({ kicker, title, lede, ledeNode, right, under, logo, tone = "plain", seed, titleAttrs }: { kicker?: React.ReactNode; title: React.ReactNode; lede?: string; ledeNode?: React.ReactNode; right?: React.ReactNode; /** Full-width content under the lede: the also-known-as line on a record page. Anything a reader has to read belongs here rather than in `right`, which is a narrow column beside the title. */ under?: React.ReactNode; logo?: React.ReactNode; tone?: "plain" | "band"; /** Stable string for the decorative seed when `title` is not a plain string. */ seed?: string; /** `lang` and `translate` for the h1 (see `nameAttrs` in src/lib/translate.ts): a drug or gene name must not be translated, an English heading may be. */ titleAttrs?: ReturnType<typeof nameAttrs> }) {
   const inner = (
     <div className={`relative mx-auto max-w-7xl px-4 sm:px-6 pt-8 sm:pt-10 ${tone === "band" ? "pb-10 sm:pb-12" : "pb-6"}`}>
       <GardenBackdrop variant="page" seed={gardenSeed(seed ?? (typeof title === "string" ? title : ""))} />
@@ -99,6 +99,7 @@ export function PageHeader({ kicker, title, lede, ledeNode, right, logo, tone = 
           {right}
         </div>
         {(ledeNode || lede) && <p className="mt-3 text-[17px] sm:text-lg text-foreground/85 max-w-3xl leading-relaxed">{ledeNode ?? lede}</p>}
+        {under}
       </div>
     </div>
   );

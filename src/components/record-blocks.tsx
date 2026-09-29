@@ -3,10 +3,11 @@ import type { ReactNode } from "react";
 import type { Entity, Paper } from "@/lib/schema";
 import { routeFor } from "@/lib/kinds";
 import { graph } from "@/lib/graph";
-import { paragraphs, statusClass } from "@/lib/text";
+import { statusClass } from "@/lib/text";
 import { ChipList } from "./ui";
 import { LayerAware } from "./LayerAware";
 import { SummaryText } from "./SummaryText";
+import { ReadMore, splitSummary } from "./ReadMore";
 import { summaryTranslationsFor } from "@/lib/summary-translations";
 import { EN_TEXT } from "@/lib/translate";
 import { TL } from "./T";
@@ -73,14 +74,24 @@ export function Block({ title, children, aside, id }: { title?: string; children
  * The long summary. The server renders the English with lang="en"; when the reader's language has a cached machine
  * translation whose hash matches this English (public/i18n/summaries), SummaryText swaps it in client-side, marked as
  * machine translated with a report link and a toggle back to the English.
+ *
+ * A summary over 1,800 characters shows its opening and folds the rest behind a "Read more" so the sections below
+ * are reachable; `ReadMore.tsx` holds the rule and the measurements behind it.
  */
-export const Summary = ({ e }: { e: Entity }) => (
-  <LayerAware>
-    <SummaryText e={{ kind: e.kind, id: e.id, name: e.name }} translations={summaryTranslationsFor(e)}>
-      <div {...EN_TEXT} className="prose-onco text-[15px] leading-relaxed max-w-3xl">{paragraphs(e.summary).map((p, i) => <p key={i}>{withTermHovers(p, { skipId: e.id })}</p>)}</div>
-    </SummaryText>
-  </LayerAware>
-);
+export const Summary = ({ e }: { e: Entity }) => {
+  const { lead, rest } = splitSummary(e.summary);
+  const para = (p: string, i: number) => <p key={i}>{withTermHovers(p, { skipId: e.id })}</p>;
+  return (
+    <LayerAware>
+      <SummaryText e={{ kind: e.kind, id: e.id, name: e.name }} translations={summaryTranslationsFor(e)}>
+        <div {...EN_TEXT} className="prose-onco text-[15px] leading-relaxed max-w-3xl">
+          {lead.map(para)}
+          {rest.length > 0 && <ReadMore count={rest.length}>{rest.map(para)}</ReadMore>}
+        </div>
+      </SummaryText>
+    </LayerAware>
+  );
+};
 
 /**
  * Bullet list where any object we have a page for becomes a link: the leading name (before a colon, dash or
