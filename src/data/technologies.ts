@@ -270,7 +270,7 @@ export const technologies: TechnologyInput[] = [
     principle: "Gigapixel whole-slide images; tile-level self-supervised encoders aggregated to slide-level predictions.",
     strengths: ["Cheap biomarker from routine slides", "Consistent scoring (Ki-67, TILs, HER2)"],
     limitations: ["Scanner and stain domain shift", "Explainability", "Regulatory pathways for updates"],
-    companies: ["artera", "paige", "pathai", "ataraxis-ai", "digistain", "histowiz", "ibex-medical-analytics", "imagene-ai", "nucleai", "perimeter-medical-imaging-ai", "valar-labs", "x-zell"],
+    companies: ["artera", "paige", "pathai", "ataraxis-ai", "digistain", "histowiz", "ibex-medical-analytics", "imagene-ai", "nucleai", "perimeter-medical-imaging-ai", "valar-labs", "x-zell", "strand-ai"],
     drugs: ["artera-ai-prostate", "artera-ai-breast"], related: ["ai-pathology-to-adt", "ai-oncology-clinic"], links: [{ label: "Wikipedia", url: W("Digital_pathology") }], journals: ["analytical-cellular-pathology"],
   },
   {
@@ -486,7 +486,7 @@ export const technologies: TechnologyInput[] = [
     technologies: ["psma-pet", "spect", "targeted-alpha-therapy"],
     targets: ["psma", "sstr2", "fap"],
     drugs: ["pluvicto", "lutathera"],
-    cancers: ["prostate", "neuroendocrine"], companies: ["clarity-pharmaceuticals", "abdera-therapeutics", "alpha-9-oncology", "ariceum-therapeutics", "artbio", "atomic-alchemy", "evergreen-theragnostics", "mariana-oncology", "nucleus-radiopharma", "point-biopharma", "precirix", "radionetics-oncology", "ratio-therapeutics", "relit-biosciences"], links: [{ label: "Wikipedia", url: W("Radioligand_therapy") }], journals: ["cancer-biotherapy-and-radiopharmaceuticals"],
+    cancers: ["prostate", "neuroendocrine"], companies: ["clarity-pharmaceuticals", "abdera-therapeutics", "alpha-9-oncology", "ariceum-therapeutics", "artbio", "atomic-alchemy", "evergreen-theragnostics", "mariana-oncology", "nucleus-radiopharma", "point-biopharma", "precirix", "radionetics-oncology", "ratio-therapeutics", "relit-biosciences", "monopar"], links: [{ label: "Wikipedia", url: W("Radioligand_therapy") }], journals: ["cancer-biotherapy-and-radiopharmaceuticals"],
   },
   {
     id: "targeted-alpha-therapy", dependsOn: ["therapy-isotope-supply-chain", "radiopharmacy-network", "radioligand-dosimetry"], related: ["astatine-211-alpha-therapy"], kind: "technology", name: "Targeted alpha therapy", sections: ["radiopharma"], status: "phase-3", asOf, wikipedia: W("Targeted_alpha-particle_therapy"),
@@ -529,7 +529,7 @@ export const technologies: TechnologyInput[] = [
     principle: "DNA damage, antimetabolite incorporation, or mitotic spindle disruption in dividing cells.",
     strengths: ["Curative in several cancers", "Cheap, generic"],
     limitations: ["Narrow therapeutic index", "Resistance via efflux pumps and DNA repair"],
-    terms: ["efflux-pump"], companies: ["lupin", "intas", "shasqi"], trials: ["euramos-1", "gefitinib-chemo-tmh"], related: ["genomic-assay-to-chemo-omission", "body-surface-area-dosing", "log-kill-hypothesis"], links: [{ label: "Wikipedia", url: W("Chemotherapy") }], journals: ["cancer-chemotherapy-and-pharmacology", "gan-to-kagaku-ryoho"],
+    terms: ["efflux-pump"], companies: ["lupin", "intas", "shasqi", "telik", "vion-pharmaceuticals"], trials: ["euramos-1", "gefitinib-chemo-tmh"], related: ["genomic-assay-to-chemo-omission", "body-surface-area-dosing", "log-kill-hypothesis"], links: [{ label: "Wikipedia", url: W("Chemotherapy") }], journals: ["cancer-chemotherapy-and-pharmacology", "gan-to-kagaku-ryoho"],
   },
   {
     id: "platinum", kind: "technology", name: "Platinum agents", sections: ["chemotherapy"], status: "standard-of-care", asOf, wikipedia: W("Platinum-based_antineoplastic"),
@@ -549,7 +549,7 @@ export const technologies: TechnologyInput[] = [
     strengths: ["Bystander effect", "Active after taxanes and anthracyclines"],
     limitations: ["Cross-resistance between TOP1-payload ADCs (SLFN11 loss, TOP1 mutations)", "ILD with DXd; neutropenia and diarrhoea with SN-38"],
     technologies: ["adc"],
-    terms: ["payload", "bystander-effect"], links: [{ label: "Wikipedia", url: W("Topoisomerase_inhibitor") }], companies: ["dantari", "pheon-therapeutics", "profoundbio"],
+    terms: ["payload", "bystander-effect"], links: [{ label: "Wikipedia", url: W("Topoisomerase_inhibitor") }], companies: ["dantari", "pheon-therapeutics", "profoundbio", "sunesis"],
   },
   {
     id: "hipec", kind: "technology", name: "HIPEC / PIPAC (intraperitoneal chemotherapy)", sections: ["chemotherapy", "surgery"], status: "established", asOf, wikipedia: W("Hyperthermic_intraperitoneal_chemotherapy"),
@@ -570,7 +570,7 @@ export const technologies: TechnologyInput[] = [
     strengths: ["Oral, outpatient", "Dramatic responses in oncogene-addicted cancers"],
     limitations: ["Near-universal resistance in metastatic disease", "Off-target toxicities"],
     targets: ["egfr", "alk", "braf", "kras", "ret", "ntrk", "met", "fgfr2", "kit", "flt3", "cdk4-6", "pik3ca", "akt"],
-    terms: ["oncogene-addiction", "resistance"], trials: ["gefitinib-chemo-tmh"], links: [{ label: "Wikipedia", url: W("Tyrosine_kinase_inhibitor") }], companies: ["acrivon-therapeutics", "alixia", "altay-therapeutics", "blueprint-medicines", "cogent-biosciences", "enliven-therapeutics", "erasca", "fidocure", "harmonic-discovery", "ideaya-biosciences", "nested-therapeutics", "oric-pharmaceuticals", "prelude-therapeutics", "relay-therapeutics", "reverie-labs", "scorpion-therapeutics", "tyra-biosciences", "velorum-therapeutics", "zentalis-pharmaceuticals"],
+    terms: ["oncogene-addiction", "resistance"], trials: ["gefitinib-chemo-tmh"], links: [{ label: "Wikipedia", url: W("Tyrosine_kinase_inhibitor") }], companies: ["acrivon-therapeutics", "alixia", "altay-therapeutics", "blueprint-medicines", "cogent-biosciences", "enliven-therapeutics", "erasca", "fidocure", "harmonic-discovery", "ideaya-biosciences", "nested-therapeutics", "oric-pharmaceuticals", "prelude-therapeutics", "relay-therapeutics", "reverie-labs", "scorpion-therapeutics", "tyra-biosciences", "velorum-therapeutics", "zentalis-pharmaceuticals", "basilea", "denovo-biopharma", "arog-pharmaceuticals", "cyclacel"],
   },
   {
     id: "monoclonal-antibody", trials: ["notable-trial"], dependsOn: ["monoclonal-antibody-manufacturing"], related: ["cd40-agonists", "cd47-blockade"], kind: "technology", name: "Monoclonal antibodies", sections: ["targeted-therapy", "immunotherapy"], status: "standard-of-care", asOf, since: 1997, wikipedia: W("Monoclonal_antibody_therapy"),
@@ -579,7 +579,7 @@ export const technologies: TechnologyInput[] = [
     principle: "A humanised or fully human IgG binds a surface or soluble antigen; Fc engineering tunes effector function and half-life.",
     strengths: ["High specificity", "Long half-life", "Platform for conjugates"],
     limitations: ["IV administration", "Cannot reach intracellular targets"],
-    terms: ["adcc", "fc-effector"], companies: ["morphosys", "alentis-therapeutics", "bicara-therapeutics", "bighat-biosciences", "inhibrx", "ose-immunotherapeutics", "tradewind-bioscience"], links: [{ label: "Wikipedia", url: W("Monoclonal_antibody_therapy") }],
+    terms: ["adcc", "fc-effector"], companies: ["morphosys", "alentis-therapeutics", "bicara-therapeutics", "bighat-biosciences", "inhibrx", "ose-immunotherapeutics", "tradewind-bioscience", "peregrine-avid"], links: [{ label: "Wikipedia", url: W("Monoclonal_antibody_therapy") }],
   },
   {
     id: "bispecific-antibody", dependsOn: ["monoclonal-antibody-manufacturing"], related: ["trispecific-antibodies"], kind: "technology", name: "Bispecific antibodies", sections: ["targeted-therapy", "immunotherapy"], status: "approved", asOf, since: 2014, wikipedia: W("Bispecific_monoclonal_antibody"),
@@ -976,7 +976,7 @@ export const technologies: TechnologyInput[] = [
     principle: "Aerobic and resistance training modulate insulin, inflammation, and immune function.",
     strengths: ["Cheap, safe, patient-controlled"],
     limitations: ["Delivery and adherence at scale"],
-    cancers: ["colorectal", "tnbc", "breast-hr-positive"], companies: ["osara-health", "perci-health"],
+    cancers: ["colorectal", "tnbc", "breast-hr-positive"], companies: ["osara-health", "perci-health", "outperform-cancer"],
   },
   {
     id: "geriatric-assessment", related: ["g8-geriatric-screening", "ct-body-composition-sarcopenia"], links: [{ label: "GAP70+: a geriatric assessment before chemotherapy cut serious toxicity in older adults by a fifth (The Lancet 2021)", url: "https://doi.org/10.1016/S0140-6736(21)01789-X" }], kind: "technology", name: "Geriatric assessment", sections: ["supportive-care"], status: "established", asOf,
@@ -996,7 +996,7 @@ export const technologies: TechnologyInput[] = [
     strengths: ["Data-efficient adaptation", "Discover morphology-genotype links"],
     limitations: ["Validation across sites", "Regulatory treatment of general-purpose models"],
     technologies: ["digital-pathology-ai", "radiology-ai-screening"],
-    companies: ["paige", "artera", "owkin", "tempus", "ataraxis-ai", "imagene-ai"],
+    companies: ["paige", "artera", "owkin", "tempus", "ataraxis-ai", "imagene-ai", "strand-ai"],
     tags: ["frontier"], related: ["pluto", "merlin-ct", "radfm"],
   },
   {
@@ -1101,7 +1101,7 @@ export const technologies: TechnologyInput[] = [
     links: [{ label: "Wikipedia", url: W("Mass_cytometry") }],
   },
   {
-    id: "multiplex-immunofluorescence", companies: ["navignostics", "vicinity-bio"], kind: "technology", name: "Multiplex immunofluorescence", sections: ["diagnostics"], status: "established", asOf, wikipedia: W("Immunofluorescence"),
+    id: "multiplex-immunofluorescence", companies: ["navignostics", "vicinity-bio", "strand-ai"], kind: "technology", name: "Multiplex immunofluorescence", sections: ["diagnostics"], status: "established", asOf, wikipedia: W("Immunofluorescence"),
     tldr: "Staining one tumour slide for several proteins in different colours, then using software to count immune and cancer cells and measure how close they are.",
     summary: "Multiplex immunofluorescence extends standard immunohistochemistry to six to eight markers per slide using tyramide signal amplification and multispectral imaging (Akoya Phenoptics), or to dozens with cyclic staining (CODEX/PhenoCycler). Combined with image analysis it quantifies immune-cell composition and spatial arrangement, which large meta-analyses have found to predict response to checkpoint inhibitors better than PD-L1 staining alone.",
     principle: "Sequential antibody staining with fluorescent tyramide deposition, antibody stripping between rounds, and spectral unmixing to separate channels.",
@@ -1401,7 +1401,7 @@ export const technologies: TechnologyInput[] = [
     links: [{ label: "Wikipedia", url: W("Isocitrate_dehydrogenase") }],
   },
   {
-    id: "pi3k-akt-mtor-inhibitors", kind: "technology", name: "PI3K, AKT and mTOR inhibitors", sections: ["targeted-therapy"], status: "approved", asOf, since: 2009, wikipedia: W("PI3K/AKT/mTOR_pathway"),
+    id: "pi3k-akt-mtor-inhibitors", companies: ["mei-pharma"], kind: "technology", name: "PI3K, AKT and mTOR inhibitors", sections: ["targeted-therapy"], status: "approved", asOf, since: 2009, wikipedia: W("PI3K/AKT/mTOR_pathway"),
     tldr: "Drugs against one of the most commonly mutated growth pathways in cancer, now used with hormone therapy in breast cancer and in kidney and neuroendocrine tumours, with high blood sugar as the shared side effect.",
     summary: "The PI3K-AKT-mTOR pathway is altered in a large share of tumours. Rapalogues (everolimus, temsirolimus) were approved first, for kidney cancer and later breast and neuroendocrine tumours. Alpelisib (PIK3CA-mutant breast cancer, 2019), capivasertib (an AKT inhibitor, 2023) and inavolisib (a PI3K-alpha degrader-like inhibitor, 2024) followed in hormone receptor-positive breast cancer with fulvestrant. Hyperglycaemia, rash and stomatitis limit dosing, and mutant-selective PI3K-alpha inhibitors aim to spare wild-type enzyme.",
     principle: "ATP-competitive or allosteric inhibitors block PI3K catalytic subunits, AKT or mTORC1, cutting the survival and growth signalling downstream of receptor tyrosine kinases and PIK3CA mutations.",
