@@ -364,7 +364,7 @@ const technologies: TechnologyInput[] = [
     principle: "Stable transfected CHO clones expressing the antibody are grown in fed-batch or perfusion culture; downstream capture, polishing, viral inactivation and filtration, formulation and fill.",
     strengths: ["Mature, high-yield platform", "Global capacity"],
     limitations: ["Long tech-transfer timelines", "Bispecifics and complex formats yield less", "Capacity concentrated in few sites and countries"],
-    technologies: ["monoclonal-antibody", "bispecific-antibody", "adc-cdmo-manufacturing", "sterile-fill-finish"], companies: ["samsung-biologics", "lonza", "fujifilm-diosynth", "boehringer-ingelheim-biox"],
+    technologies: ["monoclonal-antibody", "bispecific-antibody", "adc-cdmo-manufacturing", "sterile-fill-finish"], companies: ["samsung-biologics", "lonza", "fujifilm-diosynth", "boehringer-ingelheim-biox", "peregrine-avid"],
   }),
 
   // ---- Radiopharmacy hardware ----

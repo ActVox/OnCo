@@ -393,7 +393,7 @@ const frontierRadical: EntityInput[] = [
     links: [{ label: "ClinicalTrials.gov: Lynch syndrome vaccine", url: "https://clinicaltrials.gov/search?term=Lynch%20syndrome%20vaccine" }],
   },
   {
-    id: "trained-innate-immunity", kind: "technology", name: "Trained innate immunity", sections: ["immunotherapy", "prevention"], status: "phase-2", asOf: RAD,
+    id: "trained-innate-immunity", companies: ["hibercell"], kind: "technology", name: "Trained innate immunity", sections: ["immunotherapy", "prevention"], status: "phase-2", asOf: RAD,
     tldr: "Giving the innate immune system a memory, so monocytes and NK cells respond harder the next time they meet a tumour.",
     summary: "BCG, the oldest immunotherapy, works partly by epigenetically reprogramming myeloid progenitors, an effect now called trained immunity. Beta-glucans and other agonists are being tested to induce the same state deliberately, alone or before checkpoint blockade. Evidence in cancer beyond intravesical BCG is early, and the same reprogramming can be immunosuppressive in the wrong context.",
     principle: "Epigenetic and metabolic rewiring of haematopoietic progenitors produces monocytes and NK cells with heightened effector responses lasting months.",

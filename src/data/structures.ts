@@ -690,4 +690,20 @@ export const structures: Record<string, StructureDef[]> = {
   "tri-611": [pc("TRI-611", "cid:177920964")],
   xevinapant: [pc("Xevinapant (Debio 1143)", "cid:25022340")],
 
+  // Small molecules and peptides resolved by PubChem name lookup on 18 Sept 2026 (scripts/fill-structures.ts), pinned by compound id.
+  atrasentan: [pc("Atrasentan (ABT-627)", "cid:159594")],
+  fenbendazole: [pc("Fenbendazole", "cid:3334")],
+  fentanyl: [pc("Fentanyl", "cid:3345")],
+  galeterone: [pc("Galeterone (TOK-001)", "cid:11188409")],
+  ivermectin: [pc("Ivermectin", "cid:6321424")],
+  "nab-paclitaxel": [pc("Nab-paclitaxel (ABI-007)", "cid:36314")],
+  napabucasin: [pc("Napabucasin (BBI-608)", "cid:10331844")],
+  orteronel: [pc("Orteronel (TAK-700)", "cid:9796590")],
+  resminostat: [pc("Resminostat", "cid:11609955")],
+  sirolimus: [pc("Sirolimus", "cid:5284616")],
+  tasquinimod: [pc("Tasquinimod (ABR-215050)", "cid:54682876")],
+  varlitinib: [pc("Varlitinib (ASLAN001, ARRY-334543)", "cid:42642648")],
+  veliparib: [pc("Veliparib (ABT-888)", "cid:11960529")],
+  zibotentan: [pc("Zibotentan (ZD4054)", "cid:9910224")],
+
 };
