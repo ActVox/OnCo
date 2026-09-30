@@ -1,22 +1,22 @@
 {
- "checked": "2026-09-23",
+ "checked": "2026-09-30",
  "source": {
   "label": "FDA Oncology Center of Excellence: approval notifications",
   "url": "https://www.fda.gov/drugs/resources-information-approved-drugs/oncology-cancer-hematologic-malignancies-approval-notifications"
  },
  "method": "Sponsor named in brackets in each FDA OCE oncology approval notification on the current page, grouped after removing corporate suffixes. Covers the notifications the page still lists (see window), so it is a floor for 'companies with a recent FDA oncology approval'.",
- "total": 79,
- "notifications": 195,
+ "total": 80,
+ "notifications": 197,
  "window": {
   "from": "2023-01-19",
-  "to": "2026-09-18"
+  "to": "2026-09-24"
  },
  "items": [
   {
-   "name": "Merck",
-   "approvals": 16,
+   "name": "Merck & Co., Inc.",
+   "approvals": 17,
    "first": "2023-10-16",
-   "last": "2026-07-10"
+   "last": "2026-09-24"
   },
   {
    "name": "Janssen Biotech, Inc.",
@@ -281,6 +281,12 @@
    "approvals": 1,
    "first": "2025-07-02",
    "last": "2025-07-02"
+  },
+  {
+   "name": "Elevar Therapeutics, Inc.",
+   "approvals": 1,
+   "first": "2026-09-23",
+   "last": "2026-09-23"
   },
   {
    "name": "EMD Serono, Inc.",

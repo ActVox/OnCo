@@ -1,12 +1,12 @@
 {
- "checked": "2026-09-23",
+ "checked": "2026-09-30",
  "source": {
   "label": "NCI: A to Z List of Cancer Drugs",
   "url": "https://www.cancer.gov/about-cancer/treatment/drugs/cancer-drugs"
  },
  "method": "Every link in the A to Z list that points to a drug page; brand-name entries that point to the same page as the generic are folded into one item, so the total is distinct drug pages (single agents and named combinations).",
- "total": 387,
- "entries": 744,
+ "total": 399,
+ "entries": 768,
  "items": [
   {
    "slug": "abemaciclib",
@@ -457,6 +457,14 @@
    ]
   },
   {
+   "slug": "camizestrant",
+   "url": "https://www.cancer.gov/about-cancer/treatment/drugs/camizestrant",
+   "names": [
+    "Camizestrant",
+    "Etcamah (Camizestrant)"
+   ]
+  },
+  {
    "slug": "capecitabine",
    "url": "https://www.cancer.gov/about-cancer/treatment/drugs/capecitabine",
    "names": [
@@ -737,6 +745,14 @@
    ]
   },
   {
+   "slug": "daraxonrasib",
+   "url": "https://www.cancer.gov/about-cancer/treatment/drugs/daraxonrasib",
+   "names": [
+    "Daraxonrasib",
+    "Rasonque (Daraxonrasib)"
+   ]
+  },
+  {
    "slug": "darbepoetinalfa",
    "url": "https://www.cancer.gov/about-cancer/treatment/drugs/darbepoetinalfa",
    "names": [
@@ -862,6 +878,14 @@
    "names": [
     "Docetaxel",
     "Taxotere (Docetaxel)"
+   ]
+  },
+  {
+   "slug": "dordaviprone-hydrochloride",
+   "url": "https://www.cancer.gov/about-cancer/treatment/drugs/dordaviprone-hydrochloride",
+   "names": [
+    "Dordaviprone Hydrochloride",
+    "Modeyso (Dordaviprone Hydrochloride)"
    ]
   },
   {
@@ -1212,6 +1236,14 @@
    "names": [
     "Futibatinib",
     "Lytgobi (Futibatinib)"
+   ]
+  },
+  {
+   "slug": "gedatolisib",
+   "url": "https://www.cancer.gov/about-cancer/treatment/drugs/gedatolisib",
+   "names": [
+    "Gedatolisib",
+    "Revtorpyk (Gedatolisib)"
    ]
   },
   {
@@ -1776,6 +1808,14 @@
    "names": [
     "Mitomycin",
     "Jelmyto (Mitomycin)"
+   ]
+  },
+  {
+   "slug": "mitomycin-intravesical-solution",
+   "url": "https://www.cancer.gov/about-cancer/treatment/drugs/mitomycin-intravesical-solution",
+   "names": [
+    "Mitomycin Intravesical Solution",
+    "Zusduri (Mitomycin Intravesical Solution)"
    ]
   },
   {
@@ -2524,6 +2564,14 @@
    ]
   },
   {
+   "slug": "sevabertinib",
+   "url": "https://www.cancer.gov/about-cancer/treatment/drugs/sevabertinib",
+   "names": [
+    "Sevabertinib",
+    "Hyrnuo (Sevabertinib)"
+   ]
+  },
+  {
    "slug": "siltuximab",
    "url": "https://www.cancer.gov/about-cancer/treatment/drugs/siltuximab",
    "names": [
@@ -2556,6 +2604,14 @@
    ]
   },
   {
+   "slug": "sonrotoclax",
+   "url": "https://www.cancer.gov/about-cancer/treatment/drugs/sonrotoclax",
+   "names": [
+    "Sonrotoclax",
+    "Beqalzi (Sonrotoclax)"
+   ]
+  },
+  {
    "slug": "sorafenibtosylate",
    "url": "https://www.cancer.gov/about-cancer/treatment/drugs/sorafenibtosylate",
    "names": [
@@ -2584,6 +2640,14 @@
    "names": [
     "Sunitinib Malate",
     "Sutent (Sunitinib Malate)"
+   ]
+  },
+  {
+   "slug": "sunvozertinib",
+   "url": "https://www.cancer.gov/about-cancer/treatment/drugs/sunvozertinib",
+   "names": [
+    "Sunvozertinib",
+    "Zegfrovy ISunvozertinib)"
    ]
   },
   {
@@ -2673,6 +2737,14 @@
    "names": [
     "Teclistamab-cqyv",
     "Tecvayli (Teclistamab-cqyv)"
+   ]
+  },
+  {
+   "slug": "telisotuzumab-vedotin-tllv",
+   "url": "https://www.cancer.gov/about-cancer/treatment/drugs/telisotuzumab-vedotin-tllv",
+   "names": [
+    "Telisotuzumab Vedotin-tllv",
+    "Emrelis (Telisotuzumab Vedotin-tllv)"
    ]
   },
   {
@@ -2936,6 +3008,14 @@
    ]
   },
   {
+   "slug": "vepdegestrant",
+   "url": "https://www.cancer.gov/about-cancer/treatment/drugs/vepdegestrant",
+   "names": [
+    "Vepdegestrant",
+    "Veppanu (Vepdegestrant)"
+   ]
+  },
+  {
    "slug": "vimseltinib-dihydrate",
    "url": "https://www.cancer.gov/about-cancer/treatment/drugs/vimseltinib-dihydrate",
    "names": [
@@ -2996,6 +3076,14 @@
    ]
   },
   {
+   "slug": "vusolimogene-oderparepvec-wtpg",
+   "url": "https://www.cancer.gov/about-cancer/treatment/drugs/vusolimogene-oderparepvec-wtpg",
+   "names": [
+    "Vusolimogene Oderparepvec-wtpg",
+    "Tudriqev (Vusolimogene Oderparepvec-wtpg)"
+   ]
+  },
+  {
    "slug": "xeliri",
    "url": "https://www.cancer.gov/about-cancer/treatment/drugs/xeliri",
    "names": [
@@ -3031,6 +3119,14 @@
    "names": [
     "Zenocutuzumab-zbco",
     "Bizengri (Zenocutuzumab-zbco)"
+   ]
+  },
+  {
+   "slug": "zidesmatinib",
+   "url": "https://www.cancer.gov/about-cancer/treatment/drugs/zidesmatinib",
+   "names": [
+    "Zidesmatinib",
+    "Jideytro (Zidesmatinib)"
    ]
   },
   {

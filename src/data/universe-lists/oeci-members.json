@@ -1,14 +1,14 @@
 {
- "checked": "2026-09-23",
+ "checked": "2026-09-30",
  "source": {
   "label": "OECI: Member Profiles",
   "url": "https://www.oeci.eu/MemberList.aspx"
  },
  "method": "Every member profile on the Organisation of European Cancer Institutes member list (full, associate and corresponding members), with the leaders named on each profile.",
- "total": 193,
+ "total": 200,
  "byMembership": {
-  "Associate Member": 53,
-  "Full Member": 136,
+  "Associate Member": 57,
+  "Full Member": 139,
   "Linked Institution": 4
  },
  "items": [
@@ -799,6 +799,14 @@
    ]
   },
   {
+   "id": "212",
+   "name": "Institut du Cancer Paris Seine-Saint Denis (ICaPSS)",
+   "altName": "Paris Seine-Saint-Denis Cancer Institute",
+   "country": "France",
+   "membership": "Full Member",
+   "leaders": []
+  },
+  {
    "id": "213",
    "name": "Assistance Publique – Hôpitaux Universitaires de Marseille (AP-HM)",
    "altName": "University Hospitals of Marseille",
@@ -806,7 +814,9 @@
    "website": "https://fr.ap-hm.fr/",
    "membership": "Full Member",
    "leaders": [
-    "François Crémieux"
+    "François Crémieux",
+    "Laurent Greillier",
+    "Emilie Garrido-Pradalie"
    ]
   },
   {
@@ -819,6 +829,14 @@
     "Jean-Yves Blay",
     "Sophie Beaupère"
    ]
+  },
+  {
+   "id": "232A",
+   "name": "Seintinelles / Citoyens et Recherche",
+   "country": "France",
+   "website": "https://www.seintinelles.com/english-version/",
+   "membership": "Associate Member",
+   "leaders": []
   },
   {
    "id": "7",
@@ -1099,7 +1117,7 @@
   },
   {
    "id": "6",
-   "name": "IRCCS Ospedale Policlinico San Martino",
+   "name": "Azienda Ospedaliera Metropolitana – IRCCS Ospedale Policlinico San Martino",
    "country": "Italy",
    "website": "https://www.ospedalesanmartino.it/it/",
    "membership": "Full Member",
@@ -1376,6 +1394,15 @@
    ]
   },
   {
+   "id": "225A",
+   "name": "Alleanza Contro il Cancro",
+   "altName": "Alliance Against Cancer",
+   "country": "Italy",
+   "website": "https://alleanzacontroilcancro.it/en/",
+   "membership": "Associate Member",
+   "leaders": []
+  },
+  {
    "id": "230A",
    "name": "Fondazione The Bridge ETS",
    "country": "Italy",
@@ -1505,6 +1532,15 @@
    "leaders": [
     "Ruslan Baltaga"
    ]
+  },
+  {
+   "id": "228A",
+   "name": "Centro Hospitalo-Universitaire Ibn Sina",
+   "altName": "Ibn Sina University Hospital Center",
+   "country": "Morocco",
+   "website": "htpps://www.churabat.ma",
+   "membership": "Associate Member",
+   "leaders": []
   },
   {
    "id": "229A",
@@ -1647,6 +1683,15 @@
     "Joanna Lorenc",
     "Michal Kwiatek"
    ]
+  },
+  {
+   "id": "231A",
+   "name": "Stowarzyszenie Pomocy Chorym na Mięsaki i Czerniaki Sarcoma",
+   "altName": "Polish Sarcoma and Melanoma Patients Association",
+   "country": "Poland",
+   "website": "https://www.sarcoma.pl/",
+   "membership": "Associate Member",
+   "leaders": []
   },
   {
    "id": "14",
@@ -2046,6 +2091,14 @@
    ]
   },
   {
+   "id": "221",
+   "name": "Hospital Virgen de las Nieves",
+   "country": "Spain",
+   "website": "https://www.huvn.es/",
+   "membership": "Full Member",
+   "leaders": []
+  },
+  {
    "id": "233A",
    "name": "Asociación Española Contra el Cáncer",
    "altName": "Spanish Association Against Cancer",
@@ -2198,7 +2251,8 @@
    "membership": "Associate Member",
    "leaders": [
     "Daniel Staub",
-    "Dieter Köberle"
+    "Dieter Köberle",
+    "Benjamin Kasenda"
    ]
   },
   {
@@ -2303,6 +2357,16 @@
     "Ernst J. Kuipers",
     "Bente E. Jorritsma",
     "Suzanne Verboort"
+   ]
+  },
+  {
+   "id": "220",
+   "name": "Universitair Medisch Centrum Utrecht (UMCU)",
+   "country": "The Netherlands",
+   "website": "https://www.umcutrecht.nl",
+   "membership": "Full Member",
+   "leaders": [
+    "Miriam Koopman"
    ]
   },
   {

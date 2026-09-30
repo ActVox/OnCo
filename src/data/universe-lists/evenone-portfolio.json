@@ -1,11 +1,11 @@
 {
- "checked": "2026-09-23",
+ "checked": "2026-09-30",
  "source": {
   "label": "Even One Ventures: portfolio",
   "url": "https://evenone.ventures/"
  },
  "method": "The companies array embedded in the Even One Ventures home page (name, website and sector tag), read weekly so new portfolio companies surface on /completeness/.",
- "total": 15,
+ "total": 17,
  "items": [
   {
    "name": "Arden Bio",
@@ -30,6 +30,11 @@
   {
    "name": "Invocata",
    "website": "https://invocata.bio/",
+   "tag": "oncology"
+  },
+  {
+   "name": "Jiyu Bio",
+   "website": "https://jiyu.bio/",
    "tag": "oncology"
   },
   {
@@ -65,6 +70,11 @@
   {
    "name": "Relit Biosciences",
    "website": "https://relit.bio/",
+   "tag": "oncology"
+  },
+  {
+   "name": "Selvana",
+   "website": "https://selvana.bio/",
    "tag": "oncology"
   },
   {
