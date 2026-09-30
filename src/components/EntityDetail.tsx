@@ -41,6 +41,7 @@ import { TrialOutcomes } from "./Pictogram";
 import { TrialExplainer } from "./TrialExplainer";
 import { EvidenceBar } from "./EvidenceBar";
 import { EvidenceGradeChip } from "./EvidenceGradeChip";
+import { SourceList } from "./SourceList";
 import { SuggestEdit } from "./SuggestEdit";
 import { sourceLocation } from "@/lib/source-location";
 import { ProvenanceLine } from "./ProvenanceLine";
@@ -187,6 +188,7 @@ export function EntityDetail({ e }: { e: Entity }) {
           ? <Tabs tabs={tabs} ariaLabel={`${e.name} sections`} after={afterTabs} aside={aside} anchors={e.kind === "cancer" ? forwardedAnchors(e) : undefined} />
           : <div className="grid *:min-w-0 gap-10 lg:grid-cols-[1fr_300px]"><div className="min-w-0"><div className="space-y-10">{tabs.map((t) => <Block key={t.id} title={t.id === "overview" ? undefined : t.label}>{t.content}</Block>)}</div>{afterTabs}</div>{aside}</div>}
       </Container>
+      <SourceList e={e} />
       <MachineLinks e={e} />
     </>
   );
@@ -206,8 +208,14 @@ function keyedContent(tabs: Tab[]): Tab[] {
 const PACK_KINDS: ReadonlySet<Kind> = new Set<Kind>(["cancer", "drug", "trial", "term"]);
 
 /**
- * The right-hand column of a record page: evidence, provenance, links and tags, data, suggest an edit, quick
- * links, and last of all the review panel.
+ * The right-hand column of a record page: evidence, provenance, Wikipedia and tags, data, suggest an edit,
+ * quick links, and last of all the review panel.
+ *
+ * The sources are no longer here. `e.links` rendered as one unbounded list, 124 of them on pancreatic cancer
+ * and 109 on triple-negative breast cancer, so the column was worst on the pages with the most work in them
+ * and on a phone it stacked above the reader's own content. They sit at the foot of the page now, grouped by
+ * publisher (`SourceList`), and the column keeps one line saying how many there are and where. Wikipedia
+ * stays: it identifies the record rather than citing it.
  *
  * The review panel used to sit second, above everything a reader came for. It is the page talking about itself:
  * machine commentary on 21 records, and on the other ~19,000 a card saying nobody has reviewed the page yet.
@@ -224,9 +232,9 @@ export function RecordAside({ e }: { e: Entity }) {
             <div className="card p-4 text-sm space-y-3">
               {e.wikipedia && <div><div className="kicker mb-1"><TL text="Wikipedia" /></div><a className="underline break-all" href={e.wikipedia} rel="noopener">{decodeURIComponent(e.wikipedia.replace("https://en.wikipedia.org/wiki/", "")).replace(/_/g, " ")}</a></div>}
               {!e.wikipedia && e.kind === "term" && e.wikipediaChecked && <div><div className="kicker mb-1"><TL text="Wikipedia" /></div><p className="text-muted" title={`English Wikipedia searched on ${e.wikipediaChecked}: no article with this name or any of its aliases`}><TL text="No Wikipedia article" /></p></div>}
-              {e.links.length > 0 && (
-                <div><div className="kicker mb-1"><TL text="Sources & links" /></div>
-                  <ul className="space-y-1">{e.links.map((l) => <li key={l.url}><a className="underline break-words" href={l.url} rel="noopener">{l.label}</a></li>)}</ul>
+              {e.links.filter((l) => l.url !== e.wikipedia).length > 0 && (
+                <div><div className="kicker mb-1"><TL text="Sources" /></div>
+                  <a className="underline" href="#sources">{e.links.filter((l) => l.url !== e.wikipedia).length} <TL text="sources, at the foot of the page" /></a>
                 </div>
               )}
               {publicTags(e.tags).length > 0 && <div><div className="kicker mb-1"><Link href="/tagged/" className="hover:underline"><TL text="Tags" /></Link></div><div className="flex flex-wrap gap-1" data-tag-chips>{publicTags(e.tags).map((t) => <Link key={t} href={tagRoute(t)} className="chip bg-foreground/5 hover:bg-accent-soft hover:text-accent" title={`Every record tagged ${t}`}>{t}</Link>)}</div></div>}

@@ -7,6 +7,7 @@ import EntityPage from "./[kind]/[id]/page";
 import { RecordAside } from "@/components/EntityDetail";
 import { AKA_SHOWN, AKA_SHOWN_CHARS, akaShown } from "@/components/AkaLine";
 import { FOLD_LEAD_PARAGRAPHS, FOLD_OVER_CHARS, splitSummary } from "@/components/ReadMore";
+import { sourceGroups, sourceHost } from "@/components/SourceList";
 import { FAMILY_CHIPS, familyStrip } from "@/lib/cancer-families";
 import { graph } from "@/lib/graph";
 import { KIND_META } from "@/lib/kinds";
@@ -190,5 +191,56 @@ describe("the review panel", () => {
     expect(html).toContain("template=review.yml");
     // The invitation with nowhere to go is gone.
     expect(html).not.toContain("Human reviews sit on top of the panel");
+  });
+});
+
+describe("the sources move to the foot of the page", () => {
+  /**
+   * The fifth of the owner's complaints about the top of a record page, 28 September 2026: "a massive link
+   * panel on the right side bar is not good design eg 'Sources & links' this might be better as a table at the
+   * bottom of the page. it might be ok to have the primary links eg wikipedia."
+   *
+   * The aside now carries one line with the count and an anchor; the list itself sits at the foot, grouped by
+   * the organisation that published each source, read off the URL. Nothing is dropped: this holds that every
+   * link a record carries is still in the exported HTML, because the aside used to be the only place they were.
+   */
+  beforeAll(() => { graph(); }, 240_000);
+
+  for (const id of ["pancreatic", "tnbc", "gallbladder"]) {
+    it(`${id}: the aside links to the foot, the foot carries every source`, { timeout: SLOW_MS }, async () => {
+      const e = graph().must(id);
+      const html = await recordHtml(id);
+      const cited = e.links.filter((l) => l.url !== e.wikipedia);
+      expect(cited.length, `${id} is one of the heavy pages`).toBeGreaterThan(20);
+
+      // The aside says how many and where, and does not carry the list.
+      const aside = renderToStaticMarkup(createElement(AppRouterContext.Provider, { value: router }, createElement(RecordAside, { e })));
+      expect(aside).toContain(`href="#sources"`);
+      const asideLinks = cited.filter((l) => aside.includes(l.url));
+      expect(asideLinks.length, `${id}: sources still in the aside`).toBe(0);
+
+      // Wikipedia is the record's identity and stays in the column.
+      if (e.wikipedia) expect(aside, `${id} keeps Wikipedia beside the record`).toContain(e.wikipedia);
+
+      // Every source is still on the page, at the foot, after the last section of the body.
+      const foot = html.indexOf('id="sources"');
+      expect(foot, `${id} has a sources section`).toBeGreaterThan(0);
+      const missing = cited.filter((l) => !html.includes(escapeText(l.url)) && !html.includes(l.url));
+      expect(missing.map((l) => l.url), `${id}: sources dropped from the page`).toEqual([]);
+      const below = html.slice(foot);
+      const late = cited.filter((l) => below.includes(l.url)).length;
+      expect(late / cited.length, `${id}: share of sources at the foot`).toBeGreaterThan(0.95);
+    });
+  }
+
+  it("groups by publisher, most-cited first, with the DOI reference list last", () => {
+    const e = graph().must("tnbc");
+    const groups = sourceGroups(e.links.filter((l) => l.url !== e.wikipedia));
+    expect(groups.at(-1)?.host, "DOIs are a reference list and come last").toBe("doi.org");
+    const rest = groups.slice(0, -1).map((g) => g.items.length);
+    expect(rest, "the other groups descend by count").toEqual([...rest].sort((a, b) => b - a));
+    // Grouping is read from the address, never curated: a host that is not in the display map shows itself.
+    expect(sourceHost("https://www.cancerresearchuk.org/about-cancer/x")).toBe("cancerresearchuk.org");
+    expect(sourceHost("https://gco.iarc.who.int/today")).toBe("gco.iarc.who.int");
   });
 });
