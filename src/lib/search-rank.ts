@@ -77,9 +77,31 @@ export const NAME_BOOST = {
   namePrefix: 1.6,
   /** An alias starts with the query. */
   aliasPrefix: 1.3,
+  /** Every word of the query is in the name, in order, with other words between ("laura esserman" in "Laura J. Esserman"). */
+  nameInOrder: 1.5,
   /** The query is a whole word somewhere in the name ("breast" in "Male breast cancer"). */
   nameWord: 1.15,
 } as const;
+
+/**
+ * The kind tier exists to break ties between records that matched the query equally well: for "breast" a
+ * cancer should beat a paper with the word in its title. It is the wrong instrument when the reader has typed
+ * a name. From `aliasExact` upward the tier is ignored, and a prefix match cannot be pushed below this floor.
+ *
+ * Found on 30 September 2026. The owner: "when typing laura esserman the first result should be that direct
+ * string match". It was not. Two things were wrong and both are fixed here:
+ *   1. "laura esserman" against "Laura J. Esserman" earned no name boost at all. It is not the exact name, the
+ *      name does not start with it, and it is not one whole word: the middle initial defeated every rule. Hence
+ *      `nameInOrder`, which is what a person types when they know who they are looking for.
+ *   2. The dropdown sorted its groups by tier before score, so the LAURA trial (tier 2) was displayed above
+ *      Laura J. Esserman (tier 4) even though she outscored it two to one. See `groupByKind`.
+ *
+ * Only an exact match on the record's own name relaxes the tier, and nothing else does. Two looser rules were
+ * tried and both broke the query "breast": exempting an alias match put the journal The Breast above breast
+ * cancer, because journals carry their short forms as aliases; and a floor under prefix matches put journals
+ * whose names begin with "Breast" into the top five. The existing tests caught both. A one-word query is
+ * exactly where the tier is doing useful work, so it keeps it.
+ */
 
 /** The MiniSearch build every consumer shares, so tests index exactly what the browser indexes. */
 export const SEARCH_INDEX_OPTIONS: Options<SearchDoc> = {
@@ -113,8 +135,27 @@ export function nameBoost(query: string, name: string, aka?: string | string[]):
   if (aliases.some((a) => normaliseName(a) === q)) return NAME_BOOST.aliasExact;
   if (n.startsWith(q)) return NAME_BOOST.namePrefix;
   if (aliases.some((a) => normaliseName(a).startsWith(q))) return NAME_BOOST.aliasPrefix;
+  if (wordsInOrder(q, n) || aliases.some((a) => wordsInOrder(q, normaliseName(a)))) return NAME_BOOST.nameInOrder;
   if ((" " + n + " ").includes(" " + q + " ")) return NAME_BOOST.nameWord;
   return 1;
+}
+
+/**
+ * Every word of the query appears in the name, as a whole word, in the order typed. Two words at least, so a
+ * single word falls to the weaker rules above and "breast" does not claim this boost on every breast page.
+ */
+export function wordsInOrder(query: string, name: string): boolean {
+  const qs = query.split(" ").filter(Boolean);
+  if (qs.length < 2) return false;
+  const ns = name.split(" ").filter(Boolean);
+  let i = 0;
+  for (const w of ns) if (w === qs[i] && ++i === qs.length) return true;
+  return false;
+}
+
+/** The tier multiplier for a hit, given how well its name matched. See the note on TIER_EXEMPT_FROM. */
+export function tierWeightFor(kind: string, boost: number): number {
+  return boost === NAME_BOOST.exact ? 1 : TIER_WEIGHT[tierOf(kind)];
 }
 
 /** search.json ships aliases one per line (src/lib/search-index.ts). */
@@ -127,7 +168,7 @@ export type Rankable = { kind: string; name: string; aka?: string | string[]; sc
 /** Re-scores MiniSearch hits by kind tier and name match and sorts them, best first; ties keep MiniSearch's order. */
 export function rankHits<T extends Rankable>(hits: readonly T[], query: string): T[] {
   return hits
-    .map((h, i) => ({ h: { ...h, score: h.score * TIER_WEIGHT[tierOf(h.kind)] * nameBoost(query, h.name, h.aka) }, i }))
+    .map((h, i) => { const b = nameBoost(query, h.name, h.aka); return { h: { ...h, score: h.score * tierWeightFor(h.kind, b) * b }, i }; })
     .sort((a, b) => b.h.score - a.h.score || a.i - b.i)
     .map((x) => x.h);
 }
@@ -143,7 +184,9 @@ export const DROPDOWN_PER_KIND = 4;
  * taken in ranked order, then the groups sorted by tier and, within a tier, by their best hit. The flattened groups are
  * the keyboard order.
  */
-export function groupByKind<T extends { kind: string }>(hits: readonly T[], total: number, perKind = DROPDOWN_PER_KIND): KindGroup<T>[] {
+export const LEAD_MARGIN = 1.25;
+
+export function groupByKind<T extends { kind: string; score?: number }>(hits: readonly T[], total: number, perKind = DROPDOWN_PER_KIND): KindGroup<T>[] {
   const groups = new Map<string, KindGroup<T> & { first: number }>();
   let shown = 0;
   for (let i = 0; i < hits.length && shown < total; i++) {
@@ -154,7 +197,18 @@ export function groupByKind<T extends { kind: string }>(hits: readonly T[], tota
     g.items.push(h);
     shown++;
   }
-  return [...groups.values()].filter((g) => g.items.length > 0).sort((a, b) => a.tier - b.tier || a.first - b.first).map(({ kind, tier, items }) => ({ kind, tier, items }));
+  // Tier order, with one exception: when the top hit beats everything outside its own kind by LEAD_MARGIN, its
+  // group leads whatever its tier. Without this a reader who types a person's full name is shown a trial
+  // first, because trials are tier 2 and people tier 4, and Laura J. Esserman outscored the LAURA trial two to
+  // one. The margin matters: ordering on rank alone would let any hit that merely came first jump the tier,
+  // and the tier is what keeps a journal called The Breast under breast cancer.
+  const top = hits[0];
+  const rival = hits.find((h) => h.kind !== top?.kind);
+  const decisive = top?.score !== undefined && (rival?.score === undefined || top.score >= rival.score * LEAD_MARGIN);
+  const lead = decisive ? top.kind : undefined;
+  return [...groups.values()].filter((g) => g.items.length > 0)
+    .sort((a, b) => (a.kind === lead ? -1 : b.kind === lead ? 1 : 0) || a.tier - b.tier || a.first - b.first)
+    .map(({ kind, tier, items }) => ({ kind, tier, items }));
 }
 
 /** The groups' rows in display order: what ArrowUp and ArrowDown step through. */

@@ -2,7 +2,7 @@ import { beforeAll, describe, expect, it } from "vitest";
 import MiniSearch from "minisearch";
 import { siteSearchDocs, type SearchDoc } from "./search-index";
 import { KINDS } from "./kinds";
-import { DROPDOWN_PER_KIND, flattenGroups, groupByKind, KIND_TIER, nameBoost, normaliseName, rankHits, SEARCH_INDEX_OPTIONS, TIER_WEIGHT } from "./search-rank";
+import { DROPDOWN_PER_KIND, flattenGroups, groupByKind, KIND_TIER, NAME_BOOST, nameBoost, normaliseName, rankHits, SEARCH_INDEX_OPTIONS, TIER_WEIGHT } from "./search-rank";
 
 /** The real index, built exactly as the browser builds it (about half a second), so the ranking tests see the live corpus. */
 let ms: MiniSearch<SearchDoc>;
@@ -113,5 +113,44 @@ describe("dropdown grouping", () => {
     expect(flattenGroups(groups)).toHaveLength(12);
     expect(groups.length).toBeGreaterThan(1);
     for (let i = 1; i < groups.length; i++) expect(groups[i].tier).toBeGreaterThanOrEqual(groups[i - 1].tier);
+  });
+});
+
+describe("a name typed in full wins", () => {
+  /**
+   * The owner, 30 September 2026: "when typing laura esserman the first result should be that direct string
+   * match, improve our search cmd k function to have better matching for direct or partial in order string
+   * matching."
+   *
+   * Two separate faults, both held here. The score: "laura esserman" against "Laura J. Esserman" earned no
+   * name boost at all, because a middle initial defeats exact, prefix and whole-word alike. The display: the
+   * dropdown ordered its groups by kind tier before score, so the LAURA trial led on a page where the person
+   * had twice its score.
+   */
+  it("scores a full name typed without the middle initial", () => {
+    expect(nameBoost("laura esserman", "Laura J. Esserman")).toBe(NAME_BOOST.nameInOrder);
+    expect(nameBoost("carl june", "Carl H. June")).toBe(NAME_BOOST.nameInOrder);
+    // In order, not merely present: a surname before a forename is not the same claim.
+    expect(nameBoost("esserman laura", "Laura J. Esserman")).toBe(1);
+    // One word keeps the older, weaker rules, so "breast" does not claim this on every breast page.
+    expect(nameBoost("breast", "Male breast cancer")).toBe(NAME_BOOST.nameWord);
+  });
+
+  it("puts the person first in the dropdown, ahead of a higher-tier trial", () => {
+    const rows = flattenGroups(groupByKind(search("laura esserman"), 8));
+    expect(rows[0]?.name).toBe("Laura J. Esserman");
+    expect(rows.findIndex((r) => r.kind === "trial")).toBeGreaterThan(0);
+  });
+
+  it("only a decisive lead jumps the tier, so close scores keep the kind order", () => {
+    const tie = [{ kind: "journal", id: "j", name: "j", score: 10 }, { kind: "cancer", id: "c", name: "c", score: 9 }];
+    expect(groupByKind(tie, 5).map((g) => g.kind)).toEqual(["cancer", "journal"]);
+    const clear = [{ kind: "person", id: "p", name: "p", score: 100 }, { kind: "cancer", id: "c", name: "c", score: 10 }];
+    expect(groupByKind(clear, 5).map((g) => g.kind)).toEqual(["person", "cancer"]);
+  });
+
+  it("the tier still decides for a one-word query, so a journal stays under the cancer", () => {
+    expect(top("breast", 5)[0]).toBe("cancer:breast-cancer");
+    expect(top("breast", 5).some((x) => x.startsWith("journal:"))).toBe(false);
   });
 });

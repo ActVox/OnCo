@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import { loadSearch, searchRanked } from "@/lib/search-client";
 import { flattenGroups, groupByKind, type KindGroup } from "@/lib/search-rank";
 import { KindGroupHeader } from "./KindGroupHeader";
+import { RowAvatar } from "./RowAvatar";
 
 // The palette is in the root layout, so its static imports ship with every page. The molecule slot brings the
 // structure index and the 3D drawing code, which only matter once a reader has typed and a drug is in the results;
@@ -20,7 +21,7 @@ import type { SearchDoc } from "@/lib/search-index";
 import { statusClass } from "@/lib/text";
 import { useT } from "@/lib/i18n/ui";
 
-type Item = { id: string; kind: SearchDoc["kind"]; name: string; tldr: string; route: string; status?: string; action?: true };
+type Item = { id: string; kind: SearchDoc["kind"]; name: string; tldr: string; route: string; status?: string; portrait?: string; action?: true };
 
 /** Rows the palette shows in all for a query, across every kind group. */
 const VISIBLE = 14;
@@ -217,6 +218,9 @@ export function CommandPalette() {
               <li key={it.id} id={`palette-opt-${i}`} role="option" aria-selected={i === active} onMouseEnter={() => setActive(i)} onMouseDown={(e) => { e.preventDefault(); go(it); }}
                 className={`flex items-start gap-3 px-4 py-1.5 cursor-pointer ${i === active ? "bg-foreground/5" : ""}`}>
                 {it.kind === "drug" && <MoleculeSlot drugId={it.id} name={it.name} className="h-9 w-9" />}
+                {/* A person is a face before they are a name: the owner, 30 September 2026, "show peoples faces in the
+                    search". RowAvatar falls back to initials on a tinted tile, so a row is never an empty square. */}
+                {it.kind === "person" && <RowAvatar src={it.portrait} name={it.name} round />}
                 <span className="min-w-0 flex-1">
                   <span className="block text-sm font-medium truncate">{it.name}</span>
                   <span className="block text-xs text-muted line-clamp-1">{it.tldr}</span>
