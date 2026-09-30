@@ -1,16 +1,16 @@
 {
- "checked": "2026-09-23",
+ "checked": "2026-09-30",
  "source": {
   "label": "ClinicalTrials.gov: interventional studies, condition 'cancer'",
   "url": "https://clinicaltrials.gov/search?cond=cancer&aggFilters=studyType:int"
  },
  "method": "ClinicalTrials.gov API v2 with query.cond=cancer and countTotal=true: interventional studies; of those, phase 3; of those, recruiting. Sponsors: distinct lead sponsor names (class INDUSTRY) across all phase 3 interventional cancer studies, so subsidiaries and name variants count separately.",
- "total": 97326,
- "phase3": 11020,
- "recruiting": 14383,
+ "total": 97433,
+ "phase3": 11022,
+ "recruiting": 14402,
  "industryPhase3": {
   "studies": 4254,
-  "sponsors": 939
+  "sponsors": 940
  },
  "items": [
   {
@@ -71,7 +71,7 @@
   },
   {
    "name": "AbbVie",
-   "studies": 49
+   "studies": 48
   },
   {
    "name": "Chia Tai Tianqing Pharmaceutical Group Co., Ltd.",
@@ -182,6 +182,10 @@
    "studies": 15
   },
   {
+   "name": "BeOne Medicines",
+   "studies": 14
+  },
+  {
    "name": "Exelixis",
    "studies": 14
   },
@@ -211,10 +215,6 @@
   },
   {
    "name": "Abbott",
-   "studies": 13
-  },
-  {
-   "name": "BeOne Medicines",
    "studies": 13
   },
   {
@@ -846,10 +846,6 @@
    "studies": 3
   },
   {
-   "name": "Han Xu, M.D., Ph.D., FAPCR, Medical Director,, IRB Chair",
-   "studies": 3
-  },
-  {
    "name": "Han Xu, M.D., Ph.D., FAPCR, Sponsor-Investigator, IRB Chair",
    "studies": 3
   },
@@ -1303,6 +1299,10 @@
   },
   {
    "name": "Guangzhou JOYO Pharma Co., Ltd",
+   "studies": 2
+  },
+  {
+   "name": "Han Xu, M.D., Ph.D., FAPCR, Medical Director,, IRB Chair",
    "studies": 2
   },
   {
@@ -2883,6 +2883,10 @@
   },
   {
    "name": "Medice Arzneimittel Pütter GmbH & Co KG",
+   "studies": 1
+  },
+  {
+   "name": "Medicine Invention Design, Inc",
    "studies": 1
   },
   {
