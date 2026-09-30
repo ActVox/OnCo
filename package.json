@@ -70,6 +70,7 @@
     "issue-forms:check": "tsx scripts/gen-issue-forms.ts --check",
     "fetch:votes": "tsx scripts/fetch-votes.ts",
     "fetch:open-source": "tsx scripts/fetch-open-source.ts",
+    "fetch:software": "tsx scripts/fetch-software.ts",
     "newsletter": "tsx scripts/newsletter.ts",
     "bench:ask": "tsx scripts/benchmark-ask.ts",
     "fetch:wikidata": "tsx scripts/fetch-wikidata.ts",
@@ -102,7 +103,8 @@
     "orphans": "tsx scripts/orphans.ts",
     "fold:zh": "tsx scripts/fold-zh.ts",
     "indexnow": "tsx scripts/indexnow.ts",
-    "audit:weight": "tsx scripts/page-weight.ts"
+    "audit:weight": "tsx scripts/page-weight.ts",
+    "queue:sync": "tsx scripts/sync-product-queue.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0",

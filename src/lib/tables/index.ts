@@ -7,6 +7,7 @@ import { PATHWAY_MATRIX_TABLE, PATHWAY_NODES_TABLE, pathwayDrugViews, pathwayMat
 import { dossierTrialTables } from "./dossier-trials";
 import { STARTUPS_TABLE, startupBrowser } from "./startups";
 import { OPEN_SOURCE_TABLE, openSourceBrowser } from "./open-source";
+import { SOFTWARE_TABLE, softwareBrowser } from "./software";
 import { kindTables } from "./kinds";
 import { engineTables } from "./engine";
 import { modalityTables } from "./modalities";
@@ -41,6 +42,7 @@ export function allTables(): TableFile[] {
     { id: PATHWAY_NODES_TABLE, rows: pathwaySections(views), page: SECTION_PAGE },
     { id: STARTUPS_TABLE, rows: startupBrowser().rows },
     { id: OPEN_SOURCE_TABLE, rows: openSourceBrowser().rows },
+    { id: SOFTWARE_TABLE, rows: softwareBrowser().rows },
     ...dossierTrialTables(dossierData),
     ...engineTables(),
     ...modalityTables(),

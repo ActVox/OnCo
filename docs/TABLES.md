@@ -126,6 +126,7 @@ Converted, with the facet each needed:
 | /coverage/us/ | Medicare, Commercial | part, commercial pattern | no |
 | /models/ | Year, Licence | the year; the licence family behind the SPDX id | no |
 | /open-source/ | Maintainer, where it is not a record | the maintainer name | no |
+| /software/ | Category, What it does, Vendor where it is not a record, Behind the row, Source kind | the category, the segment, the vendor name, whether the row is independently sourced, the kind of source | no |
 
 Two rules came out of it. **Precision**: a year is an exact value and filters exactly; a range is not, so on /drugs/ only the first year of "2007 to 2017" is a control and the muted "to 2017" stays text (`YearRange.facet`). **Grain**: where a year is too fine to be a filter (technologies have 66 distinct years, twenty of them holding one record) the cell prints the year and sets the decade, `decadeLabel` in `src/lib/kinds.ts`, the one rule /machines/ and /technologies/ share. A chip now says what it will do with the value it sets rather than the label it prints, so "2020" says "Filter by First used: 2020s" and "Apache-2.0" says "Filter by Licence family: Permissive".
 

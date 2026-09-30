@@ -269,20 +269,32 @@ might be better."
 What each section actually holds, and a name that says so. The ids do not change, so every published link and
 every anchor keeps working.
 
-| now | holds | proposed |
-| --- | --- | --- |
-| Overview | TL;DR, the family, the organ, who gets it, state of the art | Overview |
-| What it is | anatomy, the subtypes, staging, where it spreads | Types and stages |
-| Finding it | symptoms, how it is confirmed, screening, biomarkers | Diagnosis and screening |
-| Treating it | standard of care by setting, medicines, surgery, radiotherapy, regimens | Treatment |
-| Trials and papers | recruiting trials, landmark trials, key papers, latest literature | Trials and papers |
-| The science | targets and their prevalence, pathways, mechanics, preclinical models | Biology and targets |
-| Where you are | cases by country, national pathways, expert centres | Countries and centres |
-| Living with it | decisions, decision aids, when to call, first sixty days, questions | Decisions and support |
-| What is coming | what is in development, open problems, roadmaps, what reports next | In development |
-| Data | connected records, notes, the machine twins, provenance | Data |
+**Done, 28 September 2026.** The ten titles below are what `src/lib/record-sections.ts` now carries, each with its
+label in the nine site languages. The ids are untouched, so `/cancers/<id>/finding-it/` and every anchor still
+resolve. Two names differ from the proposal above, in both cases because the rendered section was read before the
+name was settled.
 
-Each rename needs the label in all nine languages, as the `evidence` rename did.
+| id | was | now | why this name |
+| --- | --- | --- | --- |
+| `overview` | Overview | Overview | unchanged; it is the hub |
+| `what-it-is` | What it is | Types and stages | the two things inside are the subtypes and the staging (the spread map is part of staging) |
+| `finding-it` | Finding it | Symptoms and diagnosis | **changed from the proposal.** The section renders symptoms, how the diagnosis is confirmed, the late-diagnosis panel and the biomarker panel. It renders no screening block and the record carries no screening field, so "Diagnosis and screening" would have promised a thing the page does not hold; and "symptoms" is the word a reader arrives with |
+| `treating-it` | Treating it | Treatment | the section is the standard of care by setting, with the regimens, sequencing and guideline links |
+| `evidence` | Evidence | Trials and papers | renamed an hour earlier; unchanged here |
+| `science` | The science | Biology and targets | targets, how often each appears, pathways and preclinical models |
+| `where-you-are` | Where you are | Countries and centres | it is two things and the name says both: cases by country with the national pathways, and the named expert centres |
+| `living-with-it` | Living with it | Decisions and support | what is inside is the decisions strip, the decision aids, the red cards, the journeys and the questions to ask, with the first sixty days, the prep sheet, side effects and help with costs beside them. "Living with it" is the phrase the health services use, but it is the survivorship sense of the phrase, and this section is the decisions |
+| `coming` | What is coming | Pipeline and open problems | **changed from the proposal.** "In development" is already the heading of the first block inside the section, so the section page would have printed it twice in a row; and the section also holds the open problems and what changed, which the block's name does not cover. This keeps the owner's word "pipeline" |
+| `data` | Data | Data | unchanged |
+
+What the renames leave stale in `src/components/CancerRecord.tsx` (held open by another agent on 28 September, so
+listed rather than changed):
+
+- The `finding-it` block `id="symptoms"` is titled "Symptoms and diagnosis", which is now also the section title.
+  Its two fields already read "How it shows" and "How it is confirmed", so the block wants a different heading
+  ("How it is found") or none; it needs one because it carries the sources aside.
+- Five `PillRow` labels still name the old titles: "More on what it is", "More on where you are", "More on living
+  with it", "More on what is coming" (`treating-it`'s "More on treatment" already matches).
 
 **2. The right-hand column is a wall of links.** "a massive link panel on the right side bar is not good design eg
 'Sources & links' this might be better as a table at the bottom of the page. it might be ok to have the primary
@@ -298,77 +310,163 @@ Something more functional eg 'Oncology: the timeline' might be better?" The kind
 timeline" and the navigation entry is the bare word "Years". Same fix as the section names, same nine languages.
 Note there is already a `/timeline/` page: whatever these two are called, a reader should be able to tell which
 is the chart over the whole field and which is the index of single years.
-
 ## 11. The cancer page: machine links, and a plan (owner, 28 September 2026)
-
 **1. The machine links are in a reader's way.** "having 'JSON for agents' at the top of pages gets in the way of
 things for humans, have them at the bottom of the page." On `/cancers/tnbc/` a "Data · JSON" control sits in the
 right-hand column about two fifths of the way down the markup, which on a phone stacks above the reader's own
 content. Agents and crawlers are served first by `<link rel="alternate">` in the head, the context files and the
 API, none of which a reader sees; the visible block can sit at the foot of the page without losing any of that.
-
 **2. The information architecture needs a plan, not another patch.** "the cancer pages have become very poor info
 arch. i want to see an amzinfg plan on how to improve them."
-
 This is the honest reading of everything above it in this document. Sections 8, 9 and 10 are seven separate
 complaints about the same page, each of which I have been fixing one at a time: the family strip, the model
 panel, the summary block, the also-known-as line, the section names, the wall of links, and now the machine
 links. Patching them one by one produces a page nobody designed. The deliverable here is a plan the owner reads
 and approves before anything else is changed.
-
+### What changed, 28 September 2026
+All four, as one pass, because they interact: the family strip, the summary and the also-known-as line are the
+three things between the title and the first section, and the review panel was the fourth. Judged on the rendered
+pages at 390 px and 1440 px, not on the diff.
+| Ask | What it does now | Where |
+|---|---|---|
+| Family strip | The parent chip, then the six children the corpus holds most for, then a "{n} more types" fold. Sixteen families fold; the other 70 are unchanged. On `/cancers/tnbc/` the strip is 242 characters of chips instead of 619, and leads with early and metastatic disease instead of adenoid cystic and apocrine carcinoma. | `src/lib/cancer-families.ts`, `scripts/cancer-family-order.ts` |
+| Summary | A summary over 1,800 characters shows two paragraphs (one when the first is already 1,200 characters) and folds the rest behind "Read more · {n} more paragraphs". 1,244 of the 1,329 long summaries fold; the 85 that do not are written as one or two paragraphs with nothing after them. | `src/components/ReadMore.tsx` |
+| Also-known-as | A full-width line under the lede at 15 px: "Also called: name · name · …", up to six names and 160 characters of them, the rest behind a "· {n} more" fold. No longer `text-xs text-muted text-end max-w-xs` in the header's right slot. | `src/components/AkaLine.tsx`, `PageHeader`'s new `under` slot |
+| Review panel | Last card in the right-hand column, after the actions. Its foot no longer says "Human reviews sit on top of the panel"; it says no human has checked the page and links the review issue form for that record. | `RecordAside` in `src/components/EntityDetail.tsx` |
+Ordering, for the record, from `scripts/cancer-family-order.ts`: depth = 3 x standard-of-care rows + history
+events + pipeline entries + trials pointing at the page. Weights of 1, 2, 3 and 4 on the rows give the same
+leaders, so the order is a property of the corpus rather than of the multiplier. Every one of the 402 subtypes has
+a depth above zero, so the fold never hides a page the measure could not rank.
+**The cost.** Every fold keeps its content in the markup, so the saving is attention, not bytes, and `npm run
+audit:weight` against a local export says so:
+| Page | Total | Markup | Payload |
+|---|---|---|---|
+| `/cancers/tnbc/` before | 621 KB | 265 KB | 356 KB (57%) |
+| `/cancers/tnbc/` after | 626 KB | 267 KB | 359 KB (57%) |
+| `/cancers/pancreatic/` before | 641 KB | 266 KB | 375 KB (58%) |
+| `/cancers/pancreatic/` after | 646 KB | 268 KB | 378 KB (59%) |
+About 5 KB a page, which is the fold furniture itself: the summary block already crosses into a client component
+as children (the machine-translation swap), so its paragraphs were in the hydration payload before this change and
+the `<details>` around them is now in it too. No page budget moved, no per-row cost changed, and `npm run
+audit:mobile` still measures every record page at 390 px wide with no sideways scroll.
+**Still open, for the owner rather than for me.**
+- On a phone six subtype chips are still six rows, because the names repeat their parent ("Early triple-negative
+  breast cancer", "Metastatic triple-negative breast cancer"). The knob is `FAMILY_CHIPS`; the other answer is
+  shorter subtype names, which is a corpus decision.
+- 1,569 of the 24,612 names in `aka` are over 40 characters and the longest is 139: they are subtype descriptions
+  written into a name field, and the line caps its length to survive them rather than because that reads well.
+- 85 long summaries cannot fold because they are a single paragraph; the longest, the nct05269381 trial, is 5,045
+  characters in one paragraph.
+- The model panel exists on 21 records and no record has a human review, so on ~19,000 pages the card at the foot
+  of the column says only that nobody has checked the page. It now sits where it can be ignored; whether machine
+  commentary belongs on a record at all, or only on `/review/`, is a product call.
+## 9. The review invitation and the print control (owner, 28 September 2026)
+Two more asks from the same sitting, both about a control that promised more than it did.
+**The text under the model panel.** "Human reviews sit on top of the panel. Add a clinical review or see the review
+queue." came off: an invitation with nowhere useful to go, since the queue is a list of other pages and almost
+nobody reading a cancer page can sign one off. The foot of the panel now states what is true of that page and
+gives the one action that fits it: `No human has checked this page. Open a review issue for it`, linking
+`reviewIssueUrl` - the same prefilled issue form that `/review/` and the unreviewed card already open, with the
+record and the track it needs filled in. No second route was added: corrections keep going through the Suggest an
+edit card in the same column, and a second button there would have been clutter.
+**The print control.** "Print / save PDF" is now **Patient pack**, and the menu offers the pack first. Printing is
+a browser function and two of the three modes only reprint what is on screen; the third cannot be had any other
+way, and it is the reason the control exists: every section in plain language, dated, with the record's
+"facts last checked" date, a QR code back to the page and the disclaimer. So the control is named after the pack,
+and "This section" now appears only on pages that have sections (on the standalone packs it did nothing).
+| Surface | Kept | Why |
+| Red-flag card (`RedFlagCard`) | yes | Goes on a fridge; the pack is the whole point |
+| Appointment prep (`PrepPack`) | yes | The pack is the product of the page |
+| The first 60 days (`/first-60-days/<id>/`) | yes | A checklist someone works through on paper |
+| Regimen records (`/regimens/<id>/`) | yes | Cycle, doses and days, carried to chemotherapy |
+| Decisions (`/cancers/<id>/decisions/`) | yes | Written to be taken to an appointment |
+| NHS pathway (`/cancers/<id>/uk/`) | yes | Waiting-time standards and what to ask for |
+| Cancer section pages (`/cancers/<id>/<section>/`) | yes | The plain-language version of one section |
+| Decision aids (`/tools/<id>/`) | yes | The aid's result, with its sources |
+| Treatment sequencing (`/sequencing/<id>/`) | yes | A map discussed with a clinician |
+| irAE guide (`/irae/`) | yes | Already labelled "card fits one page" |
+| Survivorship plan | yes | Prints as one list by organ system, with sources |
+| Financial help (`AssistanceBrowser`) | yes | One-page list for a social worker; its own copy says so |
+| Report reader | yes | The reader's own values with the plain-language reading |
+| Symptom pathway | yes | The steps for one symptom, taken to an appointment |
+| Records: cancer, product, trial, term | yes | The patient-facing record kinds |
+| Records: company, institution, person, paper, journal, target, pathway, technology, idea, roadmap and the rest | **no** | Reference pages: all three modes are the browser's own print |
+| Cancers compared (`/cancers/<id>/compared/`) | **no** | A comparison grid; the pack only reprints what is on screen |
+A fold would have cost the pack its text, so `PrintButton` opens every `[data-fold]` before the print dialog and
+closes again afterwards, and the print stylesheet hides the fold handles and reveals their contents for a plain
+Cmd-P with no JavaScript. The deliberate folds (survival tables, `GentleSection`) are untouched: they are closed
+so that nobody is ambushed by them, on paper as on screen.
+`/teach/` keeps its own "Print / save PDF" button, which is a different component (`SlideDeck`) and genuinely a
+print: one slide per page, done by the print stylesheet. Renaming that one was not part of the ask.
 ## 12. Every page title, not just the cancer sections (owner, 28 September 2026)
-
 "do a review for poorly worded sections and their improved versions eg Forest plot for https://onco.cc/forest/
 just sits there without any context. we need clean and correct names for all sections that are functional and not
 vague."
-
 `/forest/` is the example and it is a fair one. Its heading is "Forest plot", which names the drawing rather than
 the question, and assumes the reader already knows what a forest plot is. Its own description says what it is
 for and says it well: "Every hazard ratio with its confidence interval in the OnCo trial corpus, side by side on
 one log axis." The heading should carry that, not the chart's name.
-
 Measured: **127 top-level pages carry a title, and 85 of them are one or two words.** Terse is not the same as
 vague, and several are exactly right (`/changelog/`, `/contributors/`, `/corrections/`). What needs changing is
 the title that names a format instead of a question ("Forest plot"), the one that could belong to any site
 ("Explore", "Compare", "Atlas", "Evidence"), and the one that needs the reader to know a term before they can
 decide whether to click.
-
 The test to apply to each: read only the heading, and say what you would find on the page and why you would go
 there. If you cannot, the heading is doing the wrong job.
-
 **Done, 28 September 2026.** Every page, kind index and navigation label was read against that test and the
 review is written down page by page in `docs/PAGE-TITLES.md`: 30 titles changed (22 of them navigation labels
 too, with the eight translations and every inbound link moved with them), 17 proposed and left to the owner
 because they are taste or carry a cost outside the title. `/forest/` is now "How much each trial changed the
 risk". No route changed, and renamed pages keep their old names as search aliases through a new `aka` field on
 `NavItem`.
-
 ## 13. Visual first (owner, 28 September 2026)
-
 "i dont want the custom animations to fall too far below the main text on the page, can you bring them up, so its
 more visual first for pages."
-
 The drawings the site makes for itself (the molecule viewer, the mechanism animation, the drug schematic, the
 organ drawings) render after the prose blocks on a record page: on a drug page `SeeItInAction` comes below the
 summary and the fields. A reader arrives at a page of text with the picture below the fold, when the picture is
 often the faster answer and is the thing this site has that others do not.
-
 This is a question of block order, so it belongs to the cancer-page plan (section 11) rather than to a separate
 patch, and the plan should treat "visual first" as a stated preference of the owner's rather than an open
 question. The measurement to take is where the first custom drawing appears in document order at 390 px, per
 kind of record, not where the first `<svg>` appears: every page has icons in its header, so a naive search says
 one per cent and means nothing.
-
 ## 14. The prevalence table scrolls sideways before it says anything (owner, 28 September 2026)
-
 "`/prevalence/` has a table that has massive horizontal scrolling straight off the bat."
-
 Measured: **23 columns and 208 rows**, one column per cancer, so the table is as wide as the corpus is broad and
 gets wider every time a cancer is added. It is wrapped in a horizontal scroller, which is why it does not break
 the layout, and why the reader meets a wall instead. A target's prevalence in one cancer is the fact a reader
 wants; the matrix is the shape the data is stored in, not the shape the question has.
-
 Worth considering rather than assuming: pick the cancer first and show one column as a list; or keep the matrix
 for the desktop reader who genuinely wants to compare across cancers and give everyone else the single-cancer
 view by default. Whatever is chosen, a table that grows a column per cancer cannot be the first thing on the
 page. Note `/biomarker-matrix/` is likely the same shape and should be checked at the same time.
+## 15. The front page does not lift the best of the site (owner, 28 September 2026)
+"we have some really nice pages eg /drugs/ and /fronts/ and the molecules that have great visuals, especially
+molecules, we could turn the main homepage to have these sections that go off to other parts of the site in
+sections. we do this partially but dont really lift the best areas of the site much to the front page."
+Measured: the home page links to **140 distinct sections**, which is the problem rather than the achievement. It
+links to everything and shows almost none of it. `/drugs/` renders 110 drawings, `/fronts/` 90, `/molecules/` 57
+in a page that is 1.2 MB largely because the structures are real. The home page carries 145, but most are icons
+and chrome rather than the work.
+So the ask is not more links. It is that the front page should **show** two or three of the site's best things at
+the size they deserve and let a reader fall into them, rather than listing 140 destinations in text. The
+molecules are the clearest case: nothing else on the open web renders oncology chemistry like that, and on the
+front page it is a word in a list.
+This belongs to `/v2/`, which exists precisely so the front page is not changed without review. `/v2/` currently
+argues about order and tasks and is deliberately plain; the next version should test whether the best of the site,
+shown rather than named, is a better first screen than either the graph, the list or the task blocks. The owner
+reviews `/v2/`; the live front page does not change until he says so.
+Something more functional eg 'Oncology: the timeline' might be better?" The kind's `title` was "Years and the
+timeline" and the navigation entry was the bare word "Years".
+**Done, 28 September 2026.** The old title was the worse of the two problems: it named both pages at once, so a
+reader who followed it and found no timeline had been told the wrong thing. The pair is now split by what each
+one shows rather than by what it is about.
+| page | title | navigation | what it is |
+| --- | --- | --- | --- |
+| `/years/` | Oncology year by year | Year by year | one record per year, each line linking to the record it was read from |
+| `/timeline/` | Every year in oncology, on one timeline | Timeline | the chart over the whole field and the ten findings read off its shape |
+"Oncology: the timeline" was the owner's suggestion but belongs to `/timeline/`, which already carries a stronger
+version of it as its heading; putting it on `/years/` would have swapped the confusion rather than ended it.
+"Year by year" says the index is per year, sits next to "Timeline" in the same navigation group, and answers
+"years of what?" in the page title. Nine languages for the title and eight for the navigation entry.

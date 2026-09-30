@@ -20,7 +20,16 @@ runs:
       shell: bash
       run: |
         failed=""
-        for gate in "npm run validate" "npm run typecheck" "npm run lint" "npx vitest run"; do
+        # The test command must match scripts/ship.sh, which passes --testTimeout=600000. It did not, and that one
+        # difference held back every weekly data refresh: on 30 September 2026 seven bot pull requests were open and
+        # all seven carried the same "Not merged: npx vitest run failed" comment. The failure was always the same
+        # single test, the first render in src/app/heavy-pages.test.ts, which pays the cost of building the graph
+        # and importing 1,400 modules before it can render anything. It measures 27 seconds locally and 107 on a
+        # GitHub runner, against a default limit of 30. The eleven roadmap renders after it in the same file take
+        # 5 to 23 milliseconds each, so nothing is slow here except the first one, and the limit was measuring the
+        # runner rather than the page. Raising the wall-clock limit on a test is not raising a budget: no assertion
+        # about page size, cost or quality is weakened, and heavy-pages.test.ts still holds its 300 KB markup limit.
+        for gate in "npm run validate" "npm run typecheck" "npm run lint" "npx vitest run --testTimeout=600000 --hookTimeout=600000"; do
           echo "::group::$gate"
           if ! $gate; then failed="$failed$gate; "; fi
           echo "::endgroup::"

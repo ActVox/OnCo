@@ -7,6 +7,7 @@ import { buildBrowser } from "@/lib/kind-browser";
 import { kindBrowser } from "@/lib/tables/kinds";
 import { startupBrowser } from "@/lib/tables/startups";
 import { openSourceBrowser } from "@/lib/tables/open-source";
+import { softwareBrowser } from "@/lib/tables/software";
 import { taggedRows, TAG_FACETS } from "@/lib/tables/tagged";
 import { tagIndex } from "@/lib/tags";
 import { isFacetLink, isYearRange } from "@/lib/browser-sort";
@@ -41,6 +42,7 @@ const tables = (): Table[] => {
   const out: Table[] = KINDS.map((k) => ({ name: k, ...buildBrowser(k) }));
   out.push({ name: "startups", ...startupBrowser() });
   out.push({ name: "open source", ...openSourceBrowser() });
+  out.push({ name: "software", ...softwareBrowser() });
   const biggestTag = [...tagIndex().values()].sort((a, b) => b.ids.length - a.ids.length)[0];
   out.push({ name: `tag ${biggestTag.slug}`, rows: taggedRows(biggestTag), facets: TAG_FACETS, columns: [] });
   return out;

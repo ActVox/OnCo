@@ -63,7 +63,9 @@ jobs:
         env:
           ONCO_CACHE_DIR: ${{ runner.temp }}/onco-cache
           ONCO_VERIFY_APPLIED: "1"
-        run: npm run validate && npm run typecheck && npm run lint && npx vitest run
+        # --testTimeout matches scripts/ship.sh and .github/actions/gates; a bare `npx vitest run` uses the
+        # 30 second default, which the first render in src/app/heavy-pages.test.ts cannot meet on a runner.
+        run: npm run validate && npm run typecheck && npm run lint && npx vitest run --testTimeout=600000 --hookTimeout=600000
       - uses: peter-evans/create-pull-request@v7
         id: auto
         with:

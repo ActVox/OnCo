@@ -2,7 +2,7 @@
 
 > A public, cited knowledge graph of oncology: cancers, fronts, technologies, targets, treatments and tests, companies, institutions, people, pathways, trials, pairings, roadmaps, key papers, journals, bottlenecks and ideas, one page per object, each with a plain-English TL;DR, a technical summary, dated facts and links to primary sources. Not medical advice.
 
-19,147 records in 20 kinds: 455 cancers, 19 fronts, 591 technologies, 1,674 targets, 1,088 drugs, 1,244 companies, 723 institutions, 108 pathways, 1,146 terms, 5,935 trials, 86 pairings, 36 roadmaps, 1,193 ideas, 135 collections, 1,602 people, 45 bottlenecks, 2,540 key papers, 261 journals, 92 biomarkers, 174 years. Every fact is dated and linked to a primary source; where a number is not sourced it is omitted. Facts may be incomplete or out of date: cite the OnCo page and check the primary source it links before relying on anything that matters.
+19,168 records in 20 kinds: 455 cancers, 19 fronts, 591 technologies, 1,674 targets, 1,088 drugs, 1,244 companies, 723 institutions, 108 pathways, 1,167 terms, 5,935 trials, 86 pairings, 36 roadmaps, 1,193 ideas, 135 collections, 1,602 people, 45 bottlenecks, 2,540 key papers, 261 journals, 92 biomarkers, 174 years. Every fact is dated and linked to a primary source; where a number is not sourced it is omitted. Facts may be incomplete or out of date: cite the OnCo page and check the primary source it links before relying on anything that matters.
 
 ## Licence and attribution
 
@@ -65,7 +65,7 @@
 - [Key papers](https://onco.cc/key-papers/): The papers that changed practice or thinking, each explained: what it found, what it means, and what to be careful about. JSON at /api/v1/key papers.json
 - [Journals](https://onco.cc/journals/): Where the evidence is published: the journals, their scope and access model, and the key papers each one carried. JSON at /api/v1/journals.json
 - [Biomarkers](https://onco.cc/biomarkers/): The readouts a pathology report gives (PD-L1 CPS, HER2 IHC 3+, MSI-high), each under its gene or protein, with the thresholds approvals use and the tests that measure them. JSON at /api/v1/biomarkers.json
-- [Years](https://onco.cc/years/): One record per year: everything the corpus dates to it, each line linking to the record it was read from. JSON at /api/v1/years.json
+- [Years](https://onco.cc/years/): One record per year: everything the corpus dates to it, each line linking to the record it was read from. The whole field on one chart is the timeline. JSON at /api/v1/years.json
 
 ## Start here
 
@@ -85,7 +85,7 @@
 - [Landscape grid](https://onco.cc/pivot/): Count products, trials, or technologies by cancer, target, treatment type, or company in one grid.
 - [Rankings](https://onco.cc/rankings/): League tables computed from the corpus: cancers by trials, targets by products, companies by approvals, trials by enrolment, each stating its basis.
 - [Timeline](https://onco.cc/timeline/): Every dated fact on one timeline: the shape of the whole field, what that shape shows, and a page for every year.
-- [Years](https://onco.cc/years/): One page per year: everything the corpus dates to it, from approvals to landmarks, each line linking to the record it came from.
+- [Year by year](https://onco.cc/years/): One page per year: everything the corpus dates to it, from approvals to landmarks, each line linking to the record it came from.
 - [Query](https://onco.cc/query/): Build a graph query and get a table.
 - [Graph explorer](https://onco.cc/graph/): Navigate the knowledge graph visually.
 - [Saved](https://onco.cc/saved/): Your saved table views and watched pages, with what changed since you looked. Stored in your browser only.
@@ -241,6 +241,7 @@
 - [Open data](https://onco.cc/data-sources/): Every open database OnCo pulls from, with licences and cadence, and the ones we could add next.
 - [Open tools](https://onco.cc/open-tools/): Open-source viewers, planners, pipelines and hardware you can use or build on, by front, from the Open Medical Registry.
 - [Open source in oncology](https://onco.cc/open-source/): Every open-source project the field runs on, from variant callers to planning systems and foundation models, with licence, openness and maintainer.
+- [The software of oncology](https://onco.cc/software/): The rest of the field's software, most of it commercial: records, prescribing, planning, cleared algorithms, genomics, trial matching and case review, each row marked with what is behind it.
 
 ## Optional
 

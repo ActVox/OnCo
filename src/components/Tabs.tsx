@@ -31,7 +31,7 @@ const EDGE = 40;
  * summary card; on a section page the current tab is the only one with content and every other tab links back to
  * the hub anchor or to its own page (`current` names the tab that starts highlighted). `anchors` maps the hashes of
  * elements that are not on this page to their address, so `/cancers/x/#care` still lands on the standard of care
- * when Treating it has moved to `/cancers/x/treating-it/`.
+ * when Treatment has moved to `/cancers/x/treating-it/`.
  *
  * Layout: the bar spans the full content width. When `aside` is given the sections and the aside form the
  * two-column grid *below* the bar (main and right column), so the tabs never share a row with the sidebar and

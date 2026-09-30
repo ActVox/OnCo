@@ -31,6 +31,7 @@ import { RedCardsStrip } from "./RedCardsStrip";
 import { ChangesPreview, FollowLine } from "./CancerChanges";
 import { changesForCancer, splitUpcoming } from "@/lib/cancer-changes";
 import { similarLinks } from "@/lib/similar";
+import { familyStrip } from "@/lib/cancer-families";
 import { Neighbours } from "./Neighbours";
 import { OrganSchematic } from "./OrganSchematic";
 import { SpreadMap } from "./SpreadMap";
@@ -94,18 +95,40 @@ const short = (name: string) => name.replace(/\s*\(.*?\)\s*$/, "");
 export const ROUTING_NOTE = /^Which page is mine/i;
 const routingNotes = (c: Cancer) => c.notes.filter((n) => ROUTING_NOTE.test(n));
 
-/** Subtypes with pages of their own, and the broader type this one belongs to, shown before anything else on a cancer page. */
+const FAMILY_CHIP = "inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-2.5 py-1 text-sm hover:border-accent hover:bg-accent-soft";
+const FamilyChip = ({ x }: { x: Cancer | Entity }) => <Link href={routeFor(x)} className={FAMILY_CHIP}><CancerIcon cancerId={x.id} className="h-4 w-4 shrink-0" /><span>{x.name}</span></Link>;
+
+/**
+ * Subtypes with pages of their own, and the broader type this one belongs to, shown before anything else on a
+ * cancer page. The parent chip is always visible; the children are the six the corpus holds most for, deepest
+ * first, and any others sit behind a fold (`src/lib/cancer-families.ts` has both measures and why).
+ *
+ * The fold is a plain `<details>`: the chips behind it are in the markup, so a crawler and a reader with no
+ * JavaScript have them, and find-in-page opens the fold to reach them in browsers that support that. The saving
+ * is the reader's attention, not bytes.
+ */
 function CancerFamily({ c }: { c: Cancer }) {
   const g = graph();
-  const children = g.kind("cancer").filter((x) => x.parent === c.id);
-  const parent = c.parent ? g.get(c.parent) : undefined;
+  const { parent, shown, folded } = familyStrip(c, g);
   const map = <Link href="/cancers/map/" title="Every cancer type on one layered map: organ system, cancer, subtype" className="inline-flex items-center gap-1.5 rounded-full border border-dashed border-border px-2.5 py-1 text-sm text-muted hover:border-accent hover:text-accent"><RouteIcon href="/cancers/map/" className="h-3.5 w-3.5 shrink-0" /><span>See the whole map</span></Link>;
-  if (!children.length && !parent) return <div className="mb-6 flex flex-wrap items-center gap-2 text-sm" aria-label="Related cancer types">{map}</div>;
+  if (!shown.length && !parent) return <div className="mb-6 flex flex-wrap items-center gap-2 text-sm" aria-label="Related cancer types">{map}</div>;
   return (
-    <div className="mb-6 flex flex-wrap items-center gap-2 text-sm" aria-label="Related cancer types">
-      {parent && <><span className="text-muted">Part of</span><Link href={routeFor(parent)} className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-2.5 py-1 text-sm hover:border-accent hover:bg-accent-soft"><CancerIcon cancerId={parent.id} className="h-4 w-4 shrink-0" /><span>{parent.name}</span></Link></>}
-      {children.length > 0 && <><span className="text-muted">{parent ? "Types" : `Types of ${short(c.name)}`}</span>{children.map((x) => <Link key={x.id} href={routeFor(x)} className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-2.5 py-1 text-sm hover:border-accent hover:bg-accent-soft"><CancerIcon cancerId={x.id} className="h-4 w-4 shrink-0" /><span>{x.name}</span></Link>)}</>}
-      {map}
+    <div className="mb-6 text-sm" aria-label="Related cancer types" data-family>
+      <div className="flex flex-wrap items-center gap-2">
+        {parent && <><span className="text-muted">Part of</span><FamilyChip x={parent} /></>}
+        {shown.length > 0 && <><span className="text-muted">{parent ? "Types" : `Types of ${short(c.name)}`}</span>{shown.map((x) => <FamilyChip key={x.id} x={x} />)}</>}
+        {map}
+      </div>
+      {folded.length > 0 && (
+        <details className="group mt-2" data-fold="family">
+          <summary className="cursor-pointer list-none [&::-webkit-details-marker]:hidden inline-flex items-center gap-1.5 rounded-full border border-dashed border-border px-2.5 py-1 text-sm text-muted hover:border-accent hover:text-accent">
+            <span aria-hidden className="transition-transform group-open:rotate-90 rtl:rotate-180 rtl:group-open:rotate-90">▸</span>
+            <span className="group-open:hidden">{folded.length} more {folded.length === 1 ? "type" : "types"}</span>
+            <span className="hidden group-open:inline">Fewer types</span>
+          </summary>
+          <div className="mt-2 flex flex-wrap items-center gap-2">{folded.map((x) => <FamilyChip key={x.id} x={x} />)}</div>
+        </details>
+      )}
     </div>
   );
 }
@@ -204,7 +227,7 @@ export function CancerSection({ c, id, plan }: { c: Cancer; id: SectionId; plan?
     </>);
 
     case "what-it-is": return (<>
-      <PillRow label="More on what it is" items={[...pages, { href: `/staging/#${c.id}`, text: "Staging and risk scores →", glyph: <ToolGlyph name="layers" className="h-3.5 w-3.5" /> }, ...(compareSetFor(c.id) ? [] : [])]} />
+      <PillRow label="More on types and stages" items={[...pages, { href: `/staging/#${c.id}`, text: "Staging and risk scores →", glyph: <ToolGlyph name="layers" className="h-3.5 w-3.5" /> }, ...(compareSetFor(c.id) ? [] : [])]} />
       <Block id="subtypes" title="Subtypes">{c.subtypes.length ? <LinkedBullets items={c.subtypes} skipId={c.id} /> : <p className="text-sm text-muted">No subtypes recorded beyond the ones named in the family strip above.</p>}</Block>
       {(c.basics?.staging.length ?? 0) > 0 && <Block id="staging" title="How it is staged" aside={<Sources list={c.basics!.sources} />}><LinkedBullets items={c.basics!.staging} skipId={c.id} /></Block>}
       {spreadFor(c.id) && (
@@ -223,7 +246,7 @@ export function CancerSection({ c, id, plan }: { c: Cancer; id: SectionId; plan?
 
     case "finding-it": { const b = c.basics; return (<>
       {b && (b.symptoms.length > 0 || b.diagnosis.length > 0) && (
-        <Block id="symptoms" title="Symptoms and diagnosis" aside={<Sources list={b.sources} />}>
+        <Block id="symptoms" title="How it is found" aside={<Sources list={b.sources} />}>
           <div className="grid *:min-w-0 gap-6 sm:grid-cols-2">
             {b.symptoms.length > 0 && <Field label="How it shows"><LinkedBullets items={b.symptoms} skipId={c.id} /></Field>}
             {b.diagnosis.length > 0 && <Field label="How it is confirmed"><LinkedBullets items={b.diagnosis} skipId={c.id} /></Field>}
@@ -286,7 +309,7 @@ export function CancerSection({ c, id, plan }: { c: Cancer; id: SectionId; plan?
     </>); }
 
     case "where-you-are": return (<>
-      <PillRow label="More on where you are" items={[...pages, { href: "/countries/", text: "Every country →", glyph: <ToolGlyph name="globe" className="h-3.5 w-3.5" /> }, { href: "/coverage/", text: "Coverage by country →", glyph: <ToolGlyph name="flag" className="h-3.5 w-3.5" /> }]} />
+      <PillRow label="More on countries and centres" items={[...pages, { href: "/countries/", text: "Every country →", glyph: <ToolGlyph name="globe" className="h-3.5 w-3.5" /> }, { href: "/coverage/", text: "Coverage by country →", glyph: <ToolGlyph name="flag" className="h-3.5 w-3.5" /> }]} />
       {geographyFor(c.id) ? <CancerGeographySection c={c} /> : <Block id="geography" title="Cases by country"><CountryCasesMini cancerId={c.id} limit={10} /></Block>}
       <div className="mt-8"><UkPathwayStrip c={c} id="uk" /></div>
       <Block id="centres" title="Expert centres"><ExpertCentres cancerId={c.id} /></Block>
@@ -294,7 +317,7 @@ export function CancerSection({ c, id, plan }: { c: Cancer; id: SectionId; plan?
     </>);
 
     case "living-with-it": return (<>
-      <PillRow label="More on living with it" items={[
+      <PillRow label="More on decisions and support" items={[
         { href: `/first-60-days/${c.id}/`, text: "The first 60 days →", glyph: <ToolGlyph name="clock" className="h-3.5 w-3.5" />, accent: true },
         { href: `/prep/${c.id}/`, text: "Appointment prep sheet →", glyph: <ToolGlyph name="talk" className="h-3.5 w-3.5" /> },
         { href: "/side-effects/", text: "Side effects →", glyph: <ToolGlyph name="pain" className="h-3.5 w-3.5" /> },
@@ -308,7 +331,7 @@ export function CancerSection({ c, id, plan }: { c: Cancer; id: SectionId; plan?
     </>);
 
     case "coming": { const changes = splitUpcoming(changesForCancer(g, c), new Date().toISOString().slice(0, 10)).past; return (<>
-      <PillRow label="More on what is coming" items={[...pages, { href: `/edge/?cancer=${encodeURIComponent(c.id)}`, text: "Edge: the freshest items →", glyph: <ToolGlyph name="trend" className="h-3.5 w-3.5" />, accent: true }, { href: `/roadmap/`, text: "Roadmaps →", glyph: <ToolGlyph name="compass" className="h-3.5 w-3.5" /> }]} />
+      <PillRow label="More on the pipeline" items={[...pages, { href: `/edge/?cancer=${encodeURIComponent(c.id)}`, text: "Edge: the freshest items →", glyph: <ToolGlyph name="trend" className="h-3.5 w-3.5" />, accent: true }, { href: `/roadmap/`, text: "Roadmaps →", glyph: <ToolGlyph name="compass" className="h-3.5 w-3.5" /> }]} />
       <Block id="pipeline" title="In development"><CancerPipeline c={c} /></Block>
       <FamilyRollup c={c} kind="drug" id="subtype-pipeline" />
       {c.openProblems.length > 0 && <Block id="open-problems" title="Open problems and what is being done"><ul className="space-y-4">{c.openProblems.map((pr, i) => <li key={i}><p className="text-[15px] leading-relaxed">{withTermHovers(pr, { skipId: c.id })}</p><div className="mt-2"><WhatIsBeingDoneFor text={pr} cancerId={c.id} /></div></li>)}</ul></Block>}
