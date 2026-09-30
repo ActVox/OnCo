@@ -303,7 +303,7 @@ export default async function StagePage({ params }: { params: Promise<{ stage: s
 
           {has(c, "escape") && (
             <Section id="escape" title="How tumours escape" count={c.escape.terms.length + c.escape.pathways.length + c.escape.ideas.length + c.escape.papers.length}
-              lede={<>Records tied to this stage that describe resistance, evasion or tolerance. The <Link href="/resistance/" className="underline">resistance atlas</Link> lists the routes class by class.</>}>
+              lede={<>Records tied to this stage that describe resistance, evasion or tolerance. <Link href="/resistance/" className="underline">Resistance: how tumours escape each drug class</Link> lists the routes class by class.</>}>
               <div className="space-y-4">
                 {(c.escape.terms.length > 0 || c.escape.pathways.length > 0) && (
                   <div className="flex flex-wrap items-center gap-1.5 text-sm">
@@ -423,7 +423,7 @@ export default async function StagePage({ params }: { params: Promise<{ stage: s
               </Link>
             ) : (
               <Link href="/resistance/" className="card p-4 flex items-center gap-3 justify-end text-end hover:border-accent/50 bg-accent-soft/40">
-                <span className="min-w-0"><span className="kicker block">Continue →</span><span className="font-medium leading-snug block">The resistance atlas, class by class</span></span>
+                <span className="min-w-0"><span className="kicker block">Continue →</span><span className="font-medium leading-snug block">How tumours escape, class by class</span></span>
                 <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent text-white"><MechanicsGlyph id="failure" className="h-5 w-5" sprite /></span>
               </Link>
             )}

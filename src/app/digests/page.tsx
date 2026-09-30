@@ -24,7 +24,7 @@ export default function DigestsIndex() {
           ))}
         </div>
         <AbstractCandidates existingDigestIds={digests.map((d) => d.id)} />
-        <p className="text-xs text-muted max-w-3xl">Digests are written by hand from sources named on each item. The candidate list above is harvested weekly from the congress supplements (DOI records via Crossref) and matched to products and trials in OnCo; it is a reading list for the editor, not a digest. Feed status: <Link className="underline" href="/status/">data currency</Link>.</p>
+        <p className="text-xs text-muted max-w-3xl">Digests are written by hand from sources named on each item. The candidate list above is harvested weekly from the congress supplements (DOI records via Crossref) and matched to products and trials in OnCo; it is a reading list for the editor, not a digest. Feed status: <Link className="underline" href="/status/">when each feed last ran</Link>.</p>
       </Container>
     </>
   );

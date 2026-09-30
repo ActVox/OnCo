@@ -41,7 +41,7 @@ const AUDIENCES: Array<{ id: string; title: string; lede: string; links: Array<{
       { href: "/explore/", label: "Explore by cancer", blurb: "Pick a cancer, switch kind, sort the list" },
       { href: "/regulatory/regions/", label: "Approvals by region", blurb: "US, EU, UK, Japan, China, Australia" },
       { href: "/papers/", label: "Publishing trends", blurb: "Fastest-growing topics, weekly" },
-      { href: "/pulse/", label: "Research pulse", blurb: "Journals, regulators and news this month" },
+      { href: "/pulse/", label: "This month in oncology research", blurb: "Journals, preprints, regulators and news, item by item" },
     ],
   },
   {

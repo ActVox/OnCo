@@ -86,7 +86,7 @@ console.table(linkers);
 
 // Refresh: meta.json carries the build time; re-fetch when it changes
 const { built, counts } = await fetch("${SITE}/api/v1/meta.json").then((r) => r.json());`}</Code>
-          <p className="text-xs text-muted mt-2">all.json is a few megabytes; for a production dashboard fetch the per-kind files you need and cache on <code>meta.json</code>&rsquo;s <code>built</code> timestamp. The pages under <Link href="/pivot/" className="underline">landscape grid</Link>, <Link href="/pipeline/" className="underline">pipeline</Link> and <Link href="/scorecards/" className="underline">scorecards</Link> are built this way at build time.</p>
+          <p className="text-xs text-muted mt-2">all.json is a few megabytes; for a production dashboard fetch the per-kind files you need and cache on <code>meta.json</code>&rsquo;s <code>built</code> timestamp. The pages under <Link href="/pivot/" className="underline">count what exists, and where</Link>, <Link href="/pipeline/" className="underline">pipeline</Link> and <Link href="/scorecards/" className="underline">scorecards</Link> are built this way at build time.</p>
         </Section>
 
         <Section title="Recipe 3: a chatbot over MCP">

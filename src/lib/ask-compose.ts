@@ -460,7 +460,7 @@ function tSideEffects(c: Ctx, r: AskEntityRecord): boolean {
     if (e.dosing?.monitoring) c.b.add(s, `Monitoring: ${e.dosing.monitoring}.`, "dosing");
     if (e.dosing?.modifications) c.b.add(s, `Dose changes: ${e.dosing.modifications}.`, "dosing");
     const checkpoint = (e.technologies ?? []).includes("checkpoint-inhibitor") || (e.targets ?? []).some((t) => t === "pd1" || t === "pdl1" || t === "ctla4" || t === "lag3");
-    if (checkpoint) c.readMore.push({ label: "irAE guide", href: "/irae/" });
+    if (checkpoint) c.readMore.push({ label: "Checkpoint side effects by organ", href: "/irae/" });
     const irae = c.related.find((x) => x.entity.id === "irae");
     if (checkpoint && irae) c.b.add(toSource(irae), irae.entity.tldr, "TL;DR");
     c.readMore.push({ label: "Side effects by symptom", href: "/side-effects/" });
@@ -472,7 +472,7 @@ function tSideEffects(c: Ctx, r: AskEntityRecord): boolean {
     const hits = pool.filter((x) => /toxic|adverse|side effect|safety|neutropenia|nausea|diarrhoea|pneumonitis|ILD|fatigue|rash|colitis|thyroid|cytokine|CRS|neurotox|hair|alopecia|immune-related|irAE|hospital/i.test(x));
     for (const x of hits.slice(0, 3)) c.b.add(s, x, e.limitations?.includes(x) ? "limitations" : "summary");
     const irae = c.related.find((x) => x.entity.id === "irae");
-    if (irae) { c.b.add(toSource(irae), irae.entity.tldr, "TL;DR"); for (const x of first(irae.entity.summary, 1)) c.b.add(toSource(irae), x, "summary"); c.readMore.push({ label: "irAE guide", href: "/irae/" }); }
+    if (irae) { c.b.add(toSource(irae), irae.entity.tldr, "TL;DR"); for (const x of first(irae.entity.summary, 1)) c.b.add(toSource(irae), x, "summary"); c.readMore.push({ label: "Checkpoint side effects by organ", href: "/irae/" }); }
     c.readMore.push({ label: "Side effects by symptom", href: "/side-effects/" });
     return c.b.sentences.length > 1;
   }
@@ -514,7 +514,7 @@ function tResults(c: Ctx, r: AskEntityRecord): boolean {
     for (const x of first(e.summary, 2)) c.b.add(s, x, "summary");
     c.b.add(s, e.replication ? `Replication: ${e.replication}` : undefined, "replication");
     for (const d of c.related.filter((x) => x.entity.kind === "drug").slice(0, 2)) c.b.add(toSource(d), d.entity.tldr, "TL;DR");
-    c.readMore.push({ label: "Forest plot of every hazard ratio", href: "/forest/" });
+    c.readMore.push({ label: "Every trial's result on one scale", href: "/forest/" });
     return true;
   }
   if (e.kind === "drug" || e.kind === "technology" || e.kind === "target") {

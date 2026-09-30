@@ -104,7 +104,7 @@ export function CatalystsPanel({ id }: { id: string }) {
   const list = catalysts.filter((c) => c.companies.includes(id) || c.drugs.includes(id) || c.refs.includes(id)).sort((a, b) => sortKey(a.date).localeCompare(sortKey(b.date)));
   if (!list.length) return null;
   return (
-    <Section title="Catalysts" aside={<Link href="/catalysts/" className="text-sm underline text-muted">Catalyst calendar</Link>}>
+    <Section title="Catalysts" aside={<Link href="/catalysts/" className="text-sm underline text-muted">What is due next</Link>}>
       <ul className="space-y-2">
         {list.map((c) => (
           <li key={c.id} className="card p-3 text-sm">

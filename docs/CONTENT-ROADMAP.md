@@ -413,6 +413,12 @@ the title that names a format instead of a question ("Forest plot"), the one tha
 decide whether to click.
 The test to apply to each: read only the heading, and say what you would find on the page and why you would go
 there. If you cannot, the heading is doing the wrong job.
+**Done, 28 September 2026.** Every page, kind index and navigation label was read against that test and the
+review is written down page by page in `docs/PAGE-TITLES.md`: 30 titles changed (22 of them navigation labels
+too, with the eight translations and every inbound link moved with them), 17 proposed and left to the owner
+because they are taste or carry a cost outside the title. `/forest/` is now "How much each trial changed the
+risk". No route changed, and renamed pages keep their old names as search aliases through a new `aka` field on
+`NavItem`.
 ## 13. Visual first (owner, 28 September 2026)
 "i dont want the custom animations to fall too far below the main text on the page, can you bring them up, so its
 more visual first for pages."

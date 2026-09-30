@@ -7,7 +7,7 @@ import { ICI_DRUGS, irae } from "@/data/irae";
 import { Container, GroupKicker, PageHeader } from "@/components/ui";
 import { IraeGuide, type IciLite } from "./IraeGuide";
 
-export const metadata: Metadata = pageMeta({ title: "Immune-related adverse events", description: "Checkpoint inhibitor toxicity by organ system and CTCAE grade: hold or continue, steroid dose, escalation when refractory, and rechallenge, distilled from ASCO 2021, NCCN and ESMO 2022 with the differences flagged. Printable card per organ.", path: "/irae/" });
+export const metadata: Metadata = pageMeta({ title: "Checkpoint side effects by organ", description: "Checkpoint inhibitor toxicity by organ system and CTCAE grade: hold or continue, steroid dose, escalation when refractory, and rechallenge, distilled from ASCO 2021, NCCN and ESMO 2022 with the differences flagged. Printable card per organ.", path: "/irae/" });
 
 function validate(): void {
   const g = graph();
@@ -30,7 +30,7 @@ export default function IraePage() {
   const icis: IciLite[] = ICI_DRUGS.map((id) => g.must(id)).filter((d) => d.kind === "drug").map((d) => ({ id: d.id, name: d.name, route: routeFor(d), modality: d.kind === "drug" ? d.modality : "" }));
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="find" />} title="Immune-related adverse events"
+      <PageHeader kicker={<GroupKicker id="find" />} title="Checkpoint side effects by organ"
         lede={`${irae.length} organ systems, four grades each: whether to hold or stop the checkpoint inhibitor, the steroid dose, what to add when steroids fail, and whether to rechallenge, from the ASCO 2021, NCCN and ESMO 2022 guidelines with their disagreements marked. Pick an organ, filter by grade, print the card for the ward.`} />
       <Container className="pb-16">
         <IraeGuide icis={icis} />
@@ -47,7 +47,7 @@ export default function IraePage() {
           </div>
           <div className="card p-4 space-y-1.5">
             <h2 className="font-semibold">Read with</h2>
-            <p className="text-muted">The <Link href="/toxicity/" className="underline">toxicity compare</Link> table holds the label rates for each checkpoint inhibitor; the <Link href="/interactions/" className="underline">interaction checker</Link> notes that steroids given for irAEs do not appear to blunt efficacy; and each product page carries its safety tab. Time to onset matters: colitis and hepatitis are commonest at 6-12 weeks, endocrine events at 8-20 weeks, but any event can occur months after the last dose.</p>
+            <p className="text-muted"><Link href="/toxicity/" className="underline">Side effect rates across a drug class</Link> holds the label rates for each checkpoint inhibitor; the <Link href="/interactions/" className="underline">interaction checker</Link> notes that steroids given for irAEs do not appear to blunt efficacy; and each product page carries its safety tab. Time to onset matters: colitis and hepatitis are commonest at 6-12 weeks, endocrine events at 8-20 weeks, but any event can occur months after the last dose.</p>
           </div>
         </div>
       </Container>

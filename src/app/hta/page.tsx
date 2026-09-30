@@ -8,7 +8,7 @@ import { coverageUk, NICE_STATUS_LABEL, SMC_SEARCH, type NiceStatus } from "@/da
 import { Container, GroupKicker, PageHeader } from "@/components/ui";
 import { HtaTable, type HtaRow } from "@/components/HtaTable";
 
-export const metadata: Metadata = pageMeta({ title: "HTA decisions", description: "Health technology assessment verdicts for cancer products by country: NICE and the Cancer Drugs Fund, SMC, Germany's G-BA benefit assessments and Australia's PBAC outcomes, with dates and links to the appraisal.", path: "/hta/" });
+export const metadata: Metadata = pageMeta({ title: "Funding verdicts by country", description: "Health technology assessment verdicts for cancer products by country: NICE and the Cancer Drugs Fund, SMC, Germany's G-BA benefit assessments and Australia's PBAC outcomes, with dates and links to the appraisal.", path: "/hta/" });
 
 /** Shape written by scripts/fetch-hta.ts (public/hta/index.json). */
 type HtaSnapshot = {
@@ -47,7 +47,7 @@ export default function HtaPage() {
 
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="intel" />} title="HTA decisions"
+      <PageHeader kicker={<GroupKicker id="intel" />} title="Funding verdicts by country"
         lede={`${rows.length} appraisal verdicts for ${products.size} products across ${Object.keys(byBody).length} bodies: ${Object.entries(byBody).map(([b, n]) => `${b} ${n}`).join(", ")}. Regulatory approval says a medicine may be sold; a health technology assessment says whether a health system will pay for it, for whom, and at what price. Dates and links go to the appraisal itself.`}
         right={<div className="flex flex-wrap gap-2"><Link href="/coverage/uk/" className="rounded-lg border border-border bg-card px-4 py-2 text-sm font-medium">NHS coverage →</Link><Link href="/coverage/us/" className="rounded-lg border border-border bg-card px-4 py-2 text-sm font-medium">US coverage and assistance →</Link></div>} />
       <Container className="pb-16 space-y-10">
@@ -74,7 +74,7 @@ export default function HtaPage() {
               <ul className="list-disc pl-5 space-y-1">
                 {Object.entries(snap.bodies).map(([k, b]) => <li key={k}><a className="underline" href={b.url} rel="noopener">{b.name}</a> ({b.country}): {b.method}. {b.ok}/{b.checked} requests succeeded{b.note ? `; ${b.note}` : ""}.</li>)}
                 <li>Curated NICE outcomes and SMC positions come from the hand-researched <Link className="underline" href="/coverage/uk/">UK coverage table</Link> and appear when there is no TA page to verify.</li>
-                <li>Fetched {snap.fetched}; refreshed monthly by GitHub Actions. Status on the <Link className="underline" href="/status/">data currency page</Link>.</li>
+                <li>Fetched {snap.fetched}; refreshed monthly by GitHub Actions. Status on <Link className="underline" href="/status/">when each feed last ran</Link>.</li>
               </ul>
             ) : <p className="text-muted">Only curated rows are available until the feed runs.</p>}
             <p>For what the verdict means to a patient&rsquo;s bill, see <Link className="underline" href="/coverage/us/">paying for care in the US</Link> (Medicare part, prior authorisation and manufacturer assistance programmes) and <Link className="underline" href="/coverage/uk/">what the NHS offers</Link>.</p>

@@ -86,7 +86,7 @@ export default async function ModalityPage({ params }: { params: Promise<{ forma
   const h = modalityHub(format);
   if (!h) notFound();
   const def = h.format;
-  const crumbs = [{ label: "Home", href: "/" }, { label: "Pipeline funnel", href: "/pipeline/" }, { label: "Modalities", href: modalityRoute() }, { label: def.name, href: h.route }];
+  const crumbs = [{ label: "Home", href: "/" }, { label: "Pipeline funnel", href: "/pipeline/" }, { label: "Medicine types", href: modalityRoute() }, { label: def.name, href: h.route }];
   const description = `Everything OnCo records about ${def.name.toLowerCase()}, each section naming its records.`;
   const drugRefs = h.drugs;
   const techRefs: Ref[] = h.how.technologies.map(({ id, kind, name, route }) => ({ id, kind, name, route }));
@@ -252,9 +252,9 @@ export default async function ModalityPage({ params }: { params: Promise<{ forma
           )}
         </Section>
 
-        <Section id="resistance" title="Resistance mechanisms recorded" aside={<>{n(h.resistance.length)} class{h.resistance.length === 1 ? "" : "es"} in the <Link href="/resistance/" className="underline">resistance atlas</Link></>}>
+        <Section id="resistance" title="Resistance mechanisms recorded" aside={<>{n(h.resistance.length)} class{h.resistance.length === 1 ? "" : "es"} in <Link href="/resistance/" className="underline">how tumours escape each drug class</Link></>}>
           <From refs={h.resistance.flatMap((r) => r.exemplars).filter((r, i, xs) => xs.findIndex((y) => y.id === r.id) === i)} note="Atlas classes (src/data/resistance.ts) whose exemplar medicines belong to this format, or whose mechanisms cite one of its technology records." />
-          {h.resistance.length === 0 ? <p className={EMPTY}>The resistance atlas records no class whose exemplars are medicines of this format.</p> : (
+          {h.resistance.length === 0 ? <p className={EMPTY}>No recorded escape route has exemplars that are medicines of this format.</p> : (
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               {h.resistance.map((r) => (
                 <div key={r.id} className="card p-4 text-sm">

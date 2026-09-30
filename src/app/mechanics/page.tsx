@@ -78,7 +78,7 @@ export default function MechanicsPage() {
 
         <p className="mt-8 text-[15px] text-muted max-w-3xl leading-relaxed">
           Read it top to bottom as a story, or open any stage. On each stage page the diagram lights up when you pick a product, and every node opens the target, term or
-          pathway behind it. The <Link href="/resistance/" className="underline">resistance atlas</Link> continues chapter nine class by class, and
+          pathway behind it. <Link href="/resistance/" className="underline">Resistance: how tumours escape each drug class</Link> continues chapter nine, and
           the <Link href="/pathways/" className="underline">pathway index</Link> lists every diagram alone.
         </p>
 

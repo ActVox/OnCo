@@ -6,7 +6,7 @@ import { phaseLabel, routeFor } from "@/lib/schema";
 import { Container, GroupKicker, PageHeader } from "@/components/ui";
 import { CompareView, type CompareItem } from "@/components/CompareView";
 
-export const metadata: Metadata = pageMeta({ title: "Compare", description: "Side-by-side comparison of up to five products, technologies, targets, trials, or cancers, with differences highlighted.", path: "/compare/" });
+export const metadata: Metadata = pageMeta({ title: "Compare up to five, side by side", description: "Side-by-side comparison of up to five products, technologies, targets, trials, or cancers, with differences highlighted.", path: "/compare/" });
 
 export default function ComparePage() {
   const g = graph();
@@ -96,7 +96,7 @@ export default function ComparePage() {
   ].sort((x, y) => x.name.localeCompare(y.name));
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="find" />} title="Compare" lede="Up to five products, technologies, targets, trials, or cancers side by side, same fields, differences highlighted. The URL is shareable." />
+      <PageHeader kicker={<GroupKicker id="find" />} title="Compare up to five, side by side" lede="Up to five products, technologies, targets, trials, or cancers side by side, same fields, differences highlighted. The URL is shareable." />
       <Container className="pb-16">
         <Suspense><CompareView items={items} /></Suspense>
       </Container>

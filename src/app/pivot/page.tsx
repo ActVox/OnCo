@@ -6,7 +6,7 @@ import { modalityClass } from "@/lib/company-score";
 import { Container, GroupKicker, PageHeader } from "@/components/ui";
 import { PivotTable, type Dim, type DimMeta, type Fact } from "@/components/PivotTable";
 
-export const metadata: Metadata = pageMeta({ title: "Landscape grid", description: "Count products, trials or technologies by cancer, target, treatment type or company in one grid. Cross-tabulate products, trials, or technologies by cancer, target, modality, company, front, status, or phase.", path: "/pivot/" });
+export const metadata: Metadata = pageMeta({ title: "Counts across cancers, targets and companies", description: "Count products, trials or technologies by cancer, target, treatment type or company in one grid. Cross-tabulate products, trials, or technologies by cancer, target, modality, company, front, status, or phase.", path: "/pivot/" });
 
 const short = (s: string) => s.replace(/ \(.*\)$/, "");
 
@@ -52,7 +52,7 @@ export default function PivotPage() {
 
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="find" />} title="Landscape grid" lede="Count what exists where. Pick what to count and how to slice it: rows by cancer, columns by target or modality, cells showing how many products (or trials, or technologies) sit at the intersection and the best evidence tier among them. Click a count to open the list." />
+      <PageHeader kicker={<GroupKicker id="find" />} title="Counts across cancers, targets and companies" lede="Count what exists where. Pick what to count and how to slice it: rows by cancer, columns by target or modality, cells showing how many products (or trials, or technologies) sit at the intersection and the best evidence tier among them. Click a count to open the list." />
       <Container className="pb-16">
         <PivotTable facts={facts} meta={meta} />
       </Container>

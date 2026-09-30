@@ -87,7 +87,7 @@ export default function NewsletterPage() {
         ) : (
           <section className="mt-10 card p-5 text-sm">
             <div className="kicker mb-1">First issue coming</div>
-            <p>The first weekly issue is published on the next Monday. It will carry the week&apos;s changelog, dated regulatory events, the readouts and decisions due in the next thirty days, what the journals published and any corrections. Until then the <Link className="underline" href="/changelog/">changelog</Link>, <Link className="underline" href="/regulatory/">regulatory events</Link>, <Link className="underline" href="/calendar/">readout calendar</Link> and <Link className="underline" href="/pulse/">research pulse</Link> hold the same material, live.</p>
+            <p>The first weekly issue is published on the next Monday. It will carry the week&apos;s changelog, dated regulatory events, the readouts and decisions due in the next thirty days, what the journals published and any corrections. Until then the <Link className="underline" href="/changelog/">changelog</Link>, <Link className="underline" href="/regulatory/">regulatory events</Link>, <Link className="underline" href="/calendar/">readout calendar</Link> and <Link className="underline" href="/pulse/">what the journals said this month</Link> hold the same material, live.</p>
           </section>
         )}
 
@@ -114,7 +114,7 @@ export default function NewsletterPage() {
 
         <section className="mt-10 text-sm text-muted space-y-2">
           <h2 className="text-xl font-semibold text-foreground mb-1">How it is made</h2>
-          <p>Each issue is rendered from the same data as the site: the <Link className="underline" href="/changelog/">changelog</Link> (the newsletter is the changelog, with context), products&apos; dated <Link className="underline" href="/regulatory/">regulatory events</Link> from the past week, the <Link className="underline" href="/calendar/">readout calendar</Link> for the next thirty days, the <Link className="underline" href="/pulse/">research pulse</Link>, and <Link className="underline" href="/corrections/">corrections</Link>. Nobody writes it by hand and nothing is added that is not already on a page here.</p>
+          <p>Each issue is rendered from the same data as the site: the <Link className="underline" href="/changelog/">changelog</Link> (the newsletter is the changelog, with context), products&apos; dated <Link className="underline" href="/regulatory/">regulatory events</Link> from the past week, the <Link className="underline" href="/calendar/">readout calendar</Link> for the next thirty days, <Link className="underline" href="/pulse/">what the journals said this month</Link>, and <Link className="underline" href="/corrections/">corrections</Link>. Nobody writes it by hand and nothing is added that is not already on a page here.</p>
           <p>Something wrong in an issue? It is wrong in the corpus too: fix it once via <Link className="underline" href="/suggest/">Suggest an edit</Link> and the next issue is right.</p>
         </section>
       </Container>

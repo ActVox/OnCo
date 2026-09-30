@@ -6,7 +6,7 @@ import { StaticTable } from "@/components/filters/StaticTable";
 import { pageRows } from "@/lib/static-tables";
 import { AUDIT_BROKEN_TABLE, AUDIT_MISMATCHES_TABLE, AUDIT_PATCHES_TABLE, AUDIT_STALE_TABLE, auditTables, BROKEN_COLUMNS, CHECK_LABEL, familyOf, FINDING_COLUMNS, findingsTableId, MISMATCH_COLUMNS, PATCH_COLUMNS, ROW_CAP, SEV, STALE_COLUMNS } from "@/lib/tables/audit";
 
-export const metadata: Metadata = pageMeta({ title: "Audit", description: "Automated staleness, contradiction, sourcing, hygiene, link and registry fact-check findings for the OnCo corpus.", path: "/audit/" });
+export const metadata: Metadata = pageMeta({ title: "Automated checks: what the build and the weekly sweep found", description: "Automated staleness, contradiction, sourcing, hygiene, link and registry fact-check findings for the OnCo corpus.", path: "/audit/" });
 
 export default function AuditPage() {
   // Rows are built in src/lib/tables/audit.ts, shared with scripts/build-tables.ts: each table longer than a page carries
@@ -23,7 +23,7 @@ export default function AuditPage() {
 
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="intel" />} title="Audit"
+      <PageHeader kicker={<GroupKicker id="intel" />} title="Automated checks: what the build and the weekly sweep found"
         lede="Automated checks run on every build (contradictions, sourcing and hygiene) and weekly against the outside world (openFDA labels, ClinicalTrials.gov, and every cited URL). Findings are candidates for review, not verdicts; confirmed errors go to the corrections log." />
       <Container className="pb-16">
         <div className="grid gap-3 grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 mb-8">

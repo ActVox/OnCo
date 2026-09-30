@@ -26,7 +26,7 @@ export type Spread = {
 
 /** Reader-facing labels for the maps. Advanced disease is framed by what treats it, not by where it goes. */
 export const SPREAD_LABELS = {
-  title: "Where advanced disease can reach, and what treats it",
+  title: "Where advanced disease reaches, and what treats it",
   short: "Advanced disease and what treats it",
   /** Summary line for a folded section on a cancer page. */
   fold: "where advanced disease can reach, and what treats it",

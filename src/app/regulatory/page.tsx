@@ -28,7 +28,7 @@ export default function RegulatoryPage() {
       <Container className="pb-16 space-y-8">
         <FdaFeed />
         <RegulatoryBrowser rows={rows} fdaActivity={fdaActivity} fdaFetched={fda?.fetched} />
-        <p className="text-xs text-muted max-w-3xl">Feed status and refresh schedule: <Link className="underline" href="/status/">data currency</Link>. Events on product pages are hand-sourced; the feed is a prompt to add them, not a replacement.</p>
+        <p className="text-xs text-muted max-w-3xl">Feed status and refresh schedule: <Link className="underline" href="/status/">when each feed last ran</Link>. Events on product pages are hand-sourced; the feed is a prompt to add them, not a replacement.</p>
       </Container>
     </>
   );
