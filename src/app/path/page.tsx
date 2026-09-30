@@ -5,7 +5,7 @@ import { pathData } from "@/lib/paths-data";
 import { Container, GroupKicker, PageHeader } from "@/components/ui";
 import { PathFinder, type PathExample } from "@/components/PathFinder";
 
-export const metadata: Metadata = pageMeta({ title: "How two things are connected", description: "How is one object in oncology related to another? Shortest routes through the OnCo knowledge graph with every relationship named.", path: "/path/" });
+export const metadata: Metadata = pageMeta({ title: "Connections: how any two records are linked", description: "How is one object in oncology related to another? Shortest routes through the OnCo knowledge graph with every relationship named.", path: "/path/" });
 
 const CANDIDATES: PathExample[] = [
   { from: "hippo-yap-taz", to: "sacituzumab-govitecan", label: "Hippo pathway to sacituzumab govitecan" },
@@ -24,7 +24,7 @@ export default function PathPage() {
   const examples = CANDIDATES.filter((e) => ids.has(e.from) && ids.has(e.to) && !seen.has(e.label) && seen.add(e.label));
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="find" />} title="How two things are connected" lede="How is Hippo related to sacituzumab govitecan? Pick any two objects and see the shortest routes between them through the knowledge graph, with each relationship named." />
+      <PageHeader kicker={<GroupKicker id="find" />} title="Connections: how any two records are linked" lede="How is Hippo related to sacituzumab govitecan? Pick any two objects and see the shortest routes between them through the knowledge graph, with each relationship named." />
       <Container className="pb-16">
         <Suspense><PathFinder data={data} examples={examples} /></Suspense>
       </Container>

@@ -5,7 +5,7 @@ import { Container, GroupKicker, PageHeader } from "@/components/ui";
 import { runFreshness, TRACK_META, type Freshness } from "../../../scripts/freshness";
 import { StaticTable, type StaticColumn, type StaticRow } from "@/components/filters/StaticTable";
 
-export const metadata: Metadata = pageMeta({ title: "When each record is due a re-check", description: "How old is too old for each kind of OnCo record, by review track, and which records are past their re-check date.", path: "/freshness/" });
+export const metadata: Metadata = pageMeta({ title: "Re-check dates: how old a record is allowed to get", description: "How old is too old for each kind of OnCo record, by review track, and which records are past their re-check date.", path: "/freshness/" });
 
 const TRACK_CLASS: Record<string, string> = {
   clinical: "bg-rose-100 text-rose-800 dark:bg-rose-900/40 dark:text-rose-200",
@@ -56,7 +56,7 @@ export default function FreshnessPage() {
   }));
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="intel" />} title="When each record is due a re-check"
+      <PageHeader kicker={<GroupKicker id="intel" />} title="Re-check dates: how old a record is allowed to get"
         lede="Every record carries the date its facts were last checked. This page defines the maximum acceptable age for each kind of record, assigns it to a review track, and lists what is past due. Critical breaches fail the build once they exceed a limit, so the site cannot quietly go stale." />
       <Container className="pb-16">
         <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 mb-8">

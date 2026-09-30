@@ -9,7 +9,7 @@ import { Container, GroupKicker, PageHeader } from "@/components/ui";
 import { statusClass } from "@/lib/text";
 import { StaticTable, type StaticColumn, type StaticRow } from "@/components/filters/StaticTable";
 
-export const metadata: Metadata = pageMeta({ title: "100 questions, scored in public", description: "A public benchmark of 100 questions a patient or clinician might ask, scored against OnCo and any other system with the same rubric.", path: "/eval/" });
+export const metadata: Metadata = pageMeta({ title: "Answer quality: 100 questions, scored in public", description: "A public benchmark of 100 questions a patient or clinician might ask, scored against OnCo and any other system with the same rubric.", path: "/eval/" });
 
 type RunSummary = { file: string; system: string; date: string; questions: number; meanScore: number; meanRetrievalRecall?: number; byCategory: Record<string, number>; method: string };
 type RunResult = { id: string; score: number; met: number; total: number; missed: string[]; retrievalRecall?: number };
@@ -61,7 +61,7 @@ export default function EvalPage() {
 
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="learn" />} title="100 questions, scored in public"
+      <PageHeader kicker={<GroupKicker id="learn" />} title="Answer quality: 100 questions, scored in public"
         lede="One hundred questions a patient, carer, clinician, or analyst might ask, each with a grounded expected answer and a rubric of must-mention points. The same rubric scores OnCo, a search engine, or an AI assistant. Scores are published here in public, every run." />
       <Container className="pb-16">
         <section className="grid gap-3 sm:grid-cols-3">

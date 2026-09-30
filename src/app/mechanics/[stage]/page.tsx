@@ -303,7 +303,7 @@ export default async function StagePage({ params }: { params: Promise<{ stage: s
 
           {has(c, "escape") && (
             <Section id="escape" title="How tumours escape" count={c.escape.terms.length + c.escape.pathways.length + c.escape.ideas.length + c.escape.papers.length}
-              lede={<>Records tied to this stage that describe resistance, evasion or tolerance. <Link href="/resistance/" className="underline">How tumours escape each drug class</Link> lists the routes class by class.</>}>
+              lede={<>Records tied to this stage that describe resistance, evasion or tolerance. <Link href="/resistance/" className="underline">Resistance: how tumours escape each drug class</Link> lists the routes class by class.</>}>
               <div className="space-y-4">
                 {(c.escape.terms.length > 0 || c.escape.pathways.length > 0) && (
                   <div className="flex flex-wrap items-center gap-1.5 text-sm">

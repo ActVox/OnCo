@@ -47,7 +47,7 @@ export default function IraePage() {
           </div>
           <div className="card p-4 space-y-1.5">
             <h2 className="font-semibold">Read with</h2>
-            <p className="text-muted"><Link href="/toxicity/" className="underline">Side effects across a drug class</Link> holds the label rates for each checkpoint inhibitor; the <Link href="/interactions/" className="underline">interaction checker</Link> notes that steroids given for irAEs do not appear to blunt efficacy; and each product page carries its safety tab. Time to onset matters: colitis and hepatitis are commonest at 6-12 weeks, endocrine events at 8-20 weeks, but any event can occur months after the last dose.</p>
+            <p className="text-muted"><Link href="/toxicity/" className="underline">Side effect rates across a drug class</Link> holds the label rates for each checkpoint inhibitor; the <Link href="/interactions/" className="underline">interaction checker</Link> notes that steroids given for irAEs do not appear to blunt efficacy; and each product page carries its safety tab. Time to onset matters: colitis and hepatitis are commonest at 6-12 weeks, endocrine events at 8-20 weeks, but any event can occur months after the last dose.</p>
           </div>
         </div>
       </Container>

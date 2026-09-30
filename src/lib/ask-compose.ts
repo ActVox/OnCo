@@ -514,7 +514,7 @@ function tResults(c: Ctx, r: AskEntityRecord): boolean {
     for (const x of first(e.summary, 2)) c.b.add(s, x, "summary");
     c.b.add(s, e.replication ? `Replication: ${e.replication}` : undefined, "replication");
     for (const d of c.related.filter((x) => x.entity.kind === "drug").slice(0, 2)) c.b.add(toSource(d), d.entity.tldr, "TL;DR");
-    c.readMore.push({ label: "How much each trial changed the risk", href: "/forest/" });
+    c.readMore.push({ label: "Every trial's result on one scale", href: "/forest/" });
     return true;
   }
   if (e.kind === "drug" || e.kind === "technology" || e.kind === "target") {

@@ -27,7 +27,7 @@ export function WhatHelpsLine({ spread, className = "" }: { spread: Spread; clas
 }
 
 /**
- * Where advanced disease can reach, and what treats it, drawn on the body-map silhouette: the primary organ
+ * Where advanced disease reaches, and what treats it, drawn on the body-map silhouette: the primary organ
  * in the hot colour, one curved arrow per site whose weight follows the frequency tier, and labels in the
  * margins. The "what helps" line from the cancer's own records sits above the figure (hidden with `compact`
  * or `showWhatHelps={false}` when the page places it elsewhere). Pure SVG plus one paragraph; server-renderable.

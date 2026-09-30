@@ -7,7 +7,7 @@ import { RefChips } from "@/components/RefChips";
 import { AtlasProvider, CategoryDot, CategoryScope, ResistanceMatrix, type MatrixRow } from "@/components/ResistanceMatrix";
 import { ResistanceMap, type MapRoute } from "@/components/ResistanceMap";
 
-export const metadata: Metadata = pageMeta({ title: "How tumours escape each drug class", description: "For each drug class, how tumours escape and which drugs and strategies close the route.", path: "/resistance/" });
+export const metadata: Metadata = pageMeta({ title: "Resistance: how tumours escape each drug class", description: "For each drug class, how tumours escape and which drugs and strategies close the route.", path: "/resistance/" });
 
 const shortLabel = (r: ResistanceClass) => r.drugClass.split(" (")[0];
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
@@ -49,7 +49,7 @@ export default function ResistancePage() {
 
   return (
     <AtlasProvider>
-      <PageHeader kicker={<GroupKicker id="intel" />} title="How tumours escape each drug class"
+      <PageHeader kicker={<GroupKicker id="intel" />} title="Resistance: how tumours escape each drug class"
         lede={`Every cancer drug eventually meets resistance. For ${resistance.length} major classes, the ${totalRoutes} known escape routes, sorted into eight kinds, how often they occur where that is known, and the countermeasures, linked to the products, targets, and ideas in the map.`} />
       <Container className="pb-16">
         <ResistanceMatrix rows={rows} />

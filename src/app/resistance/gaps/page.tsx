@@ -45,7 +45,7 @@ export default function ResistanceGapsPage() {
 
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="intel"><Link href="/resistance/" className="kicker hover:underline">· How tumours escape each drug class</Link></GroupKicker>} title="Unaddressed resistance"
+      <PageHeader kicker={<GroupKicker id="intel"><Link href="/resistance/" className="kicker hover:underline">· Resistance: how tumours escape each drug class</Link></GroupKicker>} title="Unaddressed resistance"
         lede={`Of the ${gaps.length} escape routes in the atlas, ${clinical} have at least one countermeasure with clinical evidence, ${pre.length} have only preclinical or conceptual answers, and ${none.length} have none recorded. The last two groups, listed here by drug class and linked to the ideas that target them, are where a drug designer should look.`} />
       <Container className="pb-16">
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 mb-8">

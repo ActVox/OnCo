@@ -31,47 +31,86 @@ title fail:
 
 ## 1. Changed
 
-Each of these failed the test on one of the three counts. Page title, page heading, navigation label, the eight
-translated navigation labels and every inbound link that used the old name were changed together.
+**The first attempt was rejected, 29 September 2026.** The owner: "i dont like the title changes you propose,
+what are the optimal functional language that doesnt assume the reader knows what they are looking at". Of the
+thirty, the one he named as right was `/universities/` "Research output ranking" becoming "Universities by
+research output".
 
-| Route | Was | Now | Why it failed |
+The fault was that the first attempt answered "is this vague?" by writing a sentence: "How much each trial
+changed the risk", "Count what exists, and where", "Build a query, get a table". A sentence reads well in one
+place and badly in five, and a title has five jobs: the browser tab, the navigation item, the page's own `<h1>`,
+the breadcrumb, and the search result. The accepted one is a noun phrase: a thing, and the dimension that orders
+it. `src/lib/nav.ts` already carried three strings per page (`label`, `blurb`, and the page's own `title`) and
+the first attempt put sentences in all three.
+
+### The rule
+
+1. **A noun phrase, never a sentence and never a question.** Name what is on the page, not what the reader
+   should do with it.
+2. **Thing, then dimension.** "Universities by research output". "Funding verdicts by country". "Side effect
+   rates across a drug class". The dimension is what makes it this page and not a neighbouring one.
+3. **Where a real term is the right word, keep it and gloss it after a colon.** The site already does this:
+   "Checkpoints: one word, two biologies". The term stays findable, the gloss removes the assumption.
+4. **The menu label is short, the page title carries the gloss.** Two to four words in `label`; the colon and
+   the gloss belong in `title` and the `<h1>`.
+5. **No word that means something else in a clinic.** "Effects" reads as side effects. "Currency" reads as money
+   on a site that discusses drug prices. "Benefit per trial" is wrong for the trials that showed harm.
+
+The owner approved this second set on 30 September 2026: "on the titles changes some are better some are worse.
+generally better so you can do that".
+
+### What each page is called now
+
+| Route | Menu label | Page title | Was |
 | --- | --- | --- | --- |
-| `/forest/` | Forest plot | How much each trial changed the risk | Named the drawing, not the question; the reader had to know what a forest plot is |
-| `/explore/` | Explore | Browse by cancer and kind | Could be any website; the page picks a cancer, switches kind and ranks |
-| `/compare/` | Compare | Compare up to five, side by side | Could be any website; says nothing about what or how many |
-| `/atlas/` | Atlas | Where a cancer starts and spreads | "Atlas" is a format word; the page is organ schematics and spread maps |
-| `/evidence/` | Evidence | Trials ranked by strength of evidence | Could be any website; the page is a ranking, not a claim about evidence |
-| `/query/` | Query | Build a query, get a table | Names the verb, not the result |
-| `/audit/` | Audit | What the automated checks found | Could be any website; sounds like a financial page |
-| `/freshness/` | Freshness | When each record is due a re-check | Abstract noun; the page is a due-date list |
-| `/completeness/` | Completeness | How much of what exists is in OnCo | Abstract noun; the new title is the page's own first sentence |
-| `/machines/` | Machines | Machines hospitals use against cancer | One word that could belong anywhere |
-| `/modalities/` | Modalities | Medicines by shape: ADC, CAR-T, radioligand | Requires the term; the nav label is "Medicines by shape" |
-| `/pivot/` | Landscape grid | Count what exists, and where | Named the drawing ("grid"); "landscape" is investor language |
-| `/market/` | Addressable population | How many people a treatment could reach | Business jargon on a page patients reach from the pipeline |
-| `/pulse/` | Research pulse | What the journals said this month | "Pulse" is a metaphor, not a subject |
-| `/path/` | Path finder | How two things are connected | Named the tool, and collided with `/paths/` (reading paths) |
-| `/eval/` | Open evaluation | 100 questions, scored in public | "Evaluation" of what, by whom, was not on the page's face |
-| `/status/` | Data currency | When each feed last ran | "Currency" reads as money on a site that discusses drug prices |
-| `/catalysts/` | Catalyst calendar | What is due next, company by company | "Catalyst" is investor jargon; the page is dated events |
-| `/toxicity/` | Toxicity compare | Side effects across a drug class | Not a phrase in English, and "toxicity" is the clinical word for side effects |
-| `/hta/` | HTA decisions | Funding verdicts by country | An acronym as a title; the page says who pays for what, where |
-| `/resistance/` | Resistance atlas | How tumours escape each drug class | "Atlas" again; the page heading also disagreed ("Resistance mechanism atlas") |
-| `/irae/` | Immune-related adverse events (nav: "irAE guide") | Checkpoint side effects by organ | An acronym in the menu and a clinical term in the title |
-| `/find/` | Find (heading said "Start here") | Start here | The `<title>` disagreed with the page's own `<h1>`, which comes from the nav group |
-| `/map/` | Map (heading said "Cancers & treatments") | Cancers & treatments | Same disagreement |
-| `/intel/` | Intelligence (heading said "News & evidence") | News & evidence | Same disagreement, and "Intelligence" reads as a different business |
-| `/regulatory/regions/` | Regulatory regions (heading: "Approval differences by country") | Approval differences by country | The `<title>` was the vague half of the pair |
-| `/universities/` | Research output ranking (heading: "University research output") | Universities by research output | Two names for one page; neither said which |
-| `/review/` | heading "Review" (title: "Review: model panel and human queue") | Review: model panel and human queue | The heading was the vague half of the pair |
-| `/checkpoints/` | Checkpoint families (heading: "Checkpoints: one word, two biologies") | Checkpoints: one word, two biologies | The heading already did the job; the title did not |
-| `/atlas/spread/` | Atlas: where advanced disease can reach… | Where advanced disease can reach, and what treats it | The "Atlas:" prefix pointed at a page that is no longer called Atlas |
+| `/forest/` | Trial by trial | Every trial's result on one scale | Forest plot |
+| `/pivot/` | Counts by category | Counts across cancers, targets and companies | Landscape grid |
+| `/path/` | Connections | Connections: how any two records are linked | Path finder |
+| `/resistance/` | Resistance | Resistance: how tumours escape each drug class | Resistance atlas |
+| `/atlas/` | Organ maps | Organ maps: where a cancer starts and where it spreads | Atlas |
+| `/atlas/spread/` | (not in the menu) | Where advanced disease reaches, and what treats it | Atlas: where advanced disease can reach |
+| `/explore/` | Browse by cancer | Browse the corpus by cancer and kind | Explore |
+| `/compare/` | Compare | Compare up to five, side by side | Compare |
+| `/evidence/` | Evidence strength | Trials by strength of evidence | Evidence |
+| `/query/` | Query builder | Query builder: structured questions over the corpus | Query |
+| `/audit/` | Automated checks | Automated checks: what the build and the weekly sweep found | Audit |
+| `/machines/` | Machines | Machines used against cancer | Machines |
+| `/freshness/` | Re-check dates | Re-check dates: how old a record is allowed to get | Freshness |
+| `/completeness/` | Coverage of the field | Coverage of the field: OnCo against what exists | Completeness |
+| `/status/` | Feed status | Feed status: when each source last ran | Data currency |
+| `/modalities/` | Medicine types | Medicine types: ADCs, CAR-T, radioligands and the rest | Modalities |
+| `/market/` | Patients per year | Patients per year a treatment could reach | Addressable population |
+| `/catalysts/` | Company calendar | Company calendar: decisions, readouts and filings by date | Catalyst calendar |
+| `/toxicity/` | Side effect rates | Side effect rates across a drug class | Toxicity compare |
+| `/hta/` | Funding verdicts | Funding verdicts by country | HTA decisions |
+| `/irae/` | Checkpoint side effects | Checkpoint side effects by organ | irAE guide |
+| `/pulse/` | This month | This month in oncology research | Research pulse |
+| `/eval/` | Answer quality | Answer quality: 100 questions, scored in public | Open evaluation |
+| `/universities/` | Universities | Universities by research output | Research output ranking |
+| `/regulatory/regions/` | Approvals by country | Approval differences by country | Regulatory regions |
 
-One in-page heading changed with them:
+Five more had only the problem that the `<title>` and the `<h1>` were two different names. Each keeps the half
+that was already doing the job, and the other is deleted: `/find/` "Start here", `/map/` "Cancers & treatments",
+`/intel/` "News & evidence", `/review/` "Review: model panel and human queue", `/checkpoints/` "Checkpoints: one
+word, two biologies".
 
-| Page | Was | Now | Why |
-| --- | --- | --- | --- |
-| `/freshness/` | The SLAs | How old is too old, by kind | An acronym as the reader's signpost; the paragraph under it already explains the rule |
+One in-page heading changed with them: `/freshness/` "The SLAs" is now "How old is too old, by kind". An acronym
+was the reader's signpost, and the paragraph under it already explains the rule.
+
+**Nothing moves and nothing becomes unfindable.** No route changed. Navigation items carry an `aka` field with
+every name the page used to go by, which the search index reads, so "forest plot", "hazard ratio", "landscape
+grid", "pivot table", "irAE guide", "HTA decisions", "Addressable population" and the rest still reach their
+pages. The eight translated navigation dictionaries were rewritten to match.
+
+### Three I am not satisfied with, and said so
+
+- **`/forest/`.** The page is every hazard ratio with its confidence interval on one log axis. "Trial by trial"
+  says nothing about risk; "Effect sizes" is jargon; "Benefit per trial" is wrong for the trials that showed
+  harm. "Every trial's result on one scale" is the most honest short phrase available and is still weak.
+- **`/pivot/`.** The page counts any kind by any two dimensions. Every accurate title is either abstract or a
+  list of examples that will go stale.
+- **`/eval/`.** "Answer quality" does not say whose. The page scores OnCo, a search engine and an AI assistant on
+  the same rubric, and being the one that publishes its own score is the point.
 
 ## 2. Proposed, and left to the owner
 

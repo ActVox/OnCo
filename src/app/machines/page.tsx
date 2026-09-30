@@ -10,7 +10,7 @@ import { Container, GroupKicker, PageHeader } from "@/components/ui";
 import { FrontIcon } from "@/components/FrontIcon";
 import { EntityBrowser, type BrowserRow, type ColDef, type FacetDef, type LinkItem } from "@/components/EntityBrowser";
 
-export const metadata: Metadata = pageMeta({ title: "Machines hospitals use against cancer", path: "/machines/", description: "The scanners, accelerators, endoscopes, robots, ablation devices, radiotherapy guidance and QA hardware, pharmacy robots and cooling caps hospitals use against cancer: what each machine does, what it is used for, its advantages and limits against the alternatives, who makes it, and which centres run the rare ones such as proton and carbon-ion therapy, BNCT, Gamma Knife, MR-linacs and focused ultrasound for the brain." });
+export const metadata: Metadata = pageMeta({ title: "Machines used against cancer", path: "/machines/", description: "The scanners, accelerators, endoscopes, robots, ablation devices, radiotherapy guidance and QA hardware, pharmacy robots and cooling caps hospitals use against cancer: what each machine does, what it is used for, its advantages and limits against the alternatives, who makes it, and which centres run the rare ones such as proton and carbon-ion therapy, BNCT, Gamma Knife, MR-linacs and focused ultrasound for the brain." });
 
 /** Machine families, in the order they appear; each lists technology ids (existing and machine-wave records) and the front whose icon represents it. */
 const FAMILIES: Array<{ name: string; icon: string; blurb: string; ids: string[] }> = [
@@ -90,7 +90,7 @@ export default function MachinesPage() {
   const exotic = EXOTIC.map((id) => g.get(id)).filter((t): t is Entity => !!t && t.kind === "technology").map((t) => ({ t, centres: centresOf(g, t), vendors: vendorsOf(g, t) })).filter((x) => x.centres.length > 0);
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="map" />} title="Machines hospitals use against cancer"
+      <PageHeader kicker={<GroupKicker id="map" />} title="Machines used against cancer"
         lede={`${rows.length} machine classes across ${FAMILIES.length} families, from the plain X-ray to carbon-ion synchrotrons, with ${vendorCount.size} vendors and ${centreCount.size} centres from the corpus. Each row says what the machine does, what it is used for, its main advantage and limit against the alternatives, who makes it and where the rare ones are. Click any family to filter, any vendor or centre to open its page.`} />
       <Container className="pb-16">
         <div className="flex flex-wrap gap-2 mb-6">

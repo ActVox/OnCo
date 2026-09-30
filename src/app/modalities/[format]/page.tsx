@@ -86,7 +86,7 @@ export default async function ModalityPage({ params }: { params: Promise<{ forma
   const h = modalityHub(format);
   if (!h) notFound();
   const def = h.format;
-  const crumbs = [{ label: "Home", href: "/" }, { label: "Pipeline funnel", href: "/pipeline/" }, { label: "Medicines by shape", href: modalityRoute() }, { label: def.name, href: h.route }];
+  const crumbs = [{ label: "Home", href: "/" }, { label: "Pipeline funnel", href: "/pipeline/" }, { label: "Medicine types", href: modalityRoute() }, { label: def.name, href: h.route }];
   const description = `Everything OnCo records about ${def.name.toLowerCase()}, each section naming its records.`;
   const drugRefs = h.drugs;
   const techRefs: Ref[] = h.how.technologies.map(({ id, kind, name, route }) => ({ id, kind, name, route }));

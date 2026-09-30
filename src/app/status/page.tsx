@@ -7,7 +7,7 @@ import { Container, GroupKicker, PageHeader } from "@/components/ui";
 import { runAudit } from "../../../scripts/audit";
 import { StaticTable, type CellObj, type StaticColumn, type StaticRow } from "@/components/filters/StaticTable";
 
-export const metadata: Metadata = pageMeta({ title: "When each feed last ran", description: "When each automated feed last ran, what it holds, which snapshots are stale, how many records are overdue for a re-check, and the incident log.", path: "/status/" });
+export const metadata: Metadata = pageMeta({ title: "Feed status: when each source last ran", description: "When each automated feed last ran, what it holds, which snapshots are stale, how many records are overdue for a re-check, and the incident log.", path: "/status/" });
 
 const REPO = "https://github.com/judegomila/OnCo";
 const WORKFLOWS: Array<{ file: string; title: string; cron: string; runs: string }> = [
@@ -83,7 +83,7 @@ export default function StatusPage() {
 
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="intel" />} title="When each feed last ran"
+      <PageHeader kicker={<GroupKicker id="intel" />} title="Feed status: when each source last ran"
         lede={`Built ${built}. ${present.length === feeds.length ? `All ${feeds.length} automated feeds have a snapshot` : `${present.length} of ${feeds.length} automated feeds have a snapshot`}${stale.length ? `; ${stale.length} ${stale.length === 1 ? "is" : "are"} stale` : ", none is stale"}${missing.length ? ` and ${missing.length} ${missing.length === 1 ? "has" : "have"} never run` : ""}. ${over60 ? `${over60} of ${audit.total.toLocaleString("en-GB")} records have not been checked in 60 days` : `Every one of the ${audit.total.toLocaleString("en-GB")} records has been checked within the last 60 days`}. Each feed is a script that runs on a schedule, saves what it fetched and opens a pull request; the site reads those snapshots when it is built, so nothing here is live.`}
         right={<CiBadge />} />
       <Container className="pb-16 space-y-10">

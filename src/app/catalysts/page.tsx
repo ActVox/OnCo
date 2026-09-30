@@ -5,7 +5,7 @@ import { Container, GroupKicker, PageHeader } from "@/components/ui";
 import { CatalystBrowser } from "@/components/CatalystBrowser";
 import { FEED_PATH, mergedCatalysts } from "@/lib/catalysts";
 
-export const metadata: Metadata = pageMeta({ title: "What is due next, company by company", description: "Dated regulatory decisions, expected readouts, advisory committees, filings and deal closings by company, with an iCalendar feed.", path: "/catalysts/" });
+export const metadata: Metadata = pageMeta({ title: "Company calendar: decisions, readouts and filings by date", description: "Dated regulatory decisions, expected readouts, advisory committees, filings and deal closings by company, with an iCalendar feed.", path: "/catalysts/" });
 
 export default function CatalystsPage() {
   const today = new Date().toISOString().slice(0, 10);
@@ -15,7 +15,7 @@ export default function CatalystsPage() {
   const companies = new Set(upcoming.flatMap((e) => e.companies.map((c) => c.id))).size;
   return (
     <>
-      <PageHeader kicker={<GroupKicker id="intel"><span className="kicker">·</span><Link href="/calendar/" className="kicker hover:underline">Readout calendar</Link></GroupKicker>} title="What is due next, company by company"
+      <PageHeader kicker={<GroupKicker id="intel"><span className="kicker">·</span><Link href="/calendar/" className="kicker hover:underline">Readout calendar</Link></GroupKicker>} title="Company calendar: decisions, readouts and filings by date"
         lede={`${upcoming.length} upcoming events across ${companies} companies: ${confirmed} with a confirmed date, the rest editorial estimates that can slip by quarters. Filter by company or quarter, then download the selection as an .ics file or subscribe to the full feed.`} />
       <Container className="pb-16">
         <CatalystBrowser events={events} feedPath={FEED_PATH} />
