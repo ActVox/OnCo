@@ -6,6 +6,9 @@ All notable changes to OnCo are recorded here. The format follows [Keep a Change
 
 Regenerated from the commit log each time the site ships (`scripts/changelog-sync.ts`); the version sections below are written by hand when a release is cut.
 
+### 30 September 2026
+- The unattended gates run the tests the way the ship chain does, so a weekly data refresh can merge itself again
+
 ### 29 September 2026
 - Lymphoma treatment rows, and red cards that no longer name a drug the reader is not taking
 - Lymphoma treatment: 70 standard-of-care rows across 21 diseases, each citing its trial

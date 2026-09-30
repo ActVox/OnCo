@@ -9,12 +9,12 @@
     "state": "waiting"
   },
   {
-    "branch": "product/v2-shows-the-work",
-    "why": "/v2/ shows the work instead of listing it",
-    "pr": "https://github.com/judegomila/OnCo/pull/108",
+    "branch": "product/sources-at-the-foot",
+    "why": "the sources come off the sidebar and go to the foot of the page",
+    "pr": "https://github.com/judegomila/OnCo/pull/117",
     "preview": "",
-    "files": 5,
-    "proposed": "2026-09-28",
+    "files": 12,
+    "proposed": "2026-09-30",
     "state": "waiting"
   }
 ]
