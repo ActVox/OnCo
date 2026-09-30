@@ -1,14 +1,5 @@
 [
   {
-    "branch": "product/page-titles",
-    "why": "30 page titles named for the question the page answers",
-    "pr": "https://github.com/judegomila/OnCo/pull/105",
-    "preview": "",
-    "files": 78,
-    "proposed": "2026-09-28",
-    "state": "waiting"
-  },
-  {
     "branch": "product/sources-at-the-foot",
     "why": "the sources come off the sidebar and go to the foot of the page",
     "pr": "https://github.com/judegomila/OnCo/pull/117",

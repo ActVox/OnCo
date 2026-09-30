@@ -7,12 +7,21 @@ All notable changes to OnCo are recorded here. The format follows [Keep a Change
 Regenerated from the commit log each time the site ships (`scripts/changelog-sync.ts`); the version sections below are written by hand when a release is cut.
 
 ### 30 September 2026
+- Four verified approval rows from the proposals queue, and two structure keys that stopped the build
+- Page titles, second attempt: a noun phrase naming the thing and the dimension that orders it
 - The unattended gates run the tests the way the ship chain does, so a weekly data refresh can merge itself again
+- chore: refresh preprint tracker from Europe PMC
+- chore: refresh universe lists (NCI drugs and types, NCI centres, OECI, NHS alliances, NLM journals, OpenAlex, KEGG, ChEMBL, ClinicalTrials.gov, FDA OCE)
+- chore: check regional approvals against the EMA register
+- chore: weekly citation link check
+- chore: refresh FDA approvals feed (OCE notifications, openFDA drugsfda)
+- chore: draft change proposals that need review
 
 ### 29 September 2026
 - Lymphoma treatment rows, and red cards that no longer name a drug the reader is not taking
 - Lymphoma treatment: 70 standard-of-care rows across 21 diseases, each citing its trial
 - The software of oncology, and the top of a record page
+- chore: weekly maintenance (logos, structures, trial links, acronyms, orphan links)
 
 ### 28 September 2026
 - Every cancer-page section named for what is in it, in nine languages
@@ -26,6 +35,8 @@ Regenerated from the commit log each time the site ships (`scripts/changelog-syn
 - The top of a record page is the record again: a family strip of six, two paragraphs of summary, the clinic names readable, the model panel last
 - The software map waiting in the queue
 - The map a product proposal belongs in: 136 pieces of oncology software, each row saying whether anything outside the company backs it up
+- The title review waiting in the queue
+- Thirty page titles that named a format, could belong to any site, or needed a term first
 - Product changes now wait for the owner, and the plan for the cancer page is written
 - The approval mechanism belongs on main; the renames stay in the queue
 - The cancer page measured before it is redesigned, and a plan the owner can approve part by part

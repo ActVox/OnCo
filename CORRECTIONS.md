@@ -2,6 +2,17 @@
 
 Every factual correction to the OnCo corpus, newest first. Format: date · entity · what was wrong · how it was found · fix.
 
+## 2026-09-30
+
+| Date | Entity | What was wrong | How found | Fix |
+|---|---|---|---|---|
+| 2026-09-30 | Red cards on every antibody-drug conjugate ([brentuximab vedotin](/drugs/brentuximab-vedotin/)) | The class card matched every product whose modality is "ADC", so a reader on brentuximab vedotin was told to watch for the Stevens-Johnson reaction that enfortumab vedotin carries, and a reader on an investigational ADC with no warnings got the same card. | Writing the lymphoma standard-of-care rows and reading the rendered page. | The named warnings attach by product id; the class set keeps only the neutropenic fever card. `src/lib/red-flags.test.ts` fails against the old code. |
+| 2026-09-30 | Differentiation syndrome on [bexarotene](/drugs/bexarotene/) | The set matched the fragment "retinoid", so bexarotene, an RXR agonist given for cutaneous T-cell lymphoma, carried a warning that belongs to ATRA and arsenic trioxide in acute promyelocytic leukaemia. Bexarotene's label carries no such warning. | Same read. | The set now matches the modality phrase "differentiation agent". |
+| 2026-09-30 | [NICE TA892, mosunetuzumab](/hta/) | Recorded as available through the Cancer Drugs Fund. Recommendation 1.1 reads "is not recommended". | Reading every lymphoma appraisal on nice.org.uk. | Changed to not recommended. |
+| 2026-09-30 | NICE TA524 | Described as the cutaneous T-cell lymphoma appraisal. TA524 is the Cancer Drugs Fund review carrying the Hodgkin lymphoma recommendation; the CTCL appraisal is TA577. | Same sweep. | Corrected to TA577. |
+| 2026-09-30 | [NICE TA649, polatuzumab vedotin](/hta/) | Recorded as Cancer Drugs Fund; recommendation 1.1 is routine commissioning. TA933 was recorded as "not recommended" when it is a terminated appraisal. | Same sweep. | Both corrected. |
+| 2026-09-30 | [Fentanyl](/drugs/fentanyl/) and [resminostat](/drugs/resminostat/) structures | The weekly maintenance run added PubChem CID rows for two compounds that already had name-lookup rows, and the duplicate key would not compile. | Typecheck after merging the weekly maintenance branch. | The name-lookup rows removed; the explicit CID kept, because it cannot drift when PubChem renames a synonym. |
+
 ## 2026-09-25
 
 | Date | Entity | What was wrong | How found | Fix |

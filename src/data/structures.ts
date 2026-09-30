@@ -272,8 +272,6 @@ export const structures: Record<string, StructureDef[]> = {
   eflornithine: [pc("Eflornithine (DFMO)", "eflornithine")],
   mitotane: [pc("Mitotane", "mitotane")],
   hydroxyurea: [pc("Hydroxyurea", "hydroxyurea")],
-  fentanyl: [pc("Fentanyl", "fentanyl")],
-  resminostat: [pc("Resminostat", "resminostat")],
   imetelstat: [pc("Imetelstat (thio-phosphoramidate oligonucleotide)", "imetelstat")],
   mifamurtide: [pc("Mifamurtide (sodium salt record)", "mifamurtide")],
   "sodium-thiosulfate": [pc("Sodium thiosulfate", "sodium thiosulfate")],

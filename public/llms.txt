@@ -69,24 +69,24 @@
 
 ## Start here
 
-- [Explore](https://onco.cc/explore/): Pick a cancer, switch kind, get a ranked and sortable list.
+- [Browse by cancer](https://onco.cc/explore/): Pick a cancer, switch kind, get a ranked and sortable list.
 - [Tags](https://onco.cc/tagged/): Every tag with its count; each opens a filterable table of the records carrying it, whatever their kind.
 - [Search](https://onco.cc/search/): Word and concept search side by side, each result explaining why it matched.
-- [Path finder](https://onco.cc/path/): How any two objects are related: shortest routes with every relationship named.
+- [Connections](https://onco.cc/path/): How any two objects are related: shortest routes with every relationship named.
 - [For me](https://onco.cc/for-me/): Choose your cancer type(s) and see what works and what could work.
 - [Navigator](https://onco.cc/navigator/): Standard of care for your stage, what you have tried, cautions, next options, trials near you.
 - [Biomarker matrix](https://onco.cc/biomarker-matrix/): Every biomarker against every cancer: approved products in your region versus trials, one grid.
 - [Calculators](https://onco.cc/calculators/): BSA, Calvert, creatinine clearance, ANC, corrected calcium, RECIST 1.1, anthracycline dose, dose banding.
 - [Interactions](https://onco.cc/interactions/): Pick two or more drugs and see flagged pairs: CYP3A4, QT, PPIs, P-gp, bleeding, plus food and organ flags.
 - [Decision aids](https://onco.cc/tools/): Answer a few questions from a report and read the guideline statement that applies, quoted with its source: gallbladder polyps, incidental gallbladder cancer, cancers compared.
-- [irAE guide](https://onco.cc/irae/): Checkpoint-inhibitor toxicity by organ and grade: hold, steroids, escalation, rechallenge. Printable.
+- [Checkpoint side effects](https://onco.cc/irae/): Checkpoint-inhibitor toxicity by organ and grade: hold, steroids, escalation, rechallenge. Printable.
 - [Tumour board](https://onco.cc/tumor-board/): Tick biomarkers and alterations, get matched options and cautions.
 - [Compare](https://onco.cc/compare/): Up to five products, technologies, targets, trials, or cancers side by side, differences highlighted.
-- [Landscape grid](https://onco.cc/pivot/): Count products, trials, or technologies by cancer, target, treatment type, or company in one grid.
+- [Counts by category](https://onco.cc/pivot/): Count products, trials, or technologies by cancer, target, treatment type, or company in one grid.
 - [Rankings](https://onco.cc/rankings/): League tables computed from the corpus: cancers by trials, targets by products, companies by approvals, trials by enrolment, each stating its basis.
 - [Timeline](https://onco.cc/timeline/): Every dated fact on one timeline: the shape of the whole field, what that shape shows, and a page for every year.
 - [Year by year](https://onco.cc/years/): One page per year: everything the corpus dates to it, from approvals to landmarks, each line linking to the record it came from.
-- [Query](https://onco.cc/query/): Build a graph query and get a table.
+- [Query builder](https://onco.cc/query/): Build a graph query and get a table.
 - [Graph explorer](https://onco.cc/graph/): Navigate the knowledge graph visually.
 - [Saved](https://onco.cc/saved/): Your saved table views and watched pages, with what changed since you looked. Stored in your browser only.
 - [Body map](https://onco.cc/body/): Start from where the cancer is.
@@ -114,7 +114,7 @@
 - [Lines of therapy](https://onco.cc/sequencing/): Per cancer, the standard of care by line and biomarker subgroup, with sequence and caution pairings.
 - [Staging & risk scores](https://onco.cc/staging/): TNM, FIGO, Lugano, BCLC, R-ISS and interactive IPI, IMDC, CLL-IPI, Child-Pugh, Khorana scorers.
 - [Treatment journeys](https://onco.cc/journeys/): What the next twelve months look like for a cancer at a stage, phase by phase, with the decision points.
-- [Atlas](https://onco.cc/atlas/): Organ schematics with subsites and node stations, and where each cancer spreads.
+- [Organ maps](https://onco.cc/atlas/): Organ schematics with subsites and node stations, and where each cancer spreads.
 - [Molecule gallery](https://onco.cc/molecules/): Every product with a 3D structure, filterable by modality, payload, target and status.
 - [Mechanics of cancer](https://onco.cc/mechanics/): How cancer works, drawn stage by stage, with the drugs that act on each mechanism.
 - [Prevalence](https://onco.cc/prevalence/): How common each target is in each cancer.
@@ -135,19 +135,19 @@
 - [Trials in plain words](https://onco.cc/explained/): Every trial result as people out of 100, medians explained, surrogate endpoints flagged.
 - [Trial design picker](https://onco.cc/trial-designs/): Every trial design as a card: when to use it, a worked example from the corpus and its main risk, with a plain-English guide to which design fits your question.
 - [Guidelines](https://onco.cc/guidelines/): Where NCCN, ESMO, NICE and ASCO agree and disagree, and what changed between guideline versions.
-- [Forest plot](https://onco.cc/forest/): Every hazard ratio in the trial corpus on one log axis; filter by cancer, setting and endpoint.
-- [Evidence](https://onco.cc/evidence/): Every trial ranked by evidence strength, endpoints as people out of 100.
-- [Catalyst calendar](https://onco.cc/catalysts/): Regulatory decisions, expected readouts, filings and deal closings by company, with a calendar feed.
+- [Trial by trial](https://onco.cc/forest/): Every hazard ratio in the trial corpus on one log axis; filter by cancer, setting and endpoint.
+- [Evidence strength](https://onco.cc/evidence/): Every trial ranked by evidence strength, endpoints as people out of 100.
+- [Company calendar](https://onco.cc/catalysts/): Regulatory decisions, expected readouts, filings and deal closings by company, with a calendar feed.
 - [Deals and licences](https://onco.cc/deals/): Who bought or licensed what, for how much, and where assets flow between regions.
 - [Exclusivity expiry](https://onco.cc/exclusivity/): When each product loses patent or regulatory exclusivity, and the biosimilars and generics coming.
 - [Pipeline funnel](https://onco.cc/pipeline/): Assets by phase for any target, modality or cancer, and how crowded each target is.
 - [Open drug engine](https://onco.cc/pipeline/engine/): Every medicine taken apart into its modules, and the grid of every combination: approved, in development, tried and stopped with the reason, or never tried.
-- [Modalities](https://onco.cc/modalities/): One hub per shape of medicine (ADC, radioligand, CAR-T, bispecific, degrader and the rest): how it works, approved medicines, phase 3, parts, companies, trials, side effects, resistance, papers, roadmaps, ideas and manufacturing, each section naming its records.
-- [Addressable population](https://onco.cc/market/): Incidence times prevalence times setting share, every input linked, as a range.
+- [Medicine types](https://onco.cc/modalities/): One hub per shape of medicine (ADC, radioligand, CAR-T, bispecific, degrader and the rest): how it works, approved medicines, phase 3, parts, companies, trials, side effects, resistance, papers, roadmaps, ideas and manufacturing, each section naming its records.
+- [Patients per year](https://onco.cc/market/): Incidence times prevalence times setting share, every input linked, as a range.
 - [Readout calendar](https://onco.cc/calendar/): Decisions, readouts, advisory committees, congresses.
 - [Congress digests](https://onco.cc/digests/): ASCO, ESMO, AACR, ASCO GU, sourced item by item.
 - [Failure museum](https://onco.cc/failures/): What did not work, and the lesson.
-- [Resistance atlas](https://onco.cc/resistance/): Escape routes per drug class and the countermeasures.
+- [Resistance](https://onco.cc/resistance/): Escape routes per drug class and the countermeasures.
 - [Unaddressed resistance](https://onco.cc/resistance/gaps/): Escape routes with no countermeasure, or only preclinical ones: the drug-design opportunities.
 - [Companion diagnostics](https://onco.cc/assays/): Every assay and its cut-off: PD-L1 CPS, HER2-low, MSI, TMB, HRD and the multi-gene panels, linked to the drugs they gate.
 - [Preprint tracker](https://onco.cc/preprints/): bioRxiv and medRxiv preprints of the last 90 days per target, product and technology, and which have since been published.
@@ -158,19 +158,19 @@
 - [NHS coverage](https://onco.cc/coverage/uk/): NICE, Cancer Drugs Fund and SMC decisions for every approved product, and how NHS cancer care works.
 - [Coverage rankings](https://onco.cc/coverage/rankings/): US insurers and plan types ranked by one published metric at a time, UK NHS entitlement against private medical insurance, and how ten countries pay for cancer drugs.
 - [Cutting cancer care costs](https://onco.cc/costs/): Each cost driver paired with what is being done and the ideas that could do more: biosimilars, negotiation, dose optimisation, shorter courses, parity, prior authorisation.
-- [HTA decisions](https://onco.cc/hta/): NICE, SMC, G-BA and PBAC verdicts per product and country, with dates and links to the appraisal.
+- [Funding verdicts](https://onco.cc/hta/): NICE, SMC, G-BA and PBAC verdicts per product and country, with dates and links to the appraisal.
 - [Survival statistics](https://onco.cc/survival/): Five-year relative survival by cancer and stage from SEER, with the period and caveats.
-- [Approvals by region](https://onco.cc/regulatory/regions/): Which products are approved in the US, EU, UK, Japan, China and Australia, and which are missing where.
+- [Approvals by country](https://onco.cc/regulatory/regions/): Which products are approved in the US, EU, UK, Japan, China and Australia, and which are missing where.
 - [Publishing trends](https://onco.cc/papers/): Fastest-growing topics in the literature, refreshed weekly from Europe PMC.
-- [Research pulse](https://onco.cc/pulse/): What the leading journals, regulators and news sources are saying this month.
-- [Toxicity compare](https://onco.cc/toxicity/): Grade 3+ adverse events across products of the same class.
+- [This month](https://onco.cc/pulse/): What the leading journals, regulators and news sources are saying this month.
+- [Side effect rates](https://onco.cc/toxicity/): Grade 3+ adverse events across products of the same class.
 - [Isotope supply](https://onco.cc/isotopes/): Lu-177, Ac-225, Pb-212 and who makes them.
 - [Annual report](https://onco.cc/report/): The state of the war on cancer, year by year, generated from the corpus.
 - [Changelog](https://onco.cc/changelog/): What changed in OnCo, and when.
-- [Data currency](https://onco.cc/status/): When each automated feed last ran, what is stale, and the incident log.
-- [Freshness](https://onco.cc/freshness/): How old is too old for each kind of record, by review track, and what is past due.
+- [Feed status](https://onco.cc/status/): When each automated feed last ran, what is stale, and the incident log.
+- [Re-check dates](https://onco.cc/freshness/): How old is too old for each kind of record, by review track, and what is past due.
 - [Recent changes](https://onco.cc/history/): What changed on which record, field by field, from the git history.
-- [Audit](https://onco.cc/audit/): Staleness, contradictions, and registry mismatches, recomputed each build.
+- [Automated checks](https://onco.cc/audit/): Staleness, contradictions, and registry mismatches, recomputed each build.
 - [Corrections](https://onco.cc/corrections/): Every factual correction, what was wrong and how it was found.
 
 ## Institutions & people
@@ -226,7 +226,7 @@
 - [About & methodology](https://onco.cc/about/): Rules for facts, ranking formulas, licence.
 - [Roadmap](https://onco.cc/roadmap/): Corpus health gauges, every idea by status, and how OnCo expands and stays current.
 - [Gaps to fill](https://onco.cc/gaps/): Objects and fields that need work.
-- [Completeness](https://onco.cc/completeness/): How much of what exists is in OnCo: each kind against a sourced count of the world, with the missing items named.
+- [Coverage of the field](https://onco.cc/completeness/): Coverage of the field: OnCo against what exists: each kind against a sourced count of the world, with the missing items named.
 - [Review queue](https://onco.cc/review/): Which pages most need a named reviewer, coverage by kind and track, translation coverage.
 - [Reviewer roster](https://onco.cc/reviewers/): Who has signed off pages, on which track, with declared conflicts of interest.
 - [Contributors](https://onco.cc/contributors/): Everyone who wrote or reviewed records, from the repository history.
@@ -234,7 +234,7 @@
 - [Teaching packs](https://onco.cc/teach/): A slide deck and quiz per cancer and front; print to PDF.
 - [Weekly issue](https://onco.cc/newsletter/): What changed, regulatory events, upcoming readouts, what the journals said. No tracking.
 - [Suggest an edit](https://onco.cc/suggest/): Propose a correction; organisations can edit their own records.
-- [Open evaluation](https://onco.cc/eval/): 100 questions, a rubric, and a public leaderboard.
+- [Answer quality](https://onco.cc/eval/): 100 questions, a rubric, and a public leaderboard.
 - [Data dictionary](https://onco.cc/schema/): Every kind, every field, its type and meaning, with a real example per kind.
 - [Build on OnCo](https://onco.cc/build/): Recipes, OpenAPI spec, TypeScript types, embeddable cards and the MCP server.
 - [Open API](https://onco.cc/api/): The corpus as JSON.
