@@ -49,6 +49,16 @@ describe("red flags", () => {
     // The breast family page carries what is shared whichever receptor result comes back; the immune-related and
     // deruxtecan lung cards stay on the subtype that prescribes those drugs.
     expect(redFlagsForCancerId("breast-cancer").map((s) => s.id)).toEqual(["breast-infection-sepsis", "breast-cord-compression", "breast-lymphoedema-cellulitis", "breast-recurrence-signs"]);
+    // Lymphoma, added 1 October 2026. Six sets, ordered as a reader meets them: the one that kills people who
+    // were going to be cured first, then the one that arrives in the first days of treatment. The B-cell
+    // diseases carry all six; Hodgkin lymphoma carries sepsis, cord compression and the chest one but not
+    // tumour lysis, cell-therapy toxicity or hepatitis B reactivation, because it is not given anti-CD20.
+    expect(redFlagsForCancerId("dlbcl").map((s) => s.id)).toEqual(["lymphoma-neutropenic-sepsis", "lymphoma-tumour-lysis", "lymphoma-crs-icans", "lymphoma-cord-compression", "lymphoma-svc-obstruction", "lymphoma-hepatitis-b-reactivation"]);
+    expect(redFlagsForCancerId("hodgkin-lymphoma").map((s) => s.id)).toEqual(["lymphoma-neutropenic-sepsis", "lymphoma-cord-compression", "lymphoma-svc-obstruction"]);
+    expect(redFlagsForCancerId("follicular-lymphoma").map((s) => s.id)).toEqual(["lymphoma-neutropenic-sepsis", "lymphoma-crs-icans", "lymphoma-cord-compression", "lymphoma-hepatitis-b-reactivation"]);
+    // Neutropenic sepsis leads on every lymphoma record that carries a card: it is the one that kills people
+    // whose lymphoma was going to be cured, and the steroid in nearly every regimen can hide the fever.
+    for (const id of ["dlbcl", "hodgkin-lymphoma", "follicular-lymphoma", "burkitt-lymphoma", "mantle-cell-lymphoma", "sezary-syndrome"]) expect(redFlagsForCancerId(id)[0]?.id, id).toBe("lymphoma-neutropenic-sepsis");
     expect(redFlagsForCancerId("mesothelioma")).toEqual([]);
   });
 

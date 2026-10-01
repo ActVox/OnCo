@@ -13,6 +13,7 @@ import { LUNG_CANCER_ID, lungQuestions, SCLC_CANCER_ID, sclcQuestions } from "./
 import { PROSTATE_CANCER_ID, prostateQuestions } from "./spikes/prostate-living";
 import { BREAST_CANCER_ID, breastQuestions } from "./spikes/breast-living";
 import { SKIN_CANCER_ID, skinCancerQuestions, BCC_ID, bccQuestions, CSCC_ID, csccQuestions } from "./spikes/skin-living";
+import { lymphomaQuestions, dlbclQuestions, hodgkinQuestions, advancedHodgkinQuestions, follicularQuestions } from "./spikes/lymphoma-living";
 
 export const questions: Record<string, Question[]> = {
   [GALLBLADDER_CANCER_ID]: gallbladderQuestions,
@@ -26,4 +27,9 @@ export const questions: Record<string, Question[]> = {
   [SKIN_CANCER_ID]: skinCancerQuestions,
   [BCC_ID]: bccQuestions,
   [CSCC_ID]: csccQuestions,
+  "non-hodgkin-lymphoma": lymphomaQuestions,
+  dlbcl: dlbclQuestions,
+  "hodgkin-lymphoma": hodgkinQuestions,
+  "advanced-stage-classical-hodgkin-lymphoma": advancedHodgkinQuestions,
+  "follicular-lymphoma": follicularQuestions,
 };

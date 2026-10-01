@@ -120,6 +120,20 @@ const PCUK_HORMONE = { label: "Prostate Cancer UK: how hormone therapy affects y
 const NHS_PROSTATE_SYMPTOMS = { label: "NHS: symptoms of prostate cancer", url: "https://www.nhs.uk/conditions/prostate-cancer/symptoms/" };
 const MAC_DOCETAXEL = { label: "Macmillan: docetaxel", url: "https://www.macmillan.org.uk/cancer-information-and-support/treatments-and-drugs/docetaxel" };
 
+// Lymphoma, added 1 October 2026. The six emergencies of this disease: neutropenic sepsis (including the
+// no-fever presentation steroids make likely), tumour lysis in the first days of treating bulky or fast-growing
+// disease, cytokine release syndrome and neurotoxicity after engineered T cells or a bispecific antibody,
+// spinal cord compression, superior vena cava obstruction in mediastinal disease, and hepatitis B reactivation.
+// All six are scoped by cancer rather than by product, so they reach the disease page whatever is prescribed.
+const LA_NEUTROPENIA_RF = { label: "Lymphoma Action: neutropenia (low neutrophils)", url: "https://lymphoma-action.org.uk/information-and-support/side-effects-lymphoma-and-treatment/neutropenia-low-neutrophils" };
+const LA_INFECTIONS_RF = { label: "Lymphoma Action: infections, risk and prevention", url: "https://lymphoma-action.org.uk/information-and-support/side-effects-lymphoma-and-treatment/infections-risk-and-prevention" };
+const LA_CAR_T_RF = { label: "Lymphoma Action: CAR-T cell therapy", url: "https://lymphoma-action.org.uk/information-and-support/lymphoma-treatment/car-t-cell-therapy" };
+const LA_DLBCL_RF = { label: "Lymphoma Action: diffuse large B-cell lymphoma", url: "https://lymphoma-action.org.uk/information-and-support/types-lymphoma/non-hodgkin-lymphoma/diffuse-large-b-cell-lymphoma" };
+const MAC_MSCC_RF = { label: "Macmillan: metastatic spinal cord compression", url: "https://www.macmillan.org.uk/cancer-information-and-support/impacts-of-cancer/metastatic-spinal-cord-compression" };
+const BSH_TLS_RF = { label: "British Committee for Standards in Haematology: guidelines for the management of tumour lysis syndrome in adults and children with haematological malignancies (British Journal of Haematology 2015)", url: "https://doi.org/10.1111/bjh.13403" };
+const HBV_ENTECAVIR_RF = { label: "Huang et al., entecavir versus lamivudine for prevention of hepatitis B reactivation in diffuse large B-cell lymphoma receiving R-CHOP (JAMA 2014)", url: "https://doi.org/10.1001/jama.2014.15704" };
+const NHS_NHL_SYMPTOMS_RF = { label: "NHS: non-Hodgkin lymphoma, symptoms", url: "https://www.nhs.uk/conditions/non-hodgkin-lymphoma/symptoms/" };
+
 export const GENERAL_RED_FLAGS: RedFlagSet = {
   id: "general",
   label: "Anyone on cancer treatment",
@@ -864,6 +878,85 @@ export const redFlagSets: RedFlagSet[] = [
       { symptom: "A slow-healing spot, new bleeding from a mole or lesion, or an unusual growing lump", threshold: "The British Association of Dermatologists and BSSCII say that if you see any changes in your skin, such as a slow healing spot, new bleeding from a mole or lesion, or an unusual growing lump, you must tell your GP, nurse, dermatologist or transplant doctor.", action: "call-today", source: BAD_OTR_RF },
       { symptom: "You do not know when your skin is next being checked", threshold: "The British Association of Dermatologists and BSSCII say to check with your doctor or nurse the frequency and setting of your in-clinic skin checks, because this varies depending on your individual risk factors and according to your hospital protocol. There is no single national interval, so not knowing yours is itself worth a phone call.", action: "call-today", source: BAD_OTR_RF },
       { symptom: "Signs of sepsis at any time while taking immunosuppressants", threshold: "Breathing very fast; confused, slurred speech or not making sense; blue, pale or blotchy skin, lips or tongue; a very high or very low temperature, feeling hot or cold to the touch, or shivery; a rash that does not fade when pressed: the NHS says call 999 or go to A and E, and do not drive yourself. Immunosuppression is one of the things that makes an infection harder to fight and easier to miss.", action: "emergency", source: NHS_SEPSIS },
+    ],
+  },
+  {
+    id: "lymphoma-neutropenic-sepsis",
+    label: "Lymphoma: infection and neutropenic sepsis, including the kind that comes without a fever",
+    cancerIds: ["non-hodgkin-lymphoma", "dlbcl", "primary-mediastinal-b-cell-lymphoma", "burkitt-lymphoma", "primary-cns-lymphoma", "follicular-lymphoma", "marginal-zone-lymphoma", "malt-lymphoma", "splenic-marginal-zone-lymphoma", "nodal-marginal-zone-lymphoma", "mantle-cell-lymphoma", "waldenstrom", "peripheral-t-cell-lymphoma", "angioimmunoblastic-t-cell-lymphoma", "cutaneous-t-cell-lymphoma", "sezary-syndrome", "hodgkin-lymphoma", "early-stage-classical-hodgkin-lymphoma", "advanced-stage-classical-hodgkin-lymphoma", "relapsed-refractory-hodgkin-lymphoma", "nodular-lymphocyte-predominant-hodgkin-lymphoma"],
+    concernIds: ["febrile-neutropenia", "neutropenia", "central-venous-access", "hypogammaglobulinaemia"],
+    window: "Highest about 7 to 14 days after each dose of chemotherapy, when the white cell count is at its lowest, but a fever at any point counts. Steroids are part of almost every lymphoma regimen and can mask a fever, so the presentation without one is not rare here. After treatment that removes B cells the risk continues for months or years.",
+    flags: [
+      { symptom: "Temperature of 38 C or higher", threshold: "Lymphoma Action says a common sign of neutropenic sepsis is a body temperature higher than 38 C, that this is known as febrile neutropenia, and to seek medical attention straight away. NICE CG151 asks for antibiotics within an hour of arrival, and treated that fast most people recover: that is why the rule is to ring rather than wait and see.", action: "call-now", source: NICE_CG151 },
+      { symptom: "Feeling unwell with a normal temperature, or a temperature below 35 C", threshold: "Lymphoma Action says it is possible to have neutropenic sepsis without a fever, sometimes called cold sepsis, and that treatment with steroids makes this more likely because steroids can mask a fever; for that reason teams also use heart rate, blood pressure, breathing rate and kidney and liver function to check. Its list of infection signs includes a temperature below 35 C, shivering even without a fever, and simply feeling generally unwell, confused or disoriented.", action: "call-now", source: LA_NEUTROPENIA_RF },
+      { symptom: "Redness, pain, swelling, heat or discharge around a line", threshold: "Lymphoma Action lists pain, redness, discharge, swelling or heat at the site of a wound or an intravenous line, such as a central line or a PICC line, among the signs of infection to report immediately, even if they seem minor, and says not to wait to see whether they worsen.", action: "call-now", source: LA_INFECTIONS_RF },
+      { symptom: "Signs of sepsis", threshold: "Breathing very fast, confusion or slurred speech, blue, pale or blotchy skin, a very high or very low temperature, shivering, or a rash that does not fade when pressed: the NHS says call 999 or go to A and E, and do not drive yourself.", action: "emergency", source: NHS_SEPSIS },
+      { symptom: "Any infection at all, months or years after treatment finished", threshold: "Lymphoma Action says that after treatment that removes B cells, including engineered T-cell therapy, antibody levels can stay low for a long time, sometimes several years, and that a low antibody level raises the risk of infection. Contact the team straight away for any sign of infection rather than at the threshold a well person would use, and carry the medical card the team gave you.", action: "call-now", source: LA_INFECTIONS_RF },
+    ],
+  },
+  {
+    id: "lymphoma-tumour-lysis",
+    label: "Lymphoma: tumour lysis syndrome in the first days of treating bulky or fast-growing disease",
+    cancerIds: ["non-hodgkin-lymphoma", "dlbcl", "primary-mediastinal-b-cell-lymphoma", "burkitt-lymphoma", "mantle-cell-lymphoma", "peripheral-t-cell-lymphoma", "angioimmunoblastic-t-cell-lymphoma", "primary-cns-lymphoma"],
+    concernIds: ["tumor-lysis-syndrome", "lymphoma-tx-tumour-lysis"],
+    window: "The first 12 to 72 hours after treatment starts, and occasionally before it, when a large or fast-growing lymphoma breaks down faster than the kidneys can clear what comes out of it. The risk is concentrated in Burkitt lymphoma, the high-grade B-cell lymphomas and large or rapidly growing diffuse large B-cell lymphoma, which is why a pre-phase of steroid or low-dose chemotherapy, fluids into a vein, frequent blood tests and a drug to lower uric acid come first.",
+    flags: [
+      { symptom: "Passing much less urine than usual, or none", threshold: "The British Committee for Standards in Haematology guideline on tumour lysis syndrome is built around protecting the kidneys with fluids and monitoring in the first days of treatment. A sharp fall in how much urine you pass is the sign that this is going wrong, and it is a reason to ring the 24-hour number in the night rather than wait for the morning.", action: "call-now", source: BSH_TLS_RF },
+      { symptom: "Muscle cramps, twitching, or tingling around the mouth or in the fingers", threshold: "These are the symptoms of the salt disturbances the guideline monitors for in the first days of treatment. On their own they are a reason to ring the 24-hour number now; with a seizure, a collapse or a loss of consciousness, call 999.", action: "call-now", source: BSH_TLS_RF },
+      { symptom: "A racing, thumping or irregular heartbeat, or chest pain, in the first days of treatment", threshold: "A rising potassium level can disturb the heart rhythm, which is the reason blood is checked frequently during the first cycle. The triage standard sends chest pain or tightness straight to 999 whatever the cause.", action: "emergency", source: UKONS },
+      { symptom: "Being sick repeatedly, unable to keep fluids down, or becoming confused or very drowsy", threshold: "The guideline's whole approach rests on keeping the person well hydrated and the blood chemistry monitored while the lymphoma breaks down. Someone who cannot drink needs fluids into a vein, and that means being seen rather than advised over the telephone.", action: "call-now", source: BSH_TLS_RF },
+    ],
+  },
+  {
+    id: "lymphoma-crs-icans",
+    label: "After engineered T cells or a bispecific antibody: cytokine release syndrome and neurotoxicity, and what a relative should watch for",
+    cancerIds: ["non-hodgkin-lymphoma", "dlbcl", "primary-mediastinal-b-cell-lymphoma", "follicular-lymphoma", "mantle-cell-lymphoma", "marginal-zone-lymphoma"],
+    concernIds: ["crs", "icans", "lymphoma-tx-crs-icans", "lymphoma-tx-car-t-pathway", "lymphoma-tx-bispecific-step-up"],
+    window: "Cytokine release syndrome most commonly develops within 10 days of an engineered T-cell infusion; neurotoxicity generally within 28 days and often within a few days. The step-up doses of a bispecific antibody are given in hospital for the same reason. This is why Lymphoma Action says to stay within about an hour or two of the centre for four weeks and to have someone with you at all times.",
+    flags: [
+      { symptom: "Fever, chills, a racing heart, feeling faint or short of breath", threshold: "Lymphoma Action says almost everyone treated with engineered T cells has some level of cytokine release syndrome, most commonly within 10 days of the infusion, and lists fever and chills, a rapid heart rate, low blood pressure, low oxygen, headache, and feeling or being sick. Most cases are mild and easily treated, and they are treated faster the earlier the team hears.", action: "call-now", source: LA_CAR_T_RF },
+      { symptom: "Confusion, difficulty finding words, difficulty writing, tremor or trouble moving", threshold: "Lymphoma Action says around 1 in 4 people treated with engineered T cells develop neurotoxicity, generally within 28 days of the infusion and often within a few days, and lists confusion, speech problems, difficulty writing, headache and dizziness, shaking or tremor, and movement difficulty. Symptoms are usually mild and settle in a week or two, and the team needs to know at the first sign.", action: "call-now", source: LA_CAR_T_RF },
+      { symptom: "For the person staying with them: they are not themselves", threshold: "The reason another adult has to be present for four weeks is that the person affected is often the last to notice. Ask them to write one short sentence by hand each day, and ring if the handwriting changes, if they lose the thread of a sentence, if they are unusually sleepy, or if they simply seem not themselves. That is a call to make, not a judgement to second-guess.", action: "call-now", source: LA_CAR_T_RF },
+      { symptom: "A seizure, a collapse, or being difficult to rouse", threshold: "Lymphoma Action says a small number of people have more serious problems such as seizures or swelling of the brain, treated with steroids and intensive care, and that most improve within a few days of treatment starting. This is 999.", action: "emergency", source: LA_CAR_T_RF },
+      { symptom: "Driving again after any episode of confusion", threshold: "Lymphoma Action says that if you develop neurotoxicity you will be advised not to drive for 8 weeks following the onset of symptoms. Ask the team to confirm the date in writing before you drive again.", action: "call-today", source: LA_CAR_T_RF },
+    ],
+  },
+  {
+    id: "lymphoma-cord-compression",
+    label: "Lymphoma pressing on the spinal cord: the hours matter",
+    cancerIds: ["non-hodgkin-lymphoma", "dlbcl", "primary-mediastinal-b-cell-lymphoma", "burkitt-lymphoma", "primary-cns-lymphoma", "follicular-lymphoma", "marginal-zone-lymphoma", "malt-lymphoma", "splenic-marginal-zone-lymphoma", "nodal-marginal-zone-lymphoma", "mantle-cell-lymphoma", "waldenstrom", "peripheral-t-cell-lymphoma", "angioimmunoblastic-t-cell-lymphoma", "cutaneous-t-cell-lymphoma", "sezary-syndrome", "hodgkin-lymphoma", "early-stage-classical-hodgkin-lymphoma", "advanced-stage-classical-hodgkin-lymphoma", "relapsed-refractory-hodgkin-lymphoma", "nodular-lymphocyte-predominant-hodgkin-lymphoma"],
+    concernIds: ["metastatic-spinal-cord-compression"],
+    window: "NICE NG234 treats new cord compression symptoms in anyone with a past or current diagnosis of cancer as an oncological emergency, and asks for advice within 24 hours for the pain pattern that suggests spinal metastases. Treated quickly the damage is usually recoverable; left for days it may not be. This applies at any time after a diagnosis, including years later.",
+    flags: [
+      { symptom: "Not being able to pass urine, or losing control of your bladder or bowel", threshold: "Macmillan lists difficulty passing urine, loss of bladder or bowel control and constipation among the signs of spinal cord compression and says to contact the hospital straight away. If you cannot reach anyone, go to A and E and say you have lymphoma and symptoms of spinal cord compression.", action: "emergency", source: MAC_MSCC_RF },
+      { symptom: "New weakness, heaviness or unsteadiness in the legs or arms", threshold: "Macmillan lists weakness in the arms or legs, difficulty walking and a feeling of heaviness or clumsiness among the signs. Do not wait to see whether it settles overnight.", action: "emergency", source: MAC_MSCC_RF },
+      { symptom: "Numbness or tingling in the legs, buttocks or around the back passage", threshold: "A band of numbness or pins and needles, or altered sensation when wiping, is part of the same picture and comes before the weakness in some people.", action: "emergency", source: MAC_MSCC_RF },
+      { symptom: "New back or neck pain that is severe, worse lying flat, or wakes you at night", threshold: "NICE NG234 asks teams to get advice within 24 hours for the pain pattern that suggests spinal metastases, including pain in the middle of the back, pain that is worse on lying flat or that wakes the person at night, and pain that is progressive and unrelieved.", action: "call-now", source: NG234_MSCC },
+    ],
+  },
+  {
+    id: "lymphoma-svc-obstruction",
+    label: "Lymphoma in the chest: swelling of the face, neck and arms (superior vena cava obstruction)",
+    cancerIds: ["non-hodgkin-lymphoma", "dlbcl", "primary-mediastinal-b-cell-lymphoma", "hodgkin-lymphoma", "early-stage-classical-hodgkin-lymphoma", "advanced-stage-classical-hodgkin-lymphoma", "relapsed-refractory-hodgkin-lymphoma"],
+    concernIds: ["superior-vena-cava-obstruction"],
+    window: "Macmillan says the symptoms can develop over a few days or over a few weeks, so a change over a week still counts as new. It happens when a mass in the chest presses on the large vein returning blood from the head and arms, and a large mass in the middle of the chest is a defining feature of primary mediastinal large B-cell lymphoma and common in Hodgkin lymphoma.",
+    flags: [
+      { symptom: "Swelling of the face, neck, arms or hands", threshold: "Macmillan describes swelling of the face, neck, arms and hands, with veins on the chest and neck that look more prominent than usual, as the picture of superior vena cava obstruction, and says to contact the team straight away.", action: "call-now", source: MAC_SVCO },
+      { symptom: "Breathlessness, a cough, or a feeling of fullness in the head that is worse lying down or bending forward", threshold: "Macmillan lists breathlessness, cough, headache, dizziness and a feeling of fullness in the head, often worse when lying down or bending forward, among the symptoms. Breathlessness at rest is 999 whatever the cause.", action: "call-now", source: MAC_SVCO },
+      { symptom: "Struggling to breathe, noisy breathing, difficulty swallowing, or confusion", threshold: "These are the signs that the airway or the brain is being affected rather than only the veins. The triage standard sends shortness of breath at rest and any altered level of consciousness straight to 999.", action: "emergency", source: UKONS },
+      { symptom: "Before a diagnosis: swelling of the face or neck alongside a lump above the collarbone", threshold: "The NHS lists a painless swelling, most often in the neck, armpit or groin, as the commonest sign of non-Hodgkin lymphoma. Where that comes with swelling of the face or neck, or with new breathlessness, it is a reason to be seen the same day rather than to wait for a routine appointment.", action: "call-now", source: NHS_NHL_SYMPTOMS_RF },
+    ],
+  },
+  {
+    id: "lymphoma-hepatitis-b-reactivation",
+    label: "Hepatitis B waking up during antibody treatment for a B-cell lymphoma",
+    cancerIds: ["non-hodgkin-lymphoma", "dlbcl", "primary-mediastinal-b-cell-lymphoma", "burkitt-lymphoma", "follicular-lymphoma", "marginal-zone-lymphoma", "malt-lymphoma", "splenic-marginal-zone-lymphoma", "nodal-marginal-zone-lymphoma", "mantle-cell-lymphoma", "waldenstrom", "primary-cns-lymphoma"],
+    concernIds: ["lymphoma-tx-hepatitis-b-reactivation"],
+    window: "Antibodies that remove B cells can let a hepatitis B infection the person had years ago become active again, during treatment or in the months after it. This is why hepatitis B is on the list of blood tests before treatment, and why an antiviral tablet is prescribed alongside for anyone who tests positive.",
+    flags: [
+      { symptom: "Yellow skin or eyes, dark urine or pale stools", threshold: "Yellowing during or after antibody treatment for a B-cell lymphoma is a reason to be seen the same day and to have liver blood tests, not to wait for the next cycle.", action: "call-now", source: LA_DLBCL_RF },
+      { symptom: "New tiredness, loss of appetite, nausea or pain under the right ribs", threshold: "These come before the yellowing. In the randomised comparison of two antiviral tablets in 121 people with hepatitis B surface antigen receiving R-CHOP, hepatitis B related hepatitis occurred in 13.3 per cent of those given lamivudine and none of those given entecavir, and reactivation in 30 per cent against 6.6 per cent, so which tablet you are on is a fair question.", action: "call-now", source: HBV_ENTECAVIR_RF },
+      { symptom: "You were never tested for hepatitis B before the antibody treatment started", threshold: "Testing for hepatitis B before anti-CD20 antibody treatment is standard, and an antiviral is given from before the first dose until months after chemotherapy finishes for anyone who tests positive. If you do not know your result, ask for it.", action: "call-today", source: HBV_ENTECAVIR_RF },
     ],
   },
 ];
