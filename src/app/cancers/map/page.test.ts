@@ -31,7 +31,9 @@ describe("cancer map page", () => {
 
   it("carries every non-zero badge on a node so the switch only toggles visibility", () => {
     const n = d.nodes.find((x) => x.layer === "cancer" && x.counts.trials && x.counts.drugs && x.counts.approvals && x.counts.ideas)!;
-    const node = svg.slice(svg.indexOf(`data-id="${n.id}"`), svg.indexOf("</a>", svg.indexOf(`data-id="${n.id}"`)));
+    // The node is found by its route, which is the only copy of its id in the markup: the `data-id` attribute that
+    // used to repeat it was removed on 29 September 2026 because it cost about 14 KB and nothing else read it.
+    const node = svg.slice(svg.indexOf(`href="${n.route}"`), svg.indexOf("</a>", svg.indexOf(`href="${n.route}"`)));
     for (const c of ["bt", "bd", "ba", "bi"]) expect(node).toContain(`class="b ${c}"`);
     expect(node).toContain(`>${n.counts.trials.toLocaleString("en-GB")}</text>`);
   });

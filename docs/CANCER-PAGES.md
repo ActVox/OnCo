@@ -241,3 +241,48 @@ between its last two editions. The detail is in the header of `src/data/spikes/s
    updated February 2026. Where they and the newer BAD guidelines differ, both are given. `bowens-disease` was added
    to the skin organ drawing in `src/data/organ-schematics.ts`; `PARENT_PHRASES` already had an entry for
    `cutaneous-scc`.
+
+## The lymphoma family (decided 29 September 2026, during the lymphoma deep dive)
+
+Lymphoma is the family where the reference classification is not one book but two. The fifth edition of the WHO
+Classification of Haematolymphoid Tumours (WHO-HAEM5, Alaggio, *Leukemia* 2022) and the International Consensus
+Classification (ICC, Campo, *Blood* 2022) were published within months of each other, agree about most entities and
+differ about several names and boundaries. The corpus quotes both and says which name comes from which book, because a
+reader holding a pathology report is holding one of the two vocabularies. The disagreements are listed on the glossary
+term `lymphoma-classification-2022`; the detail of each decision is in the header of `src/data/spikes/lymphoma-core.ts`.
+
+1. **`non-hodgkin-lymphoma` stays the family hub and is not a WHO entity.** WHO-HAEM5 does not use the phrase at all:
+   its tree is class (B-cell, or T-cell and NK-cell), then family, then entity. The page is kept because it is the word
+   patients are given and the word NCI PDQ and the registries still use, and its job is to hand the reader to the right
+   entity. It was rewritten from 5,333 characters with the classification explained in plain words, the staging (Lugano,
+   and why Ann Arbor language survives inside it), `basics` and `prognosis`.
+2. **`peripheral-t-cell-lymphoma` is used as the mature T-cell and NK-cell hub, which is wider than its name.**
+   WHO-HAEM5 reserves "peripheral T-cell lymphoma, NOS" for one entity inside the family "other peripheral T-cell
+   lymphomas", and files the anaplastic large cell lymphomas, the nodal T-follicular helper cell lymphomas, the
+   EBV-positive NK/T-cell lymphomas, the intestinal T-cell lymphomas and the primary cutaneous T-cell lymphomas as
+   separate families. The corpus record already grouped the whole T and NK side and the treatment layer already writes
+   onto it; renaming it would strand incoming links. A `notes` entry on the page says so.
+3. **Site variants of extranodal marginal zone lymphoma become records where the first treatment decision differs, and
+   only there.** This reverses the wave 4 line "orbital lymphoma is a site string on the MALT page", for two sites:
+   `gastric-malt-lymphoma`, where eradicating *Helicobacter pylori* is the whole of the first treatment and
+   t(11;18)/BIRC3::MALT1 predicts which cases it will not cure, and `ocular-adnexal-malt-lymphoma`, where the choice is
+   between an antibiotic and radiotherapy to the orbit and the *Chlamydia psittaci* association holds in some countries
+   and not others. Every other site stays a string. `PARENT_PHRASES` in `src/lib/cancer-families.test.ts` gained a
+   `malt-lymphoma` entry.
+4. **No `lymphoplasmacytic-lymphoma` record.** `waldenstrom` already carries "Lymphoplasmacytic lymphoma" as an alias,
+   and WHO-HAEM5 treats them as one entity with two subtypes, the IgM type (Waldenstrom macroglobulinaemia) being the
+   great majority and the non-Waldenstrom type about 5 per cent. A second record would be the same disease under a
+   second id. The existing record is widened instead.
+5. **`breast-implant-associated-alcl` is a record even though `bia-alcl` is a glossary term.** WHO-HAEM5 names it as one
+   of the three anaplastic large cell lymphomas. The term, written for the breast pages, keeps the epidemiology; the
+   cancer record carries the lymphoma side (the late seroma rule, the staging, the surgery) and links to it.
+6. **`hodgkin-lymphoma` was read and left alone.** At 13,100 characters it carries a real summary, the subtype strings,
+   the biomarkers and the treatment layer. One taxonomy note was added: the ICC renamed nodular lymphocyte predominant
+   Hodgkin lymphoma to nodular lymphocyte predominant B-cell lymphoma by consensus, and WHO-HAEM5 kept the old name so
+   as not to interfere with trials in progress while saying the new one is acceptable. The corpus keeps the record under
+   the WHO-HAEM5 name.
+7. **A published figure was not quoted.** The UK Haematological Malignancy Research Network subtype paper (Smith,
+   *Br J Cancer* 2015) reports five-year survival for ALK-negative anaplastic large cell lymphoma identical to the row
+   above it, while both of its own sex-specific estimates exceed that total, which cannot be true. The incidence and
+   median age from the same table are used; the survival cell is not, and the all-anaplastic figure is given instead.
+   The reason is written on the page and in the file header.
