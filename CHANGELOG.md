@@ -7,6 +7,10 @@ All notable changes to OnCo are recorded here. The format follows [Keep a Change
 Regenerated from the commit log each time the site ships (`scripts/changelog-sync.ts`); the version sections below are written by hand when a release is cut.
 
 ### 1 October 2026
+- Lymphoma: the biology of the germinal centre, and what a person actually decides
+- The oldest three DLBCL rows retire, because the record now says the same thing three times
+- Lymphoma molecular layer: the antigens and what they cost, the lesions, the classifications, resistance and the tests
+- Lymphoma, the person: six decisions, six red cards, three first-sixty-days lists
 - The weekly check now fails when a page grows past what a reader downloaded last week
 - A ceiling on what a reader actually downloads, measured on the live site
 - Lirafugratinib is approved, not phase 2, and the bot stops proposing one combination's approval for another
