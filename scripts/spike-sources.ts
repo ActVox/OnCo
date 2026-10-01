@@ -83,10 +83,13 @@ import breastCore from "../src/data/spikes/breast-core";
 import breastTreatment from "../src/data/spikes/breast-treatment";
 import skinTreatment from "../src/data/spikes/skin-treatment";
 import lymphomaLiving from "../src/data/spikes/lymphoma-living";
+import lymphomaEvidence from "../src/data/spikes/lymphoma-evidence";
 import lymphomaMolecular from "../src/data/spikes/lymphoma-molecular";
 import lymphomaCore from "../src/data/spikes/lymphoma-core";
 import lymphomaCoreBcell from "../src/data/spikes/lymphoma-core-bcell";
 import lymphomaCoreTcell from "../src/data/spikes/lymphoma-core-tcell";
+import lymphomaGeography from "../src/data/spikes/lymphoma-geography";
+import lymphomaUk from "../src/data/spikes/lymphoma-uk";
 import lymphomaTreatment from "../src/data/spikes/lymphoma-treatment";
 import lymphomaTreatmentBcell from "../src/data/spikes/lymphoma-treatment-bcell";
 import lymphomaTreatmentHodgkin from "../src/data/spikes/lymphoma-treatment-hodgkin";
@@ -94,9 +97,10 @@ import lymphomaTreatmentTcell from "../src/data/spikes/lymphoma-treatment-tcell"
 
 /** File stem -> spike, so the test can compare against `readdirSync("src/data/spikes")`. */
 export const SPIKE_FILES: Record<string, Spike> = {
+  "lymphoma-uk": lymphomaUk, "lymphoma-geography": lymphomaGeography,
   nsclc, prostate, pancreatic, "pancreatic-core": pancreaticCore, "pancreatic-uk": pancreaticUk, "colorectal-uk": colorectalUk, "lung-uk": lungUk, "prostate-evidence": prostateEvidence, glioblastoma, "breast-hr-positive": breastHr, "breast-her2-positive": breastHer2, hcc, cholangiocarcinoma, neuroendocrine, melanoma, "prostate-uk": prostateUk, "breast-uk": breastUk, "skin-uk": skinUk,
   "head-and-neck": headAndNeck, thyroid, colorectal, "colorectal-core": colorectalCore, gastric, esophageal, sclc, mesothelioma, urothelial, rcc, ovarian, endometrial, cervical, aml, "all-leukemia": allLeukemia,
-  cll, dlbcl, "multiple-myeloma": multipleMyeloma, "hodgkin-lymphoma": hodgkin, sarcoma, neuroblastoma, "gallbladder-living": gallbladderLiving, "gallbladder-molecular": gallbladderMolecular, "gallbladder-core": gallbladderCore, "gallbladder-uk": gallbladderUk, "gallbladder-evidence": gallbladderEvidence, "gallbladder-treatment": gallbladderTreatment, "gallbladder-geography": gallbladderGeography, "tnbc-core": tnbcCore, "tnbc-evidence": tnbcEvidence, "tnbc-uk": tnbcUk, "tnbc-living": tnbcLiving, "tnbc-molecular": tnbcMolecular, "tnbc-treatment": tnbcTreatment, "pancreatic-living": pancreaticLiving, "pancreatic-evidence": pancreaticEvidence, "pancreatic-treatment": pancreaticTreatment, "pancreatic-molecular": pancreaticMolecular, "colorectal-living": colorectalLiving, "colorectal-molecular": colorectalMolecular, "colorectal-evidence": colorectalEvidence, "colorectal-treatment": colorectalTreatment, "lung-core": lungCore, "lung-living": lungLiving, "lung-evidence": lungEvidence, "lung-molecular": lungMolecular, "lung-treatment": lungTreatment, "prostate-core": prostateCore, "prostate-living": prostateLiving, "prostate-treatment": prostateTreatment, "prostate-glossary": prostateGlossary, "prostate-molecular": prostateMolecular, "breast-core": breastCore, "breast-treatment": breastTreatment, "breast-living": breastLiving, "skin-living": skinLiving, "skin-core": skinCore, "skin-treatment": skinTreatment, "lymphoma-living": lymphomaLiving, "lymphoma-treatment": lymphomaTreatment, "lymphoma-treatment-bcell": lymphomaTreatmentBcell, "lymphoma-treatment-hodgkin": lymphomaTreatmentHodgkin, "lymphoma-treatment-tcell": lymphomaTreatmentTcell, "lymphoma-molecular": lymphomaMolecular, "lymphoma-core": lymphomaCore, "lymphoma-core-bcell": lymphomaCoreBcell, "lymphoma-core-tcell": lymphomaCoreTcell,
+  cll, dlbcl, "multiple-myeloma": multipleMyeloma, "hodgkin-lymphoma": hodgkin, sarcoma, neuroblastoma, "gallbladder-living": gallbladderLiving, "gallbladder-molecular": gallbladderMolecular, "gallbladder-core": gallbladderCore, "gallbladder-uk": gallbladderUk, "gallbladder-evidence": gallbladderEvidence, "gallbladder-treatment": gallbladderTreatment, "gallbladder-geography": gallbladderGeography, "tnbc-core": tnbcCore, "tnbc-evidence": tnbcEvidence, "tnbc-uk": tnbcUk, "tnbc-living": tnbcLiving, "tnbc-molecular": tnbcMolecular, "tnbc-treatment": tnbcTreatment, "pancreatic-living": pancreaticLiving, "pancreatic-evidence": pancreaticEvidence, "pancreatic-treatment": pancreaticTreatment, "pancreatic-molecular": pancreaticMolecular, "colorectal-living": colorectalLiving, "colorectal-molecular": colorectalMolecular, "colorectal-evidence": colorectalEvidence, "colorectal-treatment": colorectalTreatment, "lung-core": lungCore, "lung-living": lungLiving, "lung-evidence": lungEvidence, "lung-molecular": lungMolecular, "lung-treatment": lungTreatment, "prostate-core": prostateCore, "prostate-living": prostateLiving, "prostate-treatment": prostateTreatment, "prostate-glossary": prostateGlossary, "prostate-molecular": prostateMolecular, "breast-core": breastCore, "breast-treatment": breastTreatment, "breast-living": breastLiving, "skin-living": skinLiving, "skin-core": skinCore, "skin-treatment": skinTreatment, "lymphoma-living": lymphomaLiving, "lymphoma-treatment": lymphomaTreatment, "lymphoma-treatment-bcell": lymphomaTreatmentBcell, "lymphoma-treatment-hodgkin": lymphomaTreatmentHodgkin, "lymphoma-treatment-tcell": lymphomaTreatmentTcell, "lymphoma-evidence": lymphomaEvidence, "lymphoma-molecular": lymphomaMolecular, "lymphoma-core": lymphomaCore, "lymphoma-core-bcell": lymphomaCoreBcell, "lymphoma-core-tcell": lymphomaCoreTcell,
 };
 
 /** Spike files that are not spikes (the registry itself, and gap-cancers which exports plain entities). */
@@ -111,6 +115,10 @@ export const NON_SPIKE_FILES = ["index", "gap-cancers", "nci-paediatric", "nci-r
   // Helpers of the skin-treatment spike: shared constants and the hand-written trial lists.
   "skin-treatment-shared", "skin-treatment-trials-local", "skin-treatment-trials-advanced",
   // Helper of the lymphoma-treatment spikes: shared constants, source DOIs and the cancer-id map.
-  "lymphoma-treatment-shared"];
+  "lymphoma-treatment-shared",
+  // Helpers of the lymphoma-evidence spike: shared constants, the landmark and recruiting trial lists, the two
+  // paper files and the roadmap.
+  "lymphoma-evidence-shared", "lymphoma-evidence-trials", "lymphoma-evidence-trials-recruiting",
+  "lymphoma-evidence-papers-foundations", "lymphoma-evidence-papers-trials", "lymphoma-evidence-roadmap"];
 
 export const spikeSources: Spike[] = Object.values(SPIKE_FILES);

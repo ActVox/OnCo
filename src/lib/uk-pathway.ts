@@ -17,6 +17,7 @@ import { lungUkPathway } from "@/data/spikes/lung-uk";
 import { prostateUkPathway } from "@/data/spikes/prostate-uk";
 import { breastUkPathway } from "@/data/spikes/breast-uk";
 import { skinUkPathway } from "@/data/spikes/skin-uk";
+import { lymphomaUkPathway } from "@/data/spikes/lymphoma-uk";
 
 /** A checkable citation: the page a figure or statement was read from, and when it was checked or published. */
 export type UkSource = { label: string; url: string; date?: string };
@@ -139,7 +140,7 @@ export type UkPathway = {
   gaps: string[];
 };
 
-export const UK_PATHWAYS: UkPathway[] = [gallbladderUkPathway, tnbcUkPathway, pancreaticUkPathway, colorectalUkPathway, lungUkPathway, prostateUkPathway, breastUkPathway, skinUkPathway];
+export const UK_PATHWAYS: UkPathway[] = [gallbladderUkPathway, tnbcUkPathway, pancreaticUkPathway, colorectalUkPathway, lungUkPathway, prostateUkPathway, breastUkPathway, skinUkPathway, lymphomaUkPathway];
 
 /** The pathway for a cancer id, matching the canonical id or an alias. */
 export function ukPathwayFor(cancerId: string): UkPathway | undefined {

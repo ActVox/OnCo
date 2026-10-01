@@ -41,6 +41,7 @@ export const GLOBOCAN_MAP: Record<string, GlobocanMapping> = {
   aml: { codes: [36], label: "Leukaemia (all types)", shared: true, note: "GLOBOCAN reports leukaemia as one site; AML is roughly a quarter of cases worldwide." },
   "all-leukemia": { codes: [36], label: "Leukaemia (all types)", shared: true, note: "GLOBOCAN reports leukaemia as one site; ALL is the commonest childhood cancer but a minority of adult leukaemia." },
   cll: { codes: [36], label: "Leukaemia (all types)", shared: true, note: "GLOBOCAN reports leukaemia as one site; CLL is roughly a quarter of leukaemia in Western countries and rare in East Asia." },
+  "non-hodgkin-lymphoma": { codes: [34], label: "Non-Hodgkin lymphoma (all subtypes)", note: "GLOBOCAN reports non-Hodgkin lymphoma as one site, ICD-10 C82-86 and C88, covering sixty-odd diseases. Hodgkin lymphoma (C81) is reported separately." },
   dlbcl: { codes: [34], label: "Non-Hodgkin lymphoma (all subtypes)", shared: true, note: "GLOBOCAN reports NHL as one site; DLBCL is roughly 30-40% of cases." },
   "hodgkin-lymphoma": { codes: [33], label: "Hodgkin lymphoma" },
   "multiple-myeloma": { codes: [35], label: "Multiple myeloma" },

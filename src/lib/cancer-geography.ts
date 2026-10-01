@@ -19,6 +19,8 @@ import { routeFor } from "./kinds";
 import { GLOBOCAN_MAP } from "@/data/globocan-map";
 import { gallbladderGeography } from "@/data/spikes/gallbladder-geography";
 import gallbladderRates from "../../public/globocan/sites/12-gallbladder-by-sex.json";
+import { lymphomaGeography } from "@/data/spikes/lymphoma-geography";
+import nhlRates from "../../public/globocan/sites/34-non-hodgkin-lymphoma-by-sex.json";
 
 /** A checkable citation: the page a figure or statement was read from, and when it was checked or published. */
 export type GeoSource = { label: string; url: string; date?: string };
@@ -94,10 +96,10 @@ export type CancerGeography = {
   gaps: string[];
 };
 
-export const CANCER_GEOGRAPHIES: CancerGeography[] = [gallbladderGeography];
+export const CANCER_GEOGRAPHIES: CancerGeography[] = [gallbladderGeography, lymphomaGeography];
 
 /** Per-site GLOBOCAN files by cancer code. Add a file (npm run fetch:globocan:site -- <code>) and register it here. */
-export const SITE_RATES: Record<number, SiteRates> = { 12: gallbladderRates as unknown as SiteRates };
+export const SITE_RATES: Record<number, SiteRates> = { 12: gallbladderRates as unknown as SiteRates, 34: nhlRates as unknown as SiteRates };
 
 export function geographyFor(cancerId: string): CancerGeography | undefined {
   return CANCER_GEOGRAPHIES.find((g) => g.cancerId === cancerId);
