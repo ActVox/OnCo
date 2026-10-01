@@ -7,6 +7,8 @@ All notable changes to OnCo are recorded here. The format follows [Keep a Change
 Regenerated from the commit log each time the site ships (`scripts/changelog-sync.ts`); the version sections below are written by hand when a release is cut.
 
 ### 1 October 2026
+- The weekly check now fails when a page grows past what a reader downloaded last week
+- A ceiling on what a reader actually downloads, measured on the live site
 - Lirafugratinib is approved, not phase 2, and the bot stops proposing one combination's approval for another
 - chore: monthly identifier enrichment (HGNC, Wikidata) (#124)
 - chore: refresh HTA decisions and survival snapshots (#123)

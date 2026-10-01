@@ -22,6 +22,13 @@ jobs:
       - run: npm ci
       - run: npm run validate
       - run: npx tsx scripts/check-links.ts
+      # What a reader downloads, against the ceilings in src/data/page-weight.json. This runs here rather than in
+      # the suite because the number only exists on a built, served page: every budget inside vitest measures
+      # static markup, and the hydration payload is 30 to 81 per cent of the bytes. It fails the job rather than
+      # opening a pull request, because a page that grew past its ceiling is a regression to look at, not a
+      # snapshot to merge.
+      - name: Page weight against the live site
+        run: npx tsx scripts/page-weight.ts --check
       # The merge below is unattended, so the tree the pull request carries must pass what a person's branch passes.
       # The gates never fail the job: when one does the pull request is still opened, the merge step is skipped and
       # the next step labels it for review, so a red snapshot waits for a person instead of landing on main.

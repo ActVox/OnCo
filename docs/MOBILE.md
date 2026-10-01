@@ -74,3 +74,32 @@ a static file, and hand the client component an id rather than a tree.
 
 This is not yet a gate. It needs the built site, so it cannot run in vitest; run `npm run audit:weight` after a
 deploy and record the numbers here. Making it a gate means measuring the export, which is the obvious next step.
+
+## The ceiling, from 1 October 2026
+
+Measuring was not enough: the numbers above sat in this document while every markup budget stayed green. There
+is now a ceiling per page in `src/data/page-weight.json`, set at what the live site served on 1 October 2026,
+and the weekly link-check workflow runs `npx tsx scripts/page-weight.ts --check` against onco.cc and fails if a
+page has grown past it. It is a ratchet: `--record` lowers a ceiling when a page gets lighter and never raises
+one. Raising a number by hand means saying why in the commit.
+
+What it recorded, total bytes with the hydration payload's share:
+
+| page | total | markup | payload | payload share |
+| --- | --- | --- | --- | --- |
+| `/timeline/` | 2,150 KB | 533 KB | 1,617 KB | 75% |
+| `/explained/` | 1,526 KB | 742 KB | 785 KB | 51% |
+| `/years/2020/` | 1,055 KB | 395 KB | 659 KB | 63% |
+| `/` | 940 KB | 243 KB | 697 KB | 74% |
+| `/cancers/prostate/uk/` | 927 KB | 410 KB | 517 KB | 56% |
+| `/for-me/` | 892 KB | 629 KB | 263 KB | 30% |
+| `/cancers/breast-cancer/` | 692 KB | 290 KB | 402 KB | 58% |
+| `/explore/` | 683 KB | 127 KB | 556 KB | 81% |
+| `/trials/` | 620 KB | 336 KB | 284 KB | 46% |
+| `/drugs/` | 590 KB | 350 KB | 240 KB | 41% |
+| `/countries/us/` | 473 KB | 213 KB | 261 KB | 55% |
+| `/virotherapy/` | 290 KB | 148 KB | 141 KB | 49% |
+| `/navigator/` | 153 KB | 64 KB | 89 KB | 58% |
+
+This stops the slide; it does not reverse it. `/timeline/` is where reversing starts, and `/explore/` is the
+clearest case of the shape of the problem: 127 KB of markup carrying 556 KB of payload to render it.
