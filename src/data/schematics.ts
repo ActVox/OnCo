@@ -567,6 +567,9 @@ import { diagnosticsSchematicAliases2 } from "./diagnostics-wave2";
 export const SCHEMATIC_ALIAS: Record<string, string> = {
   "stride-dna-break-detection": "wes-wgs",
   "gallbladder-cancer-surgery": "robotic-surgery",
+  // Clonality testing is multiplex PCR or targeted sequencing of the immunoglobulin and T-cell receptor loci, so it
+  // reads as the NGS-based residual disease schematic rather than needing a drawing of its own.
+  "clonality-testing": "ngs-mrd-clonoseq",
   ...radiationSchematicAliases,
   ...modelSchematicAliases,
   ...machineSchematicAliases,
