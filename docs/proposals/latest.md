@@ -1,11 +1,26 @@
-# Change proposals 2026-09-30
+# Change proposals 2026-10-01
 
-Drafted by scripts/propose-updates.ts from: factcheck 2026-09-28, trialChanges 2026-09-28, fda 2026-09-23, regional 2026-09-23.
+Drafted by scripts/propose-updates.ts from: factcheck 2026-09-28, trialChanges 2026-09-28, fda 2026-09-30, regional 2026-09-30.
 
 Review each line against its source. Apply by editing the file named; nothing in this list is applied automatically. EMA rows carry the reason a person is needed; the rows that passed every check were written on the auto branch by scripts/apply-proposals.ts and are listed at the end.
 
 ## High confidence (7)
 
+- [ ] **Lenvatinib** ([page](https://onco.cc/drugs/lenvatinib/)) · regulatory-event · `regulatoryEvents`
+  - current: 2 events; none dated 2026-09-24
+  - proposed: { date: "2026-09-24", type: "approval", region: "US", note: "approves belzutifan in combination with lenvatinib for advanced renal cell carcinoma with a clear cell component", source: "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-belzutifan-combination-lenvatinib-advanced-renal-cell-carcinoma-clear-cell-component" }
+  - evidence: On September 24, 2026, the Food and Drug Administration approved belzutifan (Welireg, Merck & Co., Inc.) in combination with lenvatinib (Lenvima, Eisai Inc.) for adults with advanced renal cell carcinoma with a clear cell component (ccRCC) following a programmed death receptor-1 (PD-1) or programmed ([source](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-belzutifan-combination-lenvatinib-advanced-renal-cell-carcinoma-clear-cell-component))
+  - file: `src/data/interactions.ts:146`
+- [ ] **Belzutifan** ([page](https://onco.cc/drugs/belzutifan/)) · regulatory-event · `regulatoryEvents`
+  - current: 4 events; none dated 2026-09-24
+  - proposed: { date: "2026-09-24", type: "approval", region: "US", note: "approves belzutifan in combination with lenvatinib for advanced renal cell carcinoma with a clear cell component", source: "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-belzutifan-combination-lenvatinib-advanced-renal-cell-carcinoma-clear-cell-component" }
+  - evidence: On September 24, 2026, the Food and Drug Administration approved belzutifan (Welireg, Merck & Co., Inc.) in combination with lenvatinib (Lenvima, Eisai Inc.) for adults with advanced renal cell carcinoma with a clear cell component (ccRCC) following a programmed death receptor-1 (PD-1) or programmed ([source](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-belzutifan-combination-lenvatinib-advanced-renal-cell-carcinoma-clear-cell-component))
+  - file: `src/data/drugs.ts:657`
+- [ ] **Lirafugratinib** ([page](https://onco.cc/drugs/lirafugratinib/)) · regulatory-event · `regulatoryEvents`
+  - current: 0 events; none dated 2026-09-23
+  - proposed: { date: "2026-09-23", type: "approval", region: "US", note: "approves lirafugratinib for previously treated, unresectable, locally advanced or metastatic cholangiocarcinoma", source: "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-lirafugratinib-previously-treated-unresectable-locally-advanced-or-metastatic" }
+  - evidence: On September 23, 2026, the Food and Drug Administration approved lirafugratinib (Lyrfigtu, Elevar Therapeutics, Inc.), a kinase inhibitor, for the treatment of adults with previously treated unresectable, locally advanced or metastatic cholangiocarcinoma harboring a fibroblast growth factor receptor ([source](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-lirafugratinib-previously-treated-unresectable-locally-advanced-or-metastatic))
+  - file: `src/data/drugs-pipeline-wave1.ts:1714`
 - [ ] **A Study of Pirtobrutinib (LOXO-305) Versus Bendamustine Plus Rituximab (BR) in Untreated Patients With Chronic Lymphocytic Leukemia (CLL)/Small Lymphocytic Lymphoma (SLL)** ([page](https://onco.cc/trials/nct05023980/)) · trial-results · `result / outcomes`
   - current: (none)
   - proposed: add the posted primary outcome with the registry as source
@@ -21,28 +36,13 @@ Review each line against its source. Apply by editing the file named; nothing in
   - proposed: add the posted primary outcome with the registry as source
   - evidence: ClinicalTrials.gov now has posted results for NCT05471843 (detected 2026-09-28). ([source](https://clinicaltrials.gov/study/NCT05471843?tab=results))
   - file: `src/data/pipeline-trials-wave5.ts:1537`
-- [ ] **Imlunestrant** ([page](https://onco.cc/drugs/imlunestrant/)) · regulatory-event · `regulatoryEvents`
-  - current: 1 events; none dated 2026-09-18
-  - proposed: { date: "2026-09-18", type: "approval", region: "US", note: "approves imlunestrant in combination with abemaciclib for ER-positive, HER2-negative, ESR1-mutated advanced or metastatic breast cancer", source: "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-imlunestrant-combination-abemaciclib-er-positive-her2-negative-esr1-mutated-advanced-or" }
-  - evidence: On September 18, 2026, the Food and Drug Administration approved imlunestrant (Inluriyo) in combination with abemaciclib (Verzenio), for adults with estrogen receptor (ER)-positive, human epidermal growth factor receptor 2 (HER2)-negative, estrogen receptor 1 (ESR1)-mutated advanced or metastatic br ([source](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-imlunestrant-combination-abemaciclib-er-positive-her2-negative-esr1-mutated-advanced-or))
-  - file: `src/data/spikes/breast-hr-positive.ts:263`
-- [ ] **Abemaciclib** ([page](https://onco.cc/drugs/abemaciclib/)) · regulatory-event · `regulatoryEvents`
-  - current: 4 events; none dated 2026-09-18
-  - proposed: { date: "2026-09-18", type: "approval", region: "US", note: "approves imlunestrant in combination with abemaciclib for ER-positive, HER2-negative, ESR1-mutated advanced or metastatic breast cancer", source: "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-imlunestrant-combination-abemaciclib-er-positive-her2-negative-esr1-mutated-advanced-or" }
-  - evidence: On September 18, 2026, the Food and Drug Administration approved imlunestrant (Inluriyo) in combination with abemaciclib (Verzenio), for adults with estrogen receptor (ER)-positive, human epidermal growth factor receptor 2 (HER2)-negative, estrogen receptor 1 (ESR1)-mutated advanced or metastatic br ([source](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-imlunestrant-combination-abemaciclib-er-positive-her2-negative-esr1-mutated-advanced-or))
-  - file: `src/data/checkpoint-map.ts:526`
 - [ ] **Relatlimab + nivolumab** ([page](https://onco.cc/drugs/relatlimab-nivolumab/)) · regulatory-event · `regulatoryEvents`
   - current: 2 events; none dated 2026-08-06
   - proposed: { date: "2026-08-06", type: "approval", region: "US", note: "grants accelerated approval to vusolimogene oderparepvec-wtpg in combination with nivolumab for melanoma (accelerated)", source: "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-vusolimogene-oderparepvec-wtpg-combination-nivolumab-melanoma" }
   - evidence: On August 6, 2026, the Food and Drug Administration granted accelerated approval to vusolimogene oderparepvec-wtpg (Tudriqev, Replimune, Inc.), a genetically modified oncolytic viral therapy, in combination with nivolumab for the treatment of adult patients with unresectable advanced cutaneous melan ([source](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-vusolimogene-oderparepvec-wtpg-combination-nivolumab-melanoma))
   - file: `src/data/checkpoint-map.ts:161`
-- [ ] **Abiraterone acetate** ([page](https://onco.cc/drugs/abiraterone/)) · regulatory-event · `regulatoryEvents`
-  - current: 0 events; none dated 2026-06-12
-  - proposed: { date: "2026-06-12", type: "approval", region: "US", note: "approves capivasertib with abiraterone and prednisone for PTEN-deficient androgen pathway modulation-naïve or -sensitive prostate cancer", source: "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-capivasertib-abiraterone-and-prednisone-pten-deficient-androgen-pathway-modulation" }
-  - evidence: On June 12, 2026, the Food and Drug Administration approved capivasertib (Truqap, AstraZeneca) in combination with abiraterone and prednisone for adults with metastatic androgen pathway modulation-naïve or -sensitive (mAPMN/S) prostate cancer (previously referred to as metastatic hormone-sensitive p ([source](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-capivasertib-abiraterone-and-prednisone-pten-deficient-androgen-pathway-modulation))
-  - file: `src/data/interactions.ts:111`
 
-## Medium confidence (77)
+## Medium confidence (73)
 
 - [ ] **Bonner trial (cetuximab plus radiotherapy)** ([page](https://onco.cc/trials/bonner-cetuximab-rt/)) · trial-status · `status`
   - current: positive
@@ -124,30 +124,6 @@ Review each line against its source. Apply by editing the file named; nothing in
   - proposed: completed
   - evidence: ClinicalTrials.gov overall status is COMPLETED; recorded recruiting. Editorial statuses (positive, negative, mixed) need the result, so this is a floor, not a verdict. ([source](https://clinicaltrials.gov/study/NCT06754085))
   - file: `src/data/pipeline-trials-wave6.ts:4519`
-- [ ] **Olaratumab** ([page](https://onco.cc/drugs/olaratumab/)) · regional-status · `EU`
-  - current: withdrawn (2019)
-  - proposed: EU entry from the register page (Revoked)
-  - evidence: EMA register: Lartruvo (olaratumab) Revoked (conditional), 2016-11-09. Register page: "Revoked: This medicine's authorisation has been revoked", authorised 2016-11-09, revoked 2019-07-22. ([source](https://www.ema.europa.eu/en/medicines/human/EPAR/lartruvo))
-  - why a person: register status "Revoked" has no helper in regional-approvals.ts; the recorded EU row says withdrawn (2019)
-  - file: `src/data/regional-approvals.ts`
-- [ ] **Pixantrone** ([page](https://onco.cc/drugs/pixantrone/)) · regional-status · `EU`
-  - current: withdrawn (2024)
-  - proposed: EU entry from the register page (Expired)
-  - evidence: EMA register: Pixuvri (pixantrone dimaleate) Expired, 2012-05-10. Register page: "Expired: This medicine's authorisation has expired", authorised 2012-05-10. ([source](https://www.ema.europa.eu/en/medicines/human/EPAR/pixuvri))
-  - why a person: register status "Expired" has no helper in regional-approvals.ts; the recorded EU row says withdrawn (2024)
-  - file: `src/data/regional-approvals.ts`
-- [ ] **Senaparib (IMP4297)** ([page](https://onco.cc/drugs/imp4927/)) · regional-status · `EU`
-  - current: under-review
-  - proposed: EU entry from the register page (Opinion)
-  - evidence: EMA register: Sepalna (senaparib) Opinion. Register page: "Opinion: EMA has issued an opinion on this medicine", opinion Positive 2026-09-17. ([source](https://www.ema.europa.eu/en/medicines/human/EPAR/sepalna))
-  - why a person: register status "Opinion" has no helper in regional-approvals.ts; the recorded EU row says under-review
-  - file: `src/data/regional-approvals.ts`
-- [ ] **Ensartinib** ([page](https://onco.cc/drugs/ensartinib/)) · regional-status · `EU`
-  - current: under-review
-  - proposed: EU entry from the register page (Opinion)
-  - evidence: EMA register: Gevalka (ensartinib) Opinion. Register page: "Opinion: EMA has issued an opinion on this medicine", opinion Positive 2026-09-17. ([source](https://www.ema.europa.eu/en/medicines/human/EPAR/gevalka))
-  - why a person: register status "Opinion" has no helper in regional-approvals.ts; the recorded EU row says under-review
-  - file: `src/data/regional-approvals.ts`
 - [ ] **Study Of Entrectinib (Rxdx-101) in Children and Adolescents With Locally Advanced Or Metastatic Solid Or Primary CNS Tumors And/Or Who Have No Satisfactory Treatment Options** ([page](https://onco.cc/trials/nct02650401/)) · trial-completion · `yearReported / calendar`
   - current: 2026-06-30
   - proposed: 2027-06-30
@@ -501,6 +477,11 @@ Review each line against its source. Apply by editing the file named; nothing in
   - proposed: recruiting
   - evidence: ClinicalTrials.gov overall status is RECRUITING; recorded positive. Editorial statuses (positive, negative, mixed) need the result, so this is a floor, not a verdict. ([source](https://clinicaltrials.gov/study/NCT05099172))
   - file: `src/data/spikes/nsclc.ts:126`
+- [ ] **Nezglyal** · new-product · `new drug record`
+  - current: (not in corpus)
+  - proposed: add product leriglitazone (Nezglyal) with the EU status the register page shows
+  - evidence: EMA register: Nezglyal (leriglitazone) Authorised, 2026-09-21. Register page: "Authorised: This medicine is authorised for use in the European Union", authorised 2026-09-21, opinion Positive 2026-07-23. ([source](https://www.ema.europa.eu/en/medicines/human/EPAR/nezglyal))
+  - why a person: no corpus product is named exactly leriglitazone / leriglitazone / Nezglyal
 - [ ] **Waskyra** · new-product · `new drug record`
   - current: (not in corpus)
   - proposed: add product etuvetidigene autotemcel (Waskyra) with the EU status the register page shows
@@ -561,11 +542,6 @@ Review each line against its source. Apply by editing the file named; nothing in
   - proposed: add product mercaptamine bitartrate (Cystagon) with the EU status the register page shows
   - evidence: EMA register: Cystagon (mercaptamine bitartrate) Authorised, 1997-06-23. Register page: "Authorised: This medicine is authorised for use in the European Union", authorised 1997-06-23. ([source](https://www.ema.europa.eu/en/medicines/human/EPAR/cystagon))
   - why a person: no corpus product is named exactly mercaptamine bitartrate / mercaptamine bitartrate / Cystagon
-- [ ] **Nezglyal** · new-product · `new drug record`
-  - current: (not in corpus)
-  - proposed: add product leriglitazone (Nezglyal) with the EU status the register page shows
-  - evidence: EMA register: Nezglyal (leriglitazone) Opinion. Register page: "Authorised: This medicine is authorised for use in the European Union", authorised 2026-09-21, opinion Positive 2026-07-23. ([source](https://www.ema.europa.eu/en/medicines/human/EPAR/nezglyal))
-  - why a person: no corpus product is named exactly leriglitazone / leriglitazone / Nezglyal
 - [ ] **Yartemlea** · new-product · `new drug record`
   - current: (not in corpus)
   - proposed: add product Narsoplimab (Yartemlea) with the EU status the register page shows
@@ -581,6 +557,6 @@ Review each line against its source. Apply by editing the file named; nothing in
   - proposed: add phase 3 trial NCT04543617 for Tiragolumab with status completed
   - evidence: A phase 3 study of Tiragolumab moved from ACTIVE_NOT_RECRUITING to COMPLETED (detected 2026-09-17). ([source](https://clinicaltrials.gov/study/NCT04543617))
 
-## EMA rows decided without a person (0 written, 13 already on main)
+## EMA rows decided without a person (0 written, 0 already on main)
 
 None this run.
