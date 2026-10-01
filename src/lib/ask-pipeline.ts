@@ -158,7 +158,13 @@ export async function answerQuestion(question: string, deps: AskDeps): Promise<A
       if (e.kind === "company") wave.push(...(e.acquiredBy ? [e.acquiredBy] : []), ...(e.companyType === "investor" ? (primary.neighbours.company ?? []).slice(0, 2).map((x) => x.id) : []));
       else wave.push(...(primary.neighbours.company ?? []).slice(0, 10).map((x) => x.id));
     }
-    if (a.intent === "roadmap" && e.kind !== "roadmap") wave.push(...(primary.neighbours.roadmap ?? []).slice(0, 4).map((x) => x.id));
+    // A front's own roadmap (`radiation` has `radiation-roadmap`) is read before the cancer roadmaps that merely
+    // list it as a section. The neighbour list arrives in corpus order, so without this sort every new deep-dive
+    // roadmap that names the front pushes the front's own map out of the four records the template reads.
+    if (a.intent === "roadmap" && e.kind !== "roadmap") {
+      const ownRoadmap = (n: { id: string }) => (n.id.startsWith(`${e.id}-`) ? 0 : 1);
+      wave.push(...[...(primary.neighbours.roadmap ?? [])].sort((x, y) => ownRoadmap(x) - ownRoadmap(y)).slice(0, 4).map((x) => x.id));
+    }
     if (a.intent === "journals") wave.push(...topicJournals.filter((x) => x.id !== e.id).slice(0, 5).map((x) => x.id), ...(primary.neighbours.journal ?? []).slice(0, 2).map((x) => x.id));
   }
   const WIDE = new Set(["regional-approvals", "companies", "investors", "journals", "roadmap"]);

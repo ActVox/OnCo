@@ -47,6 +47,7 @@ export const TAG_DESCRIPTIONS: Readonly<Record<string, string>> = {
   "gallbladder-evidence": "Papers, trials and ideas added by the September 2026 gallbladder cancer deep dive, each checked against Europe PMC or ClinicalTrials.gov on the date recorded.",
   "tnbc-evidence": "Papers, roadmap and ideas added by the September 2026 triple-negative breast cancer deep dive, each checked against Europe PMC or ClinicalTrials.gov on the date recorded.",
   "colorectal-evidence": "Papers, roadmap and ideas added by the September 2026 colorectal cancer deep dive, each checked against Europe PMC or ClinicalTrials.gov on the date recorded.",
+  "lymphoma-evidence": "Trials, papers, roadmap and ideas added by the autumn 2026 lymphoma deep dive, each resolved against Europe PMC or ClinicalTrials.gov on the date recorded.",
   pipeline: "Trials and products still moving through development for a cancer: recruiting, active or recently completed studies and the drugs they test.",
   leadership: "People who lead a cancer centre, department, programme or society, as recorded on their record.",
   "clinician-scientist": "People who both treat patients and run research programmes.",
