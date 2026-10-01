@@ -1,5 +1,5 @@
 {
- "fetched": "2026-09-09",
+ "fetched": "2026-10-01",
  "source": "SEER Cancer Stat Facts, Surveillance, Epidemiology, and End Results Program, National Cancer Institute",
  "sourceUrl": "https://seer.cancer.gov/statfacts/",
  "note": "US population statistics. Relative survival compares people with the cancer to the general population of the same age, sex and race; it is not a prediction for an individual. Stage groups are SEER summary stages (localised, regional, distant), not TNM stages.",
@@ -9,7 +9,7 @@
    "label": "Acute Lymphocytic Leukemia — Cancer Stat Facts",
    "url": "https://seer.cancer.gov/statfacts/html/alyl.html",
    "byStage": [],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 73.2,
     "period": "2016-2022"
@@ -23,7 +23,7 @@
    "label": "Acute Myeloid Leukemia — Cancer Stat Facts",
    "url": "https://seer.cancer.gov/statfacts/html/amyl.html",
    "byStage": [],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 33.4,
     "period": "2016-2022"
@@ -62,7 +62,7 @@
      "survivalPct": 65.1
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 70.9,
     "period": "2016-2022"
@@ -76,7 +76,7 @@
    "label": "Bone and Joint Cancer — Cancer Stat Facts",
    "url": "https://seer.cancer.gov/statfacts/html/bones.html",
    "byStage": [],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 68.7,
     "period": "2016-2022"
@@ -115,7 +115,7 @@
      "survivalPct": 32.2
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 32.9,
     "period": "2016-2022"
@@ -154,7 +154,7 @@
      "survivalPct": 70.6
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 91.9,
     "period": "2016-2022"
@@ -193,7 +193,7 @@
      "survivalPct": 62.3
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 68.8,
     "period": "2016-2022"
@@ -207,7 +207,7 @@
    "label": "Chronic Lymphocytic Leukemia — Cancer Stat Facts",
    "url": "https://seer.cancer.gov/statfacts/html/clyl.html",
    "byStage": [],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 90.2,
     "period": "2016-2022"
@@ -221,7 +221,7 @@
    "label": "Chronic Myeloid Leukemia — Cancer Stat Facts",
    "url": "https://seer.cancer.gov/statfacts/html/cmyl.html",
    "byStage": [],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 71.1,
     "period": "2016-2022"
@@ -260,7 +260,7 @@
      "survivalPct": 49.7
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 65.4,
     "period": "2016-2022"
@@ -299,7 +299,7 @@
      "survivalPct": 58.3
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 80.9,
     "period": "2016-2022"
@@ -344,7 +344,7 @@
      "survivalPct": 54.6
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 64.8,
     "period": "2016-2022"
@@ -383,7 +383,7 @@
      "survivalPct": 15.9
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 22.2,
     "period": "2016-2022"
@@ -428,7 +428,7 @@
      "survivalPct": 88.2
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 88.9,
     "period": "2016-2022"
@@ -473,7 +473,7 @@
      "survivalPct": 82.1
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 89.3,
     "period": "2016-2022"
@@ -512,7 +512,7 @@
      "survivalPct": 55.2
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 79.2,
     "period": "2016-2022"
@@ -551,7 +551,7 @@
      "survivalPct": 11.6
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 21.9,
     "period": "2016-2022"
@@ -590,7 +590,7 @@
      "survivalPct": 17.5
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 29.5,
     "period": "2016-2022"
@@ -629,7 +629,7 @@
      "survivalPct": 95.4
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 94.7,
     "period": "2016-2022"
@@ -668,7 +668,7 @@
      "survivalPct": 69
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 63.7,
     "period": "2016-2022"
@@ -707,7 +707,7 @@
      "survivalPct": 62.3
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 69.9,
     "period": "2016-2022"
@@ -746,7 +746,7 @@
      "survivalPct": 38.5
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 52,
     "period": "2016-2022"
@@ -785,7 +785,7 @@
      "survivalPct": 12.5
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 13.7,
     "period": "2016-2022"
@@ -824,7 +824,7 @@
      "survivalPct": 94.1
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 98.2,
     "period": "2016-2022"
@@ -863,7 +863,7 @@
      "survivalPct": 60.7
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 71.8,
     "period": "2016-2022"
@@ -902,7 +902,7 @@
      "survivalPct": 62.7
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 65.7,
     "period": "2016-2022"
@@ -941,7 +941,7 @@
      "survivalPct": 33.6
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 39.8,
     "period": "2016-2022"
@@ -955,7 +955,7 @@
    "label": "Testicular Cancer — Cancer Stat Facts",
    "url": "https://seer.cancer.gov/statfacts/html/testis.html",
    "byStage": [],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 94.6,
     "period": "2016-2022"
@@ -994,7 +994,7 @@
      "survivalPct": 91.9
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 98.3,
     "period": "2016-2022"
@@ -1039,7 +1039,7 @@
      "survivalPct": 50.8
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 79.1,
     "period": "2016-2022"
@@ -1078,7 +1078,7 @@
      "survivalPct": 61
     }
    ],
-   "fetched": "2026-09-09",
+   "fetched": "2026-10-01",
    "overall": {
     "pct": 69.7,
     "period": "2016-2022"
