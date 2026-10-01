@@ -70,6 +70,8 @@ function tooltip(n: CancerDagNode, d: CancerDag): string {
 /**
  * The drawing. Plain SVG anchors, all coordinates rounded, one `<title>` per node for the hover tooltip and four
  * badge groups per node of which the page stylesheet shows one (`data-by` on the wrapper set by CancerMapBy).
+ * Each node carries its id once, in `href`: a `data-id` attribute repeating it cost about 14 KB of markup across
+ * the 474 nodes and nothing read it except this page's own test, which now finds a node by its route.
  */
 function MapSvg({ d, lay, max }: { d: CancerDag; lay: CancerDagLayout; max: Record<Metric, number> }) {
   const BADGE_GAP = 26;
@@ -93,7 +95,7 @@ function MapSvg({ d, lay, max }: { d: CancerDag; lay: CancerDagLayout; max: Reco
           const x = Math.round(p.x), y = Math.round(p.y - p.h / 2), h = Math.round(p.h);
           const label = fit(n.name, p.w - 8);
           return (
-            <a key={n.id} href={n.route} className={`n ${NODE_CLASS[n.layer]}`} data-id={n.id}>
+            <a key={n.id} href={n.route} className={`n ${NODE_CLASS[n.layer]}`}>
               <rect x={x} y={y} width={p.w} height={h} rx={4} />
               <text x={x + 5} y={Math.round(p.y + FONT * 0.36)}>{label}</text>
               {METRICS.map((m) => {

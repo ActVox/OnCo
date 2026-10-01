@@ -87,6 +87,8 @@ const PARENT_PHRASES: Record<string, RegExp> = {
   urethral: /urethra/i,
   "non-seminoma": /non-seminoma|germ cell|testic/i,
   "marginal-zone-lymphoma": /lymphoma/i,
+  // Lymphoma deep dive, 29 September 2026: gastric and ocular adnexal MALT lymphoma are records under the MALT page.
+  "malt-lymphoma": /lymphoma|MALT/i,
   "follicular-lymphoma": /lymphoma/i,
   "cutaneous-t-cell-lymphoma": /lymphoma|mycosis/i,
   dlbcl: /lymphoma/i,
