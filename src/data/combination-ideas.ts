@@ -3024,9 +3024,9 @@ export const combinationIdeas: CombinationIdeaInput[] = [
       b: { level: "approved", via: ["tisagenlecleucel"] }
     },
     score: {
-      total: 61,
-      burden: 21,
-      worldDeaths: 121388,
+      total: 66,
+      burden: 26,
+      worldDeaths: 372067,
       validationA: 15,
       validationB: 15,
       plausibility: 10
@@ -3120,9 +3120,9 @@ export const combinationIdeas: CombinationIdeaInput[] = [
       b: { level: "approved", via: ["tisagenlecleucel"] }
     },
     score: {
-      total: 60,
-      burden: 14,
-      worldDeaths: 22733,
+      total: 70,
+      burden: 24,
+      worldDeaths: 273412,
       validationA: 15,
       validationB: 15,
       plausibility: 16

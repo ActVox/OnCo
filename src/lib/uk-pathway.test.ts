@@ -11,9 +11,10 @@ import lungSpike from "@/data/spikes/lung-uk";
 import prostateSpike from "@/data/spikes/prostate-uk";
 import breastSpike from "@/data/spikes/breast-uk";
 import skinSpike from "@/data/spikes/skin-uk";
+import lymphomaSpike from "@/data/spikes/lymphoma-uk";
 import UkPage, { generateStaticParams } from "@/app/cancers/[id]/uk/page";
 
-const SPIKES = [gallbladderSpike, tnbcSpike, pancreaticSpike, colorectalSpike, lungSpike, prostateSpike, breastSpike, skinSpike];
+const SPIKES = [gallbladderSpike, tnbcSpike, pancreaticSpike, colorectalSpike, lungSpike, prostateSpike, breastSpike, skinSpike, lymphomaSpike];
 
 /**
  * The UK and NHS layer quotes public UK sources only. Every URL must be https and sit on one of these domains
@@ -47,6 +48,12 @@ const ALLOWED_DOMAINS = [
   "legislation.gov.uk", "hse.gov.uk", "melanomafocus.org", "skcin.org", "skinhealthinfo.org.uk", "changingfaces.org.uk",
   "guysandstthomas.nhs.uk", "leedsth.nhs.uk", "northerncarealliance.nhs.uk", "newcastle-hospitals.nhs.uk",
   "cuh.nhs.uk", "nnuh.nhs.uk", "uhb.nhs.uk", "nhslothian.scot", "cavuhb.nhs.wales", "belfasttrust.hscni.net",
+  // Lymphoma family pass: the three lymphoma and blood cancer charities, StatsWales (the Welsh statistics service,
+  // which is not under gov.wales), the NHS Wales Joint Commissioning Committee (which replaced WHSSC and whose own
+  // domain now redirects to a malformed address), and the Right Decision Service, where NHS Greater Glasgow and
+  // Clyde publishes the only document that names Scotland's CAR-T centre.
+  "lymphoma-action.org.uk", "bloodcancer.org.uk", "anthonynolan.org",
+  "stats.gov.wales", "jcc.nhs.wales", "rightdecisions.scot.nhs.uk",
 ];
 
 const hostOk = (url: string) => {

@@ -82,6 +82,8 @@ import prostateGlossary from "../src/data/spikes/prostate-glossary";
 import breastCore from "../src/data/spikes/breast-core";
 import breastTreatment from "../src/data/spikes/breast-treatment";
 import skinTreatment from "../src/data/spikes/skin-treatment";
+import lymphomaGeography from "../src/data/spikes/lymphoma-geography";
+import lymphomaUk from "../src/data/spikes/lymphoma-uk";
 import lymphomaTreatment from "../src/data/spikes/lymphoma-treatment";
 import lymphomaTreatmentBcell from "../src/data/spikes/lymphoma-treatment-bcell";
 import lymphomaTreatmentHodgkin from "../src/data/spikes/lymphoma-treatment-hodgkin";
@@ -89,6 +91,7 @@ import lymphomaTreatmentTcell from "../src/data/spikes/lymphoma-treatment-tcell"
 
 /** File stem -> spike, so the test can compare against `readdirSync("src/data/spikes")`. */
 export const SPIKE_FILES: Record<string, Spike> = {
+  "lymphoma-uk": lymphomaUk, "lymphoma-geography": lymphomaGeography,
   nsclc, prostate, pancreatic, "pancreatic-core": pancreaticCore, "pancreatic-uk": pancreaticUk, "colorectal-uk": colorectalUk, "lung-uk": lungUk, "prostate-evidence": prostateEvidence, glioblastoma, "breast-hr-positive": breastHr, "breast-her2-positive": breastHer2, hcc, cholangiocarcinoma, neuroendocrine, melanoma, "prostate-uk": prostateUk, "breast-uk": breastUk, "skin-uk": skinUk,
   "head-and-neck": headAndNeck, thyroid, colorectal, "colorectal-core": colorectalCore, gastric, esophageal, sclc, mesothelioma, urothelial, rcc, ovarian, endometrial, cervical, aml, "all-leukemia": allLeukemia,
   cll, dlbcl, "multiple-myeloma": multipleMyeloma, "hodgkin-lymphoma": hodgkin, sarcoma, neuroblastoma, "gallbladder-living": gallbladderLiving, "gallbladder-molecular": gallbladderMolecular, "gallbladder-core": gallbladderCore, "gallbladder-uk": gallbladderUk, "gallbladder-evidence": gallbladderEvidence, "gallbladder-treatment": gallbladderTreatment,

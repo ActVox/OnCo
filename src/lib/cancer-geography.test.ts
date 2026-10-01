@@ -5,10 +5,14 @@ import { graph } from "./graph";
 import { GLOBOCAN } from "./globocan";
 import { CANCER_GEOGRAPHIES, SITE_RATES, geographyCancerIds, geographyFor, geographyJson, geographyRefs, geographyRoute, geographyRows, geographyUrls, siteRatesFor, topCountries } from "./cancer-geography";
 import spike from "@/data/spikes/gallbladder-geography";
+import lymphomaGeoSpike from "@/data/spikes/lymphoma-geography";
 import { CancerGeographySection } from "@/components/CancerGeographySection";
 
 /** Public sources only: IARC, the registries and ministries named, and the two literature hosts. */
-const ALLOWED_DOMAINS = ["gco.iarc.who.int", "gco-api.iarc.fr", "doi.org", "europepmc.org", "ncdirindia.org", "supersalud.gob.cl", "ganjoho.jp"];
+const ALLOWED_DOMAINS = ["gco.iarc.who.int", "gco-api.iarc.fr", "doi.org", "europepmc.org", "ncdirindia.org", "supersalud.gob.cl", "ganjoho.jp",
+  // Lymphoma pass: the US registry, the WHO document repository (the essential medicines list), the US drug label
+  // service, UNAIDS and the South African national cancer registry.
+  "seer.cancer.gov", "iris.who.int", "dailymed.nlm.nih.gov", "unaids.org", "nicd.ac.za"];
 const hostOk = (url: string) => { const u = new URL(url); return u.protocol === "https:" && ALLOWED_DOMAINS.some((d) => u.hostname === d || u.hostname.endsWith(`.${d}`)); };
 
 describe("GLOBOCAN per-site rates by sex", () => {
@@ -54,7 +58,7 @@ describe("GLOBOCAN per-site rates by sex", () => {
   it("is reachable only through single-code GLOBOCAN mappings", () => {
     expect(siteRatesFor("cholangiocarcinoma")).toBeUndefined();
     expect(siteRatesFor("head-and-neck")).toBeUndefined();
-    expect(Object.keys(SITE_RATES)).toEqual(["12"]);
+    expect(Object.keys(SITE_RATES)).toEqual(["12", "34"]);
   });
 });
 
@@ -67,6 +71,26 @@ describe("cancer geography layer", () => {
     expect(geographyRoute("gallbladder")).toBe("/cancers/gallbladder/#geography");
     expect(spike.cancerId).toBe("gallbladder");
     expect(spike.entities).toEqual([]);
+  });
+
+  it("registers the lymphoma layer against the non-Hodgkin lymphoma record and the NHL GLOBOCAN site", () => {
+    const geo = geographyFor("non-hodgkin-lymphoma")!;
+    expect(geo.siteCode).toBe(34);
+    expect(geographyCancerIds()).toContain("non-hodgkin-lymphoma");
+    expect(siteRatesFor("non-hodgkin-lymphoma")?.icd).toBe("C82-86+C88");
+    expect(lymphomaGeoSpike.entities).toEqual([]);
+    // The five subtype geographies the layer exists to carry, plus the inversion that is its thesis.
+    const ids = geo.regions.map((r) => r.id);
+    for (const id of ["malaria-belt", "nkt-east-asia-latin-america", "htlv1-belt", "h-pylori-malt", "hiv-lymphoma", "the-inversion"]) expect(ids, id).toContain(id);
+    expect(geo.programmes.map((p) => p.country).sort()).toEqual(["JPN", "KOR", "UGA"]);
+    expect(geo.spotlights.map((s) => s.country).sort()).toEqual(["JPN", "PER", "UGA"]);
+    // The three corrections that would make the page confidently wrong if they were ignored.
+    const json = JSON.stringify(geo);
+    expect(json).toContain("no study has measured");
+    expect(json).toContain("reports no separate survival figure for diffuse large B-cell lymphoma");
+    expect(json).toContain("irrespective of genetic findings");
+    expect(geo.gaps.length).toBeGreaterThan(10);
+    expect(json).not.toMatch(/\u2014/);
   });
 
   it("cites only https URLs on allowed public domains, and dates every source", () => {
