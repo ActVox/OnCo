@@ -1,7 +1,7 @@
 {
- "generatedAt": "2026-09-24",
+ "generatedAt": "2026-10-01",
  "offline": false,
- "requests": 198,
+ "requests": 272,
  "roadmaps": [
   {
    "id": "adc-generations",
@@ -115,7 +115,7 @@
      },
      "registry": {
       "nct": "NCT03734029",
-      "status": "ACTIVE_NOT_RECRUITING",
+      "status": "COMPLETED",
       "phases": [
        "PHASE3"
       ],
@@ -123,8 +123,8 @@
       "enrolment": 557,
       "enrolmentType": "ACTUAL",
       "primaryCompletion": "2022-01-11",
-      "completion": "2026-08-01",
-      "lastUpdate": "2025-10-06"
+      "completion": "2026-05-19",
+      "lastUpdate": "2026-09-28"
      },
      "contradictions": [],
      "explained": [],
@@ -478,7 +478,7 @@
     "checked": 15,
     "contradictions": 0,
     "explained": 2,
-    "papers": 0,
+    "papers": 2,
     "watch": 0,
     "watchPassed": 0
    },
@@ -556,7 +556,22 @@
      "registry": null,
      "contradictions": [],
      "explained": [],
-     "papers": []
+     "papers": [
+      {
+       "pmid": "42774476",
+       "doi": "10.1002/fsn3.72380",
+       "title": "&lt;i&gt;Citrus reticulata&lt;/i&gt; Essential Oil as a Bioactive Food Ingredient: Composition Variability, Extraction, Functional Bioactivities, and Cross-Study Quantitative Analysis.",
+       "journal": "Food Sci Nutr",
+       "date": "2026-09-21"
+      },
+      {
+       "pmid": "42793307",
+       "doi": "10.3390/cimb48090951",
+       "title": "Shared and Disease-Preferential Matrisome Programs in Fibrosing Interstitial Lung Disease: Evidence from Cross-Cohort and Within-Cohort Analysis.",
+       "journal": "Curr Issues Mol Biol",
+       "date": "2026-09-17"
+      }
+     ]
     },
     {
      "id": "destiny-breast06",
@@ -1016,6 +1031,732 @@
    ]
   },
   {
+   "id": "colorectal-roadmap",
+   "name": "Colorectal cancer roadmap: from the adenoma-carcinoma sequence and the first screening trials to total mesorectal excision, oxaliplatin, RAS testing, immunotherapy for mismatch repair-deficient disease, ctDNA-guided treatment and organ preservation",
+   "asOf": "2026-09-24",
+   "since": "2026-09-24",
+   "counts": {
+    "trials": 19,
+    "checked": 17,
+    "contradictions": 4,
+    "explained": 2,
+    "papers": 0,
+    "watch": 12,
+    "watchPassed": 3
+   },
+   "trials": [
+    {
+     "id": "atomic",
+     "name": "ATOMIC (Alliance A021502)",
+     "nct": "NCT02912559",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 712,
+      "enrolledBasis": "registry",
+      "yearReported": 2025
+     },
+     "registry": {
+      "nct": "NCT02912559",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 712,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2025-02-04",
+      "completion": "2026-12-18",
+      "lastUpdate": "2026-08-04"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "azur-1",
+     "name": "AZUR-1",
+     "nct": "NCT05723562",
+     "corpus": {
+      "status": "positive",
+      "phase": "2",
+      "enrolled": 154,
+      "enrolledBasis": "registry",
+      "yearReported": 2026
+     },
+     "registry": {
+      "nct": "NCT05723562",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE2"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 154,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2026-11-02",
+      "completion": "2029-10-11",
+      "lastUpdate": "2026-05-26"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "beacon-crc",
+     "name": "BEACON CRC",
+     "nct": "NCT02928224",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 665,
+      "enrolledBasis": "registry",
+      "yearReported": 2019
+     },
+     "registry": {
+      "nct": "NCT02928224",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 702,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2019-02-11",
+      "completion": "2022-11-10",
+      "lastUpdate": "2023-12-21"
+     },
+     "contradictions": [
+      "enrolment 665 in the corpus, 702 on the registry (actual; 5 percent apart)"
+     ],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "breakwater",
+     "name": "BREAKWATER",
+     "nct": "NCT04607421",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolledBasis": "registry",
+      "yearReported": 2025
+     },
+     "registry": {
+      "nct": "NCT04607421",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 841,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2025-03-01",
+      "completion": "2027-12-28",
+      "lastUpdate": "2026-06-11"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "checkmate-8hw",
+     "name": "CheckMate 8HW",
+     "nct": "NCT04008030",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 839,
+      "enrolledBasis": "registry",
+      "yearReported": 2024
+     },
+     "registry": {
+      "nct": "NCT04008030",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 839,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2024-08-28",
+      "completion": "2027-03-23",
+      "lastUpdate": "2026-08-20"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "circulate-japan",
+     "name": "CIRCULATE-Japan (GALAXY / VEGA / ALTAIR)",
+     "corpus": {
+      "status": "active",
+      "phase": "3",
+      "enrolledBasis": "registry",
+      "yearReported": 2023
+     },
+     "registry": null,
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "codebreak-300",
+     "name": "CodeBreaK 300",
+     "nct": "NCT05198934",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 160,
+      "enrolledBasis": "registry",
+      "yearReported": 2023
+     },
+     "registry": {
+      "nct": "NCT05198934",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 160,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2025-07-16",
+      "completion": "2026-04-14",
+      "lastUpdate": "2026-07-22"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "crystal-fire3",
+     "name": "CRYSTAL & FIRE-3",
+     "nct": "NCT00154102",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 1198,
+      "enrolledBasis": "randomised",
+      "enrolledNote": "Two trials under one record: CRYSTAL (NCT00154102) randomised 1,198 patients, 599 per arm, and FIRE-3 (NCT00433927) treated 592 patients with KRAS exon 2 wild-type tumours.",
+      "yearReported": 2009
+     },
+     "registry": {
+      "nct": "NCT00154102",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 1221,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2006-12",
+      "completion": "2011-03",
+      "lastUpdate": "2017-01-30"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "dynamic",
+     "name": "DYNAMIC",
+     "nct": "ACTRN12615000381583",
+     "corpus": {
+      "status": "positive",
+      "phase": "2",
+      "enrolled": 455,
+      "enrolledBasis": "registry",
+      "yearReported": 2022
+     },
+     "registry": null,
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "fresco-2",
+     "name": "FRESCO-2",
+     "nct": "NCT04322539",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 691,
+      "enrolledBasis": "registry",
+      "yearReported": 2023
+     },
+     "registry": {
+      "nct": "NCT04322539",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 691,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2022-07-29",
+      "completion": "2024-04-24",
+      "lastUpdate": "2025-04-04"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "keynote-177",
+     "name": "KEYNOTE-177",
+     "nct": "NCT02563002",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 307,
+      "enrolledBasis": "registry",
+      "yearReported": 2020
+     },
+     "registry": {
+      "nct": "NCT02563002",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 307,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2021-02-19",
+      "completion": "2023-07-17",
+      "lastUpdate": "2024-10-03"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "mountaineer",
+     "name": "MOUNTAINEER",
+     "nct": "NCT03043313",
+     "corpus": {
+      "status": "completed",
+      "phase": "2",
+      "enrolledBasis": "registry",
+      "yearReported": 2022
+     },
+     "registry": {
+      "nct": "NCT03043313",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE2"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 117,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2022-03-28",
+      "completion": "2023-11-02",
+      "lastUpdate": "2024-11-26"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "niche-2",
+     "name": "NICHE-2",
+     "nct": "NCT03026140",
+     "corpus": {
+      "status": "positive",
+      "phase": "2",
+      "enrolled": 115,
+      "enrolledBasis": "registered",
+      "enrolledNote": "ClinicalTrials.gov lists an estimated 353 participants for the amended NICHE protocol, which is still recruiting to further cohorts; the NEJM 2024 NICHE-2 analysis enrolled 115 patients, 111 of them in the efficacy analysis.",
+      "yearReported": 2022
+     },
+     "registry": {
+      "nct": "NCT03026140",
+      "status": "RECRUITING",
+      "phases": [
+       "PHASE2"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 353,
+      "enrolmentType": "ESTIMATED",
+      "primaryCompletion": "2032-03-01",
+      "completion": "2032-03-01",
+      "lastUpdate": "2026-09-30"
+     },
+     "contradictions": [],
+     "explained": [
+      "enrolment 115 in the corpus (registered), 353 on the registry (estimated; 67 percent apart): ClinicalTrials.gov lists an estimated 353 participants for the amended NICHE protocol, which is still recruiting to further cohorts; the NEJM 2024 NICHE-2 analysis enrolled 115 patients, 111 of them in the efficacy analysis."
+     ],
+     "papers": []
+    },
+    {
+     "id": "nordicc",
+     "name": "NordICC (Nordic-European Initiative on Colorectal Cancer)",
+     "nct": "NCT00883792",
+     "corpus": {
+      "status": "mixed",
+      "phase": "3",
+      "enrolled": 84585,
+      "enrolledBasis": "analysed",
+      "enrolledNote": "ClinicalTrials.gov lists 95,000 participants (actual); the NEJM 2022 analysis covers the 84,585 participants in Poland, Norway and Sweden with follow-up data (28,220 invited, 56,365 usual care).",
+      "yearReported": 2022
+     },
+     "registry": {
+      "nct": "NCT00883792",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 95000,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2026-06",
+      "completion": "2036-07",
+      "lastUpdate": "2017-06-19"
+     },
+     "contradictions": [],
+     "explained": [
+      "enrolment 84585 in the corpus (analysed), 95000 on the registry (actual; 11 percent apart): ClinicalTrials.gov lists 95,000 participants (actual); the NEJM 2022 analysis covers the 84,585 participants in Poland, Norway and Sweden with follow-up data (28,220 invited, 56,365 usual care)."
+     ],
+     "papers": []
+    },
+    {
+     "id": "opra",
+     "name": "OPRA",
+     "nct": "NCT02008656",
+     "corpus": {
+      "status": "positive",
+      "phase": "2",
+      "enrolled": 324,
+      "enrolledBasis": "registry",
+      "yearReported": 2022
+     },
+     "registry": {
+      "nct": "NCT02008656",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE2"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 358,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2026-11",
+      "completion": "2026-11",
+      "lastUpdate": "2026-08-24"
+     },
+     "contradictions": [
+      "enrolment 324 in the corpus, 358 on the registry (actual; 9 percent apart)"
+     ],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "paradigm",
+     "name": "PARADIGM",
+     "nct": "NCT02394795",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 823,
+      "enrolledBasis": "registry",
+      "yearReported": 2022
+     },
+     "registry": {
+      "nct": "NCT02394795",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 823,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2022-01-14",
+      "completion": "2022-01-14",
+      "lastUpdate": "2023-11-01"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "prodige-23",
+     "name": "PRODIGE 23",
+     "nct": "NCT01804790",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 461,
+      "enrolledBasis": "registry",
+      "yearReported": 2021
+     },
+     "registry": {
+      "nct": "NCT01804790",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 461,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2023-07-01",
+      "completion": "2023-07-01",
+      "lastUpdate": "2025-06-12"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "rapido",
+     "name": "RAPIDO",
+     "nct": "NCT01558921",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 920,
+      "enrolledBasis": "registry",
+      "yearReported": 2020
+     },
+     "registry": {
+      "nct": "NCT01558921",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 920,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2020-03-08",
+      "completion": "2026-12-31",
+      "lastUpdate": "2026-05-01"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "sunlight",
+     "name": "SUNLIGHT",
+     "nct": "NCT04737187",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 492,
+      "enrolledBasis": "registry",
+      "yearReported": 2023
+     },
+     "registry": {
+      "nct": "NCT04737187",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 492,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2022-07-19",
+      "completion": "2023-09-12",
+      "lastUpdate": "2024-09-24"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    }
+   ],
+   "watch": [
+    {
+     "item": "NordICC primary completion on the registry (colonoscopy screening, 95,000 participants, actual; active, not recruiting); study completion is listed as July 2036, when the 15-year mortality answer is due",
+     "expected": "2026-06",
+     "source": "https://clinicaltrials.gov/study/NCT00883792",
+     "refs": [
+      "nordicc",
+      "colorectal-screening",
+      "idea-crc-screening-uptake-and-age-extension"
+     ],
+     "passed": true,
+     "contradictions": []
+    },
+    {
+     "item": "COBRA (NRG-GI005) study completion: circulating tumour DNA testing to direct treatment in stage IIA colon cancer (635 participants, actual; active, not recruiting)",
+     "expected": "2026-06-21",
+     "source": "https://clinicaltrials.gov/study/NCT04068103",
+     "refs": [
+      "mrd-testing",
+      "ctdna",
+      "idea-crc-ctdna-de-escalation-beyond-stage-ii"
+     ],
+     "passed": true,
+     "contradictions": []
+    },
+    {
+     "item": "JANUS primary completion: adding irinotecan to FOLFOX after long-course radiotherapy in locally advanced rectal cancer (760 participants, actual; active, not recruiting)",
+     "expected": "2026-09-30",
+     "source": "https://clinicaltrials.gov/study/NCT05610163",
+     "refs": [
+      "rectal-cancer",
+      "irinotecan",
+      "total-neoadjuvant-therapy",
+      "idea-crc-organ-preservation-randomised-in-pmmr-rectal"
+     ],
+     "passed": true,
+     "contradictions": []
+    },
+    {
+     "item": "AZUR-1 primary completion: dostarlimab monotherapy in untreated mismatch repair-deficient locally advanced rectal cancer (154 participants, actual; active, not recruiting)",
+     "expected": "2026-11-02",
+     "source": "https://clinicaltrials.gov/study/NCT05723562",
+     "refs": [
+      "azur-1",
+      "dostarlimab",
+      "organ-preservation",
+      "msi-high-colorectal"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "ATOMIC (Alliance A021502) study completion: adjuvant FOLFOX with or without atezolizumab in stage III mismatch repair-deficient colon cancer (712 participants, actual; active, not recruiting)",
+     "expected": "2026-12-18",
+     "source": "https://clinicaltrials.gov/study/NCT02912559",
+     "refs": [
+      "atomic",
+      "atezolizumab",
+      "msi-high-colorectal"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "Botensilimab and balstilimab in colorectal cancer, primary completion (234 participants, actual; active, not recruiting): the first randomised read on Fc-enhanced CTLA-4 blockade in microsatellite stable disease",
+     "expected": "2027-09",
+     "source": "https://clinicaltrials.gov/study/NCT05608044",
+     "refs": [
+      "botensilimab",
+      "balstilimab",
+      "idea-immunotherapy-mss-crc",
+      "idea-crc-mss-immunotherapy-by-biomarker-not-by-line"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "MOUNTAINEER-03 primary completion: tucatinib with trastuzumab and mFOLFOX6 against standard of care in first-line HER2-positive metastatic colorectal cancer (400 estimated participants; recruiting)",
+     "expected": "2027-12-31",
+     "source": "https://clinicaltrials.gov/study/NCT05253651",
+     "refs": [
+      "mountaineer",
+      "tucatinib",
+      "trastuzumab",
+      "her2-amplified-colorectal"
+     ],
+     "passed": false,
+     "contradictions": [
+      "MOUNTAINEER: watch item expects 2027-12-31; the registry now lists primary completion 2022-03-28 and completion 2023-11-02"
+     ]
+    },
+    {
+     "item": "BREAKWATER study completion: encorafenib and cetuximab with or without chemotherapy in previously untreated BRAF V600E metastatic disease (841 participants, actual; active, not recruiting)",
+     "expected": "2027-12-28",
+     "source": "https://clinicaltrials.gov/study/NCT04607421",
+     "refs": [
+      "breakwater",
+      "encorafenib",
+      "cetuximab",
+      "braf-v600e-colorectal"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "CIRCULATE-US (NRG-GI008) primary completion: adjuvant chemotherapy directed by residual disease on circulating tumour DNA (1,912 estimated participants; recruiting)",
+     "expected": "2029-03-10",
+     "source": "https://clinicaltrials.gov/study/NCT05174169",
+     "refs": [
+      "mrd-testing",
+      "signatera",
+      "ctdna",
+      "idea-crc-ctdna-de-escalation-beyond-stage-ii"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "Perioperative dostarlimab in untreated T4N0 or stage III mismatch repair-deficient resectable colon cancer, primary completion (892 estimated participants; phase 3; recruiting)",
+     "expected": "2029-03-19",
+     "source": "https://clinicaltrials.gov/study/NCT05855200",
+     "refs": [
+      "dostarlimab",
+      "niche-2",
+      "msi-high-colorectal",
+      "organ-preservation"
+     ],
+     "passed": false,
+     "contradictions": [
+      "NICHE-2: watch item expects 2029-03-19; the registry now lists primary completion 2032-03-01 and completion 2032-03-01"
+     ]
+    },
+    {
+     "item": "CIRCULATE (PRODIGE 70) primary completion: circulating tumour DNA-based adjuvant decision in stage II colon cancer (1,980 estimated participants; recruiting)",
+     "expected": "2032-03",
+     "source": "https://clinicaltrials.gov/study/NCT04120701",
+     "refs": [
+      "mrd-testing",
+      "ctdna",
+      "unicancer",
+      "idea-crc-ctdna-de-escalation-beyond-stage-ii"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "NICHE platform primary completion: neoadjuvant checkpoint inhibition and novel combinations in early-stage colon cancer (353 estimated participants; recruiting)",
+     "expected": "2032-03-01",
+     "source": "https://clinicaltrials.gov/study/NCT03026140",
+     "refs": [
+      "niche-2",
+      "nivolumab",
+      "ipilimumab",
+      "nki",
+      "myriam-chalabi"
+     ],
+     "passed": false,
+     "contradictions": []
+    }
+   ],
+   "contradictions": [
+    {
+     "ref": "beacon-crc",
+     "name": "BEACON CRC",
+     "text": "enrolment 665 in the corpus, 702 on the registry (actual; 5 percent apart)"
+    },
+    {
+     "ref": "opra",
+     "name": "OPRA",
+     "text": "enrolment 324 in the corpus, 358 on the registry (actual; 9 percent apart)"
+    },
+    {
+     "ref": "mountaineer",
+     "name": "MOUNTAINEER-03 primary completion: tucatinib with trastuzumab and mFOLFOX6 against standard of care in first-line HER2-positive metastatic colorectal cancer (400 estimated participants; recruiting)",
+     "text": "MOUNTAINEER: watch item expects 2027-12-31; the registry now lists primary completion 2022-03-28 and completion 2023-11-02"
+    },
+    {
+     "ref": "dostarlimab",
+     "name": "Perioperative dostarlimab in untreated T4N0 or stage III mismatch repair-deficient resectable colon cancer, primary completion (892 estimated participants; phase 3; recruiting)",
+     "text": "NICHE-2: watch item expects 2029-03-19; the registry now lists primary completion 2032-03-01 and completion 2032-03-01"
+    }
+   ],
+   "explained": [
+    {
+     "ref": "niche-2",
+     "name": "NICHE-2",
+     "text": "enrolment 115 in the corpus (registered), 353 on the registry (estimated; 67 percent apart): ClinicalTrials.gov lists an estimated 353 participants for the amended NICHE protocol, which is still recruiting to further cohorts; the NEJM 2024 NICHE-2 analysis enrolled 115 patients, 111 of them in the efficacy analysis."
+    },
+    {
+     "ref": "nordicc",
+     "name": "NordICC (Nordic-European Initiative on Colorectal Cancer)",
+     "text": "enrolment 84585 in the corpus (analysed), 95000 on the registry (actual; 11 percent apart): ClinicalTrials.gov lists 95,000 participants (actual); the NEJM 2022 analysis covers the 84,585 participants in Poland, Norway and Sweden with follow-up data (28,220 invited, 56,365 usual care)."
+    }
+   ]
+  },
+  {
    "id": "ctdna-tests",
    "name": "ctDNA tests roadmap: from a curiosity in plasma to blood tests that decide treatment",
    "asOf": "2026-09-21",
@@ -1025,7 +1766,7 @@
     "checked": 10,
     "contradictions": 0,
     "explained": 0,
-    "papers": 1,
+    "papers": 2,
     "watch": 11,
     "watchPassed": 3
    },
@@ -1159,7 +1900,7 @@
       "enrolmentType": "ACTUAL",
       "primaryCompletion": "2025-06-15",
       "completion": "2026-10-01",
-      "lastUpdate": "2026-03-27"
+      "lastUpdate": "2026-09-28"
      },
      "contradictions": [],
      "explained": [],
@@ -1200,7 +1941,8 @@
       "status": "completed",
       "phase": "3",
       "enrolled": 30,
-      "enrolledBasis": "registry"
+      "enrolledBasis": "registry",
+      "yearReported": 2024
      },
      "registry": {
       "nct": "NCT04642469",
@@ -1246,7 +1988,15 @@
      },
      "contradictions": [],
      "explained": [],
-     "papers": []
+     "papers": [
+      {
+       "pmid": "42773209",
+       "doi": "10.1038/s41591-026-04652-8",
+       "title": "Performance of a multi-cancer early detection test in the randomized controlled NHS-Galleri trial.",
+       "journal": "Nat Med",
+       "date": "2026-09-22"
+      }
+     ]
     },
     {
      "id": "pathfinder-2",
@@ -1278,7 +2028,7 @@
       {
        "pmid": "42773207",
        "doi": "10.1038/s41591-026-04618-w",
-       "title": "Performance and safety of a multi-cancer early detection test: the PATHFINDER 2 study. ",
+       "title": "Performance and safety of a multi-cancer early detection test: the PATHFINDER 2 study.",
        "journal": "Nat Med",
        "date": "2026-09-22"
       }
@@ -1473,7 +2223,7 @@
     "checked": 4,
     "contradictions": 0,
     "explained": 0,
-    "papers": 0,
+    "papers": 1,
     "watch": 0,
     "watchPassed": 0
    },
@@ -1560,7 +2310,15 @@
      },
      "contradictions": [],
      "explained": [],
-     "papers": []
+     "papers": [
+      {
+       "pmid": "42789827",
+       "doi": "10.1200/jco-26-02343",
+       "title": "Erratum: Five-Year Outcomes of Short-Term Radiotherapy Plus Chemotherapy Versus Long-Term Chemoradiotherapy for Locally Advanced Rectal Cancer: Updated Results of the STELLAR Trial.",
+       "journal": "J Clin Oncol",
+       "date": "2026-09-25"
+      }
+     ]
     },
     {
      "id": "sunrise-1",
@@ -1583,7 +2341,7 @@
       "enrolmentType": "ACTUAL",
       "primaryCompletion": "2025-07-03",
       "completion": "2027-09-30",
-      "lastUpdate": "2026-08-28"
+      "lastUpdate": "2026-09-25"
      },
      "contradictions": [],
      "explained": [],
@@ -1661,7 +2419,7 @@
       "enrolmentType": "ACTUAL",
       "primaryCompletion": "2025-06-15",
       "completion": "2026-10-01",
-      "lastUpdate": "2026-03-27"
+      "lastUpdate": "2026-09-28"
      },
      "contradictions": [],
      "explained": [],
@@ -2129,7 +2887,7 @@
     "checked": 2,
     "contradictions": 0,
     "explained": 0,
-    "papers": 1,
+    "papers": 2,
     "watch": 0,
     "watchPassed": 0
    },
@@ -2161,7 +2919,15 @@
      },
      "contradictions": [],
      "explained": [],
-     "papers": []
+     "papers": [
+      {
+       "pmid": "42773209",
+       "doi": "10.1038/s41591-026-04652-8",
+       "title": "Performance of a multi-cancer early detection test in the randomized controlled NHS-Galleri trial.",
+       "journal": "Nat Med",
+       "date": "2026-09-22"
+      }
+     ]
     },
     {
      "id": "pathfinder-2",
@@ -2193,7 +2959,7 @@
       {
        "pmid": "42773207",
        "doi": "10.1038/s41591-026-04618-w",
-       "title": "Performance and safety of a multi-cancer early detection test: the PATHFINDER 2 study. ",
+       "title": "Performance and safety of a multi-cancer early detection test: the PATHFINDER 2 study.",
        "journal": "Nat Med",
        "date": "2026-09-22"
       }
@@ -2435,6 +3201,589 @@
      "text": "enrolment 112 in the corpus (treated), 263 on the registry (estimated; 57 percent apart): ClinicalTrials.gov lists an estimated 263 participants for the phase 1/2 study; 112 is the FDA efficacy population at 600 mg quoted in the approval coverage, while the JCO 2025 phase 2 paper reports 92 patients treated between January 2023 and May 2024."
     }
    ]
+  },
+  {
+   "id": "gallbladder-cancer-roadmap",
+   "name": "Gallbladder cancer roadmap: from a chance finding at gallstone surgery to a disease with its own trials",
+   "asOf": "2026-09-24",
+   "since": "2026-09-24",
+   "counts": {
+    "trials": 16,
+    "checked": 15,
+    "contradictions": 3,
+    "explained": 0,
+    "papers": 0,
+    "watch": 10,
+    "watchPassed": 3
+   },
+   "trials": [
+    {
+     "id": "abc-02",
+     "name": "ABC-02",
+     "nct": "NCT00262769",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 410,
+      "enrolledBasis": "registry",
+      "yearReported": 2010
+     },
+     "registry": {
+      "nct": "NCT00262769",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 324,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2008-08",
+      "lastUpdate": "2012-07-17"
+     },
+     "contradictions": [
+      "enrolment 410 in the corpus, 324 on the registry (actual; 27 percent apart)"
+     ],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "abc-06",
+     "name": "ABC-06",
+     "nct": "NCT01926236",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 162,
+      "enrolledBasis": "registry",
+      "yearReported": 2019
+     },
+     "registry": {
+      "nct": "NCT01926236",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 162,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2018-01-05",
+      "completion": "2019-01",
+      "lastUpdate": "2020-01-28"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "acticca-1",
+     "name": "ACTICCA-1",
+     "nct": "NCT02170090",
+     "corpus": {
+      "status": "active",
+      "phase": "3",
+      "enrolled": 789,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT02170090",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 789,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2025-12",
+      "completion": "2025-12",
+      "lastUpdate": "2025-03-30"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "bilcap",
+     "name": "BILCAP",
+     "nct": "ISRCTN72785446",
+     "corpus": {
+      "status": "mixed",
+      "phase": "3",
+      "enrolled": 447,
+      "enrolledBasis": "registry",
+      "yearReported": 2017
+     },
+     "registry": null,
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "destiny-pantumor02",
+     "name": "DESTINY-PanTumor02",
+     "nct": "NCT04482309",
+     "corpus": {
+      "status": "positive",
+      "phase": "2",
+      "enrolled": 267,
+      "enrolledBasis": "registry",
+      "yearReported": 2023
+     },
+     "registry": {
+      "nct": "NCT04482309",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE2"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 477,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2027-03-23",
+      "completion": "2027-03-23",
+      "lastUpdate": "2026-07-10"
+     },
+     "contradictions": [
+      "enrolment 267 in the corpus, 477 on the registry (actual; 44 percent apart)"
+     ],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "gain-igbc",
+     "name": "GAIN (AIO/CALGP/ACO)",
+     "nct": "NCT03673072",
+     "corpus": {
+      "status": "completed",
+      "phase": "3",
+      "enrolled": 68,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT03673072",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 68,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2024-10-10",
+      "completion": "2024-10-10",
+      "lastUpdate": "2024-11-12"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "herizon-btc-01",
+     "name": "HERIZON-BTC-01",
+     "nct": "NCT04466891",
+     "corpus": {
+      "status": "positive",
+      "phase": "2",
+      "enrolled": 87,
+      "enrolledBasis": "registry",
+      "yearReported": 2023
+     },
+     "registry": {
+      "nct": "NCT04466891",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE2"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 87,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2023-07-28",
+      "completion": "2024-07-11",
+      "lastUpdate": "2025-09-15"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "herizon-btc-302",
+     "name": "HERIZON-BTC-302",
+     "nct": "NCT06282575",
+     "corpus": {
+      "status": "recruiting",
+      "phase": "3",
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT06282575",
+      "status": "RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 286,
+      "enrolmentType": "ESTIMATED",
+      "primaryCompletion": "2028-12-01",
+      "completion": "2030-04-01",
+      "lastUpdate": "2026-09-14"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "keynote-966",
+     "name": "KEYNOTE-966",
+     "nct": "NCT04003636",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 1069,
+      "enrolledBasis": "registry",
+      "yearReported": 2023
+     },
+     "registry": {
+      "nct": "NCT04003636",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 1069,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2022-12-15",
+      "completion": "2025-04-01",
+      "lastUpdate": "2026-03-24"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "naliricc",
+     "name": "NALIRICC (AIO)",
+     "nct": "NCT03043547",
+     "corpus": {
+      "status": "negative",
+      "phase": "2",
+      "enrolled": 100,
+      "enrolledBasis": "registry",
+      "yearReported": 2024
+     },
+     "registry": {
+      "nct": "NCT03043547",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE2"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 100,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2021-12-08",
+      "completion": "2022-03-08",
+      "lastUpdate": "2022-05-18"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "nifty",
+     "name": "NIFTY",
+     "nct": "NCT03524508",
+     "corpus": {
+      "status": "positive",
+      "phase": "2",
+      "enrolled": 178,
+      "enrolledBasis": "registry",
+      "yearReported": 2021
+     },
+     "registry": {
+      "nct": "NCT03524508",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE2"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 178,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2020-09-30",
+      "completion": "2021-12-31",
+      "lastUpdate": "2022-08-24"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "opt-in",
+     "name": "OPT-IN (EA2197)",
+     "nct": "NCT04559139",
+     "corpus": {
+      "status": "active",
+      "phase": "2/3",
+      "enrolled": 186,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT04559139",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE2",
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 186,
+      "enrolmentType": "ESTIMATED",
+      "primaryCompletion": "2028-07-01",
+      "completion": "2029-06-30",
+      "lastUpdate": "2026-09-14"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "polcagb",
+     "name": "POLCAGB",
+     "nct": "NCT02867865",
+     "corpus": {
+      "status": "active",
+      "phase": "2/3",
+      "enrolled": 124,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT02867865",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE2",
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 124,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2025-09-10",
+      "completion": "2027-09-10",
+      "lastUpdate": "2025-03-13"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "nct06109779",
+     "name": "Rilvegostomig + Chemotherapy as Adjuvant Therapy for Biliary Tract Cancer After Resection (ARTEMIDE-Biliary01)",
+     "nct": "NCT06109779",
+     "corpus": {
+      "status": "active",
+      "phase": "3",
+      "enrolled": 760,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT06109779",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 760,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2029-01-02",
+      "completion": "2030-05-03",
+      "lastUpdate": "2026-07-10"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "swog-s0809",
+     "name": "SWOG S0809",
+     "nct": "NCT00789958",
+     "corpus": {
+      "status": "completed",
+      "phase": "2",
+      "enrolled": 105,
+      "enrolledBasis": "registry",
+      "yearReported": 2015
+     },
+     "registry": {
+      "nct": "NCT00789958",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE2"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 105,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2014-12",
+      "completion": "2017-12",
+      "lastUpdate": "2018-04-09"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "topaz-1",
+     "name": "TOPAZ-1",
+     "nct": "NCT03875235",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 685,
+      "enrolledBasis": "registry",
+      "yearReported": 2022
+     },
+     "registry": {
+      "nct": "NCT03875235",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 810,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2021-08-11",
+      "completion": "2027-05-16",
+      "lastUpdate": "2026-08-26"
+     },
+     "contradictions": [
+      "enrolment 685 in the corpus, 810 on the registry (actual; 15 percent apart)"
+     ],
+     "explained": [],
+     "papers": []
+    }
+   ],
+   "watch": [
+    {
+     "item": "ACTICCA-1 primary completion: adjuvant gemcitabine-cisplatin vs capecitabine after resection of cholangiocarcinoma and muscle-invasive gallbladder cancer (789 patients; status active, not recruiting)",
+     "expected": "2025-12",
+     "source": "https://clinicaltrials.gov/study/NCT02170090",
+     "refs": [
+      "acticca-1",
+      "bilcap",
+      "capecitabine",
+      "gemcitabine-cisplatin"
+     ],
+     "passed": true,
+     "contradictions": []
+    },
+    {
+     "item": "GAIN: primary publication of the closed German trial of neoadjuvant gemcitabine-cisplatin before re-resection of incidental gallbladder cancer (completed 10 October 2024 with 68 participants)",
+     "expected": "2024-10-10",
+     "source": "https://clinicaltrials.gov/study/NCT03673072",
+     "refs": [
+      "gain-igbc",
+      "incidental-gallbladder-cancer"
+     ],
+     "passed": true,
+     "contradictions": []
+    },
+    {
+     "item": "POLCAGB primary completion: neoadjuvant chemoradiation vs chemotherapy in locally advanced gallbladder cancer (124 participants; study completion listed as 10 September 2027)",
+     "expected": "2025-09-10",
+     "source": "https://clinicaltrials.gov/study/NCT02867865",
+     "refs": [
+      "polcagb",
+      "chemoradiation"
+     ],
+     "passed": true,
+     "contradictions": []
+    },
+    {
+     "item": "TOPAZ-1 study completion on the registry (durvalumab plus gemcitabine-cisplatin, first line)",
+     "expected": "2027-05-16",
+     "source": "https://clinicaltrials.gov/study/NCT03875235",
+     "refs": [
+      "topaz-1",
+      "durvalumab"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "DESTINY-PanTumor02 study completion (trastuzumab deruxtecan in HER2-expressing tumours including biliary)",
+     "expected": "2027-03-23",
+     "source": "https://clinicaltrials.gov/study/NCT04482309",
+     "refs": [
+      "destiny-pantumor02",
+      "trastuzumab-deruxtecan"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "OPT-IN (EA2197) primary completion: perioperative vs adjuvant chemotherapy for incidental gallbladder cancer (186 estimated participants)",
+     "expected": "2028-07-01",
+     "source": "https://clinicaltrials.gov/study/NCT04559139",
+     "refs": [
+      "opt-in",
+      "incidental-gallbladder-cancer"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "HERIZON-BTC-302 primary completion: first-line zanidatamab with standard of care in HER2-positive biliary tract cancer (286 estimated participants)",
+     "expected": "2028-12-01",
+     "source": "https://clinicaltrials.gov/study/NCT06282575",
+     "refs": [
+      "herizon-btc-302",
+      "zanidatamab",
+      "her2"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "ARTEMIDE-Biliary01 primary completion: adjuvant rilvegostomig plus chemotherapy after resection of biliary tract cancer (760 participants)",
+     "expected": "2029-01-02",
+     "source": "https://clinicaltrials.gov/study/NCT06109779",
+     "refs": [
+      "nct06109779",
+      "rilvegostomig"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "Chile: a redesign or formal evaluation of the GES preventive cholecystectomy programme, as its 2024 evaluation recommends; no date in the sources read",
+     "source": "https://europepmc.org/article/MED/40052976",
+     "refs": [
+      "prophylactic-cholecystectomy"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "A trial that acts on a positive residual disease blood test after biliary resection; none found on ClinicalTrials.gov or Europe PMC on 24 September 2026",
+     "source": "https://europepmc.org/article/MED/42583118",
+     "refs": [
+      "mrd-testing",
+      "idea-gbc-ctdna-residual-disease-guided-adjuvant-trial"
+     ],
+     "passed": false,
+     "contradictions": []
+    }
+   ],
+   "contradictions": [
+    {
+     "ref": "abc-02",
+     "name": "ABC-02",
+     "text": "enrolment 410 in the corpus, 324 on the registry (actual; 27 percent apart)"
+    },
+    {
+     "ref": "destiny-pantumor02",
+     "name": "DESTINY-PanTumor02",
+     "text": "enrolment 267 in the corpus, 477 on the registry (actual; 44 percent apart)"
+    },
+    {
+     "ref": "topaz-1",
+     "name": "TOPAZ-1",
+     "text": "enrolment 685 in the corpus, 810 on the registry (actual; 15 percent apart)"
+    }
+   ],
+   "explained": []
   },
   {
    "id": "global-access-roadmap",
@@ -2807,7 +4156,7 @@
     "checked": 32,
     "contradictions": 0,
     "explained": 5,
-    "papers": 0,
+    "papers": 2,
     "watch": 0,
     "watchPassed": 0
    },
@@ -2866,7 +4215,15 @@
      },
      "contradictions": [],
      "explained": [],
-     "papers": []
+     "papers": [
+      {
+       "pmid": "42791604",
+       "doi": "10.1002/cncr.70615",
+       "title": "External validation of the NADIR model for early prostate-specific antigen response prediction in enzalutamide-treated metastatic hormone-sensitive prostate cancer: An analysis of the ARCHES trial.",
+       "journal": "Cancer",
+       "date": "2026-10-01"
+      }
+     ]
     },
     {
      "id": "cambria",
@@ -3204,7 +4561,7 @@
       "enrolmentType": "ACTUAL",
       "primaryCompletion": "2021-10-08",
       "completion": "2027-12-31",
-      "lastUpdate": "2026-09-21"
+      "lastUpdate": "2026-09-25"
      },
      "contradictions": [],
      "explained": [
@@ -3632,7 +4989,15 @@
      },
      "contradictions": [],
      "explained": [],
-     "papers": []
+     "papers": [
+      {
+       "pmid": "42775824",
+       "doi": "10.2340/1651-226x.2026.46486",
+       "title": "Exceptional response to alpelisib in a heavily pretreated patient with metastatic breast cancer carrying a PIK3CA mutation outside SOLAR-1 eligible mutations: a case report.",
+       "journal": "Acta Oncol",
+       "date": "2026-09-23"
+      }
+     ]
     },
     {
      "id": "stampede",
@@ -3686,7 +5051,7 @@
       "enrolmentType": "ACTUAL",
       "primaryCompletion": "2022-10-03",
       "completion": "2027-06-30",
-      "lastUpdate": "2026-09-08"
+      "lastUpdate": "2026-09-29"
      },
      "contradictions": [],
      "explained": [
@@ -3901,6 +5266,332 @@
    },
    "trials": [],
    "watch": [],
+   "contradictions": [],
+   "explained": []
+  },
+  {
+   "id": "lung-cancer-evidence-roadmap",
+   "name": "Lung cancer roadmap: from Doll and Hill and the naming of tobacco, through the cytotoxic plateau, computed tomography screening, EGFR and ALK, immunotherapy by PD-L1, the perioperative trials and PACIFIC, to DLL3 in small-cell disease and a 2032 registry watch",
+   "asOf": "2026-09-25",
+   "since": "2026-09-25",
+   "counts": {
+    "trials": 7,
+    "checked": 7,
+    "contradictions": 0,
+    "explained": 0,
+    "papers": 0,
+    "watch": 10,
+    "watchPassed": 0
+   },
+   "trials": [
+    {
+     "id": "adriatic",
+     "name": "ADRIATIC",
+     "nct": "NCT03703297",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 730,
+      "enrolledBasis": "registry",
+      "yearReported": 2024
+     },
+     "registry": {
+      "nct": "NCT03703297",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 730,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2024-01-15",
+      "completion": "2026-10-23",
+      "lastUpdate": "2025-11-21"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "alina",
+     "name": "ALINA",
+     "nct": "NCT03456076",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 257,
+      "enrolledBasis": "registry",
+      "yearReported": 2023
+     },
+     "registry": {
+      "nct": "NCT03456076",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 257,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2023-06-26",
+      "completion": "2031-11-19",
+      "lastUpdate": "2026-07-15"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "crown",
+     "name": "CROWN",
+     "nct": "NCT03052608",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 296,
+      "enrolledBasis": "registry",
+      "yearReported": 2020
+     },
+     "registry": {
+      "nct": "NCT03052608",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 296,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2020-03-20",
+      "completion": "2028-12-31",
+      "lastUpdate": "2025-11-25"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "dellphi-304",
+     "name": "DeLLphi-304",
+     "nct": "NCT05740566",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 509,
+      "enrolledBasis": "registry",
+      "yearReported": 2025
+     },
+     "registry": {
+      "nct": "NCT05740566",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 509,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2025-01-29",
+      "completion": "2028-03-26",
+      "lastUpdate": "2026-01-05"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "flaura2",
+     "name": "FLAURA2",
+     "nct": "NCT04035486",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 587,
+      "enrolledBasis": "registry",
+      "yearReported": 2023
+     },
+     "registry": {
+      "nct": "NCT04035486",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 587,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2023-04-03",
+      "completion": "2027-09-30",
+      "lastUpdate": "2026-09-03"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "laura",
+     "name": "LAURA",
+     "nct": "NCT03521154",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 216,
+      "enrolledBasis": "registry",
+      "yearReported": 2024
+     },
+     "registry": {
+      "nct": "NCT03521154",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 216,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2024-01-05",
+      "completion": "2027-10-29",
+      "lastUpdate": "2026-08-04"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "mariposa",
+     "name": "MARIPOSA",
+     "nct": "NCT04487080",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 1074,
+      "enrolledBasis": "registry",
+      "yearReported": 2023
+     },
+     "registry": {
+      "nct": "NCT04487080",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 1074,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2023-08-11",
+      "completion": "2028-02-16",
+      "lastUpdate": "2026-09-28"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    }
+   ],
+   "watch": [
+    {
+     "item": "ADRIATIC: final analysis of durvalumab, and the unblinding of the durvalumab plus tremelimumab arm, in limited-stage small-cell lung cancer",
+     "expected": "Study completion 23 October 2026 (estimated, ClinicalTrials.gov NCT03703297)",
+     "source": "https://clinicaltrials.gov/study/NCT03703297",
+     "refs": [
+      "paper-adriatic-nejm-2024",
+      "adriatic"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "IMpower010: final overall survival for adjuvant atezolizumab after chemotherapy in resected disease",
+     "expected": "Study completion 31 August 2027 (estimated, ClinicalTrials.gov NCT02486718)",
+     "source": "https://clinicaltrials.gov/study/NCT02486718",
+     "refs": [
+      "paper-felip-impower010-adjuvant-atezolizumab-lancet-2021"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "FLAURA2: overall survival for osimertinib with chemotherapy against osimertinib alone",
+     "expected": "Study completion 30 September 2027 (estimated, ClinicalTrials.gov NCT04035486)",
+     "source": "https://clinicaltrials.gov/study/NCT04035486",
+     "refs": [
+      "paper-planchard-flaura2-osimertinib-chemotherapy-nejm-2023",
+      "flaura2"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "LAURA: overall survival for osimertinib after chemoradiotherapy in stage III EGFR-mutated disease",
+     "expected": "Study completion 29 October 2027 (estimated, ClinicalTrials.gov NCT03521154)",
+     "source": "https://clinicaltrials.gov/study/NCT03521154",
+     "refs": [
+      "paper-lu-laura-osimertinib-stage-iii-nejm-2024",
+      "laura"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "MARIPOSA: final overall survival for amivantamab plus lazertinib against osimertinib in first line",
+     "expected": "Study completion 16 February 2028 (estimated, ClinicalTrials.gov NCT04487080)",
+     "source": "https://clinicaltrials.gov/study/NCT04487080",
+     "refs": [
+      "paper-mariposa-nejm-2024",
+      "mariposa"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "DeLLphi-304: final analysis of tarlatamab against chemotherapy in relapsed small-cell lung cancer",
+     "expected": "Study completion 26 March 2028 (estimated, ClinicalTrials.gov NCT05740566)",
+     "source": "https://clinicaltrials.gov/study/NCT05740566",
+     "refs": [
+      "paper-tarlatamab-sclc-n-engl-j-med-2025",
+      "paper-dellphi-301-nejm-2023",
+      "dellphi-304"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "AEGEAN: final overall survival for perioperative durvalumab in resectable disease",
+     "expected": "Study completion 11 September 2028 (estimated, ClinicalTrials.gov NCT03800134)",
+     "source": "https://clinicaltrials.gov/study/NCT03800134",
+     "refs": [
+      "paper-heymach-aegean-perioperative-durvalumab-nejm-2023"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "CROWN: final analysis of first-line lorlatinib against crizotinib, including long-term intracranial control",
+     "expected": "Study completion 31 December 2028 (estimated, ClinicalTrials.gov NCT03052608)",
+     "source": "https://clinicaltrials.gov/study/NCT03052608",
+     "refs": [
+      "paper-shaw-crown-lorlatinib-crizotinib-nejm-2020",
+      "crown"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "ALINA: overall survival for adjuvant alectinib against chemotherapy in resected ALK-positive disease, the longest-dated of the practice-changing perioperative trials",
+     "expected": "Study completion 19 November 2031 (estimated, ClinicalTrials.gov NCT03456076)",
+     "source": "https://clinicaltrials.gov/study/NCT03456076",
+     "refs": [
+      "paper-wu-alina-adjuvant-alectinib-nejm-2024",
+      "alina"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "TRACERx: the full evolutionary and ctDNA dataset on 814 patients, the deepest longitudinal study of lung cancer evolution",
+     "expected": "Study completion November 2035 (estimated, ClinicalTrials.gov NCT01888601)",
+     "source": "https://clinicaltrials.gov/study/NCT01888601",
+     "refs": [
+      "paper-tracerx-100-nejm-2017",
+      "paper-abbosh-phylogenetic-ctdna-lung-cancer-nature-2017"
+     ],
+     "passed": false,
+     "contradictions": []
+    }
+   ],
    "contradictions": [],
    "explained": []
   },
@@ -4302,7 +5993,7 @@
       "enrolmentType": "ESTIMATED",
       "primaryCompletion": "2026-12",
       "completion": "2027-12",
-      "lastUpdate": "2025-02-05"
+      "lastUpdate": "2026-09-30"
      },
      "contradictions": [],
      "explained": [
@@ -4544,6 +6235,630 @@
    ]
   },
   {
+   "id": "pancreatic-roadmap",
+   "name": "Pancreatic cancer roadmap: from Whipple's operation to gemcitabine, FOLFIRINOX, adjuvant chemotherapy, PARP inhibition, KRAS inhibition, vaccines and the surveillance question",
+   "asOf": "2026-09-24",
+   "since": "2026-09-24",
+   "counts": {
+    "trials": 18,
+    "checked": 14,
+    "contradictions": 1,
+    "explained": 1,
+    "papers": 0,
+    "watch": 11,
+    "watchPassed": 1
+   },
+   "trials": [
+    {
+     "id": "nct05968326",
+     "name": "A Study of the Efficacy and Safety of Adjuvant Autogene Cevumeran Plus Atezolizumab and mFOLFIRINOX Versus mFOLFIRINOX Alone in Participants With Resected PDAC",
+     "nct": "NCT05968326",
+     "corpus": {
+      "status": "active",
+      "phase": "2",
+      "enrolled": 260,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT05968326",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE2"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 260,
+      "enrolmentType": "ESTIMATED",
+      "primaryCompletion": "2031-01-01",
+      "completion": "2031-01-01",
+      "lastUpdate": "2026-09-09"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "nct07522073",
+     "name": "A Study to Evaluate Chemotherapy With or Without INCB161734 in Previously Untreated, KRAS G12D-Mutated Metastatic Pancreatic Ductal Adenocarcinoma",
+     "nct": "NCT07522073",
+     "corpus": {
+      "status": "recruiting",
+      "phase": "3",
+      "enrolled": 588,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT07522073",
+      "status": "RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 588,
+      "enrolmentType": "ESTIMATED",
+      "primaryCompletion": "2028-09-15",
+      "completion": "2029-03-19",
+      "lastUpdate": "2026-09-22"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "amplify-7p",
+     "name": "AMPLIFY-7P",
+     "nct": "NCT05726864",
+     "corpus": {
+      "status": "negative",
+      "phase": "1/2",
+      "enrolled": 158,
+      "enrolledBasis": "registry",
+      "yearReported": 2026
+     },
+     "registry": {
+      "nct": "NCT05726864",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE1",
+       "PHASE2"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 158,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2026-04-20",
+      "completion": "2026-11",
+      "lastUpdate": "2026-07-10"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "conko-001",
+     "name": "CONKO-001",
+     "nct": "ISRCTN34802808",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 368,
+      "enrolledBasis": "randomised",
+      "enrolledNote": "CONKO-001 has no ClinicalTrials.gov record; the figure is the 368 randomised in the JAMA report (354 in the intention-to-treat analysis); the trial is registered as ISRCTN34802808.",
+      "yearReported": 2013
+     },
+     "registry": null,
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "espac-4",
+     "name": "ESPAC-4",
+     "nct": "ISRCTN96397434",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 732,
+      "enrolledBasis": "registered",
+      "enrolledNote": "ESPAC-4 has no ClinicalTrials.gov record; the figure is the 732 enrolled in the Lancet report, of whom 730 were analysed (366 gemcitabine, 364 gemcitabine plus capecitabine); the trial is registered as ISRCTN96397434.",
+      "yearReported": 2017
+     },
+     "registry": null,
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "espac-5",
+     "name": "ESPAC-5",
+     "nct": "ISRCTN89500674",
+     "corpus": {
+      "status": "positive",
+      "phase": "2",
+      "enrolled": 90,
+      "enrolledBasis": "randomised",
+      "enrolledNote": "ESPAC-5 has no ClinicalTrials.gov record and the Lancet Gastroenterology and Hepatology report does not print a registry id; the figure is the 90 patients randomised between 2014 and 2018 (86 analysed).",
+      "yearReported": 2023
+     },
+     "registry": null,
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "lap07",
+     "name": "LAP07",
+     "nct": "NCT00634725",
+     "corpus": {
+      "status": "negative",
+      "phase": "3",
+      "enrolled": 449,
+      "enrolledBasis": "registered",
+      "enrolledNote": "The registry gives an estimated 820; the JAMA report enrolled 449 patients, 442 of whom had the first randomisation and 269 the second.",
+      "yearReported": 2016
+     },
+     "registry": {
+      "nct": "NCT00634725",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 820,
+      "enrolmentType": "ESTIMATED",
+      "primaryCompletion": "2013-02",
+      "completion": "2014-09",
+      "lastUpdate": "2015-12-11"
+     },
+     "contradictions": [],
+     "explained": [
+      "enrolment 449 in the corpus (registered), 820 on the registry (estimated; 45 percent apart): The registry gives an estimated 820; the JAMA report enrolled 449 patients, 442 of whom had the first randomisation and 269 the second."
+     ],
+     "papers": []
+    },
+    {
+     "id": "napoli-3",
+     "name": "NAPOLI 3",
+     "nct": "NCT04083235",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 770,
+      "enrolledBasis": "registry",
+      "yearReported": 2023
+     },
+     "registry": {
+      "nct": "NCT04083235",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 770,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2022-07-23",
+      "completion": "2025-02-18",
+      "lastUpdate": "2026-04-20"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "panova-3",
+     "name": "PANOVA-3",
+     "nct": "NCT03377491",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 571,
+      "enrolledBasis": "registry",
+      "yearReported": 2025
+     },
+     "registry": {
+      "nct": "NCT03377491",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 571,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2024-10-16",
+      "completion": "2024-10-16",
+      "lastUpdate": "2026-01-21"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "nct07262567",
+     "name": "Phase III Study to Compare GFH375 and Chemotherapy in Patients With KRAS G12D-Mutant Metastatic Pancreatic Cancer",
+     "nct": "NCT07262567",
+     "corpus": {
+      "status": "recruiting",
+      "phase": "3",
+      "enrolled": 320,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT07262567",
+      "status": "RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 320,
+      "enrolmentType": "ESTIMATED",
+      "primaryCompletion": "2027-06",
+      "completion": "2028-06",
+      "lastUpdate": "2026-08-14"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "polo",
+     "name": "POLO",
+     "nct": "NCT02184195",
+     "corpus": {
+      "status": "mixed",
+      "phase": "3",
+      "enrolled": 154,
+      "enrolledBasis": "registry",
+      "yearReported": 2019
+     },
+     "registry": {
+      "nct": "NCT02184195",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 154,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2019-01-15",
+      "completion": "2023-01-27",
+      "lastUpdate": "2023-09-13"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "precede",
+     "name": "PRECEDE",
+     "nct": "NCT04970056",
+     "corpus": {
+      "status": "recruiting",
+      "phase": "observational",
+      "enrolled": 20000,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT04970056",
+      "status": "RECRUITING",
+      "studyType": "OBSERVATIONAL",
+      "enrolment": 20000,
+      "enrolmentType": "ESTIMATED",
+      "primaryCompletion": "2030-12-31",
+      "completion": "2030-12-31",
+      "lastUpdate": "2026-07-22"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "preopanc",
+     "name": "PREOPANC-1",
+     "nct": "NTR3709",
+     "corpus": {
+      "status": "mixed",
+      "phase": "3",
+      "enrolled": 246,
+      "enrolledBasis": "registry",
+      "yearReported": 2022
+     },
+     "registry": null,
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "prodige-24",
+     "name": "PRODIGE 24 / CCTG PA6",
+     "nct": "NCT01526135",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 493,
+      "enrolledBasis": "registry",
+      "yearReported": 2018
+     },
+     "registry": {
+      "nct": "NCT01526135",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 493,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2018-03",
+      "completion": "2021-07-16",
+      "lastUpdate": "2022-01-04"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "rasolute-302",
+     "name": "RASolute 302",
+     "nct": "NCT06625320",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 500,
+      "enrolledBasis": "registry",
+      "yearReported": 2026
+     },
+     "registry": {
+      "nct": "NCT06625320",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 500,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2026-06",
+      "completion": "2027-12",
+      "lastUpdate": "2026-06-02"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "nct07252232",
+     "name": "Study of Daraxonrasib (RMC-6236) in Patients With Resected Pancreatic Ductal Adenocarcinoma (PDAC)",
+     "nct": "NCT07252232",
+     "corpus": {
+      "status": "recruiting",
+      "phase": "3",
+      "enrolled": 500,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT07252232",
+      "status": "RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 500,
+      "enrolmentType": "ESTIMATED",
+      "primaryCompletion": "2029-05-10",
+      "completion": "2030-07-10",
+      "lastUpdate": "2026-09-23"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "nct07491445",
+     "name": "Study of Daraxonrasib and Daraxonrasib + GnP as First-line Treatment in Patients With Metastatic Pancreatic Adenocarcinoma",
+     "nct": "NCT07491445",
+     "corpus": {
+      "status": "recruiting",
+      "phase": "3",
+      "enrolled": 900,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT07491445",
+      "status": "RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 900,
+      "enrolmentType": "ESTIMATED",
+      "primaryCompletion": "2028-06",
+      "completion": "2029-03",
+      "lastUpdate": "2026-09-30"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "nct07805954",
+     "name": "Study of Zoldonrasib (RMC-9805) Plus Daraxonrasib (RMC-6236) Versus Gemcitabine and Nab-Paclitaxel as First-Line Treatment in Metastatic KRAS G12D-Mut",
+     "nct": "NCT07805954",
+     "corpus": {
+      "status": "recruiting",
+      "phase": "3",
+      "enrolled": 400,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT07805954",
+      "status": "RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 400,
+      "enrolmentType": "ESTIMATED",
+      "primaryCompletion": "2029-03",
+      "completion": "2030-04",
+      "lastUpdate": "2026-09-08"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    }
+   ],
+   "watch": [
+    {
+     "item": "RASolute 302 primary completion on the registry (daraxonrasib versus chemotherapy, previously treated metastatic disease, 500 participants, actual; published and approved 2026)",
+     "expected": "2026-06",
+     "source": "https://clinicaltrials.gov/study/NCT06625320",
+     "refs": [
+      "rasolute-302",
+      "daraxonrasib",
+      "paper-daraxonrasib-pancreatic-n-engl-j-med-2026"
+     ],
+     "passed": true,
+     "contradictions": []
+    },
+    {
+     "item": "AMPLIFY-7P study completion (ELI-002 7P adjuvant KRAS vaccine, 158 participants; primary completion 20 April 2026, actual)",
+     "expected": "2026-11",
+     "source": "https://clinicaltrials.gov/study/NCT05726864",
+     "refs": [
+      "amplify-7p",
+      "eli-002-7p",
+      "shared-antigen-vaccine"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "PREOPANC-3 primary completion: perioperative versus adjuvant modified FOLFIRINOX for resectable pancreatic cancer (378 estimated participants; active, not recruiting)",
+     "expected": "2027-01",
+     "source": "https://clinicaltrials.gov/study/NCT04927780",
+     "refs": [
+      "preopanc",
+      "folfirinox",
+      "neoadjuvant-adjuvant",
+      "idea-pdac-neoadjuvant-chemotherapy-for-all-resectable-disease"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "RASolute 302 study completion on the registry",
+     "expected": "2027-12",
+     "source": "https://clinicaltrials.gov/study/NCT06625320",
+     "refs": [
+      "rasolute-302",
+      "daraxonrasib"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "RASolute 303 primary completion: daraxonrasib alone or with gemcitabine and nab-paclitaxel versus chemotherapy, first line metastatic (900 estimated participants; recruiting)",
+     "expected": "2028-06",
+     "source": "https://clinicaltrials.gov/study/NCT07491445",
+     "refs": [
+      "nct07491445",
+      "daraxonrasib",
+      "gemcitabine-nab-paclitaxel",
+      "idea-pdac-ras-inhibitor-combinations-and-sequencing"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "DAWN-303 primary completion: chemotherapy with or without INCB161734 in untreated KRAS G12D metastatic disease (588 estimated participants; recruiting)",
+     "expected": "2028-09-15",
+     "source": "https://clinicaltrials.gov/study/NCT07522073",
+     "refs": [
+      "nct07522073",
+      "kras-inhibitors",
+      "idea-pdac-ras-inhibitor-combinations-and-sequencing"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "Alliance A021806 primary completion: perioperative versus adjuvant modified FOLFIRINOX for resectable pancreatic cancer (358 participants, actual; active, not recruiting)",
+     "expected": "2028-12-31",
+     "source": "https://clinicaltrials.gov/study/NCT04340141",
+     "refs": [
+      "folfirinox",
+      "neoadjuvant-adjuvant",
+      "idea-pdac-neoadjuvant-chemotherapy-for-all-resectable-disease"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "RASolute 309 primary completion: zoldonrasib plus daraxonrasib versus gemcitabine and nab-paclitaxel, first line KRAS G12D metastatic disease (400 estimated participants; recruiting)",
+     "expected": "2029-03",
+     "source": "https://clinicaltrials.gov/study/NCT07805954",
+     "refs": [
+      "nct07805954",
+      "zoldonrasib",
+      "daraxonrasib",
+      "g12d-plus-pan-ras",
+      "idea-pdac-ras-inhibitor-combinations-and-sequencing"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "RASolute 304 primary completion: adjuvant daraxonrasib in resected pancreatic ductal adenocarcinoma (500 estimated participants; recruiting)",
+     "expected": "2029-05-10",
+     "source": "https://clinicaltrials.gov/study/NCT07252232",
+     "refs": [
+      "nct07252232",
+      "daraxonrasib",
+      "prodige-24"
+     ],
+     "passed": false,
+     "contradictions": [
+      "PRODIGE 24 / CCTG PA6: watch item expects 2029-05-10; the registry now lists primary completion 2018-03 and completion 2021-07-16"
+     ]
+    },
+    {
+     "item": "PRECEDE (Pancreatic Cancer Early Detection Consortium) primary completion: 20,000 estimated high-risk participants under surveillance (recruiting)",
+     "expected": "2030-12-31",
+     "source": "https://clinicaltrials.gov/study/NCT04970056",
+     "refs": [
+      "precede",
+      "pancreatic-surveillance",
+      "idea-pdac-surveillance-for-every-germline-carrier"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "IMCODE003 primary completion: adjuvant autogene cevumeran plus atezolizumab and modified FOLFIRINOX versus modified FOLFIRINOX alone after resection (260 estimated participants; phase 2; active, not recruiting)",
+     "expected": "2031-01-01",
+     "source": "https://clinicaltrials.gov/study/NCT05968326",
+     "refs": [
+      "nct05968326",
+      "autogene-cevumeran",
+      "neoantigen-mrna-vaccine",
+      "paper-sethna-rna-neoantigen-vaccine-long-lived-t-cells-nature-2025"
+     ],
+     "passed": false,
+     "contradictions": []
+    }
+   ],
+   "contradictions": [
+    {
+     "ref": "nct07252232",
+     "name": "RASolute 304 primary completion: adjuvant daraxonrasib in resected pancreatic ductal adenocarcinoma (500 estimated participants; recruiting)",
+     "text": "PRODIGE 24 / CCTG PA6: watch item expects 2029-05-10; the registry now lists primary completion 2018-03 and completion 2021-07-16"
+    }
+   ],
+   "explained": [
+    {
+     "ref": "lap07",
+     "name": "LAP07",
+     "text": "enrolment 449 in the corpus (registered), 820 on the registry (estimated; 45 percent apart): The registry gives an estimated 820; the JAMA report enrolled 449 patients, 442 of whom had the first randomisation and 269 the second."
+    }
+   ]
+  },
+  {
    "id": "cure-paths",
    "name": "Paths to cures: interception, eradication, control",
    "asOf": "2026-09-08",
@@ -4559,6 +6874,284 @@
    },
    "trials": [],
    "watch": [],
+   "contradictions": [],
+   "explained": []
+  },
+  {
+   "id": "prostate-roadmap",
+   "name": "Prostate cancer roadmap: from Huggins and the discovery that a cancer can depend on a hormone, through the PSA epidemic and what it cost, the androgen receptor drugs, the DNA repair subset and PSMA, to a 2032 registry watch",
+   "asOf": "2026-09-25",
+   "since": "2026-09-25",
+   "counts": {
+    "trials": 6,
+    "checked": 6,
+    "contradictions": 0,
+    "explained": 0,
+    "papers": 0,
+    "watch": 8,
+    "watchPassed": 0
+   },
+   "trials": [
+    {
+     "id": "nct03767244",
+     "name": "A Study of Apalutamide in Participants With High-Risk, Localized or Locally Advanced Prostate Cancer Who Are Candidates for Radical Prostatectomy",
+     "nct": "NCT03767244",
+     "corpus": {
+      "status": "active",
+      "phase": "3",
+      "enrolled": 2517,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT03767244",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 2517,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2026-12-01",
+      "completion": "2028-10-13",
+      "lastUpdate": "2026-09-25"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "nct05939414",
+     "name": "An Open-label Study Comparing Lutetium (177Lu) Vipivotide Tetraxetan Versus Observation in PSMA Positive OMPC.",
+     "nct": "NCT05939414",
+     "corpus": {
+      "status": "recruiting",
+      "phase": "3",
+      "enrolled": 450,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT05939414",
+      "status": "RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 450,
+      "enrolmentType": "ESTIMATED",
+      "primaryCompletion": "2028-04-25",
+      "completion": "2031-10-03",
+      "lastUpdate": "2026-09-22"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "capitello-281",
+     "name": "CAPItello-281",
+     "nct": "NCT04493853",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 1012,
+      "enrolledBasis": "registry",
+      "yearReported": 2025
+     },
+     "registry": {
+      "nct": "NCT04493853",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 1012,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2024-10-07",
+      "completion": "2027-03-31",
+      "lastUpdate": "2026-09-10"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "psmaddition",
+     "name": "PSMAddition",
+     "nct": "NCT04720157",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 1144,
+      "enrolledBasis": "registry",
+      "yearReported": 2025
+     },
+     "registry": {
+      "nct": "NCT04720157",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 1140,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2025-01-13",
+      "completion": "2027-02-11",
+      "lastUpdate": "2026-06-08"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "stampede",
+     "name": "STAMPEDE",
+     "nct": "NCT00268476",
+     "corpus": {
+      "status": "positive",
+      "phase": "platform",
+      "enrolled": 11992,
+      "enrolledBasis": "registry",
+      "yearReported": 2016
+     },
+     "registry": {
+      "nct": "NCT00268476",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE2",
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 11992,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2026-03",
+      "completion": "2030-12",
+      "lastUpdate": "2023-04-18"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "nct04821622",
+     "name": "Study of Talazoparib With Enzalutamide in Men With DDR Gene Mutated mCSPC",
+     "nct": "NCT04821622",
+     "corpus": {
+      "status": "active",
+      "phase": "3",
+      "enrolled": 599,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT04821622",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 599,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2026-02-18",
+      "completion": "2027-08-28",
+      "lastUpdate": "2026-09-04"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    }
+   ],
+   "watch": [
+    {
+     "item": "ProBio: the biomarker-driven outcome-adaptive platform in metastatic prostate cancer, the first trial designed to compare treatment strategies rather than single drugs in this disease",
+     "expected": "Primary completion and study completion December 2026 (estimated, ClinicalTrials.gov NCT03903835)",
+     "source": "https://clinicaltrials.gov/study/NCT03903835",
+     "refs": [
+      "idea-prostate-randomise-the-sequence-not-only-the-drugs"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "PSMAddition: lutetium-177 PSMA-617 added to standard care in metastatic hormone-sensitive disease, the earliest setting radioligand therapy has been tested in",
+     "expected": "Study completion 11 February 2027 (estimated; primary completion 13 January 2025 actual, ClinicalTrials.gov NCT04720157)",
+     "source": "https://clinicaltrials.gov/study/NCT04720157",
+     "refs": [
+      "paper-psmaddition-lancet-2026",
+      "psmaddition"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "CAPItello-281: capivasertib with abiraterone in PTEN-deficient metastatic hormone-sensitive disease, the first PI3K-pathway result in a biomarker-selected prostate population",
+     "expected": "Study completion 31 March 2027 (estimated; primary completion 7 October 2024 actual, ClinicalTrials.gov NCT04493853)",
+     "source": "https://clinicaltrials.gov/study/NCT04493853",
+     "refs": [
+      "paper-capitello-281-ann-oncol-2026",
+      "capitello-281",
+      "paper-tcga-molecular-taxonomy-primary-prostate-cell-2015"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "TALAPRO-3: talazoparib with enzalutamide in DNA damage repair gene-mutated metastatic hormone-sensitive disease, the PARP combination moved to the hormone-sensitive setting",
+     "expected": "Study completion 28 August 2027 (estimated; primary completion 18 February 2026 actual, ClinicalTrials.gov NCT04821622)",
+     "source": "https://clinicaltrials.gov/study/NCT04821622",
+     "refs": [
+      "paper-nct04821622-n-engl-j-med-2026",
+      "nct04821622",
+      "idea-prostate-hrr-testing-at-metastatic-diagnosis"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "PROTEUS: perioperative apalutamide with androgen deprivation around radical prostatectomy in high-risk localised disease, the largest test of intensification before the operation",
+     "expected": "Primary completion 1 December 2026 and study completion 13 October 2028 (both estimated, ClinicalTrials.gov NCT03767244)",
+     "source": "https://clinicaltrials.gov/study/NCT03767244",
+     "refs": [
+      "paper-nct03767244-n-engl-j-med-2026",
+      "nct03767244"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "PEACE III: radium-223 with enzalutamide against enzalutamide alone in bone-metastatic castration-resistant disease, and the bone-protecting agent question it raised",
+     "expected": "Study completion December 2028 (estimated; primary completion 19 February 2024 actual, ClinicalTrials.gov NCT02194842)",
+     "source": "https://clinicaltrials.gov/study/NCT02194842",
+     "refs": [
+      "paper-alsympca-radium-223-nejm-2013",
+      "paper-lutetium-177-vipivotide-tetrax-prostate-oncol-ther-2025"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "PSMA-DC: lutetium-177 vipivotide tetraxetan against observation in oligometastatic castration-sensitive disease detected on PSMA imaging, the test of whether a systemic radioligand can replace metastasis-directed treatment",
+     "expected": "Primary completion 25 April 2028 and study completion 3 October 2031 (both estimated, ClinicalTrials.gov NCT05939414)",
+     "source": "https://clinicaltrials.gov/study/NCT05939414",
+     "refs": [
+      "nct05939414",
+      "paper-phillips-jama-oncol",
+      "idea-psma-pet-guided-mdt"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "STAMPEDE2: the successor platform, testing stereotactic radiotherapy to metastases, lutetium-177 PSMA-617 and niraparib with abiraterone against contemporary standard care, with 3,360 men planned",
+     "expected": "Primary completion April 2031 and study completion March 2032 (both estimated, ClinicalTrials.gov NCT06320067)",
+     "source": "https://clinicaltrials.gov/study/NCT06320067",
+     "refs": [
+      "stampede",
+      "paper-stampede-abiraterone-high-risk-attard-lancet-2022",
+      "idea-prostate-randomise-the-sequence-not-only-the-drugs"
+     ],
+     "passed": false,
+     "contradictions": []
+    }
+   ],
    "contradictions": [],
    "explained": []
   },
@@ -4667,7 +7260,7 @@
     "checked": 12,
     "contradictions": 0,
     "explained": 0,
-    "papers": 0,
+    "papers": 2,
     "watch": 0,
     "watchPassed": 0
    },
@@ -4742,7 +7335,22 @@
      "registry": null,
      "contradictions": [],
      "explained": [],
-     "papers": []
+     "papers": [
+      {
+       "pmid": "42774476",
+       "doi": "10.1002/fsn3.72380",
+       "title": "&lt;i&gt;Citrus reticulata&lt;/i&gt; Essential Oil as a Bioactive Food Ingredient: Composition Variability, Extraction, Functional Bioactivities, and Cross-Study Quantitative Analysis.",
+       "journal": "Food Sci Nutr",
+       "date": "2026-09-21"
+      },
+      {
+       "pmid": "42793307",
+       "doi": "10.3390/cimb48090951",
+       "title": "Shared and Disease-Preferential Matrisome Programs in Fibrosing Interstitial Lung Disease: Evidence from Cross-Cohort and Within-Cohort Analysis.",
+       "journal": "Curr Issues Mol Biol",
+       "date": "2026-09-17"
+      }
+     ]
     },
     {
      "id": "eortc-26981",
@@ -5653,7 +8261,7 @@
       "enrolmentType": "ESTIMATED",
       "primaryCompletion": "2032-03-01",
       "completion": "2032-03-01",
-      "lastUpdate": "2026-03-05"
+      "lastUpdate": "2026-09-30"
      },
      "contradictions": [],
      "explained": [
@@ -5706,7 +8314,7 @@
     },
     {
      "id": "preopanc",
-     "name": "PREOPANC-1 / PREOPANC-2",
+     "name": "PREOPANC-1",
      "nct": "NTR3709",
      "corpus": {
       "status": "mixed",
@@ -5734,7 +8342,7 @@
      },
      "registry": {
       "nct": "NCT05953181",
-      "status": "ACTIVE_NOT_RECRUITING",
+      "status": "UNKNOWN",
       "phases": [
        "NA"
       ],
@@ -6373,7 +8981,7 @@
       "enrolmentType": "ACTUAL",
       "primaryCompletion": "2023-08-11",
       "completion": "2028-02-16",
-      "lastUpdate": "2026-08-28"
+      "lastUpdate": "2026-09-28"
      },
      "contradictions": [],
      "explained": [],
@@ -6759,7 +9367,7 @@
      },
      "registry": {
       "nct": "NCT03734029",
-      "status": "ACTIVE_NOT_RECRUITING",
+      "status": "COMPLETED",
       "phases": [
        "PHASE3"
       ],
@@ -6767,8 +9375,8 @@
       "enrolment": 557,
       "enrolmentType": "ACTUAL",
       "primaryCompletion": "2022-01-11",
-      "completion": "2026-08-01",
-      "lastUpdate": "2025-10-06"
+      "completion": "2026-05-19",
+      "lastUpdate": "2026-09-28"
      },
      "contradictions": [],
      "explained": [],
@@ -7017,7 +9625,7 @@
       "enrolmentType": "ESTIMATED",
       "primaryCompletion": "2027-07-28",
       "completion": "2030-09-30",
-      "lastUpdate": "2026-08-20"
+      "lastUpdate": "2026-09-25"
      },
      "contradictions": [],
      "explained": [],
@@ -7156,7 +9764,7 @@
       "enrolmentType": "ACTUAL",
       "primaryCompletion": "2025-06-15",
       "completion": "2026-10-01",
-      "lastUpdate": "2026-03-27"
+      "lastUpdate": "2026-09-28"
      },
      "contradictions": [],
      "explained": [],
@@ -7241,7 +9849,7 @@
       "enrolmentType": "ESTIMATED",
       "primaryCompletion": "2032-03-01",
       "completion": "2032-03-01",
-      "lastUpdate": "2026-03-05"
+      "lastUpdate": "2026-09-30"
      },
      "contradictions": [],
      "explained": [
@@ -7369,6 +9977,893 @@
      "ref": "niche-2",
      "name": "NICHE-2",
      "text": "enrolment 115 in the corpus (registered), 353 on the registry (estimated; 67 percent apart): ClinicalTrials.gov lists an estimated 353 participants for the amended NICHE protocol, which is still recruiting to further cohorts; the NEJM 2024 NICHE-2 analysis enrolled 115 patients, 111 of them in the efficacy analysis."
+    }
+   ]
+  },
+  {
+   "id": "tnbc-roadmap",
+   "name": "Triple-negative breast cancer roadmap: from a remainder defined by three negative tests to immunotherapy, antibody-drug conjugates and the residual disease problem",
+   "asOf": "2026-09-24",
+   "since": "2026-09-24",
+   "counts": {
+    "trials": 25,
+    "checked": 25,
+    "contradictions": 1,
+    "explained": 1,
+    "papers": 0,
+    "watch": 13,
+    "watchPassed": 1
+   },
+   "trials": [
+    {
+     "id": "ascent",
+     "name": "ASCENT",
+     "nct": "NCT02574455",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 529,
+      "enrolledBasis": "registry",
+      "yearReported": 2020
+     },
+     "registry": {
+      "nct": "NCT02574455",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 529,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2020-03-30",
+      "completion": "2020-12-08",
+      "lastUpdate": "2022-06-15"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "ascent-03",
+     "name": "ASCENT-03",
+     "nct": "NCT05382299",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 558,
+      "enrolledBasis": "randomised",
+      "enrolledNote": "ClinicalTrials.gov lists 623 participants (actual); the NEJM 2025 primary analysis covered 558 randomised patients.",
+      "yearReported": 2025
+     },
+     "registry": {
+      "nct": "NCT05382299",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 623,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2028-07",
+      "completion": "2028-07",
+      "lastUpdate": "2026-04-06"
+     },
+     "contradictions": [],
+     "explained": [
+      "enrolment 558 in the corpus (randomised), 623 on the registry (actual; 10 percent apart): ClinicalTrials.gov lists 623 participants (actual); the NEJM 2025 primary analysis covered 558 randomised patients."
+     ],
+     "papers": []
+    },
+    {
+     "id": "ascent-04",
+     "name": "ASCENT-04 / KEYNOTE-D19",
+     "nct": "NCT05382286",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 443,
+      "enrolledBasis": "registry",
+      "yearReported": 2025
+     },
+     "registry": {
+      "nct": "NCT05382286",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 443,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2027-02",
+      "completion": "2027-02",
+      "lastUpdate": "2025-09-18"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "ascent-05",
+     "name": "ASCENT-05 / OptimICE-RD (AFT-65, GBG 119, NSABP B-63)",
+     "nct": "NCT05633654",
+     "corpus": {
+      "status": "recruiting",
+      "phase": "3",
+      "enrolled": 1514,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT05633654",
+      "status": "RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 1514,
+      "enrolmentType": "ESTIMATED",
+      "primaryCompletion": "2027-06",
+      "completion": "2031-08",
+      "lastUpdate": "2026-09-09"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "bl-b01d1-307",
+     "name": "BL-B01D1-307",
+     "nct": "NCT06382142",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 418,
+      "enrolledBasis": "registry",
+      "yearReported": 2026
+     },
+     "registry": {
+      "nct": "NCT06382142",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 418,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2026-01-13",
+      "completion": "2027-12",
+      "lastUpdate": "2026-07-23"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "brightness",
+     "name": "BrighTNess",
+     "nct": "NCT02032277",
+     "corpus": {
+      "status": "completed",
+      "phase": "3",
+      "enrolled": 634,
+      "enrolledBasis": "registry",
+      "yearReported": 2018
+     },
+     "registry": {
+      "nct": "NCT02032277",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 634,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2016-03-18",
+      "completion": "2020-11-12",
+      "lastUpdate": "2021-01-20"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "nct03997123",
+     "name": "Capivasertib+Paclitaxel as First Line Treatment for Patients With Locally Advanced or Metastatic TNBC",
+     "nct": "NCT03997123",
+     "corpus": {
+      "status": "active",
+      "phase": "3",
+      "enrolled": 923,
+      "enrolledBasis": "randomised",
+      "enrolledNote": "ClinicalTrials.gov lists 923 participants (actual); the Annals of Oncology 2026 primary paper covers 812 randomised patients.",
+      "yearReported": 2026
+     },
+     "registry": {
+      "nct": "NCT03997123",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 923,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2026-03-16",
+      "completion": "2026-03-16",
+      "lastUpdate": "2025-12-22"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "destiny-breast04",
+     "name": "DESTINY-Breast04",
+     "nct": "NCT03734029",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 557,
+      "enrolledBasis": "registry",
+      "yearReported": 2022
+     },
+     "registry": {
+      "nct": "NCT03734029",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 557,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2022-01-11",
+      "completion": "2026-05-19",
+      "lastUpdate": "2026-09-28"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "embraca",
+     "name": "EMBRACA",
+     "nct": "NCT01945775",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 431,
+      "enrolledBasis": "registry",
+      "yearReported": 2018
+     },
+     "registry": {
+      "nct": "NCT01945775",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 431,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2017-09-15",
+      "completion": "2021-03-05",
+      "lastUpdate": "2022-01-20"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "geparsixto",
+     "name": "GeparSixto",
+     "nct": "NCT01426880",
+     "corpus": {
+      "status": "positive",
+      "phase": "2/3",
+      "enrolled": 595,
+      "enrolledBasis": "registry",
+      "yearReported": 2014
+     },
+     "registry": {
+      "nct": "NCT01426880",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE2",
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 595,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2013-05",
+      "completion": "2013-08",
+      "lastUpdate": "2016-02-15"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "impassion031",
+     "name": "IMpassion031",
+     "nct": "NCT03197935",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 333,
+      "enrolledBasis": "registry",
+      "yearReported": 2020
+     },
+     "registry": {
+      "nct": "NCT03197935",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 333,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2020-04-03",
+      "completion": "2022-09-28",
+      "lastUpdate": "2023-10-26"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "impassion130",
+     "name": "IMpassion130",
+     "nct": "NCT02425891",
+     "corpus": {
+      "status": "mixed",
+      "phase": "3",
+      "enrolled": 902,
+      "enrolledBasis": "registry",
+      "yearReported": 2018
+     },
+     "registry": {
+      "nct": "NCT02425891",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 902,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2020-04-14",
+      "completion": "2021-08-31",
+      "lastUpdate": "2022-07-19"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "impassion131",
+     "name": "IMpassion131",
+     "nct": "NCT03125902",
+     "corpus": {
+      "status": "negative",
+      "phase": "3",
+      "enrolled": 653,
+      "enrolledBasis": "registry",
+      "yearReported": 2020
+     },
+     "registry": {
+      "nct": "NCT03125902",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 653,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2019-11-15",
+      "completion": "2023-01-17",
+      "lastUpdate": "2024-03-26"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "izabright-breast01",
+     "name": "IZABRIGHT-Breast01",
+     "nct": "NCT06926868",
+     "corpus": {
+      "status": "recruiting",
+      "phase": "2/3",
+      "enrolled": 570,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT06926868",
+      "status": "RECRUITING",
+      "phases": [
+       "PHASE2",
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 600,
+      "enrolmentType": "ESTIMATED",
+      "primaryCompletion": "2028-03-13",
+      "completion": "2030-05-15",
+      "lastUpdate": "2026-08-10"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "keynote-355",
+     "name": "KEYNOTE-355",
+     "nct": "NCT02819518",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 882,
+      "enrolledBasis": "registry",
+      "yearReported": 2020
+     },
+     "registry": {
+      "nct": "NCT02819518",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 882,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2021-06-15",
+      "completion": "2023-10-30",
+      "lastUpdate": "2024-11-27"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "keynote-522",
+     "name": "KEYNOTE-522",
+     "nct": "NCT03036488",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 1174,
+      "enrolledBasis": "registry",
+      "yearReported": 2020
+     },
+     "registry": {
+      "nct": "NCT03036488",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 1174,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2025-10-14",
+      "completion": "2025-10-14",
+      "lastUpdate": "2025-10-29"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "olympia",
+     "name": "OlympiA",
+     "nct": "NCT02032823",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 1837,
+      "enrolledBasis": "registry",
+      "yearReported": 2021
+     },
+     "registry": {
+      "nct": "NCT02032823",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 1837,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2020-03-27",
+      "completion": "2029-05-28",
+      "lastUpdate": "2026-07-14"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "olympiad",
+     "name": "OlympiAD",
+     "nct": "NCT02000622",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 302,
+      "enrolledBasis": "registry",
+      "yearReported": 2017
+     },
+     "registry": {
+      "nct": "NCT02000622",
+      "status": "COMPLETED",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 302,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2016-12-09",
+      "completion": "2025-12-23",
+      "lastUpdate": "2026-02-13"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "optimice-pcr",
+     "name": "OptimICE-pCR (A012103)",
+     "nct": "NCT05812807",
+     "corpus": {
+      "status": "recruiting",
+      "phase": "3",
+      "enrolled": 1295,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT05812807",
+      "status": "RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 1295,
+      "enrolmentType": "ESTIMATED",
+      "primaryCompletion": "2033-05-31",
+      "completion": "2033-05-31",
+      "lastUpdate": "2026-08-05"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "nct06419621",
+     "name": "PM8002 or Placebo Plus Nab-Paclitaxel as First-line Treatment in Inoperable Locally Advanced/Metastatic TNBC",
+     "nct": "NCT06419621",
+     "corpus": {
+      "status": "active",
+      "phase": "3",
+      "enrolled": 392,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT06419621",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 392,
+      "enrolmentType": "ESTIMATED",
+      "primaryCompletion": "2027-07",
+      "completion": "2028-07",
+      "lastUpdate": "2026-07-29"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "scarlet-s2212",
+     "name": "SCARLET (SWOG S2212)",
+     "nct": "NCT05929768",
+     "corpus": {
+      "status": "recruiting",
+      "phase": "3",
+      "enrolled": 2400,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT05929768",
+      "status": "RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 2400,
+      "enrolmentType": "ESTIMATED",
+      "primaryCompletion": "2033-03-31",
+      "completion": "2033-04",
+      "lastUpdate": "2025-11-05"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "tropion-breast01",
+     "name": "TROPION-Breast01",
+     "nct": "NCT05104866",
+     "corpus": {
+      "status": "mixed",
+      "phase": "3",
+      "enrolled": 732,
+      "enrolledBasis": "registry",
+      "yearReported": 2023
+     },
+     "registry": {
+      "nct": "NCT05104866",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 732,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2024-07-24",
+      "completion": "2026-12-31",
+      "lastUpdate": "2026-08-24"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "tropion-breast02",
+     "name": "TROPION-Breast02",
+     "nct": "NCT05374512",
+     "corpus": {
+      "status": "positive",
+      "phase": "3",
+      "enrolled": 644,
+      "enrolledBasis": "registry",
+      "yearReported": 2025
+     },
+     "registry": {
+      "nct": "NCT05374512",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 644,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2025-08-25",
+      "completion": "2026-12-31",
+      "lastUpdate": "2026-05-15"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "tropion-breast03",
+     "name": "TROPION-Breast03",
+     "nct": "NCT05629585",
+     "corpus": {
+      "status": "active",
+      "phase": "3",
+      "enrolled": 1174,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT05629585",
+      "status": "ACTIVE_NOT_RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 1174,
+      "enrolmentType": "ACTUAL",
+      "primaryCompletion": "2027-09-20",
+      "completion": "2030-01-30",
+      "lastUpdate": "2026-06-15"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    },
+    {
+     "id": "tropion-breast05",
+     "name": "TROPION-Breast05",
+     "nct": "NCT06103864",
+     "corpus": {
+      "status": "recruiting",
+      "phase": "3",
+      "enrolled": 625,
+      "enrolledBasis": "registry"
+     },
+     "registry": {
+      "nct": "NCT06103864",
+      "status": "RECRUITING",
+      "phases": [
+       "PHASE3"
+      ],
+      "studyType": "INTERVENTIONAL",
+      "enrolment": 625,
+      "enrolmentType": "ESTIMATED",
+      "primaryCompletion": "2027-07-28",
+      "completion": "2030-09-30",
+      "lastUpdate": "2026-09-25"
+     },
+     "contradictions": [],
+     "explained": [],
+     "papers": []
+    }
+   ],
+   "watch": [
+    {
+     "item": "TROPION-Breast02 study completion on the registry (datopotamab deruxtecan first line, immunotherapy-ineligible; primary completion 25 August 2025, actual)",
+     "expected": "2026-12-31",
+     "source": "https://clinicaltrials.gov/study/NCT05374512",
+     "refs": [
+      "tropion-breast02",
+      "datopotamab-deruxtecan"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "CAPItello-290 study completion on the registry (capivasertib plus paclitaxel first line; published negative for overall survival in 2026)",
+     "expected": "2026-03-16",
+     "source": "https://clinicaltrials.gov/study/NCT03997123",
+     "refs": [
+      "nct03997123",
+      "capivasertib",
+      "paper-capitello-290-capivasertib-paclitaxel-ann-oncol-2026"
+     ],
+     "passed": true,
+     "contradictions": []
+    },
+    {
+     "item": "ASCENT-05 / OptimICE-RD primary completion: sacituzumab govitecan with pembrolizumab vs physician's choice for residual invasive disease after neoadjuvant therapy (1,514 estimated participants)",
+     "expected": "2027-06",
+     "source": "https://clinicaltrials.gov/study/NCT05633654",
+     "refs": [
+      "ascent-05",
+      "sacituzumab-govitecan",
+      "pembrolizumab",
+      "rcb"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "TROPION-Breast05 primary completion: datopotamab deruxtecan with or without durvalumab vs chemotherapy with pembrolizumab, first line, PD-L1-positive (625 estimated participants)",
+     "expected": "2027-07-28",
+     "source": "https://clinicaltrials.gov/study/NCT06103864",
+     "refs": [
+      "tropion-breast05",
+      "datopotamab-deruxtecan",
+      "cps"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "PM8002 (PD-L1 and VEGF bispecific) plus nab-paclitaxel vs placebo plus nab-paclitaxel, first line: primary completion (392 estimated participants)",
+     "expected": "2027-07",
+     "source": "https://clinicaltrials.gov/study/NCT06419621",
+     "refs": [
+      "nct06419621",
+      "nab-paclitaxel"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "TROPION-Breast03 primary completion: datopotamab deruxtecan with or without durvalumab vs investigator's choice for stage I to III disease without pathological complete response (1,174 participants; active, not recruiting)",
+     "expected": "2027-09-20",
+     "source": "https://clinicaltrials.gov/study/NCT05629585",
+     "refs": [
+      "tropion-breast03",
+      "datopotamab-deruxtecan",
+      "rcb"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "BL-B01D1-307 / PANKU-Breast02 study completion (izalontamab brengitecan vs chemotherapy in pretreated disease; primary completion 13 January 2026, actual)",
+     "expected": "2027-12",
+     "source": "https://clinicaltrials.gov/study/NCT06382142",
+     "refs": [
+      "bl-b01d1-307",
+      "izalontamab-brengitecan"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "IZABRIGHT-Breast01 primary completion: izalontamab brengitecan vs chemotherapy, first line, anti-PD-(L)1-ineligible (600 estimated participants)",
+     "expected": "2028-03-13",
+     "source": "https://clinicaltrials.gov/study/NCT06926868",
+     "refs": [
+      "izabright-breast01",
+      "izalontamab-brengitecan",
+      "bispecific-adc"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "OlympiA study completion on the registry (adjuvant olaparib; primary completion 27 March 2020, actual; six-year update published 2026)",
+     "expected": "2029-05-28",
+     "source": "https://clinicaltrials.gov/study/NCT02032823",
+     "refs": [
+      "olympia",
+      "olaparib",
+      "paper-olympia-6-year-update-ann-oncol-2026"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "SCARLET (S2212) primary completion: shorter anthracycline-free chemo-immunotherapy vs the KEYNOTE-522 regimen (2,400 estimated participants)",
+     "expected": "2033-03-31",
+     "source": "https://clinicaltrials.gov/study/NCT05929768",
+     "refs": [
+      "scarlet-s2212",
+      "keynote-522",
+      "anthracycline",
+      "de-escalation"
+     ],
+     "passed": false,
+     "contradictions": [
+      "KEYNOTE-522: watch item expects 2033-03-31; the registry now lists primary completion 2025-10-14 and completion 2025-10-14"
+     ]
+    },
+    {
+     "item": "OptimICE-pCR primary completion: adjuvant pembrolizumab vs observation after pathological complete response to chemotherapy plus pembrolizumab (1,295 estimated participants)",
+     "expected": "2033-05-31",
+     "source": "https://clinicaltrials.gov/study/NCT05812807",
+     "refs": [
+      "optimice-pcr",
+      "pembrolizumab",
+      "pcr",
+      "de-escalation"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "A randomised trial of antibody-drug conjugate sequence (TROP2 conjugate then trastuzumab deruxtecan or the reverse, with or without chemotherapy between); none found on ClinicalTrials.gov on 24 September 2026",
+     "source": "https://europepmc.org/article/MED/41937088",
+     "refs": [
+      "adc-sequencing",
+      "idea-tnbc-adc-sequencing-trial"
+     ],
+     "passed": false,
+     "contradictions": []
+    },
+    {
+     "item": "A ctDNA-guided adjuvant trial in triple-negative breast cancer with early, tumour-informed sampling that reports after c-TRAK TN; the design lesson is recorded in the 2023 paper",
+     "source": "https://europepmc.org/article/MED/36423745",
+     "refs": [
+      "ctdna",
+      "mrd-testing",
+      "idea-tnbc-ctdna-guided-adjuvant-decisions"
+     ],
+     "passed": false,
+     "contradictions": []
+    }
+   ],
+   "contradictions": [
+    {
+     "ref": "scarlet-s2212",
+     "name": "SCARLET (S2212) primary completion: shorter anthracycline-free chemo-immunotherapy vs the KEYNOTE-522 regimen (2,400 estimated participants)",
+     "text": "KEYNOTE-522: watch item expects 2033-03-31; the registry now lists primary completion 2025-10-14 and completion 2025-10-14"
+    }
+   ],
+   "explained": [
+    {
+     "ref": "ascent-03",
+     "name": "ASCENT-03",
+     "text": "enrolment 558 in the corpus (randomised), 623 on the registry (actual; 10 percent apart): ClinicalTrials.gov lists 623 participants (actual); the NEJM 2025 primary analysis covered 558 randomised patients."
     }
    ]
   },
@@ -7559,7 +11054,7 @@
       "enrolmentType": "ESTIMATED",
       "primaryCompletion": "2027-07-28",
       "completion": "2030-09-30",
-      "lastUpdate": "2026-08-20"
+      "lastUpdate": "2026-09-25"
      },
      "contradictions": [],
      "explained": [],
