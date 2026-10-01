@@ -2,6 +2,13 @@
 
 Every factual correction to the OnCo corpus, newest first. Format: date · entity · what was wrong · how it was found · fix.
 
+## 2026-10-01
+
+| Date | Entity | What was wrong | How found | Fix |
+|---|---|---|---|---|
+| 2026-10-01 | [Lirafugratinib](/drugs/lirafugratinib/) | Recorded as "an experimental small-molecule drug from Elevar Therapeutics in phase 2 trials". The FDA approved it on 23 September 2026 for previously treated cholangiocarcinoma with an FGFR2 fusion or other rearrangement. The record also named no cancer. | The weekly FDA feed, proposed by the update bot and checked against the FDA notice. | Status, brand, summary, the cancer, the approval row and the regional row all corrected from the FDA notice. The bot's proposed note omitted the FGFR2 restriction; the restriction is in the row. |
+| 2026-10-01 | The update bot's FDA matcher | A product whose name is a combination matched any notice naming one of its partners, so "accelerated approval to vusolimogene oderparepvec with nivolumab for melanoma" was proposed as a regulatory event on Relatlimab + nivolumab. Proposed twice, on 30 September and 1 October, and caught by hand both times. | Reviewing the proposals queue. | A combination is matched only when every component is named. `scripts/propose-updates.test.ts` holds the rule. |
+
 ## 2026-09-30
 
 | Date | Entity | What was wrong | How found | Fix |

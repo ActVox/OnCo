@@ -45,6 +45,19 @@ import type { AutoRow } from "./lib/proposals-ema";
 
 type Factcheck = { generated: string; mismatches: Array<{ check: string; id: string; name: string; route: string; recorded: string; registry: string; url: string; severity: string }> };
 
+/**
+ * Is this product the subject of an FDA notice title? Exported so scripts/propose-updates.test.ts can hold the
+ * rule: a product whose name is a combination is named only when every one of its components appears.
+ */
+export function exportedNamedIn(title: string, d: { name: string; brand?: string; aka: string[] }): boolean {
+  const low = title.toLowerCase();
+  const words = (s: string) => s.toLowerCase().split(/[^a-z0-9]+/).filter((w) => w.length >= 5);
+  // "Relatlimab + nivolumab", "pembrolizumab and lenvatinib", "nivolumab/relatlimab".
+  const parts = d.name.split(/\s*(?:\+|\/|\band\b|\bwith\b)\s*/i).map((x) => x.trim()).filter(Boolean);
+  if (parts.length > 1) return parts.every((part) => words(part).some((w) => low.includes(w)));
+  return words([d.name, d.brand ?? "", ...d.aka].join(" ")).some((w) => low.includes(w));
+}
+
 export type Proposal = {
   id: string;
   kind: "trial-status" | "trial-results" | "trial-completion" | "drug-approval" | "regulatory-event" | "regional-row" | "regional-status" | "new-product";
@@ -113,10 +126,13 @@ async function main() {
   // 3. FDA approvals matched to products but absent from their regulatory events (review-only: the notice is a prose
   //    title, and the target is a hand-written list). Only products named in the notice title are proposed; a CDK4/6
   //    inhibitor mentioned as a combination partner in the summary is not. An event already dated or sourced is skipped.
-  const namedIn = (title: string, d: { name: string; brand?: string; aka: string[] }) => {
-    const low = title.toLowerCase();
-    return [d.name, d.brand ?? "", ...d.aka].join(" ").toLowerCase().split(/[^a-z0-9]+/).some((w) => w.length >= 5 && low.includes(w));
-  };
+  // A combination record is named only when *every* component is in the title. The old rule matched on any word
+  // of five letters or more, so "Relatlimab + nivolumab" matched the notice "FDA grants accelerated approval to
+  // vusolimogene oderparepvec-wtpg in combination with nivolumab for melanoma" on the word nivolumab alone, and
+  // the bot proposed putting an oncolytic virus's approval on the LAG-3 combination's page. It proposed it twice,
+  // on 30 September and again on 1 October, and both times a person had to recognise it. Same failure as the
+  // `imid` fragment in the red cards: a loose match that produces a confident false claim.
+  const namedIn = exportedNamedIn;
   for (const o of fda?.oce ?? []) {
     for (const id of o.drugIds) {
       const d = g.get(id);

@@ -139,6 +139,7 @@ const drugs: DrugInput[] = [
   d(supplement<DrugInput>({ id: "lenvatinib", kind: "drug", links: [{ label: "FDA label (DailyMed)", url: "https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=Lenvatinib" }],
     approvals: [{ region: "US", year: 2016, indication: "Advanced RCC with everolimus after anti-angiogenic therapy" }],
     notes: ["In kidney cancer: CLEAR (with pembrolizumab) produced the longest first-line PFS reported, 23.9 months, with OS HR 0.79; lenvatinib plus everolimus is used in later lines (Study 205). The dose is 20 mg daily with pembrolizumab or 18 mg with everolimus 5 mg, about 70 percent of CLEAR patients needed a reduction, and 82 percent had a grade 3 or higher event."],
+    regulatoryEvents: [{ date: "2026-09-24", type: "approval", region: "US", note: "With belzutifan, advanced renal cell carcinoma with a clear cell component", source: "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-belzutifan-combination-lenvatinib-advanced-renal-cell-carcinoma-clear-cell-component" }],
     cancers: ["rcc", "papillary-thyroid-cancer", "follicular-thyroid-cancer", "anaplastic-thyroid-cancer"], trials: ["clear", "litespark-012"] })),
   d(supplement<DrugInput>({ id: "everolimus", kind: "drug",
     approvals: [{ region: "US", year: 2009, indication: "Advanced RCC after sunitinib or sorafenib" }],

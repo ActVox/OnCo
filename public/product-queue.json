@@ -7,5 +7,23 @@
     "files": 12,
     "proposed": "2026-09-30",
     "state": "waiting"
+  },
+  {
+    "branch": "product/prevalence-not-a-grid",
+    "why": "/prevalence/ opens on a list, because the grid is 95 per cent empty",
+    "pr": "https://github.com/judegomila/OnCo/pull/118",
+    "preview": "",
+    "files": 3,
+    "proposed": "2026-09-30",
+    "state": "waiting"
+  },
+  {
+    "branch": "product/search-name-match",
+    "why": "a name typed in full comes first, and people have faces in the search",
+    "pr": "https://github.com/judegomila/OnCo/pull/119",
+    "preview": "",
+    "files": 4,
+    "proposed": "2026-09-30",
+    "state": "waiting"
   }
 ]

@@ -278,6 +278,7 @@ export const regionalApprovals: Record<string, RegionalRow> = {
   erdafitinib: { US: A(2019), EU: A(2024, epar("balversa")), UK: A(2024, mhra("Balversa")), JP: A(2024, PMDA), AU: A(2025, tga("Balversa")) },
   pemigatinib: { US: A(2020), EU: C(2021, epar("pemazyre")), UK: A(2021, mhra("Pemazyre")), JP: A(2021, PMDA), CN: A(2022, NMPA, "Innovent"), AU: A(2022, tga("Pemazyre")) },
   futibatinib: { US: A(2022), EU: C(2023, epar("lytgobi")), UK: A(2023, mhra("Lytgobi")), JP: A(2023, PMDA) },
+  lirafugratinib: { US: A(2026, "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-lirafugratinib-previously-treated-unresectable-locally-advanced-or-metastatic", "Previously treated unresectable, locally advanced or metastatic cholangiocarcinoma with an FGFR2 fusion or other rearrangement"), EU: UR("No EMA decision found"), UK: UR("No MHRA decision found") },
   tinengotinib: { US: UR("Phase 3 FIRST-308"), CN: UR("Phase 3") },
   tovorafenib: { US: A(2024), EU: A(2026, epar("ojemda"), "Paediatric low-grade glioma (Apr 2026)"), UK: A(2026, mhra("Ojemda")) },
   dordaviprone: { US: A(2025, undefined, "Accelerated; H3 K27M-mutant diffuse midline glioma (Aug 2025)"), EU: UR("MAA (Jazz)") },

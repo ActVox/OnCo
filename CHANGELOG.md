@@ -6,6 +6,15 @@ All notable changes to OnCo are recorded here. The format follows [Keep a Change
 
 Regenerated from the commit log each time the site ships (`scripts/changelog-sync.ts`); the version sections below are written by hand when a release is cut.
 
+### 1 October 2026
+- Lirafugratinib is approved, not phase 2, and the bot stops proposing one combination's approval for another
+- chore: monthly identifier enrichment (HGNC, Wikidata) (#124)
+- chore: refresh HTA decisions and survival snapshots (#123)
+- chore: refresh pulse, abstract and citation snapshots (#122)
+- chore: weekly roadmap registry check (public/roadmap-watch.json)
+- chore: refresh institution research output from OpenAlex (#121)
+- chore: draft change proposals that need review
+
 ### 30 September 2026
 - Four verified approval rows from the proposals queue, and two structure keys that stopped the build
 - Page titles, second attempt: a noun phrase naming the thing and the dimension that orders it
