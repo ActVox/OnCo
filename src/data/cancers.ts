@@ -592,11 +592,6 @@ export const cancers: CancerInput[] = [
     tldr: "Diffuse large B-cell lymphoma (DLBCL) is an aggressive but curable lymphoma. CAR-T cures about 40% of relapsed patients, and off-the-shelf bispecifics are now approved.",
     summary: "R-CHOP (or Pola-R-CHP, POLARIX) cures ~60%. Relapse within 12 months: CAR-T (axi-cel, liso-cel) beats transplant. Later: glofitamab, epcoritamab (CD20×CD3), loncastuximab, tafasitamab-lenalidomide. Bispecifics moving into frontline (EPCORE DLBCL-2). ROR1 ADC in phase 3.",
     biomarkers: ["Cell of origin (GCB/ABC)", "Double-hit (MYC/BCL2)", "CD19/CD20", "ctDNA MRD"],
-    standardOfCare: [
-      { setting: "Frontline", approach: "R-CHOP or Pola-R-CHP.", guideline: { version: "NCCN Guidelines: B-Cell Lymphomas", url: "https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1480" } },
-      { setting: "Early relapse", approach: "CD19 CAR-T.", refs: ["axicabtagene-ciloleucel"], guideline: { version: "NCCN Guidelines: B-Cell Lymphomas", url: "https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1480" } },
-      { setting: "Later", approach: "CD20×CD3 bispecifics, loncastuximab, tafasitamab.", refs: ["glofitamab", "zynlonta"], guideline: { version: "NCCN Guidelines: B-Cell Lymphomas", url: "https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1480" } },
-    ],
     stateOfArt: ["CAR-T second line.", "Bispecifics as off-the-shelf T-cell therapy."],
     history: [{ year: 1997, title: "Rituximab: first antibody for cancer" }, { year: 2017, title: "Axi-cel CAR-T approved", refs: ["axicabtagene-ciloleucel"] }, { year: 2022, title: "ZUMA-7: CAR-T beats transplant" }, { year: 2023, title: "Glofitamab, epcoritamab approved", refs: ["glofitamab"] }],
     pipeline: ["zilovertamab-vedotin", "abexinostat", "dzd8586", "rocbrutinib", "mk-1045", "purinostat", "sctb35", "shr-a1912", "hmpl-760", "rondecabtagene-autoleucel", "azd0486", "ifupinostat", "tqb2825", "krt-232", "zamtocabtagene-autoleucel", "tc011", "crc01", "jnj-90014496", "ctx112", "allo-647"],
