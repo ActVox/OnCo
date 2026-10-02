@@ -98,7 +98,7 @@ export default function Home() {
           <div className="max-w-3xl">
             <h1 className="display">Total information dominance on cancer.</h1>
             <p className="mt-6 text-[17px] sm:text-xl text-foreground/85 leading-relaxed max-w-2xl">
-              Every technology, target, product, company, institution, pathway, trial, pairing, roadmap, and idea in oncology, linked together. The state of the art, the history, and what is coming, for every cancer, with a plain-English TL;DR on every page.
+              Every technology, target, product, company, institution, pathway, trial, pairing, roadmap, and idea in oncology, linked together. The state of the art, the history, and what is coming, for every cancer.
             </p>
             <div className="mt-8 max-w-2xl"><SearchBox large autoFocus={false} /></div>
             <div className="mt-5 flex flex-wrap gap-2">
