@@ -7,8 +7,14 @@ All notable changes to OnCo are recorded here. The format follows [Keep a Change
 Regenerated from the commit log each time the site ships (`scripts/changelog-sync.ts`); the version sections below are written by hand when a release is cut.
 
 ### 2 October 2026
+- Recovery and rejuvenation: a new front, and the hair spike the owner asked for
+- Biological ageing after cancer treatment, and what is sold against it
+- Recovery and rejuvenation: the body, system by system
+- AGENTS.md learns the five days since it was written
 - The home page stops drawing a flow the corpus does not have
+- Hair: the number for your own regimen, and an honest grade for everything sold for regrowth
 - The home page stops drawing a flow the corpus does not have, and two labels come off
+- A twentieth front: Recovery and Rejuvenation
 - Lymphoma, and a home page with less above the grid
 - The hero stops promising a plain-English TL;DR
 - The home page loses the record count, the JSON chip and the body pill above the grid
