@@ -78,6 +78,7 @@ import { ctdnaRoadmaps, ctdnaTrials, ctdnaTerms } from "./ctdna-roadmap";
 import { ideaWaves } from "./ideas-waves";
 import { mechanicsPathways } from "./mechanics-pathways";
 import { complementary } from "./complementary";
+import { rejuvenationBody } from "./spikes/rejuvenation-body";
 import { tests } from "./tests";
 import { nciCoverage } from "./nci-coverage";
 import { institutionsIndia } from "./institutions/india";
@@ -246,6 +247,7 @@ const RAW_INPUTS: EntityInput[] = [
   ...ctdnaRoadmaps, ...ctdnaTrials, ...ctdnaTerms,
   ...mechanicsPathways,
   ...complementary,
+  ...rejuvenationBody,
   ...tests,
   ...nciCoverage,
   ...networkInstitutions, ...networkPeople,
