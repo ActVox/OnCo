@@ -1,26 +1,11 @@
-# Change proposals 2026-10-01
+# Change proposals 2026-10-02
 
 Drafted by scripts/propose-updates.ts from: factcheck 2026-09-28, trialChanges 2026-09-28, fda 2026-09-30, regional 2026-09-30.
 
 Review each line against its source. Apply by editing the file named; nothing in this list is applied automatically. EMA rows carry the reason a person is needed; the rows that passed every check were written on the auto branch by scripts/apply-proposals.ts and are listed at the end.
 
-## High confidence (7)
+## High confidence (3)
 
-- [ ] **Lenvatinib** ([page](https://onco.cc/drugs/lenvatinib/)) · regulatory-event · `regulatoryEvents`
-  - current: 2 events; none dated 2026-09-24
-  - proposed: { date: "2026-09-24", type: "approval", region: "US", note: "approves belzutifan in combination with lenvatinib for advanced renal cell carcinoma with a clear cell component", source: "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-belzutifan-combination-lenvatinib-advanced-renal-cell-carcinoma-clear-cell-component" }
-  - evidence: On September 24, 2026, the Food and Drug Administration approved belzutifan (Welireg, Merck & Co., Inc.) in combination with lenvatinib (Lenvima, Eisai Inc.) for adults with advanced renal cell carcinoma with a clear cell component (ccRCC) following a programmed death receptor-1 (PD-1) or programmed ([source](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-belzutifan-combination-lenvatinib-advanced-renal-cell-carcinoma-clear-cell-component))
-  - file: `src/data/interactions.ts:146`
-- [ ] **Belzutifan** ([page](https://onco.cc/drugs/belzutifan/)) · regulatory-event · `regulatoryEvents`
-  - current: 4 events; none dated 2026-09-24
-  - proposed: { date: "2026-09-24", type: "approval", region: "US", note: "approves belzutifan in combination with lenvatinib for advanced renal cell carcinoma with a clear cell component", source: "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-belzutifan-combination-lenvatinib-advanced-renal-cell-carcinoma-clear-cell-component" }
-  - evidence: On September 24, 2026, the Food and Drug Administration approved belzutifan (Welireg, Merck & Co., Inc.) in combination with lenvatinib (Lenvima, Eisai Inc.) for adults with advanced renal cell carcinoma with a clear cell component (ccRCC) following a programmed death receptor-1 (PD-1) or programmed ([source](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-belzutifan-combination-lenvatinib-advanced-renal-cell-carcinoma-clear-cell-component))
-  - file: `src/data/drugs.ts:657`
-- [ ] **Lirafugratinib** ([page](https://onco.cc/drugs/lirafugratinib/)) · regulatory-event · `regulatoryEvents`
-  - current: 0 events; none dated 2026-09-23
-  - proposed: { date: "2026-09-23", type: "approval", region: "US", note: "approves lirafugratinib for previously treated, unresectable, locally advanced or metastatic cholangiocarcinoma", source: "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-lirafugratinib-previously-treated-unresectable-locally-advanced-or-metastatic" }
-  - evidence: On September 23, 2026, the Food and Drug Administration approved lirafugratinib (Lyrfigtu, Elevar Therapeutics, Inc.), a kinase inhibitor, for the treatment of adults with previously treated unresectable, locally advanced or metastatic cholangiocarcinoma harboring a fibroblast growth factor receptor ([source](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-lirafugratinib-previously-treated-unresectable-locally-advanced-or-metastatic))
-  - file: `src/data/drugs-pipeline-wave1.ts:1714`
 - [ ] **A Study of Pirtobrutinib (LOXO-305) Versus Bendamustine Plus Rituximab (BR) in Untreated Patients With Chronic Lymphocytic Leukemia (CLL)/Small Lymphocytic Lymphoma (SLL)** ([page](https://onco.cc/trials/nct05023980/)) · trial-results · `result / outcomes`
   - current: (none)
   - proposed: add the posted primary outcome with the registry as source
@@ -36,11 +21,6 @@ Review each line against its source. Apply by editing the file named; nothing in
   - proposed: add the posted primary outcome with the registry as source
   - evidence: ClinicalTrials.gov now has posted results for NCT05471843 (detected 2026-09-28). ([source](https://clinicaltrials.gov/study/NCT05471843?tab=results))
   - file: `src/data/pipeline-trials-wave5.ts:1537`
-- [ ] **Relatlimab + nivolumab** ([page](https://onco.cc/drugs/relatlimab-nivolumab/)) · regulatory-event · `regulatoryEvents`
-  - current: 2 events; none dated 2026-08-06
-  - proposed: { date: "2026-08-06", type: "approval", region: "US", note: "grants accelerated approval to vusolimogene oderparepvec-wtpg in combination with nivolumab for melanoma (accelerated)", source: "https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-vusolimogene-oderparepvec-wtpg-combination-nivolumab-melanoma" }
-  - evidence: On August 6, 2026, the Food and Drug Administration granted accelerated approval to vusolimogene oderparepvec-wtpg (Tudriqev, Replimune, Inc.), a genetically modified oncolytic viral therapy, in combination with nivolumab for the treatment of adult patients with unresectable advanced cutaneous melan ([source](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-vusolimogene-oderparepvec-wtpg-combination-nivolumab-melanoma))
-  - file: `src/data/checkpoint-map.ts:161`
 
 ## Medium confidence (73)
 
