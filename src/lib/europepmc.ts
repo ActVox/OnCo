@@ -120,6 +120,29 @@ export const TECH_QUERIES: Record<string, string> = {
   spect: `${inTitleAbstract(["SPECT/CT", "bone scan", "dosimetry SPECT"])} AND ${ONCO}`,
   "peptide-drug-conjugate": `${inTitleAbstract(["peptide-drug conjugate", "peptide drug conjugate", "bicycle toxin conjugate"])}`,
   "site-specific-conjugation": `${inTitleAbstract(["site-specific conjugation", "drug-to-antibody ratio", "ADC linker"])}`,
+  // Recovery and rejuvenation: the record names are reader-facing sentences ("What actually works after
+  // treatment"), so a name-derived query would return nothing or noise. Each one names the literature instead.
+  "rejuv-age-epigenetic-clocks": `${inTitleAbstract(["epigenetic age acceleration", "epigenetic clock", "DNA methylation age"])} AND (${ONCO} OR survivor)`,
+  "rejuv-age-clonal-haematopoiesis-after-therapy": `${inTitleAbstract(["therapy-related clonal hematopoiesis", "clonal hematopoiesis", "clonal haematopoiesis"])} AND (chemotherapy OR radiotherapy OR ${ONCO})`,
+  "rejuv-age-senescent-cells-after-treatment": `${inTitleAbstract(["therapy-induced senescence", "p16INK4a expression", "senescent cell burden"])} AND ${ONCO}`,
+  "rejuv-age-frailty-and-late-effects": `${inTitleAbstract(["frailty", "premature aging", "accelerated aging"])} AND ${inTitleAbstract(["cancer survivors", "childhood cancer survivors"])}`,
+  "rejuv-age-telomere-length": `${inTitleAbstract(["telomere length", "leukocyte telomere length"])} AND (${ONCO} OR survivor)`,
+  "rejuv-frontier-senolytics": `${inTitleAbstract(["senolytic", "senolytics", "dasatinib plus quercetin", "fisetin senolytic"])}`,
+  "rejuv-frontier-metformin-ageing": `${inTitleAbstract(["metformin"])} AND (aging OR ageing OR geroprotector OR ${ONCO})`,
+  "rejuv-frontier-rapamycin-ageing": `${inTitleAbstract(["rapamycin", "sirolimus", "mTOR inhibition"])} AND (aging OR ageing OR immunosenescence OR healthspan)`,
+  "rejuv-frontier-nad-precursors": `${inTitleAbstract(["nicotinamide riboside", "nicotinamide mononucleotide", "NAD+ precursor"])}`,
+  "rejuv-frontier-nad-infusions": `${inTitleAbstract(["intravenous NAD+", "NAD+ infusion", "nicotinamide adenine dinucleotide infusion"])}`,
+  "rejuv-frontier-immune-reconstitution": `${inTitleAbstract(["immune reconstitution", "revaccination", "vaccination after transplantation"])} AND (${ONCO} OR transplantation)`,
+  "rejuv-frontier-mesenchymal-stromal-cells": `${inTitleAbstract(["mesenchymal stromal cells", "mesenchymal stem cells", "remestemcel"])} AND (graft-versus-host OR radiation injury OR ${ONCO})`,
+  "rejuv-frontier-fat-grafting": `${inTitleAbstract(["fat grafting", "lipofilling", "autologous fat transfer"])} AND ${ONCO}`,
+  "rejuv-frontier-platelet-rich-plasma": `${inTitleAbstract(["platelet-rich plasma"])} AND (alopecia OR ${ONCO})`,
+  "rejuv-frontier-hyperbaric-oxygen-claims": `${inTitleAbstract(["hyperbaric oxygen", "osteoradionecrosis", "late radiation tissue injury"])}`,
+  "rejuv-frontier-stem-cell-tourism": `${inTitleAbstract(["stem cell tourism", "unproven stem cell", "direct-to-consumer stem cell"])}`,
+  "rejuv-frontier-exosome-injections": `${inTitleAbstract(["exosome therapy", "exosome product", "extracellular vesicle therapy"])}`,
+  "rejuv-frontier-unlicensed-peptides": `${inTitleAbstract(["BPC-157", "ipamorelin", "growth hormone releasing peptide", "ibutamoren"])}`,
+  "rejuv-frontier-ozone-therapy": `${inTitleAbstract(["ozone therapy", "ozonated autohemotherapy", "medical ozone"])}`,
+  "rejuv-frontier-hormone-pellets": `${inTitleAbstract(["compounded bioidentical hormone", "hormone pellet", "bioidentical hormone therapy"])}`,
+  "rejuv-frontier-what-works": `${inTitleAbstract(["exercise", "physical activity"])} AND ${inTitleAbstract(["cancer survivors", "survivorship"])} AND (randomized OR randomised OR survival)`,
 };
 
 function escapeTerm(s: string): string {
