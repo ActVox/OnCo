@@ -7,6 +7,8 @@ All notable changes to OnCo are recorded here. The format follows [Keep a Change
 Regenerated from the commit log each time the site ships (`scripts/changelog-sync.ts`); the version sections below are written by hand when a release is cut.
 
 ### 2 October 2026
+- The home page stops drawing a flow the corpus does not have
+- The home page stops drawing a flow the corpus does not have, and two labels come off
 - Lymphoma, and a home page with less above the grid
 - The hero stops promising a plain-English TL;DR
 - The home page loses the record count, the JSON chip and the body pill above the grid
