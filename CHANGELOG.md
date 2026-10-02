@@ -6,8 +6,17 @@ All notable changes to OnCo are recorded here. The format follows [Keep a Change
 
 Regenerated from the commit log each time the site ships (`scripts/changelog-sync.ts`); the version sections below are written by hand when a release is cut.
 
+### 2 October 2026
+- Lymphoma, and a home page with less above the grid
+- The hero stops promising a plain-English TL;DR
+- The home page loses the record count, the JSON chip and the body pill above the grid
+- chore: EU regional rows read from the EMA register pages (#125)
+
 ### 1 October 2026
 - Lymphoma: the biology of the germinal centre, and what a person actually decides
+- Lymphoma: the UK and NHS pathway, and the world geography layer
+- Lymphoma evidence: 29 trials, 42 papers, a roadmap and eight open questions, each resolved against a registry or Europe PMC
+- Nineteen lymphoma entity pages, a rewritten non-Hodgkin hub, and both 2022 classifications quoted where they disagree
 - The oldest three DLBCL rows retire, because the record now says the same thing three times
 - Lymphoma molecular layer: the antigens and what they cost, the lesions, the classifications, resistance and the tests
 - Lymphoma, the person: six decisions, six red cards, three first-sixty-days lists
