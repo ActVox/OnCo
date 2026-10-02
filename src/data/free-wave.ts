@@ -217,7 +217,7 @@ const ROWS: Row[] = [
     tldr: "LIVESTRONG at the YMCA is a free twelve-week exercise programme for adults who have had cancer, run at YMCAs across the US.",
     summary: "Exercise after cancer treatment improves fitness, fatigue and quality of life, and structured programmes are now recommended in guidelines. LIVESTRONG at the YMCA delivers one: adult survivors meet twice a week for twelve weeks with instructors trained in cancer exercise, and participants get a Y membership for the programme. It is free at participating YMCAs and the Livestrong site lists locations.",
     technologies: ["structured-exercise-survivorship", "exercise-oncology"], tags: ["patient-programme"] },
-  { group: "survivorship", id: "look-good-feel-better", name: "Look Good Feel Better", url: "https://lookgoodfeelbetter.org/", maintainer: "Look Good Feel Better (US) and Look Good Feel Better UK",
+  { group: "survivorship", id: "look-good-feel-better", sections: ["rejuvenation"], name: "Look Good Feel Better", url: "https://lookgoodfeelbetter.org/", maintainer: "Look Good Feel Better (US) and Look Good Feel Better UK",
     holds: "Free skincare and make-up workshops, in person and online, for people dealing with the visible effects of cancer treatment, with a free kit of donated products; run in the US, the UK and many other countries.",
     tldr: "Look Good Feel Better runs free workshops that teach people having cancer treatment how to manage skin, brow and hair changes, with a free product kit.",
     summary: "Look Good Feel Better began in the US in 1989 and now runs in more than twenty countries, in the UK as a separate charity. Volunteer beauty professionals run free group workshops, in hospitals, centres and online, covering skincare during treatment, drawing brows, managing lashes, and wigs and head coverings, and participants receive a kit of donated products. It is open to anyone with cancer, without referral.",
@@ -239,7 +239,7 @@ const ROWS: Row[] = [
     tags: ["patient-org"] },
 
   // Wigs and prostheses
-  { group: "wigs", id: "little-princess-trust", name: "The Little Princess Trust", url: "https://www.littleprincesses.org.uk/", maintainer: "The Little Princess Trust",
+  { group: "wigs", id: "little-princess-trust", sections: ["rejuvenation"], name: "The Little Princess Trust", url: "https://www.littleprincesses.org.uk/", maintainer: "The Little Princess Trust",
     holds: "Free real-hair wigs for children and young people up to 24 who have lost their hair through cancer treatment or other conditions, made from donated hair, in the UK and Ireland; the charity also funds childhood cancer research.",
     tldr: "The Little Princess Trust gives free real-hair wigs to children and young people up to 24 who lose their hair to cancer treatment.",
     summary: "The Little Princess Trust was founded by the parents of a girl who died of a Wilms tumour. It supplies free real-hair wigs, made from donated ponytails, to children and young people up to 24 across the UK and Ireland, fitted by approved salons, and has become one of the largest charity funders of childhood cancer research in the UK. Requests come through the charity's website or the hospital team.",
@@ -249,7 +249,7 @@ const ROWS: Row[] = [
     tldr: "Knitted Knockers posts free soft knitted breast prostheses to anyone who has had breast surgery, made by volunteer knitters.",
     summary: "Knitted Knockers are soft, light breast prostheses knitted by volunteers to a published pattern. They can be worn soon after surgery when silicone prostheses are too heavy or the scar is tender, and can be adjusted or fitted with a nipple. The foundation posts them free on request in the US and affiliated groups do the same in other countries; the pattern is free for any knitter.",
     cancers: ["breast-cancer"], terms: ["mastectomy"], tags: ["patient-org"] },
-  { group: "wigs", id: "wigs-for-kids", name: "Wigs for Kids", url: "https://www.wigsforkids.org/", maintainer: "Wigs for Kids",
+  { group: "wigs", id: "wigs-for-kids", sections: ["rejuvenation"], name: "Wigs for Kids", url: "https://www.wigsforkids.org/", maintainer: "Wigs for Kids",
     holds: "Free custom hair replacements for children under 18 in the United States who have lost their hair through chemotherapy, radiotherapy, alopecia, burns or other causes, made from donated hair.",
     tldr: "Wigs for Kids gives children in the US who lose their hair to cancer treatment a free custom-made hairpiece.",
     summary: "Wigs for Kids has made hair replacements for children since 1981. Each is custom-fitted from donated hair so that a child can swim and play in it, and it is provided free to families of children under 18 with hair loss from any medical cause, including chemotherapy and radiotherapy. Applications are made through the website with a doctor's note.",
