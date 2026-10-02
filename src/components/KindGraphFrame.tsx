@@ -45,10 +45,18 @@ function Glyph({ d, className = "h-3.5 w-3.5" }: { d: string; className?: string
   return <svg viewBox="0 0 24 24" aria-hidden focusable="false" className={className} fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round"><path d={d} /></svg>;
 }
 const GRAPH_D = "M5 6a2 2 0 1 0 0 .01M19 6a2 2 0 1 0 0 .01M12 18a2 2 0 1 0 0 .01M6.5 7.5 10.8 16M17.5 7.5 13.2 16M7 6h10";
-const BODY_D = "M12 4a2 2 0 1 0 0 .01M8 9h8l-2 5v7h-4v-7L8 9Z";
 const LIST_D = "M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01";
 
-export function KindGraphFrame({ lede, jsonHref, graph, body, list }: { lede: ReactNode; jsonHref: string; graph: ReactNode; body: ReactNode; list: ReactNode }) {
+/**
+ * The owner, 2 October 2026: take the record-count sentence off the home page, and the JSON and body buttons
+ * above the grid. So the row above the grid is now a desktop-only Graph/List toggle and nothing else: no lede,
+ * no JSON chip, and on a phone no row at all. The phone gets the list, which is what it was already showing.
+ *
+ * The body map is no longer rendered here. It was only reachable on a phone through the pill that said "Body",
+ * and that pill is gone; /body/ is its page. The JSON is still discoverable without the chip, through the
+ * `<link rel="alternate">` that KindGraph puts in the head, which is what a crawler or an agent reads anyway.
+ */
+export function KindGraphFrame({ graph, list }: { graph: ReactNode; list: ReactNode }) {
   const root = useRef<HTMLDivElement>(null);
   const [view, setView] = useState<View>("list");
   const [focus, setFocus] = useState<string | null>(null);
@@ -103,21 +111,15 @@ export function KindGraphFrame({ lede, jsonHref, graph, body, list }: { lede: Re
   return (
     <div ref={root} className="kg" data-view={view} data-focus={focus ?? undefined} data-kg-root>
       <style>{CSS}</style>
-      <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 mb-3">
-        {lede}
-        <div className="flex items-center gap-1.5" role="group" aria-label="How to show the kinds">
-          <Link href={`/?${QUERY}=graph`} onClick={(ev) => { ev.preventDefault(); choose("graph"); }} aria-current={view === "graph" ? "true" : undefined} className={pill(view === "graph")} title="The kinds as a graph: nodes by count, edges by links (the body map on a phone)">
-            <span className="hidden md:inline-flex"><Glyph d={GRAPH_D} /></span><span className="inline-flex md:hidden"><Glyph d={BODY_D} /></span>
-            <span className="hidden md:inline">Graph</span><span className="md:hidden">Body</span>
-          </Link>
-          <Link href="/" onClick={(ev) => { ev.preventDefault(); choose("list"); }} aria-current={view === "list" ? "true" : undefined} className={pill(view === "list")} title="The kinds as a plain list of counts">
-            <Glyph d={LIST_D} /><span>List</span>
-          </Link>
-          <a href={jsonHref} className="chip border bg-card border-border hover:bg-foreground/5 text-xs" title="The same nodes and edges as JSON">JSON</a>
-        </div>
+      <div className="hidden md:flex items-center justify-end gap-1.5 mb-3" role="group" aria-label="How to show the kinds">
+        <Link href={`/?${QUERY}=graph`} onClick={(ev) => { ev.preventDefault(); choose("graph"); }} aria-current={view === "graph" ? "true" : undefined} className={pill(view === "graph")} title="The kinds as a graph: nodes by count, edges by links">
+          <Glyph d={GRAPH_D} /><span>Graph</span>
+        </Link>
+        <Link href="/" onClick={(ev) => { ev.preventDefault(); choose("list"); }} aria-current={view === "list" ? "true" : undefined} className={pill(view === "list")} title="The kinds as a plain list of counts">
+          <Glyph d={LIST_D} /><span>List</span>
+        </Link>
       </div>
       <div className="kg-graph" onMouseMove={onMove} onMouseLeave={onLeave} onFocus={onFocus} onBlur={onBlur} onKeyDown={onKey}>{graph}</div>
-      <div className="kg-body">{body}</div>
       <div className="kg-list">{list}</div>
       {tip && (
         <div role="tooltip" style={{ left: tip.left, top: tip.top, width: 288 }} className="fixed z-[80] max-w-[85vw] card shadow-xl p-3 text-sm text-left leading-snug pointer-events-none text-foreground">{tip.text}</div>

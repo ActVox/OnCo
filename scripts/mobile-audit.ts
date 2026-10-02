@@ -32,8 +32,9 @@ type Check = {
 
 const v = (name: string) => `[data-mobile-view="${name}"]`;
 export const CHECKS: Check[] = [
-  // The home page's entry point on a phone is the body map in entry mode (src/components/KindGraph.tsx).
-  { route: "/", view: "body-map", label: "home entry, brain", steps: [{ act: "click", sel: `${v("body-map")} [data-mobile-control]`, nth: 0 }], expect: "driven" },
+  // The home page no longer carries a body map. The owner took the "Body" pill off the row above the grid on
+  // 2 October 2026, so a phone gets the list of kinds and /body/ is the body map's page. The check that used to
+  // open it from the home page is gone rather than left failing; the two /body/ checks below cover the map.
   { route: "/body/", view: "body-map", label: "brain", steps: [{ act: "click", sel: `${v("body-map")} [data-mobile-control]`, nth: 0 }], expect: "driven" },
   { route: "/body/", view: "body-map", label: "mid figure", steps: [{ act: "click", sel: `${v("body-map")} [data-mobile-control]`, nth: 8 }], expect: "driven" },
   { route: "/graph/", view: "graph-explorer", label: "deep neighbour", steps: [{ act: "click", sel: `${v("graph-explorer")} aside [data-mobile-control]`, nth: 0 }, { act: "click", sel: `${v("graph-explorer")} aside [data-mobile-control]`, nth: 12 }], expect: "driven" },

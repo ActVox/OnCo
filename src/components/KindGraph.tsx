@@ -1,16 +1,13 @@
 import Link from "next/link";
 import { graph } from "@/lib/graph";
-import { KINDS, type Kind } from "@/lib/kinds";
+import { type Kind } from "@/lib/kinds";
 import { HUE } from "@/lib/graph-layout";
 import { KIND_COLOR } from "@/lib/text";
-import { BODY_REGIONS } from "@/data/body-regions";
-import { bodyEntry } from "@/lib/body-entry";
 import {
   KG_COLUMNS, KG_H, KG_MIN_LINKS, KG_POS, KG_W, KIND_GRAPH_URL, edgePath, edgeSentence, edgeWidth, edgesOf, kindGraph, linksSentence, nodeRadius, num,
   type KindGraph as KindGraphData,
 } from "@/lib/kind-graph";
 import { KindIcon } from "./KindIcon";
-import { BodyMap } from "./BodyMap";
 import { KindGraphFrame } from "./KindGraphFrame";
 
 /**
@@ -24,7 +21,6 @@ import { KindGraphFrame } from "./KindGraphFrame";
  */
 
 /** Kinds shown in the strip beneath the phone body map: those not reached through an organ. */
-const STRIP_KINDS: Kind[] = ["company", "institution", "person", "journal", "paper", "idea", "bottleneck", "roadmap", "collection", "term"];
 
 const GLYPH = 1.3; // glyph size as a fraction of the node radius
 
@@ -93,44 +89,19 @@ function CountsList({ kg }: { kg: KindGraphData }) {
   );
 }
 
-/** Phones: the kinds no organ reaches, one chip each, in a row that scrolls sideways inside its own box. */
-function KindStrip({ kg }: { kg: KindGraphData }) {
-  const by = new Map(kg.nodes.map((n) => [n.kind, n]));
-  return (
-    <div className="mt-3 -mx-4 px-4 overflow-x-auto" aria-label="Kinds not bound to an organ">
-      <ul className="flex gap-1.5 w-max pb-1">
-        {STRIP_KINDS.map((k) => by.get(k)).filter((n): n is NonNullable<typeof n> => !!n).map((n) => (
-          <li key={n.kind}>
-            <Link href={n.route} className={`chip border ${KIND_COLOR[n.kind]} whitespace-nowrap`} title={linksSentence(kg, n.kind)}>
-              <KindIcon kind={n.kind} className="h-3.5 w-3.5" />
-              <span><b className="font-semibold tabular-nums">{num(n.count)}</b> {n.label.toLowerCase()}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
 
 export function KindGraph() {
   const g = graph();
   const kg = kindGraph(g);
-  const { cancers, families } = bodyEntry(g, BODY_REGIONS);
-  const lede = (
-    <p className="text-sm text-muted">
-      <span className="font-semibold text-foreground tabular-nums">{num(kg.total)}</span> linked records in {KINDS.filter((k) => kg.nodes.some((n) => n.kind === k)).length} kinds, <span className="font-semibold text-foreground tabular-nums">{num(kg.links)}</span> links between them, one page each. Every node, edge and count is a link.
-    </p>
-  );
   return (
     <>
-      {/* React hoists this into <head>: crawlers and agents find the graph's numbers as JSON. */}
+      {/* React hoists this into <head>: crawlers and agents find the graph's numbers as JSON. This is how the
+          JSON stays discoverable now the visible chip above the grid has gone. */}
       <link rel="alternate" type="application/json" href={KIND_GRAPH_URL} title="OnCo kinds and the links between them, as JSON" />
-      <KindGraphFrame lede={lede} jsonHref={KIND_GRAPH_URL}
+      <KindGraphFrame
         graph={<div className="card p-3 sm:p-4 text-foreground"><GraphSvg kg={kg} /></div>}
-        body={<><BodyMap regions={BODY_REGIONS} cancers={cancers} technologies={{}} families={families} /><KindStrip kg={kg} /></>}
         list={<CountsList kg={kg} />} />
     </>
   );
 }
 
-export { STRIP_KINDS };

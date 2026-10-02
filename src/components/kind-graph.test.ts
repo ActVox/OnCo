@@ -5,7 +5,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { AppRouterContext, type AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { KindGraph, STRIP_KINDS } from "./KindGraph";
+import { KindGraph } from "./KindGraph";
 import Home from "@/app/page";
 import { graph } from "@/lib/graph";
 import { KIND_META, KINDS, type Kind } from "@/lib/kinds";
@@ -100,7 +100,7 @@ describe("kind graph markup", () => {
     expect(svg).toContain(`href="${big.href}"`);
   });
 
-  it("stays under 60 KB of markup and carries the list, the body map entry and the strip", () => {
+  it("stays under 60 KB of markup and carries the list and the kind links", () => {
     expect(sizes.graph, `graph svg ${Math.round(sizes.graph / KB)} KB`).toBeLessThan(60 * KB);
     expect(sizes.graph, "the svg was found whole").toBeGreaterThan(8 * KB);
     // The list is the front page's default view (owner's call, 25 September 2026), so the static markup carries
@@ -109,11 +109,14 @@ describe("kind graph markup", () => {
     expect(html).toContain('data-view="list"');
     expect(html).toContain('href="/?view=graph"');
     expect(html).toContain('aria-label="Records by kind"');
-    expect(html).toContain('data-mobile-view="body-map"');
-    expect(html).toContain("Tap where the cancer is");
-    expect(html).not.toContain("Where technologies apply");
-    for (const k of STRIP_KINDS) expect(html).toContain(`href="/${KIND_META[k].route}/"`);
-    expect(html).toContain(`href="${KIND_GRAPH_URL}"`);
+    // The owner took the body pill and the JSON chip off the row above the grid on 2 October 2026, so the home
+    // page no longer renders a body map; /body/ is its page. The JSON stays discoverable through the
+    // <link rel="alternate"> in the head, which is what a crawler or an agent reads, so that is asserted here
+    // instead of the visible chip.
+    expect(html).not.toContain('data-mobile-view="body-map"');
+    expect(html).toContain(`rel="alternate" type="application/json" href="${KIND_GRAPH_URL}"`);
+    // And the sentence counting the corpus is gone with them.
+    expect(html).not.toContain("linked records in");
   });
 });
 
@@ -126,11 +129,14 @@ describe("home page with the kind graph", () => {
     expect(Buffer.byteLength(html, "utf8"), `home ${Math.round(Buffer.byteLength(html, "utf8") / KB)} KB`).toBeLessThan(360 * KB);
   });
 
-  it("is registered as an API file with an OpenAPI path, and the mobile audit taps the home entry at 390 px", () => {
+  it("is registered as an API file with an OpenAPI path, and the body map is still audited on its own page", () => {
     const counts = Object.fromEntries(KINDS.map((k, i) => [k, i + 1])) as Record<Kind, number>;
     expect(apiFiles(counts).map((f) => f.path)).toContain(KIND_GRAPH_URL);
     expect(openApiDocument(counts, { built: "2026-09-24" }).paths).toHaveProperty([KIND_GRAPH_URL]);
     const audit = readFileSync(resolve(__dirname, "../../scripts/mobile-audit.ts"), "utf8");
-    expect(audit).toMatch(/route: "\/", view: "body-map"/);
+    // The home-page tap was retired with the body pill on 2 October 2026. The map itself is still checked at
+    // 390 px, twice, on the page it lives on, so dropping the entry point did not drop the coverage.
+    expect(audit).not.toMatch(/route: "\/", view: "body-map"/);
+    expect(audit.match(/route: "\/body\/", view: "body-map"/g) ?? []).toHaveLength(2);
   });
 });
