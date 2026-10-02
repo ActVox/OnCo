@@ -28,6 +28,7 @@ import { graph } from "./graph";
 import { DECISION_TOOLS } from "./decision-tools";
 import { simple } from "@/data/simple";
 import { questions } from "@/data/questions";
+import { hairQuestions } from "@/data/hair-questions";
 import { redFlagSets, GENERAL_RED_FLAGS } from "@/data/red-flags";
 import { FIRST_60_DAYS_CHECKLISTS } from "@/data/first-60-days-checklists";
 
@@ -151,6 +152,7 @@ describe("tone", () => {
     const failures: string[] = [];
     for (const [id, text] of Object.entries(simple)) failures.push(...findingsFor(`simple:${id}`, { simple: text }));
     for (const [id, rows] of Object.entries(questions)) failures.push(...findingsFor(`questions:${id}`, rows));
+    failures.push(...findingsFor("questions:hair", hairQuestions));
     for (const set of [GENERAL_RED_FLAGS, ...redFlagSets]) failures.push(...findingsFor(`red-flags:${set.id}`, set));
     for (const [id, items] of Object.entries(FIRST_60_DAYS_CHECKLISTS)) failures.push(...findingsFor(`first-60-days:${id}`, items));
     for (const tool of DECISION_TOOLS) failures.push(...findingsFor(`tool:${tool.id}`, tool));

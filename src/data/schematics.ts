@@ -621,7 +621,15 @@ export const SCHEMATIC_ALIAS: Record<string, string> = {
   "genetically-engineered-mouse-models": "pdx-models",
   "humanised-mouse-models": "pdx-models",
   "cancer-cell-line-encyclopedias": "crispr-screens",
-  "tumour-on-chip": "organoids"
+  "tumour-on-chip": "organoids",
+  // Hair (src/data/hair.ts): scalp care reads as the cold-cap drawing of a scalp, camouflage and restoration as the wig.
+  "scalp-care-cancer-treatment": "scalp-cooling",
+  "hair-camouflage-and-restoration": "wigs-cranial-prosthesis",
+  "hair-platelet-rich-plasma": "minoxidil-chemotherapy-alopecia",
+  "hair-photobiomodulation": "photobiomodulation-mucositis",
+  "hair-antiandrogens-alopecia": "minoxidil-chemotherapy-alopecia",
+  "hair-supplements-marketed": "minoxidil-chemotherapy-alopecia",
+  "hair-topical-prevention-agents": "minoxidil-chemotherapy-alopecia",
 };
 
 export function schematicFor(techId: string, sections: string[]): { mesh: Mesh; specific: boolean } {

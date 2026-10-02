@@ -1,7 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { graph } from "./graph";
 import { COMPLEMENTARY_INDEX, complementary } from "@/data/complementary";
-import { HAIR_LOSS_CAUSES, HAIR_PROBLEMS, REGROWTH_TIMELINE, WIG_PROVISION } from "@/data/hair-loss";
+import { HAIR_LOSS_CAUSES, HAIR_PROBLEMS, REGROWTH_TIMELINE, WIG_PROVISION, SCALP_COOLING_EVIDENCE, SCALP_COOLING_PRACTICAL, HAIR_PRACTICAL, COOLING_DEVICES } from "@/data/hair-loss";
+import { hairQuestions, HAIR_QUESTION_SETTINGS } from "@/data/hair-questions";
 import { EVIDENCE_GRADES, USE_KEYS, gradeFromTags } from "./complementary";
 
 /**
@@ -67,10 +68,30 @@ describe("complementary approaches", () => {
     }
     for (const s of REGROWTH_TIMELINE) url(s.source.url, s.when);
     for (const w of WIG_PROVISION) for (const r of w.rows) url(r.url, r.label);
+    for (const r of SCALP_COOLING_EVIDENCE) url(r.source.url, r.regimen);
+    for (const f of SCALP_COOLING_PRACTICAL) { url(f.source.url, f.question); if (f.also) url(f.also.url, f.question); }
+    for (const r of HAIR_PRACTICAL) url(r.source.url, r.title);
+  });
+
+  it("every hair question sits in a named setting, and every setting has questions", () => {
+    const settings = new Set(HAIR_QUESTION_SETTINGS);
+    expect(new Set(HAIR_QUESTION_SETTINGS).size).toBe(HAIR_QUESTION_SETTINGS.length);
+    expect(hairQuestions.length).toBeGreaterThanOrEqual(40);
+    for (const q of hairQuestions) {
+      expect(settings.has(q.setting), `unknown setting: ${q.setting}`).toBe(true);
+      expect(q.question.endsWith("?"), q.question).toBe(true);
+      expect(q.why.length, q.question).toBeGreaterThan(60);
+    }
+    for (const s of HAIR_QUESTION_SETTINGS) expect(hairQuestions.filter((q) => q.setting === s).length, s).toBeGreaterThan(0);
+  });
+
+  it("every FDA scalp cooling authorisation names its number and the year it was granted", () => {
+    expect(COOLING_DEVICES.length).toBeGreaterThanOrEqual(7);
+    for (const d of COOLING_DEVICES) expect(d.authorisation, d.device).toMatch(/\b(K\d{6}|DEN\d{6})\b.*\b20\d{2}$/);
   });
 
   it("reader-facing copy has no em-dashes, no 'spike', and uses UK spelling", () => {
-    const text = JSON.stringify([complementary, COMPLEMENTARY_INDEX, HAIR_LOSS_CAUSES, HAIR_PROBLEMS, REGROWTH_TIMELINE, WIG_PROVISION]);
+    const text = JSON.stringify([complementary, COMPLEMENTARY_INDEX, HAIR_LOSS_CAUSES, HAIR_PROBLEMS, REGROWTH_TIMELINE, WIG_PROVISION, SCALP_COOLING_EVIDENCE, SCALP_COOLING_PRACTICAL, HAIR_PRACTICAL, COOLING_DEVICES, hairQuestions]);
     expect(text).not.toContain("—");
     expect(text).not.toMatch(/\bspike/i);
     expect(text).not.toMatch(/\b(randomized|behavior|tumor\b|center\b|color\b|esophag)/);
