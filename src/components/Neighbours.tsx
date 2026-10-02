@@ -29,10 +29,9 @@ export function Neighbours({ groups, exclude = [], similar, max, moreHref }: { g
             const items = groups.get(k)!;
             return (
               <section key={k} aria-label={KIND_META[k].plural} className={`card p-4 min-w-0 ${k === "drug" ? "sm:col-span-2" : ""}`}>
-                <div className="mb-2.5 flex items-baseline justify-between gap-3">
-                  <h3 className="kicker"><KindName kind={k} form="plural" fallback={KIND_META[k].plural} /></h3>
-                  <span className="text-xs text-muted tabular-nums">{items.length}</span>
-                </div>
+                {/* No count beside the heading: the rows are right there, and where the list is capped the
+                    "and N more" link below already says how many are not shown. Owner, 2 October 2026. */}
+                <h3 className="kicker mb-2.5"><KindName kind={k} form="plural" fallback={KIND_META[k].plural} /></h3>
                 {k === "drug" ? <><DrugGrid drugs={(max && items.length > max ? items.slice(0, max) : items) as Drug[]} compact />{max && items.length > max && <p className="mt-2 text-sm"><Link href={moreHref?.(k) ?? `/${KIND_META[k].route}/`} className="underline" data-more>and {items.length - max} more →</Link></p>}</> : <ChipList items={items} kind={k} max={max} moreHref={moreHref?.(k)} />}
               </section>
             );
@@ -47,10 +46,9 @@ export function Neighbours({ groups, exclude = [], similar, max, moreHref }: { g
 export function SimilarStrip({ items }: { items: SimilarLink[] }) {
   return (
     <section aria-label="Similar pages" className="card p-4 min-w-0">
-      <div className="mb-2.5 flex items-baseline justify-between gap-3">
-        <h3 className="kicker">Similar pages</h3>
-        <span className="text-xs text-muted">not linked directly; found by shared links</span>
-      </div>
+      {/* The caption "not linked directly; found by shared links" came off on 2 October 2026: every card below
+          already begins "Shares ...", which says the same thing in the reader's own words. */}
+      <h3 className="kicker mb-2.5">Similar pages</h3>
       <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
         {items.map((s) => (
           <li key={s.id} className="min-w-0 rounded-lg border border-border p-2.5 text-sm">

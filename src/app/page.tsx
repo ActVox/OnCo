@@ -108,7 +108,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* By the numbers: the kinds as a living graph (the body map on phones), or the plain list (src/components/KindGraph.tsx) */}
+          {/* By the numbers: the kinds and their counts. The graph that used to be here is at /experimental-upgrades/ (src/components/KindGraph.tsx). */}
           <div className="mt-14">
             <KindGraph />
           </div>

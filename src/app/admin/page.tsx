@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { Container, PageHeader } from "@/components/ui";
+import { ProductQueue, type Queued } from "@/components/ProductQueue";
 import { pageMeta } from "@/lib/seo";
 
 /**
@@ -14,7 +15,11 @@ import { pageMeta } from "@/lib/seo";
  * page: it is that approval happens by merging a pull request, which GitHub checks properly, and that production
  * deployment can be restricted to a branch only he merges, which is a setting in his account.
  *
- * So this is a reading surface over public/product-queue.json, holding nothing that is not already public.
+ * So this is a reading surface, holding nothing that is not already public. The list itself is read from the
+ * GitHub API in the browser (src/components/ProductQueue.tsx) rather than baked in at build time: on
+ * 2 October 2026 the owner found this page listing the software map, which had been merged and live for four
+ * days, because the page was a snapshot of the last build. public/product-queue.json is now only the fallback
+ * for when GitHub cannot be reached, and it is labelled as such when it is used.
  */
 
 export const metadata: Metadata = pageMeta({
@@ -22,8 +27,6 @@ export const metadata: Metadata = pageMeta({
   description: "Changes to the product that are built, tested and held until the owner approves them.",
   path: "/admin/",
 });
-
-type Queued = { branch: string; why: string; pr: string; preview: string; files: number; proposed: string; state: string };
 
 function queue(): Queued[] {
   const f = join(process.cwd(), "public", "product-queue.json");
@@ -60,28 +63,8 @@ export default function Admin() {
           </p>
         </section>
 
-        <h2 className="text-2xl font-semibold tracking-tight mt-10 mb-4">
-          {waiting.length === 0 ? "Nothing is waiting" : `${waiting.length} waiting`}
-        </h2>
+        <ProductQueue built={waiting} />
 
-        {waiting.length === 0 ? (
-          <p className="text-sm text-muted">Every product change has been approved or none has been proposed since the queue was written.</p>
-        ) : (
-          <ul className="space-y-3">
-            {waiting.map((c) => (
-              <li key={c.branch} className="card p-4">
-                <p className="font-medium">{c.why}</p>
-                <p className="mt-1 text-xs text-muted">
-                  {c.files} file{c.files === 1 ? "" : "s"} · proposed {c.proposed} · <code>{c.branch}</code>
-                </p>
-                <p className="mt-2 flex flex-wrap gap-3 text-sm">
-                  {c.pr && <a className="underline" href={c.pr} rel="noopener">Read it and merge to approve</a>}
-                  {c.preview && <a className="underline" href={c.preview} rel="noopener">See it as a page</a>}
-                </p>
-              </li>
-            ))}
-          </ul>
-        )}
       </Container>
     </>
   );

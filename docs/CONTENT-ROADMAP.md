@@ -470,3 +470,35 @@ one shows rather than by what it is about.
 version of it as its heading; putting it on `/years/` would have swapped the confusion rather than ended it.
 "Year by year" says the index is per year, sits next to "Timeline" in the same navigation group, and answers
 "years of what?" in the page title. Nine languages for the title and eight for the navigation entry.
+
+## 16. A drawing that can show a loop (owner, 2 October 2026)
+
+"the graph on the homepage is not very truthful are directions can have feedback loops it shows just a single
+flow. what is a better representation of this? remove it for now and not have the list or graph buttons until
+we hit a better ui which you can show up on /experimental-upgrades"
+
+He is right, and the objection is about truth rather than taste. The kind graph lays twenty kinds out as one
+left-to-right flow. The corpus is not a flow: a target points at a drug and the drug points back at the target;
+a trial reads a biomarker and the biomarker is defined by trials; a company owns a drug and the drug's approvals
+define the company. A picture that cannot draw a cycle is asserting something about the field that is false.
+
+Done on 2 October: the graph and the Graph/List toggle are off the home page, which now shows the counts and
+claims nothing more. The drawing is parked at `/experimental-upgrades/` with the objection written beside it.
+
+Still open, and the actual question: what shows a cyclic, weighted, twenty-node graph honestly on a phone? The
+candidates worth building and judging side by side on that page are a circular or chord layout, where no
+direction is privileged and a loop is drawn as a loop; a force-directed layout, which is honest about structure
+and hard to read twice the same way; and a matrix, which handles cycles without pretending to be a map and is
+the only one of the three that stays legible at 390 px. A fourth option is that the home page should not try:
+the counts are honest, and the graph belongs on `/graph/` where a reader has asked for it.
+
+Whatever is built goes on `/experimental-upgrades/` first, which exists now and is linked from nothing.
+
+## 17. Two things a page says that it does not need to (owner, 2 October 2026)
+
+"we dont need 'not linked directly; found by shared links' next to Similar pages on pages, we dont need the
+counts in the connected sections as its self evident"
+
+Both done the same day. The Similar pages caption is gone: every card under it already begins "Shares ...",
+which says it in the reader's own words. The per-kind counts beside the Connected headings are gone: the rows
+are directly below, and where the list is capped the "and N more" link already says how many are not shown.

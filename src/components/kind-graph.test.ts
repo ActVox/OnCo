@@ -5,7 +5,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { AppRouterContext, type AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { KindGraph } from "./KindGraph";
+import { KindGraph, KindGraphExperiment } from "./KindGraph";
 import Home from "@/app/page";
 import { graph } from "@/lib/graph";
 import { KIND_META, KINDS, type Kind } from "@/lib/kinds";
@@ -17,7 +17,7 @@ const render = (el: React.ReactElement) => renderToStaticMarkup(createElement(Ap
 const KB = 1024;
 
 /**
- * The home page's kind graph (src/lib/kind-graph.ts, src/components/KindGraph.tsx): the edge weights are the graph's
+ * The kind graph (src/lib/kind-graph.ts, src/components/KindGraph.tsx): the edge weights are the graph's
  * own link counts, every kind is a plain anchor in the server markup, the whole block stays inside its byte budget,
  * the phone entry (the body map in entry mode with the strip beneath) and the list are in the same markup, and the
  * JSON twin is registered in the API layout and checked by the mobile audit at 390 px.
@@ -67,7 +67,11 @@ describe("kind graph data", () => {
 });
 
 describe("kind graph markup", () => {
-  const html = render(createElement(KindGraph));
+  // The graph moved to /experimental-upgrades/ on 2 October 2026 (the owner: it draws a single flow and the
+  // corpus has feedback loops), so the drawing is asserted on the experiment and the list on what the home page
+  // renders. Both still have to hold: the drawing is not abandoned, it is parked where its objection is written.
+  const html = render(createElement(KindGraphExperiment));
+  const homeKinds = render(createElement(KindGraph));
   const kg = kindGraph(graph());
   // The graph SVG: from its opening tag to the close of its last group (the glyphs inside are nested <svg>s of their own).
   const svgStart = html.indexOf('<svg viewBox="0 0 1040');
@@ -106,6 +110,9 @@ describe("kind graph markup", () => {
     // The list is the front page's default view (owner's call, 25 September 2026), so the static markup carries
     // the list and the graph is the view that needs a parameter. Both are in the HTML either way; only which one
     // the CSS shows without JavaScript changes.
+    expect(homeKinds).toContain('aria-label="Records by kind"');
+    expect(homeKinds, "no graph on the home page").not.toContain('<svg viewBox="0 0 1040');
+    expect(homeKinds, "and no toggle to one").not.toContain('href="/?view=graph"');
     expect(html).toContain('data-view="list"');
     expect(html).toContain('href="/?view=graph"');
     expect(html).toContain('aria-label="Records by kind"');
@@ -114,16 +121,16 @@ describe("kind graph markup", () => {
     // <link rel="alternate"> in the head, which is what a crawler or an agent reads, so that is asserted here
     // instead of the visible chip.
     expect(html).not.toContain('data-mobile-view="body-map"');
-    expect(html).toContain(`rel="alternate" type="application/json" href="${KIND_GRAPH_URL}"`);
+    expect(homeKinds).toContain(`rel="alternate" type="application/json" href="${KIND_GRAPH_URL}"`);
     // And the sentence counting the corpus is gone with them.
     expect(html).not.toContain("linked records in");
   });
 });
 
 describe("home page with the kind graph", () => {
-  it("renders the graph in place of the counts grid and stays inside its markup budget", () => {
+  it("shows the counts grid, not the graph, and stays inside its markup budget", () => {
     const html = render(createElement(Home));
-    expect(html).toContain("data-kg-root");
+    expect(html).toContain('aria-label="Records by kind"');
     expect(html).not.toContain("linked objects, one page each");
     // 270 KB when the graph replaced the grid (Sept 2026); the budget leaves room for the spotlight and the lists to grow.
     expect(Buffer.byteLength(html, "utf8"), `home ${Math.round(Buffer.byteLength(html, "utf8") / KB)} KB`).toBeLessThan(360 * KB);

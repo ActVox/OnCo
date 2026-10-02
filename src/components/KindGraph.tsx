@@ -24,7 +24,7 @@ import { KindGraphFrame } from "./KindGraphFrame";
 
 const GLYPH = 1.3; // glyph size as a fraction of the node radius
 
-function GraphSvg({ kg }: { kg: KindGraphData }) {
+export function GraphSvg({ kg }: { kg: KindGraphData }) {
   const maxCount = Math.max(...kg.nodes.map((n) => n.count));
   const drawn = kg.edges.filter((e) => e.a !== e.b && e.links >= KG_MIN_LINKS && kg.nodes.some((n) => n.kind === e.a) && kg.nodes.some((n) => n.kind === e.b));
   const maxLinks = Math.max(1, ...drawn.map((e) => e.links));
@@ -71,7 +71,7 @@ function GraphSvg({ kg }: { kg: KindGraphData }) {
 }
 
 /** The plain counts list: the grid the graph replaced, kept for the List view and for readers who prefer it. */
-function CountsList({ kg }: { kg: KindGraphData }) {
+export function CountsList({ kg }: { kg: KindGraphData }) {
   return (
     <ul className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-px rounded-xl border border-border bg-card overflow-hidden shadow-card [&>li]:border-border [&>li]:border-b [&>li]:border-r" aria-label="Records by kind">
       {kg.nodes.map((n) => (
@@ -90,18 +90,31 @@ function CountsList({ kg }: { kg: KindGraphData }) {
 }
 
 
+/**
+ * The list of kinds, which is what the home page shows.
+ *
+ * The graph that used to sit beside it came off on 2 October 2026. The owner: "the graph on the homepage is not
+ * very truthful are directions can have feedback loops it shows just a single flow." He is right: the drawing
+ * lays the kinds out as one left-to-right flow, and the corpus is not that. A target points at a drug and the
+ * drug points back; a trial reads a biomarker and the biomarker is defined by trials. A picture that cannot
+ * show a cycle is asserting something about the field that is not true.
+ *
+ * So the graph, and the Graph/List toggle with it, moved to /experimental-upgrades/ until there is a drawing
+ * that can carry a loop. The list is honest: it counts, and counting is all it claims to do.
+ */
 export function KindGraph() {
-  const g = graph();
-  const kg = kindGraph(g);
+  const kg = kindGraph(graph());
   return (
     <>
-      {/* React hoists this into <head>: crawlers and agents find the graph's numbers as JSON. This is how the
-          JSON stays discoverable now the visible chip above the grid has gone. */}
+      {/* React hoists this into <head>: crawlers and agents find the graph's numbers as JSON. */}
       <link rel="alternate" type="application/json" href={KIND_GRAPH_URL} title="OnCo kinds and the links between them, as JSON" />
-      <KindGraphFrame
-        graph={<div className="card p-3 sm:p-4 text-foreground"><GraphSvg kg={kg} /></div>}
-        list={<CountsList kg={kg} />} />
+      <CountsList kg={kg} />
     </>
   );
 }
 
+/** The kinds drawn as a graph. Only /experimental-upgrades/ renders this now; see the note above. */
+export function KindGraphExperiment() {
+  const kg = kindGraph(graph());
+  return <KindGraphFrame graph={<div className="card p-3 sm:p-4 text-foreground"><GraphSvg kg={kg} /></div>} list={<CountsList kg={kg} />} />;
+}
