@@ -1,8 +1,7 @@
 import type { ReactNode } from "react";
 
 /**
- * One monoline wireframe icon per front (`section` kind in src/data/sections.ts), plus one for a
- * possible future `nutrition-lifestyle` front. 24x24 viewBox, 1.5px stroke, currentColor, rounded
+ * One monoline wireframe icon per front (`section` kind in src/data/sections.ts). 24x24 viewBox, 1.5px stroke, currentColor, rounded
  * joins, no fills except tiny dots. Unknown ids fall back to a hexagon node. Server-safe, no hooks.
  */
 
@@ -221,6 +220,17 @@ const NutritionLifestyle: Icon = (p) => (
   </Svg>
 );
 
+// Recovery & Rejuvenation: a shoot regrowing from the ground, with a new bud at the tip.
+const Rejuvenation: Icon = (p) => (
+  <Svg {...p}>
+    <path d="M3.5 21h17" />
+    <path d="M12 21V7.3" />
+    <path d="M12 12.2c0-3.9 2.9-6.6 6.8-6.6C18.8 9.5 15.9 12.2 12 12.2Z" />
+    <path d="M12 17c0-3.2-2.4-5.4-5.6-5.4C6.4 14.8 8.8 17 12 17Z" />
+    <Dot cx={12} cy={6.2} r={1} />
+  </Svg>
+);
+
 // Fallback for unknown ids: hexagon node.
 const Fallback: Icon = (p) => (
   <Svg {...p}>
@@ -249,9 +259,10 @@ const ICONS: Record<string, Icon> = {
   prevention: Prevention,
   devices: Devices,
   "nutrition-lifestyle": NutritionLifestyle,
+  rejuvenation: Rejuvenation,
 };
 
-/** Front ids with a dedicated icon (all 18 sections plus the future `nutrition-lifestyle`). */
+/** Front ids with a dedicated icon: one for every front in src/data/sections.ts. */
 export const FRONT_ICON_IDS: string[] = Object.keys(ICONS);
 
 export function FrontIcon({ id, className = "h-5 w-5" }: { id: string; className?: string }) {

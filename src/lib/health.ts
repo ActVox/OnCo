@@ -305,7 +305,7 @@ export const METRIC_DEFS: MetricDef[] = [
   },
   {
     id: "reviewed", label: "Records a named human reviewer has signed off",
-    plain: "Pages should carry a named expert or patient-advocate reviewer with a date and a conflict-of-interest statement. The model panel at the top of a page is machine commentary and is not counted here; nothing but a named person with a conflict-of-interest statement is. Every record but the 19 fronts is in scope.",
+    plain: "Pages should carry a named expert or patient-advocate reviewer with a date and a conflict-of-interest statement. The model panel at the top of a page is machine commentary and is not counted here; nothing but a named person with a conflict-of-interest statement is. Every record but the fronts is in scope.",
     action: "Recruit a reviewer for this record and add an entry to data/reviews.ts (track, reviewer, role, date, coi). This is the one gauge no script can move: it needs people who will put their name to a page.",
     target: 10,
     check: (g) => {

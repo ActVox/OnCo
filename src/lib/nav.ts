@@ -163,6 +163,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { href: "/costs/", label: "Cutting cancer care costs", blurb: "Each cost driver paired with what is being done and the ideas that could do more: biosimilars, negotiation, dose optimisation, shorter courses, parity, prior authorisation." },
       { href: "/fronts/nutrition-lifestyle/", label: "Diet, exercise and lifestyle", blurb: "What people eat, drink, weigh and do: what the evidence says and what is hype." },
       { href: "/fronts/supportive-care/", label: "Supportive care", blurb: "Treating the person, not just the tumour: symptoms, side effects, nutrition, mental health." },
+      { href: "/fronts/rejuvenation/", label: "Recovery and rejuvenation", blurb: "What treatment took and whether it comes back: hair, hearing, fertility, bone, nerves, memory and the heart." },
       { href: "/live/complementary/", label: "Complementary and supportive approaches", blurb: "Acupuncture, mindfulness, yoga, herbs, diets, cannabis, cold caps and more: what the trials show, graded honestly, and what to avoid or never use instead of treatment." },
       { href: "/live/hair/", label: "Hair loss and regrowth", blurb: "Scalp cooling and the regimens it suits, minoxidil for lasting thinning, eyebrows and lashes, wigs on the NHS and by prescription in the US, which drugs cause it and when hair returns." },
       { href: "/heroes/", label: "Heroes and heroines", blurb: "The patients, families, advocates and pioneers whose lives and cases changed cancer." },

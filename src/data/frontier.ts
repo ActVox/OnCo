@@ -305,7 +305,7 @@ const frontierRadical: EntityInput[] = [
     links: [{ label: "ATOMIC-Meso phase 2/3 (NCT02709512)", url: "https://clinicaltrials.gov/study/NCT02709512" }, { label: "ARGSARC phase 3, terminated (NCT05712694)", url: "https://clinicaltrials.gov/study/NCT05712694" }], pathways: ["lipid-metabolism-cancer"],
   },
   {
-    id: "senescence-targeting", kind: "technology", name: "Senolytics and senescence-directed therapy", sections: ["supportive-care", "targeted-therapy"], status: "preclinical", asOf: RAD,
+    id: "senescence-targeting", kind: "technology", name: "Senolytics and senescence-directed therapy", sections: ["supportive-care", "targeted-therapy", "rejuvenation"], status: "preclinical", asOf: RAD,
     tldr: "Chemotherapy leaves behind zombie cells that will not divide but poison their neighbours. Senolytics aim to clear them.",
     summary: "Therapy-induced senescent cells secrete inflammatory factors that promote relapse, drive fatigue, and accelerate ageing in survivors. Preclinically, a one-two punch of a senescence-inducing drug followed by a senolytic such as navitoclax improves outcomes. In humans, senolytic trials are concentrated in ageing, osteoporosis and neurodegeneration: a September 2026 registry search found no phase 2 senolytic study in cancer survivors. Navitoclax's thrombocytopenia limits dosing.",
     principle: "Senescent cells depend on anti-apoptotic BCL-2 family proteins to survive; BH3 mimetics, or dasatinib plus quercetin, kill them selectively.",

@@ -102,4 +102,16 @@ export const sections: SectionInput[] = [
     tldr: "Devices and physical therapies treat cancer with electric fields, heat, or sound rather than chemicals.",
     summary: "Devices and physical therapies treat cancer with electric fields, heat, light or sound rather than chemicals. The section groups tumour treating fields, with Optune now approved in pancreatic cancer, hyperthermia, HIFU and histotripsy, photodynamic therapy and photoimmunotherapy, electroporation and intraoperative devices. Technologies linking here include TTFields, focused ultrasound and histotripsy, focused-ultrasound blood-brain barrier opening, irreversible electroporation with NanoKnife, hyperthermia and magnetic nanoparticle hyperthermia, photoimmunotherapy, intravesical therapy and scalp cooling. The companies Novocure, HistoSonics and Insightec also point to this section.", journals: ["technology-in-cancer-research-and-treatment"],
   },
+  {
+    id: "rejuvenation", kind: "section", name: "Recovery & Rejuvenation", order: 20, asOf, icon: "sprout",
+    links: [
+      { label: "NCI: Cancer survivorship", url: "https://www.cancer.gov/about-cancer/coping/survivorship" },
+      { label: "NCI: Late effects of treatment for childhood cancer (PDQ)", url: "https://www.cancer.gov/types/childhood-cancers/late-effects-pdq" },
+      { label: "Macmillan Cancer Support: After treatment", url: "https://www.macmillan.org.uk/cancer-information-and-support/after-treatment" },
+    ],
+    tldr: "What treatment took, and whether it comes back: hair, hearing, fertility, bone, muscle, nerves, memory, heart, skin and sexual function. Recovery begins during treatment, not after it.",
+    summary: "Supportive care keeps a person well enough to get through treatment: it handles the sickness, the pain, the sore mouth and the low blood counts while treatment is happening. This front asks the other question. What did the treatment take, and does it come back? Hair and eyebrows, hearing, fertility, bone, muscle, the nerves in the hands and feet, memory and concentration, the heart, skin and scars, sexual function, and the body's biological age. The most useful thing on this page is that recovery begins during treatment and not after it: scalp cooling only works if it starts with the first infusion, fertility preservation has to happen before the first dose, prehabilitation is the weeks before an operation, and hearing, bone and the heart are protected while the drug is being given rather than repaired years later. Every approach here carries an evidence grade, because people finishing treatment are offered stem cells, peptides, ozone, NAD+ drips and exosomes at a price. A grade of insufficient is more use to a reader than a brochure. Where a measure also belongs to supportive care, the record is shared rather than written twice.",
+    tags: ["survivorship", "late-effects", "recovery", "rehabilitation", "fertility", "hair"],
+    journals: ["journal-of-cancer-survivorship"],
+  },
 ];

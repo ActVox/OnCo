@@ -1,5 +1,5 @@
 /**
- * Animated wireframe schematics for the 18 fronts (section entities). Each tells the front's story
+ * Animated wireframe schematics for the fronts (section entities). Each tells the front's story
  * in 3-6 captioned phases on a ~10-14 s loop, using the same scene/part/frame machinery as the
  * technology animations in ./animated.ts. Every mesh stays under 500 points.
  *
@@ -577,6 +577,78 @@ export function nutritionFront(): Mesh {
   });
 }
 
+// ---------------------------------------------------------------- recovery & rejuvenation
+export function rejuvenationFront(): Mesh {
+  const sc = scene();
+  put(sc, "fig", figure("soft"), { at: [0, 0, 0] });
+  // hair: short strands on the crown, lost in phase 1 and regrown in phase 4
+  const strands: Part[] = [];
+  for (let i = 0; i < 7; i++) {
+    const a = -0.9 + (1.8 * i) / 6;
+    strands.push(put(sc, `hair${i}`, polyline([[0.14 * Math.sin(a), 0.93, 0.02], [0.2 * Math.sin(a), 1.06, 0.02], [0.27 * Math.sin(a), 1.16, 0.02]], "accent")));
+  }
+  const cap = put(sc, "cap", ellipsoid(0.22, 0.14, 0.22, 3, 10, "accent", true), { at: [0, 0.92, 0] });
+  const ear = put(sc, "ear", ring(0.07, 8, "accent", "z"), { at: [0.17, 0.81, 0.06] });
+  const heart = put(sc, "heart", sphere(0.1, 3, 6, "hot", true), { at: [-0.08, 0.36, 0.1] });
+  const bone = put(sc, "bone", polyline([[0.17, -0.02, 0.06], [0.18, -0.42, 0.06], [0.2, -0.82, 0.06]], "accent"));
+  const nerve = put(sc, "nerve", polyline([[-0.3, 0.54, 0.04], [-0.42, 0.26, 0.08], [-0.38, -0.05, 0.12], [-0.34, -0.2, 0.14]], "accent"));
+  // fertility: a vial lowered into a store before the first dose
+  const V0: Vec3 = [-1.85, 0.62, 0.2], V1: Vec3 = [-1.85, -0.18, 0.2];
+  const vial = put(sc, "vial", cylinder(0.09, 0.3, 8, 2, "accent", true), { at: V0 });
+  const store = put(sc, "store", box(0.5, 0.42, 0.4, "soft", true), { at: [-1.85, -0.42, 0.2] });
+  // strength: a bar lifted overhead through treatment
+  const W: Vec3[] = [[1.42, 0.52, 0.2], [2.02, 0.52, 0.2]];
+  const weights = [put(sc, "w0", box(0.2, 0.2, 0.2, "accent", true), { at: W[0] }), put(sc, "w1", box(0.2, 0.2, 0.2, "accent", true), { at: W[1] })];
+  const bar = put(sc, "bar", line(W[0], W[1], "accent"));
+  // the recovery curve: what comes back, and how slowly
+  const axis = put(sc, "axis", polyline([[1.05, -0.35, 0], [1.05, -1.25, 0], [2.45, -1.25, 0]], "soft"));
+  const curvePts: Vec3[] = [];
+  for (let i = 0; i <= 15; i++) { const u = i / 15; curvePts.push([1.05 + 1.4 * u, -1.25 + 0.78 * (1 - Math.exp(-2.6 * u)), 0]); }
+  const curve = put(sc, "curve", polyline(curvePts, "accent"));
+  const base = sc.mesh.points, P = sc.parts;
+  return frame(sc, 13, (t, pts, alpha) => {
+    hide(alpha, cap, ear, heart, bone, nerve, vial, store, ...weights, bar, axis, curve);
+    let caption = "";
+    if (t < 0.25) {
+      const u = phase(t, 0, 0.25);
+      strands.forEach((s, i) => setAlpha(alpha, s, Math.max(0, 1 - Math.max(0, u * 9 - i))));
+      setAlpha(alpha, ear, 1); setAlpha(alpha, bone, 1 - 0.6 * u); setAlpha(alpha, nerve, 1 - 0.6 * u);
+      setAlpha(alpha, heart, 0.5 + 0.5 * pulse(t, 4));
+      movePart(pts, base, heart, [0, 0, 0], 1 + 0.2 * Math.max(0, Math.sin(t * TAU * 6)));
+      caption = "1 · Treatment takes more than the tumour: hair, hearing, fertility, bone, muscle, nerves, memory and the heart";
+    } else if (t < 0.5) {
+      const u = phase(t, 0.25, 0.5);
+      strands.forEach((s) => setAlpha(alpha, s, 0));
+      setAlpha(alpha, cap, 0.6 + 0.4 * pulse(t, 3));
+      setAlpha(alpha, store, 1); setAlpha(alpha, vial, 1);
+      moveTo(pts, base, vial, V0, V1, Math.min(1, u * 1.6));
+      caption = "2 · Recovery begins during treatment: scalp cooling from the first infusion, fertility preservation before the first dose";
+    } else if (t < 0.75) {
+      const u = phase(t, 0.5, 0.75);
+      strands.forEach((s) => setAlpha(alpha, s, 0));
+      setAlpha(alpha, cap, 0.5);
+      weights.forEach((w) => setAlpha(alpha, w, 1)); setAlpha(alpha, bar, 1);
+      setAlpha(alpha, heart, 1); setAlpha(alpha, bone, 1);
+      const lift = 0.3 * Math.abs(Math.sin(u * TAU * 1.5));
+      weights.forEach((w) => movePart(pts, base, w, [0, lift, 0], 1)); movePart(pts, base, bar, [0, lift, 0], 1);
+      movePart(pts, base, P["fig"], [0, 0.05 * Math.sin(t * TAU * 5), 0]);
+      caption = "3 · Prehabilitation and exercise hold on to muscle, bone and heart while treatment is happening";
+    } else {
+      const u = phase(t, 0.75, 1);
+      strands.forEach((s, i) => { setAlpha(alpha, s, Math.max(0, Math.min(1, u * 7 - i * 0.7))); movePart(pts, base, s, [0, 0, 0], 0.4 + 0.6 * Math.min(1, u * 1.6)); });
+      setAlpha(alpha, axis, 1); setAlpha(alpha, nerve, 0.4 + 0.6 * u); setAlpha(alpha, ear, 1); setAlpha(alpha, bone, 1);
+      grow(alpha, curve, Math.min(1, u * 1.3));
+      caption = "4 · Hair returns in months, nerves recover over a year or more, and what does not come back is replaced or supported";
+    }
+    return { caption, labels: [
+      { at: [0, 1.4, 0], text: "Person" },
+      ...(t >= 0.25 && t < 0.5 ? [{ at: [-1.85, 1.0, 0] as Vec3, text: "Fertility store" }, { at: [0.75, 1.1, 0] as Vec3, text: "Cooling cap" }] : []),
+      ...(t >= 0.5 && t < 0.75 ? [{ at: [1.72, 1.05, 0] as Vec3, text: "Strength" }] : []),
+      ...(t >= 0.75 ? [{ at: [1.75, -0.1, 0] as Vec3, text: "Months after treatment" }] : []),
+    ] };
+  });
+}
+
 /** Front ids → animated builders. `adcs` reuses the ADC internalisation sequence from ./animated.ts (see schematics.ts). */
 export const FRONT_ANIMATED: Record<string, () => Mesh> = {
   imaging: imagingFront,
@@ -597,4 +669,5 @@ export const FRONT_ANIMATED: Record<string, () => Mesh> = {
   prevention: preventionFront,
   devices: devicesFront,
   "nutrition-lifestyle": nutritionFront,
+  rejuvenation: rejuvenationFront,
 };

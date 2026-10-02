@@ -333,6 +333,7 @@ export const ASK_ALIASES: Record<string, string[]> = {
   "drug-discovery": ["drug discovery"],
   prevention: ["cancer prevention", "prevention", "risk reduction"],
   "nutrition-lifestyle": ["diet and exercise", "lifestyle", "nutrition"],
+  rejuvenation: ["recovery after cancer treatment", "rejuvenation", "late effects", "getting back to normal", "regrowth"],
   devices: ["medical devices", "physical therapies"],
 
   // ---- roadmaps ----

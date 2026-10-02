@@ -139,7 +139,7 @@ const terms: TermInput[] = [
 
 // ======================= TECHNOLOGIES =======================
 const technologies: TechnologyInput[] = [
-  te({ id: "fertility-sparing-endometrial", links: [{ label: "Rodolakis et al., ESGO/ESHRE/ESGE guidelines for the fertility-sparing treatment of patients with endometrial carcinoma (International Journal of Gynecological Cancer 2023)", url: "https://doi.org/10.1136/ijgc-2022-004047" }], name: "Fertility-sparing hormonal treatment of early endometrial cancer", sections: ["hormonal", "surgery"], status: "established",
+  te({ id: "fertility-sparing-endometrial", links: [{ label: "Rodolakis et al., ESGO/ESHRE/ESGE guidelines for the fertility-sparing treatment of patients with endometrial carcinoma (International Journal of Gynecological Cancer 2023)", url: "https://doi.org/10.1136/ijgc-2022-004047" }], name: "Fertility-sparing hormonal treatment of early endometrial cancer", sections: ["hormonal", "surgery", "rejuvenation"], status: "established",
     tldr: "For young women with the earliest, low-grade endometrial cancers, progestin pills or a hormonal IUD can clear the cancer and allow pregnancy before a later hysterectomy.",
     summary: "Candidates: grade 1 endometrioid carcinoma confined to the endometrium on MRI, PR-positive, no myometrial invasion. Complete response ~70-80% at 12 months with oral megestrol/medroxyprogesterone or a levonorgestrel IUD (often combined with metformin or hysteroscopic resection); recurrence ~30%; live-birth rates ~30-40% with assisted reproduction. Hysterectomy after childbearing is recommended.",
     principle: "Progestin-induced differentiation and apoptosis of hormone-responsive endometrial cancer cells under close endometrial sampling surveillance.",

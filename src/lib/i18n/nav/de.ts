@@ -130,6 +130,7 @@ export const navDe: NavDict = {
   "/free/": ["Kostenlos in der Onkologie", "Alles, was es umsonst gibt: kostenlose Tumor- und Gentests, Früherkennung und HPV-Impfung, Pflege-Hotlines, Fahrten und Unterkunft, Zweitmeinungen, Reisehilfe für Studien, Perücken und Prothesen sowie offene Daten. Wer berechtigt ist und wo."],
   "/fronts/nutrition-lifestyle/": ["Ernährung, Bewegung und Lebensstil", "Was Menschen essen, trinken, wiegen und tun: was die Evidenz sagt und was Hype ist."],
   "/fronts/supportive-care/": ["Supportivtherapie", "Den Menschen behandeln, nicht nur den Tumor: Symptome, Nebenwirkungen, Ernährung, psychische Gesundheit."],
+  "/fronts/rejuvenation/": ["Erholung und Regeneration", "Was die Behandlung genommen hat und was zurückkommt: Haare, Gehör, Fruchtbarkeit, Knochen, Nerven, Gedächtnis und Herz."],
 
   "/paths/": ["Lesepfade", "ADCs in 30 Minuten, eine Diagnose verstehen, und mehr."],
   "/about/": ["Über OnCo und Methodik", "Regeln für Fakten, Ranking-Formeln, Lizenz."],

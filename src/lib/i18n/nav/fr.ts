@@ -130,6 +130,7 @@ export const navFr: NavDict = {
   "/free/": ["Gratuit en oncologie", "Tout ce que l'on peut obtenir sans payer : tests tumoraux et génétiques gratuits, dépistage et vaccination HPV, lignes d'infirmières, trajets et hébergement, second avis, aide au déplacement pour les essais, perruques et prothèses, données ouvertes. Qui y a droit et où."],
   "/fronts/nutrition-lifestyle/": ["Alimentation, exercice et mode de vie", "Ce que les gens mangent, boivent, pèsent et font : ce que disent les preuves et ce qui relève du battage."],
   "/fronts/supportive-care/": ["Soins de support", "Soigner la personne, pas seulement la tumeur : symptômes, effets secondaires, nutrition, santé mentale."],
+  "/fronts/rejuvenation/": ["Récupération et rajeunissement", "Ce que le traitement a pris et ce qui revient : cheveux, audition, fertilité, os, nerfs, mémoire et cœur."],
 
   "/paths/": ["Parcours de lecture", "Les ADC en 30 minutes, comprendre un diagnostic, et plus."],
   "/about/": ["À propos et méthodologie", "Règles pour les faits, formules de classement, licence."],
