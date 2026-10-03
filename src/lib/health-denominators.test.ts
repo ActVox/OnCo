@@ -39,7 +39,11 @@ const RECORDED: Array<{ id: string; total: number; label: string }> = [
   { id: "cancer-depth", total: 453, label: "Cancers that reach a deep dive, their own or the parent's" },
   { id: "regional-approvals", total: 450, label: "Approved products with regional rows" },
   { id: "molecules", total: 1080, label: "Products with a molecule or an explained placeholder" },
-  { id: "schematics", total: 591, label: "Technologies with a specific schematic" },
+  // 591 to 710 on 2 October 2026: the two Recovery and Rejuvenation rounds added 119 technology records. They
+  // are the kind this gauge asks about, and almost none has a drawing of its own; they borrow one through
+  // SCHEMATIC_ALIAS. So the denominator grows and the score falls, which is the true reading. The alternative,
+  // excluding them, would have been the gauge flattering itself.
+  { id: "schematics", total: 710, label: "Technologies with a specific schematic" },
   { id: "target-prevalence", total: 1674, label: "Targets with sourced prevalence, or with no medicine aimed at them" },
   { id: "trial-outcomes", total: 1003, label: "Trials with structured outcomes, or with no results in public" },
   { id: "institution-people", total: 700, label: "Institutions with people" },
