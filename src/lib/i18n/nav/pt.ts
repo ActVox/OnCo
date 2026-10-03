@@ -159,6 +159,7 @@ export const navPt: NavDict = {
   "/countries/gb/": ["Reino Unido em profundidade", "O que o Reino Unido faz: quatro serviços de saúde com um só nome, quem paga, o NICE e o SMC, os ensaios e a genómica, e o que os números dizem que faz mal."],
   "/live/complementary/": ["Abordagens complementares e de apoio", "Acupuntura, mindfulness, ioga, ervas, dietas, canábis, gorros frios e mais: o que os ensaios mostram, classificado com honestidade, e o que evitar ou nunca usar em vez do tratamento."],
   "/live/hair/": ["Queda e recuperação do cabelo", "Arrefecimento do couro cabeludo e os regimes a que se adequa, minoxidil para o desbaste persistente, sobrancelhas e pestanas, perucas no NHS e por receita nos EUA, que fármacos a causam e quando o cabelo volta."],
+  "/live/recovery/": ["O que volta depois do tratamento", "Tratamento a tratamento e efeito a efeito: se a recuperação é habitual, parcial ou pouco provável, quanto tempo demora, em que proporção, e a fonte de cada resposta."],
   "/completeness/": ["Cobertura da área", "Quanto do que existe está no OnCo: cada tipo face a uma contagem do mundo com fonte, com os itens em falta nomeados."],
   "/open-tools/": ["Ferramentas abertas", "Visualizadores, planeadores, pipelines e hardware de código aberto que pode usar ou sobre os quais construir, por frente, do Open Medical Registry."],
   "/open-source/": ["Código aberto em oncologia", "Cada projeto de código aberto de que a área depende, de detetores de variantes a sistemas de planeamento e modelos de base, com licença, abertura e responsável."],
