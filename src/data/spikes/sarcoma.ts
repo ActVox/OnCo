@@ -43,7 +43,7 @@ const technologies: TechnologyInput[] = [
     principle: "Wide en-bloc resection with negative margins, reconstruction, and multimodal adjuvant therapy replace amputation.",
     strengths: ["Preserves function without compromising survival", "Custom implants for pelvis and spine"],
     limitations: ["Implant infection and mechanical failure over decades", "Requires specialist sarcoma centres"],
-    cancers: ["sarcoma", "extremity-soft-tissue-sarcoma", "chondrosarcoma"], technologies: ["robotic-surgery", "imrt-igrt"], trials: ["euramos-1"], links: [{ label: "Wikipedia", url: W("Limb-sparing_techniques") }] }),
+    cancers: ["sarcoma", "extremity-soft-tissue-sarcoma", "chondrosarcoma"], technologies: ["robotic-surgery", "imrt-igrt", "rejuv-recon-limb"], trials: ["euramos-1"], links: [{ label: "Wikipedia", url: W("Limb-sparing_techniques") }] }),
 ];
 
 const terms: TermInput[] = [
