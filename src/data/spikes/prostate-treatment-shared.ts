@@ -9,11 +9,11 @@ import type { DrugInput, TermInput, TrialInput } from "@/lib/schema";
  * read; the surprises that produced are recorded where they occur and are worth stating here, because three of them
  * contradict what the drug's label would suggest:
  *
- *   - NICE TA930 does **not** recommend lutetium-177 vipivotide tetraxetan (Pluvicto) for PSMA-positive
+ *   - NICE TA930 does not recommend lutetium-177 vipivotide tetraxetan (Pluvicto) for PSMA-positive
  *     hormone-relapsed metastatic prostate cancer after taxane chemotherapy and an anti-androgen.
- *   - NICE TA580 does **not** recommend enzalutamide for high-risk hormone-relapsed non-metastatic prostate cancer,
+ *   - NICE TA580 does not recommend enzalutamide for high-risk hormone-relapsed non-metastatic prostate cancer,
  *     although apalutamide (TA740) and darolutamide (TA660) are recommended in the same setting.
- *   - NICE TA546 does **not** recommend padeliporfin vascular-targeted photodynamic therapy for untreated low-risk
+ *   - NICE TA546 does not recommend padeliporfin vascular-targeted photodynamic therapy for untreated low-risk
  *     localised disease, and NICE TA332 (sipuleucel-T) has been withdrawn because the marketing authorisation was.
  *   - NICE TA1032 (niraparib with abiraterone) is a terminated appraisal: the company made no evidence submission,
  *     so NICE could make no recommendation at all.

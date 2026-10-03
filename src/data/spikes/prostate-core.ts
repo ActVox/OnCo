@@ -5,7 +5,7 @@ import type { Spike, SpikeSupplement } from "./index";
  * PROSTATE CANCER: the core layer of the deep dive (25 September 2026), written to the standard of the gallbladder,
  * triple-negative, pancreatic, colorectal and lung files. Prostate cancer is the fourth commonest cancer in the world
  * and the commonest cancer in men in the UK: 1,546,112 new cases and 419,849 deaths a year (GLOBOCAN 2024), 57,898 UK
- * cases and 12,300 UK deaths a year (Cancer Research UK). This file owns the **taxonomy** of the prostate family, and
+ * cases and 12,300 UK deaths a year (Cancer Research UK). This file owns the taxonomy of the prostate family, and
  * the what-it-is, grading, staging and risk-band layer of the family page. It does not touch trials and drugs, the NHS
  * pathway, molecular biology, papers or decisions, which the other five layers own.
  *
@@ -15,7 +15,7 @@ import type { Spike, SpikeSupplement } from "./index";
  * The rule (docs/CANCER-PAGES.md): a cancer record is a WHO or PDQ tumour entity and carries a `parent`; a treatment
  * setting is never a record; a molecular subgroup is an entity only when a classification names it. Prostate is the
  * family where the most classifications are in daily use at once, and unlike lung's four they do not even describe the
- * same axis. A man handed a pathology report in Britain in 2026 is holding **five** separate classifications:
+ * same axis. A man handed a pathology report in Britain in 2026 is holding five separate classifications:
  *
  *   HISTOLOGY   what the tumour is (WHO Classification of Tumours, 5th edition, 2022)
  *   GRADE       how abnormal it looks (Gleason score, and the ISUP/WHO grade groups that sit on top of it)
@@ -36,12 +36,12 @@ import type { Spike, SpikeSupplement } from "./index";
  *      treatment decision and in prostate it does not: the first decision is made on grade, stage and PSA.
  *
  *   2. HISTOLOGY.  Two entities sit under the family page.
- *      `prostate-ductal-adenocarcinoma` is **created here**. The fifth edition considered folding ductal
+ *      `prostate-ductal-adenocarcinoma` is created here. The fifth edition considered folding ductal
  *      adenocarcinoma into acinar adenocarcinoma as a subtype and deliberately did not, keeping it a separate type
  *      because of its distinctive behaviour and metastatic pattern (Kench 2022). It makes less PSA, presents later,
  *      metastasises to places prostate cancer usually does not reach, and survives worse. It is the clearest case in
  *      the family of a histology that changes what should happen to a patient.
- *      `prostate-nepc` already exists and is **not** one of the four state records the brief warned about. Its subject,
+ *      `prostate-nepc` already exists and is not one of the four state records the brief warned about. Its subject,
  *      treatment-related neuroendocrine prostatic carcinoma, has its own section in the WHO fifth edition prostate
  *      chapter, defined as "tumours demonstrating complete neuroendocrine differentiation or partial neuroendocrine
  *      differentiation with adenocarcinoma following androgen deprivation therapy" (Kench 2022). It is a WHO entity
@@ -55,13 +55,13 @@ import type { Spike, SpikeSupplement } from "./index";
  *      one, so it is not a prostate cancer record here either.
  *
  *   3. GRADE IS NOT A TIER OF RECORDS, AND THE UK USES BOTH SCALES AT ONCE.  The question the brief asked, whether the
- *      corpus's grade language matches a UK report in 2026, has a precise answer: a UK report carries **both**. The
+ *      corpus's grade language matches a UK report in 2026, has a precise answer: a UK report carries both. The
  *      Royal College of Pathologists dataset (G084, version 4, October 2024, the current standard, review due October
  *      2027) sets out the grade groups "to be used in tangent with the Gleason score", and its own proforma asks for
  *      the Gleason score and the grade group together. The corpus's `gleason-grade-group` term already says both, so
  *      it is correct and is supplemented here rather than replaced. What the corpus was missing is the two other core
- *      items the 2024 dataset added and which change management: the **percentage of Gleason pattern 4** in core
- *      biopsies, and the **presence of intraductal carcinoma or invasive cribriform carcinoma**. Both are written here
+ *      items the 2024 dataset added and which change management: the percentage of Gleason pattern 4 in core
+ *      biopsies, and the presence of intraductal carcinoma or invasive cribriform carcinoma. Both are written here
  *      as terms. Grade generates no cancer records: "Gleason 6 prostate cancer" is a grade, not a disease.
  *
  *   4. RISK BANDS ARE SETTINGS, AND BRITAIN AND AMERICA USE DIFFERENT ONES.  NICE NG131 recommendation 1.2.15 asks
@@ -73,7 +73,7 @@ import type { Spike, SpikeSupplement } from "./index";
  *      therefore told a number between 1 and 5 that the corpus did not hold. Under rule 2 a risk band is a setting and
  *      never a record, and the three localised records in `../prostate-subtypes.ts` (`prostate-low-risk`,
  *      `prostate-intermediate-risk`, `prostate-high-risk`) predate the rule, so they are kept for their URLs, **not
- *      added to**, and instead **mapped**: CPG 1 to the low-risk page, CPG 2 and 3 to the intermediate page, CPG 4 and
+ *      added to, and instead mapped**: CPG 1 to the low-risk page, CPG 2 and 3 to the intermediate page, CPG 4 and
  *      5 to the high-risk page, through aliases and a note on each, so that a man told "CPG 3" can find his page. The
  *      Cambridge groups also gain a glossary term and a staging table (`prostate-cpg` in ../staging.ts) beside the
  *      NCCN one that was already there.
@@ -84,15 +84,15 @@ import type { Spike, SpikeSupplement } from "./index";
  *      oligometastatic, PSMA-low), and no molecular subset (BRCA-altered, PTEN-null, AR-V7 positive, MSI-high) becomes
  *      a record either. Their canonical home is the biomarker readouts and the glossary. The staging facts the four
  *      records hang off are written here instead:
- *        - UK pathology reports stage against **UICC TNM 8** (RCPath G084 names it and prints it as its appendix A).
- *        - The **9th edition** was published on 3 July 2025 and UICC recommends it take effect from 1 January 2026.
- *          For prostate, the T, N and M categories are **unchanged**; what changed is a clarification of the clinical
+ *        - UK pathology reports stage against UICC TNM 8 (RCPath G084 names it and prints it as its appendix A).
+ *        - The 9th edition was published on 3 July 2025 and UICC recommends it take effect from 1 January 2026.
+ *          For prostate, the T, N and M categories are unchanged; what changed is a clarification of the clinical
  *          stage grouping (and the statement that there is no pathological stage I), and a new instruction to record
  *          the imaging method as a suffix, cT2b(mr) for an MRI-derived T category and N1(PET) for a node found on
  *          PSMA PET. The reason given is that prostate is "probably the malignancy most affected by stage migration":
  *          TNM 8 set the cT category from the finger alone, and MRI and PSMA PET find more disease than a finger can,
  *          so a stage IV diagnosed on PSMA PET is not the stage IV of twenty years ago (Brierley 2026).
- *        - **NICE NG131 names no TNM edition at all.** Its CPG table uses bare T1 to T4 categories, which are the same
+ *        - NICE NG131 names no TNM edition at all. Its CPG table uses bare T1 to T4 categories, which are the same
  *          in the 8th and 9th editions, so the guideline is not stranded by the change the way a guideline written
  *          against a revised T category would be. That is worth stating rather than leaving a reader to assume.
  *

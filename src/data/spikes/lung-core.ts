@@ -5,7 +5,7 @@ import type { Spike } from "./index";
  * LUNG CANCER: the core layer of the deep dive (25 September 2026), written to the standard of the gallbladder,
  * triple-negative, pancreatic and colorectal files (docs/GALLBLADDER-QA.md, docs/TNBC-QA.md, docs/PANCREATIC-QA.md,
  * docs/COLORECTAL-QA.md). Lung is the highest-burden cancer in the world: 2,637,005 new cases and 1,861,839 deaths a
- * year, first in both lists (GLOBOCAN 2024). This file owns the **taxonomy** of the lung family and the epidemiology,
+ * year, first in both lists (GLOBOCAN 2024). This file owns the taxonomy of the lung family and the epidemiology,
  * risk, presentation, screening, diagnosis, staging, pathology, prevention and outlook of the two records that carry
  * it. It does not touch treatment, trials, molecular detail or the UK pathway, which other layers own.
  *
@@ -30,7 +30,7 @@ import type { Spike } from "./index";
  *      "Parent-level cancers naming subtypes with no subtype record") counted it as a parent without subtype pages.
  *      Justification under the rule: "non-small-cell lung cancer" is not a WHO 2021 entity (the Blue Book classifies
  *      adenocarcinoma, squamous cell carcinoma and the rest directly), but it is a PDQ entity with its own treatment
- *      summary, and the rule accepts "WHO **or** PDQ". Small cell carcinoma is both: a WHO 2021 entity under the lung
+ *      summary, and the rule accepts "WHO or PDQ". Small cell carcinoma is both: a WHO 2021 entity under the lung
  *      neuroendocrine neoplasms and a PDQ summary.
  *
  *   3. HISTOLOGIES.  The ten wave 4 pages (`lung-adenocarcinoma`, `lung-squamous-cell-carcinoma`,
@@ -56,7 +56,7 @@ import type { Spike } from "./index";
  *      14, RET, BRAF, HER2, NTRK and NRG1 disease are driver-mutation subsets of lung adenocarcinoma that no
  *      classification separates as tumour types, so under rule 4 of docs/CANCER-PAGES.md they would be strings on the
  *      parent and readouts of kind `biomarker`, not cancer records. Ten of them are cancer records in
- *      `../lung-subtypes.ts`, written before the rule. They are **kept for their URLs and not added to** (rule 2), and
+ *      `../lung-subtypes.ts`, written before the rule. They are kept for their URLs and not added to (rule 2), and
  *      the canonical home of each state is its biomarker readout in `../biomarker-readouts*.ts`. Nine of the ten
  *      already had one; `nrg1-fusion` did not and is written here, so every molecular subset the family names now has
  *      a readout. The same applies to the four stage records in `../lung-subtypes.ts` (`resectable-nsclc`,

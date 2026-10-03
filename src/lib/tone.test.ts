@@ -208,3 +208,27 @@ describe("a TL;DR describes the record, not the website", () => {
     expect(bad.map((e) => `${e.id}: ${e.tldr.slice(0, 80)}`)).toEqual([]);
   });
 });
+
+describe("record text is plain text, because that is how it is rendered", () => {
+  /**
+   * Found by the second-cancers agent on 2 October 2026 and confirmed on the live site: nineteen records had
+   * written `**bold**` into a summary, and `/terms/lymphoma-living-hodgkin-survivorship-screening/` was serving
+   * literal asterisks to readers. Nothing renders markdown inside a record's prose: `record-blocks.tsx` passes
+   * each paragraph through `withTermHovers`, which inserts hover links and nothing else.
+   *
+   * The markers were stripped rather than a markdown pass added, because emphasis inside a summary is not
+   * something the house style asks for and adding a renderer would change every record page to fix nineteen.
+   */
+  const FIELDS = ["tldr", "summary", "principle", "mechanism"] as const;
+
+  it("no record writes markdown emphasis into prose a reader sees", () => {
+    const bad: string[] = [];
+    for (const e of graph().entities) {
+      for (const f of FIELDS) {
+        const v = (e as unknown as Record<string, unknown>)[f];
+        if (typeof v === "string" && /\*\*[^*\n]+\*\*/.test(v)) bad.push(`${e.id}.${f}`);
+      }
+    }
+    expect(bad).toEqual([]);
+  });
+});

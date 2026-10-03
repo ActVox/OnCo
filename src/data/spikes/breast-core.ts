@@ -29,7 +29,7 @@ import type { Spike, SpikeSupplement } from "./index";
  *      cover the WHO histological types, the three receptor subtypes, the in-situ precursors, the clinical entities
  *      (inflammatory, Paget), the one fibroepithelial tumour (phyllodes) and the states under each receptor page.
  *      The gap was signposting, not records. Receptor status is not a tumour type, but `breast-hr-positive`,
- *      `breast-her2-positive` and `tnbc` have long-standing pages and URLs, so they stay and are instead **mapped**:
+ *      `breast-her2-positive` and `tnbc` have long-standing pages and URLs, so they stay and are instead mapped:
  *      each gains, in this file, the words a reader is actually told on the telephone as aliases, and a note saying
  *      what the page is called on a pathology report.
  *
@@ -51,8 +51,8 @@ import type { Spike, SpikeSupplement } from "./index";
  *      G148, version 3, November 2024). That sentence is the spine of the new `grade-stage-receptor-breast` term.
  *
  *   4. THE CLASSIFICATION IN FORCE CHANGED THIS YEAR, AND THE CORPUS HAD NOT NOTICED. Every breast page in the corpus
- *      cites the **fifth** edition of the WHO Classification of Tumours of the Breast (2019, read through Tan 2020).
- *      The **sixth** edition was published in April 2026 (Quinn et al., Histopathology 89(2):199 to 218). It is not a
+ *      cites the fifth edition of the WHO Classification of Tumours of the Breast (2019, read through Tan 2020).
+ *      The sixth edition was published in April 2026 (Quinn et al., Histopathology 89(2):199 to 218). It is not a
  *      cosmetic change: it discourages the word "variant" for anything but a molecular alteration, separates
  *      "subtype" from "pattern", updates the HER2 reporting categories after DESTINY-Breast04 and 06 so that no
  *      membrane staining at all is distinguished from any membrane staining, abandons the unified neuroendocrine
@@ -63,13 +63,13 @@ import type { Spike, SpikeSupplement } from "./index";
  *      the sixth edition here, because the dataset the pathologist follows has not moved yet.
  *
  *   5. THE STAGING EDITION QUESTION HAS A PRECISE ANSWER, AND IT IS NOT THE AMERICAN ONE. UK breast reports stage
- *      against **UICC TNM 8**, which the RCPath dataset names and reprints as its appendix D, and that appendix warns
+ *      against UICC TNM 8, which the RCPath dataset names and reprints as its appendix D, and that appendix warns
  *      in terms: "it is recommended to use UICC TNM 8 (not AJCC TNM 8) as there are significant differences between
- *      the two staging systems". The **ninth** edition was published on 3 July 2025 and UICC recommends it from
+ *      the two staging systems". The ninth edition was published on 3 July 2025 and UICC recommends it from
  *      1 January 2026; for breast "the classification remains unchanged", and the single change is a clarification of
  *      the post-treatment yp classification, which now asks that ypT be based on the largest continuous focus of
  *      residual invasive cancer and recommends reporting the residual cancer burden beside it (Brierley 2026).
- *      **NICE NG101 names no TNM edition and no AJCC prognostic stage anywhere in its recommendations.** The corpus's
+ *      NICE NG101 names no TNM edition and no AJCC prognostic stage anywhere in its recommendations. The corpus's
  *      `breast-tnm8` staging table in ../staging.ts is therefore extended to the family page and its note corrected.
  *
  * ===================================================================================================================
