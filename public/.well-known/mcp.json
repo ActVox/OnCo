@@ -1,6 +1,6 @@
 {
   "name": "onco",
-  "description": "OnCo: a public, cited knowledge graph of oncology. 19,513 records in 20 kinds, every fact dated and linked to a primary source. Not medical advice.",
+  "description": "OnCo: a public, cited knowledge graph of oncology. 19,545 records in 20 kinds, every fact dated and linked to a primary source. Not medical advice.",
   "version": "1",
   "homepage": "https://onco.cc",
   "repository": "https://github.com/judegomila/OnCo",
