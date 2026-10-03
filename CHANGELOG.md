@@ -7,11 +7,15 @@ All notable changes to OnCo are recorded here. The format follows [Keep a Change
 Regenerated from the commit log each time the site ships (`scripts/changelog-sync.ts`); the version sections below are written by hand when a release is cut.
 
 ### 3 October 2026
+- Rehabilitation, reconstruction, and a matrix of what comes back
 - Recovery: transplant, second cancers, the mind, and the markdown nobody was rendering
 - Childhood and young adult survivorship: the cohorts that made the field
 - Six summaries that described the page instead of the thing
 
 ### 2 October 2026
+- What comes back after treatment: a sourced recovery matrix, treatment by treatment
+- Cancer rehabilitation and reconstruction: the services that put function back, and the gap between them and what people are offered
+- Recovery: transplant, second cancers, the mind, and the markdown nobody was rendering
 - Graft-versus-host disease, late effects after transplant, and the immune system afterwards
 - Fear of recurrence, mood, body image, work, money and sleep after cancer
 - Second cancers after treatment, and the screening that follows

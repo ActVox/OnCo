@@ -2,7 +2,7 @@
 
 > A public, cited knowledge graph of oncology: cancers, fronts, technologies, targets, treatments and tests, companies, institutions, people, pathways, trials, pairings, roadmaps, key papers, journals, bottlenecks and ideas, one page per object, each with a plain-English TL;DR, a technical summary, dated facts and links to primary sources. Not medical advice.
 
-19,459 records in 20 kinds: 474 cancers, 20 fronts, 710 technologies, 1,674 targets, 1,088 drugs, 1,244 companies, 726 institutions, 109 pathways, 1,221 terms, 5,964 trials, 86 pairings, 37 roadmaps, 1,201 ideas, 139 collections, 1,602 people, 45 bottlenecks, 2,582 key papers, 261 journals, 102 biomarkers, 174 years. Every fact is dated and linked to a primary source; where a number is not sourced it is omitted. Facts may be incomplete or out of date: cite the OnCo page and check the primary source it links before relying on anything that matters.
+19,482 records in 20 kinds: 474 cancers, 20 fronts, 733 technologies, 1,674 targets, 1,088 drugs, 1,244 companies, 726 institutions, 109 pathways, 1,221 terms, 5,964 trials, 86 pairings, 37 roadmaps, 1,201 ideas, 139 collections, 1,602 people, 45 bottlenecks, 2,582 key papers, 261 journals, 102 biomarkers, 174 years. Every fact is dated and linked to a primary source; where a number is not sourced it is omitted. Facts may be incomplete or out of date: cite the OnCo page and check the primary source it links before relying on anything that matters.
 
 ## Licence and attribution
 
@@ -219,6 +219,7 @@
 - [Recovery and rejuvenation](https://onco.cc/fronts/rejuvenation/): What treatment took and whether it comes back: hair, hearing, fertility, bone, nerves, memory and the heart.
 - [Complementary and supportive approaches](https://onco.cc/live/complementary/): Acupuncture, mindfulness, yoga, herbs, diets, cannabis, cold caps and more: what the trials show, graded honestly, and what to avoid or never use instead of treatment.
 - [Hair loss and regrowth](https://onco.cc/live/hair/): Scalp cooling and the regimens it suits, minoxidil for lasting thinning, eyebrows and lashes, wigs on the NHS and by prescription in the US, which drugs cause it and when hair returns.
+- [What comes back after treatment](https://onco.cc/live/recovery/): Treatment by treatment and effect by effect: whether recovery is usual, partial or unlikely, how long it takes, in what proportion, and the source for each answer.
 - [Heroes and heroines](https://onco.cc/heroes/): The patients, families, advocates and pioneers whose lives and cases changed cancer.
 
 ## Learn & contribute
