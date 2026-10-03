@@ -173,7 +173,8 @@ const trials: TrialInput[] = [
       { endpoint: "15-year health-related mortality by treatment era", unit: "%", arms: [{ name: "Diagnosed early 1970s", value: 3.5 }, { name: "Diagnosed 1990s", value: 2.1 }], p: "<0.001 for trend", source: "https://doi.org/10.1056/NEJMoa1510795" },
     ],
     replication: "The British Childhood Cancer Survivor Study, the Nordic ALiCCS cohort and the Dutch DCOG-LATER cohort report the same late-effects pattern and falling late mortality.",
-    cancers: ["all-leukemia", "hodgkin-lymphoma", "medulloblastoma", "wilms-tumor", "neuroblastoma", "rhabdomyosarcoma", "osteosarcoma", "ewing-sarcoma"], technologies: ["survivorship-care-plan", "cardio-oncology"], terms: ["late-effects", "cardiotoxicity"], institutions: ["st-jude", "nci"], bottlenecks: ["b-survivorship"], trials: ["acns0331", "aren0533"],
+    sections: ["rejuvenation", "supportive-care"],
+    cancers: ["all-leukemia", "hodgkin-lymphoma", "medulloblastoma", "wilms-tumor", "neuroblastoma", "rhabdomyosarcoma", "osteosarcoma", "ewing-sarcoma"], technologies: ["survivorship-care-plan", "cardio-oncology", "rejuv-paed-chronic-disease-burden", "rejuv-paed-late-mortality", "rejuv-paed-second-cancers"], terms: ["late-effects", "cardiotoxicity"], institutions: ["st-jude", "nci"], bottlenecks: ["b-survivorship"], trials: ["acns0331", "aren0533"], related: ["sjlife", "bccss", "pancaresurfup"],
     links: [ct("NCT01120353"), doi("Armstrong et al., NEJM 2016", "10.1056/NEJMoa1510795"), { label: "CCSS", url: "https://ccss.stjude.org" }, { label: "COG Long-Term Follow-Up Guidelines", url: "http://www.survivorshipguidelines.org" }],
     tags: [...PAEDIATRIC_TAGS, "survivorship"] }),
 ];
