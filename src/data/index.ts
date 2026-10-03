@@ -85,6 +85,7 @@ import { rejuvenationPaediatric } from "./spikes/rejuvenation-paediatric";
 import { rejuvenationSecondCancers } from "./spikes/rejuvenation-second-cancers";
 import { rejuvenationMind } from "./spikes/rejuvenation-mind";
 import { rejuvenationTransplant } from "./spikes/rejuvenation-transplant";
+import { rejuvenationRehab } from "./spikes/rejuvenation-rehab";
 import { tests } from "./tests";
 import { nciCoverage } from "./nci-coverage";
 import { institutionsIndia } from "./institutions/india";
@@ -260,6 +261,7 @@ const RAW_INPUTS: EntityInput[] = [
   ...rejuvenationSecondCancers,
   ...rejuvenationMind,
   ...rejuvenationTransplant,
+  ...rejuvenationRehab,
   ...tests,
   ...nciCoverage,
   ...networkInstitutions, ...networkPeople,

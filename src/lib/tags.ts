@@ -85,6 +85,7 @@ export const TAG_DESCRIPTIONS: Readonly<Record<string, string>> = {
   "supportive-care": "Technologies, products and people concerned with side effects, symptoms and quality of life during treatment.",
   supportive: "Products and technologies used alongside cancer treatment to protect the patient or manage side effects.",
   psychosocial: "The mind and the life around it after cancer: mood, fear of recurrence, body image, relationships, work and money.",
+  rehabilitation: "Services and operations that put function back after cancer treatment: physiotherapy, occupational therapy, speech and language therapy, prehabilitation, reconstruction and the devices that go with them.",
   complementary: "Approaches used alongside conventional treatment, each carrying an evidence grade for its stated purpose.",
   yc: "Companies that went through Y Combinator.",
   "machines-wave2": "Machines and their makers added in the second wave of the radiotherapy and imaging equipment survey.",
