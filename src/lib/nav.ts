@@ -166,6 +166,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { href: "/fronts/rejuvenation/", label: "Recovery and rejuvenation", blurb: "What treatment took and whether it comes back: hair, hearing, fertility, bone, nerves, memory and the heart." },
       { href: "/live/complementary/", label: "Complementary and supportive approaches", blurb: "Acupuncture, mindfulness, yoga, herbs, diets, cannabis, cold caps and more: what the trials show, graded honestly, and what to avoid or never use instead of treatment." },
       { href: "/live/hair/", label: "Hair loss and regrowth", blurb: "Scalp cooling and the regimens it suits, minoxidil for lasting thinning, eyebrows and lashes, wigs on the NHS and by prescription in the US, which drugs cause it and when hair returns." },
+      { href: "/live/recovery/", label: "What comes back after treatment", blurb: "Treatment by treatment and effect by effect: whether recovery is usual, partial or unlikely, how long it takes, in what proportion, and the source for each answer." },
       { href: "/heroes/", label: "Heroes and heroines", blurb: "The patients, families, advocates and pioneers whose lives and cases changed cancer." },
     ],
   },

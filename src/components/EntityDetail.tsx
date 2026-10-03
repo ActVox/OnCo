@@ -48,6 +48,8 @@ import { ConfidenceChip, ConfidenceLegend } from "./ConfidenceChip";
 import { ProcessSchematic, processSchematicKey } from "./ProcessSchematic";
 import { DosingCard } from "./DosingCard";
 import { ToxicityTable } from "./ToxicityTable";
+import { RecoveryPanel } from "./RecoveryPanel";
+import { cellsForDrug as recoveryCellsForDrug } from "@/data/recovery-matrix";
 import { AccessTable } from "./AccessTable";
 import { RegulatoryTimeline } from "./RegulatoryTimeline";
 import { SeeItInAction } from "./SeeItInAction";
@@ -379,8 +381,9 @@ function kindTabs(e: Entity): Tab[] {
         </>) }] : []),
         ...(regimensFor(e.id).length ? [{ id: "regimens", label: "Regimens", count: regimensFor(e.id).length, content: (
           <ul className="grid *:min-w-0 gap-3 sm:grid-cols-2">{regimensFor(e.id).map((r) => <li key={r.id}><Link href={regimenRoute(r)} className="card block p-3 text-sm hover:shadow-md transition"><div className="font-medium">{r.name}</div><div className="text-xs text-muted mt-1 line-clamp-2">{r.setting}</div><div className="text-xs text-muted mt-1">{cycleSummary(r)}</div></Link></li>)}</ul>) }] : []),
-        ...(e.toxicity.length || agentById(e.id) ? [{ id: "safety", label: "Safety", count: e.toxicity.length || undefined, content: (<>
+        ...(e.toxicity.length || agentById(e.id) || recoveryCellsForDrug(e.id).length ? [{ id: "safety", label: "Safety", count: e.toxicity.length || undefined, content: (<>
           {e.toxicity.length > 0 && <ToxicityTable toxicity={e.toxicity} />}
+          <RecoveryPanel drugId={e.id} />
           {agentById(e.id) && <p className="text-sm mt-3"><Link href={`/interactions/?drugs=${e.id}`} className="underline">Check interactions for {e.name} →</Link></p>}
           {/anti-pd|anti-ctla|pd-1|pd-l1|ctla-4|checkpoint/i.test(e.modality + " " + e.mechanism) && <p className="text-sm mt-1"><Link href="/irae/" className="underline">Checkpoint side effects by organ →</Link></p>}
         </>) }] : []),

@@ -569,6 +569,7 @@ import { rejuvenationPaediatricSchematicAliases } from "./spikes/rejuvenation-pa
 import { rejuvenationSchematicAliases as rejuvenationMindAliases } from "./spikes/rejuvenation-mind";
 import { rejuvenationSchematicAliases as rejuvenationTransplantAliases } from "./spikes/rejuvenation-transplant";
 import { rejuvenationRehabSchematicAliases } from "./spikes/rejuvenation-rehab";
+import { recoverySchematicAliases } from "./recovery";
 
 export const SCHEMATIC_ALIAS: Record<string, string> = {
   "stride-dna-break-detection": "wes-wgs",
@@ -588,6 +589,7 @@ export const SCHEMATIC_ALIAS: Record<string, string> = {
   ...rejuvenationMindAliases,
   ...rejuvenationTransplantAliases,
   ...rejuvenationRehabSchematicAliases,
+  ...recoverySchematicAliases,
   "spatial-transcriptomics": "spatial-biology-instruments",
   "imaging-mass-cytometry": "spatial-biology-instruments",
   "multiplex-immunofluorescence": "histopathology-ihc",
