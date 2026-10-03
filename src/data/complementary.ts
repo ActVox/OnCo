@@ -107,7 +107,7 @@ const mindBody: TechnologyInput[] = [
     principle: "Restricting time in bed and decoupling the bed from wakefulness rebuild the homeostatic sleep drive and conditioned sleep cues, while cognitive work reduces the arousal that maintains insomnia.",
     strengths: ["Large, durable effects in meta-analysis", "First line in multiple guidelines", "Effective digitally and in groups"],
     limitations: ["Requires effort over several weeks", "Trained therapists are scarce", "Less studied in advanced disease"],
-    technologies: ["sleep-circadian-interventions", "psycho-oncology", "survivorship-care-plan", "cancer-related-fatigue-management"], terms: ["quality-of-life", "late-effects"], bottlenecks: ["b-survivorship", "b-toxicity-qol"], related: ["idea-nl-sleep-circadian-survivorship-rct"],
+    technologies: ["sleep-circadian-interventions", "psycho-oncology", "survivorship-care-plan", "cancer-related-fatigue-management", "rejuv-mind-sleep-after-cancer", "rejuv-mind-sleeping-tablets-after-cancer"], terms: ["quality-of-life", "late-effects"], bottlenecks: ["b-survivorship", "b-toxicity-qol"], related: ["idea-nl-sleep-circadian-survivorship-rct"],
     links: [doi("Systematic review and meta-analysis of CBT-I in cancer survivors (Sleep Med Rev 2016)", "10.1016/j.smrv.2015.07.001"), doi("Tai chi chih versus CBT-I for insomnia in breast cancer survivors (JCO 2017)", "10.1200/JCO.2016.71.0285")] }),
 
   tech({ id: "cbt-fatigue-distress", name: "Cognitive behavioural therapy for fatigue and distress", sections: [SEC, "rejuvenation"], status: "established", wikipedia: W("Cognitive_behavioral_therapy"), tags: T("strong"),
@@ -116,7 +116,7 @@ const mindBody: TechnologyInput[] = [
     principle: "Behavioural activation, graded activity and cognitive restructuring interrupt the cycle in which rest, worry and deconditioning perpetuate fatigue and low mood.",
     strengths: ["Durable effects at long follow-up", "Recommended in SIO-ASCO 2023 and 2024 guidelines", "Deliverable remotely"],
     limitations: ["Therapist capacity", "Requires engagement over weeks", "Trials mostly in survivors rather than advanced disease"],
-    technologies: ["psycho-oncology", "integrative-oncology", "exercise-oncology", "cancer-related-fatigue-management", "cognitive-impairment-after-cancer-treatment"], terms: ["quality-of-life"], bottlenecks: ["b-survivorship", "b-toxicity-qol"],
+    technologies: ["psycho-oncology", "integrative-oncology", "exercise-oncology", "cancer-related-fatigue-management", "cognitive-impairment-after-cancer-treatment", "rejuv-mind-fear-of-recurrence-treatment", "rejuv-mind-depression-after-cancer"], terms: ["quality-of-life"], bottlenecks: ["b-survivorship", "b-toxicity-qol"],
     links: [SIO_ASCO_FATIGUE, SIO_ASCO_MOOD, doi("Effects of CBT in severely fatigued disease-free cancer patients, randomised trial (JCO 2006)", "10.1200/JCO.2005.04.8270")] }),
 
   tech({ id: "yoga-cancer", name: "Yoga during and after cancer treatment", sections: [SEC, "nutrition-lifestyle"], status: "established", wikipedia: W("Yoga_as_therapy"), tags: T("strong"),
@@ -146,13 +146,13 @@ const mindBody: TechnologyInput[] = [
     cancers: ["breast-hr-positive", "tnbc"], technologies: ["integrative-oncology", "pain-management", "psycho-oncology"], terms: ["placebo"], bottlenecks: ["b-toxicity-qol"],
     links: [doi("Presurgical hypnosis before breast cancer surgery, randomised trial (JNCI 2007)", "10.1093/jnci/djm106"), doi("Hypnosis for hot flashes among breast cancer survivors, randomised trial (JCO 2008)", "10.1200/JCO.2008.16.6389"), SIO_ASCO_PAIN] }),
 
-  tech({ id: "relaxation-guided-imagery", name: "Relaxation training and guided imagery", sections: [SEC], status: "established", wikipedia: W("Guided_imagery"), tags: T("moderate"),
+  tech({ id: "relaxation-guided-imagery", name: "Relaxation training and guided imagery", sections: [SEC, "rejuvenation"], status: "established", wikipedia: W("Guided_imagery"), tags: T("moderate"),
     tldr: "Progressive muscle relaxation, breathing exercises and guided imagery are simple techniques that reduce anxiety and treatment-related distress during chemotherapy and radiotherapy. Guidelines say they may be offered, and audio versions cost nothing.",
     summary: "Relaxation techniques (progressive muscle relaxation, diaphragmatic breathing, autogenic training) and guided imagery have been tested in dozens of small randomised trials in people receiving chemotherapy and radiotherapy, with consistent reductions in anxiety, anticipatory nausea and treatment-related distress, and some improvement in sleep and pain. The 2023 SIO-ASCO anxiety and depression guideline says relaxation may be offered for anxiety during treatment, and the 2022 pain guideline lists guided imagery with progressive muscle relaxation as an option for general cancer pain. Effect sizes are small to moderate, trials are unblinded and many are decades old. The techniques are freely available as recordings and integrate easily into chemotherapy suites.",
     principle: "Deliberate muscle release and slow breathing engage the parasympathetic system and interrupt anticipatory anxiety; imagery redirects attention away from threat.",
     strengths: ["Free, self-administered, safe", "Included in SIO-ASCO 2022 and 2023 guidance", "Useful for anticipatory nausea and claustrophobia in scanners"],
     limitations: ["Small, older trials", "Small effect sizes", "No effect on disease outcomes"],
-    technologies: ["integrative-oncology", "psycho-oncology"], terms: ["quality-of-life"], bottlenecks: ["b-toxicity-qol"],
+    technologies: ["integrative-oncology", "psycho-oncology", "rejuv-mind-anxiety-after-cancer"], terms: ["quality-of-life"], bottlenecks: ["b-toxicity-qol"],
     links: [SIO_ASCO_MOOD, SIO_ASCO_PAIN] }),
 
   tech({ id: "music-therapy-cancer", name: "Music therapy and music medicine", sections: [SEC], status: "established", wikipedia: W("Music_therapy"), tags: T("moderate"),
