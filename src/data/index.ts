@@ -82,6 +82,7 @@ import { hairEntities } from "./hair";
 import { rejuvenationBody } from "./spikes/rejuvenation-body";
 import { rejuvenationFrontier } from "./spikes/rejuvenation-frontier";
 import { rejuvenationPaediatric } from "./spikes/rejuvenation-paediatric";
+import { rejuvenationSecondCancers } from "./spikes/rejuvenation-second-cancers";
 import { tests } from "./tests";
 import { nciCoverage } from "./nci-coverage";
 import { institutionsIndia } from "./institutions/india";
@@ -254,6 +255,7 @@ const RAW_INPUTS: EntityInput[] = [
   ...rejuvenationBody,
   ...rejuvenationFrontier,
   ...rejuvenationPaediatric,
+  ...rejuvenationSecondCancers,
   ...tests,
   ...nciCoverage,
   ...networkInstitutions, ...networkPeople,
