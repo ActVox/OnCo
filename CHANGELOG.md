@@ -7,9 +7,12 @@ All notable changes to OnCo are recorded here. The format follows [Keep a Change
 Regenerated from the commit log each time the site ships (`scripts/changelog-sync.ts`); the version sections below are written by hand when a release is cut.
 
 ### 3 October 2026
+- Childhood and young adult survivorship: the cohorts that made the field
 - Six summaries that described the page instead of the thing
 
 ### 2 October 2026
+- Childhood, adolescent and young adult survivorship: the cohorts, the burden, and the follow-up that governs care
+- Six summaries that described the page instead of the thing
 - Six TL;DRs were talking about the page instead of the subject
 - Recovery and rejuvenation: a new front, and the hair spike the owner asked for
 - Biological ageing after cancer treatment, and what is sold against it
