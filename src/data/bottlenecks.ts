@@ -1732,7 +1732,7 @@ export const bottlenecks: BottleneckInput[] = [
     summary: "A cancer diagnosis drops people into a system of jargon, probabilities, time-pressed consultations and fragmented hand-offs at the moment they are least able to process it. More than a third of US adults have basic or below-basic health literacy, so consent forms, trial descriptions and even standard patient leaflets are beyond many patients; navigating referrals, insurance and appointments falls on them and their families; and the systematic collection of what patients themselves report about symptoms, which in a randomised trial improved survival, is still not routine. Patients rarely know that a trial exists for them, cannot evaluate conflicting advice, and often do not feel entitled to ask for a second opinion or decline a recommendation. Navigation services, plain-language guidelines, patient-reported outcome monitoring, shared decision aids and patient-controlled data are all evidence-based and all unevenly delivered.",
     metrics: [
       { label: "US adults with basic or below-basic health literacy (National Assessment of Adult Literacy 2003)", value: "36%", source: "Kutner et al., National Center for Education Statistics 2006", url: "https://nces.ed.gov/pubs2006/2006483.pdf" },
-      { label: "Median overall survival with routine patient-reported symptom monitoring vs usual care during chemotherapy for metastatic cancer (randomised)", value: "31.2 vs 26.0 months", source: "Basch et al., JAMA 2017", url: "https://doi.org/10.1001/jama.2017.7156" },
+      { label: "Median overall survival with routine patient-reported symptom monitoring vs usual care during chemotherapy for metastatic cancer (randomised)", value: "31.2 vs 26.0 months; not replicated", source: "Basch et al., JAMA 2017; PRO-TECT, JAMA 2022, found no survival difference", url: "https://doi.org/10.1001/jama.2017.7156" },
       { label: "Patients who agree to join a trial when one is offered to them, showing the deficit is in offering, not willingness", value: "55%", source: "Unger et al., JNCI 2021", url: "https://doi.org/10.1093/jnci/djaa155" },
     ],
     causes: [
@@ -1773,7 +1773,7 @@ export const bottlenecks: BottleneckInput[] = [
     metrics: [
       { label: "Cancer drug indications approved by the EMA 2009-2013 with no evidence of quality-of-life or survival benefit at approval", value: "57%", source: "Davis et al., BMJ 2017", url: "https://doi.org/10.1136/bmj.j4530" },
       { label: "Agreement between physician and patient reporting of symptomatic toxicities (anorexia, nausea, vomiting, constipation, diarrhoea, hair loss) in three randomised trials", value: "Physicians under-reported all six symptoms", source: "Di Maio et al., JCO 2015", url: "https://doi.org/10.1200/JCO.2014.57.9334" },
-      { label: "Median overall survival with routine patient-reported symptom monitoring vs usual care during chemotherapy (randomised)", value: "31.2 vs 26.0 months", source: "Basch et al., JAMA 2017", url: "https://doi.org/10.1001/jama.2017.7156" },
+      { label: "Median overall survival with routine patient-reported symptom monitoring vs usual care during chemotherapy (randomised)", value: "31.2 vs 26.0 months; not replicated", source: "Basch et al., JAMA 2017; PRO-TECT, JAMA 2022, found no survival difference", url: "https://doi.org/10.1001/jama.2017.7156" },
     ],
     causes: [
       "Regulatory approval and pricing are based on efficacy endpoints, so sponsors invest little in quality-of-life measurement.",

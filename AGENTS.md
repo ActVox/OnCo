@@ -73,6 +73,12 @@ learn the hard way and cannot be a test. Everything else is enforced or written 
   `src/data/spikes/index.ts` attaches fields to a record another file owns, and the build fails if it names an
   id that does not exist. It is reachable only from a `Spike`, which needs a `cancerId`; for a record with no
   cancer, add to the owning file's own array instead.
+- **A question-shaped record name competes with the benchmark questions.** Ask's lexical index scores on
+  `name`, so a record called "... and what happened to the survivorship care plan" outranked the right answer
+  for the benchmark question "What happened to tazemetostat in 2026?" and dropped extractive recall below its
+  floor. Renaming the record fixed it. Name a record for its subject, not as a question.
+- **`SCHEMATIC_ALIAS` resolves one hop only.** Aliasing a new technology to an id that is itself an alias
+  leaves it on a generic drawing. `src/data/animated-wave8.test.ts` is what catches it; point at the drawing.
 - **Grade what is unproven rather than leaving it out.** Where something is widely sold and has no evidence,
   `src/data/complementary.ts` has the model: a tag `evidence:<grade>` from strong to harm, a number only where
   the source states one. A reader who finds nothing here finds the seller's own page instead.
