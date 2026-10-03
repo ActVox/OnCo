@@ -7,10 +7,15 @@ All notable changes to OnCo are recorded here. The format follows [Keep a Change
 Regenerated from the commit log each time the site ships (`scripts/changelog-sync.ts`); the version sections below are written by hand when a release is cut.
 
 ### 3 October 2026
+- Recovery: transplant, second cancers, the mind, and the markdown nobody was rendering
 - Childhood and young adult survivorship: the cohorts that made the field
 - Six summaries that described the page instead of the thing
 
 ### 2 October 2026
+- Graft-versus-host disease, late effects after transplant, and the immune system afterwards
+- Fear of recurrence, mood, body image, work, money and sleep after cancer
+- Second cancers after treatment, and the screening that follows
+- Childhood and young adult survivorship: the cohorts that made the field
 - Childhood, adolescent and young adult survivorship: the cohorts, the burden, and the follow-up that governs care
 - Six summaries that described the page instead of the thing
 - Six TL;DRs were talking about the page instead of the subject
