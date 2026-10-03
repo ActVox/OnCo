@@ -206,7 +206,7 @@ const lungParentPatch: Spike["patch"] = {
   summary: [...PARENT_EXISTING, ...PARENT_NEW].join("\n\n"),
   // The conventional 85 against 15 percent split is a textbook figure; the registered share of small-cell disease is
   // lower and falling, which is why the UK and NHS page and this line quote the audit rather than the textbook.
-  tldr: "Lung cancer splits into non-small-cell disease, about 85 percent of it, and small-cell disease, which was 6.6 percent of English cases in 2024 and 9.1 percent of Welsh ones (National Lung Cancer Audit, State of the Nation 2026); the two behave and are treated very differently. The subtype pages carry the detail; this page covers screening, staging and what the types share.",
+  tldr: "Lung cancer splits into non-small-cell disease, about 85 percent of it, and small-cell disease, which was 6.6 percent of English cases in 2024 and 9.1 percent of Welsh ones (National Lung Cancer Audit, State of the Nation 2026); the two behave and are treated very differently. Screening, staging and the things both types share are common ground; the rest belongs to each subtype.",
   subtypes: ["Large cell neuroendocrine carcinoma of the lung"],
   biomarkers: ["Histological type on a small biopsy, decided by TTF-1 and p40 immunohistochemistry before anything else"],
   basics: {

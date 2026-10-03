@@ -92,7 +92,7 @@ export const sections: SectionInput[] = [
   },
   {
     id: "nutrition-lifestyle", kind: "section", name: "Diet, Exercise & Lifestyle", order: 19, asOf, icon: "leaf",
-    tldr: "What people eat, drink, weigh and do affects who gets cancer, how treatment goes, and who relapses. This front studies that with the rigour of a drug trial.",
+    tldr: "What people eat, drink, weigh and do affects who gets cancer, how treatment goes, and who relapses. Those questions are answerable, and the good studies answer them with the rigour of a drug trial.",
     summary: "Obesity, alcohol and inactivity are established causes; diet quality, fibre and the gut microbiome shape immunotherapy response; structured exercise improved survival in a randomised colon cancer trial (CHALLENGE, 2025); fasting-mimicking and ketogenic diets, GLP-1 agonists, vitamin D and aspirin are under test. Cachexia and malnutrition during treatment are treatable and under-treated. The evidence ranges from strong to hype, and this front keeps the two apart.",
     tags: ["nutrition", "exercise", "microbiome", "obesity", "cachexia", "prevention"],
     links: [ { label: "CHALLENGE trial (NEJM 2025)", url: "https://www.nejm.org/doi/full/10.1056/NEJMoa2502760" }], journals: ["nutrition-and-cancer"],

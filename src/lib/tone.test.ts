@@ -179,3 +179,32 @@ describe("tone", () => {
     for (const [key, reason] of TONE_EXCEPTIONS) expect(reason.length, key).toBeGreaterThan(40);
   });
 });
+
+describe("a TL;DR describes the record, not the website", () => {
+  /**
+   * The owner, 2 October 2026, on `/technologies/rejuv-frontier-immune-reconstitution/`: "some of the writing
+   * is very poor on the technical switched version and likely all ... check out the paragraph at the top
+   * there."
+   *
+   * The paragraph read: "This is rejuvenation in the literal sense, and it is the part that is actually
+   * documented ... they are the single most useful thing on this page that is free at the point of use." Every
+   * fault in it is the same fault. It opened on an argument about where the page sits rather than on its
+   * subject, it never said what immune reconstitution is, and it talked about itself. A reader arriving from a
+   * search has none of the context those sentences assume.
+   *
+   * This is narrow on purpose: it holds the shape of the mistake rather than trying to grade prose.
+   *
+   * A second rule was written and withdrawn. Banning an opening demonstrative ("This is the trial that ended
+   * the routine mastectomy") caught nine records and every one of them was well written: the demonstrative was
+   * not the fault. The fault was pointing it at an argument rather than at the thing, which no regular
+   * expression can tell apart. Recorded here so the rule is not written a second time.
+   */
+  const entities = graph().entities.filter((e) => (e.tldr ?? "").length > 0);
+
+  it("no TL;DR refers to the page it sits on", () => {
+    // "this site" is deliberately not in this list. It flagged `primary-tumour`, where the site is the place in
+    // the body the cancer started, which is the correct word and the whole point of the record.
+    const bad = entities.filter((e) => /\b(this page|on this page|this front|this record|the page below)\b/i.test(e.tldr));
+    expect(bad.map((e) => `${e.id}: ${e.tldr.slice(0, 80)}`)).toEqual([]);
+  });
+});

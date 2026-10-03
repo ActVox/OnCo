@@ -104,7 +104,7 @@ const nhlPatch: Spike["patch"] = {
   asOf,
   name: "Non-Hodgkin lymphoma (all types)",
   aka: ["Non-Hodgkin Lymphoma", "NHL", "Non-Hodgkin's lymphoma", "Lymphoma (non-Hodgkin)", "Lymphoma", "Mature B-cell neoplasms", "Mature T-cell and NK-cell neoplasms", "B-cell lymphoma", "T-cell lymphoma", "NK-cell lymphoma", "Lymphatic cancer", "Cancer of the lymph glands", "C82", "C83", "C84", "C85", "C86"],
-  tldr: "Non-Hodgkin lymphoma is not one disease but a family of more than sixty cancers of the lymphocytes, the white blood cells of the immune system. About 95 per cent come from B cells and the rest from T or NK cells; some grow over years and are watched, others grow over weeks and are treated to cure. This page is the map, and the subtype page is the disease.",
+  tldr: "Non-Hodgkin lymphoma is not one disease but a family of more than sixty cancers of the lymphocytes, the white blood cells of the immune system. About 95 per cent come from B cells and the rest from T or NK cells; some grow over years and are watched, others grow over weeks and are treated to cure. The family is the map; the subtype is the disease, and the subtype is what decides the treatment.",
   burden: "About 13,747 new cases and 5,100 deaths a year in the United Kingdom, where 64.6 per cent of people are alive ten years later (Cancer Research UK); an estimated 79,320 new cases and 19,970 deaths in the United States in 2026, 3.8 per cent of all new cancer diagnoses, with five-year relative survival of 74.3 per cent for 2016 to 2022 (SEER); and about 544,000 cases and 260,000 deaths worldwide in 2020 (GLOBOCAN). It is the commonest group of blood cancers.",
   summary: NHL_SUMMARY,
   subtypes: [
