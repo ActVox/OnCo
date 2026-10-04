@@ -7,6 +7,7 @@ All notable changes to OnCo are recorded here. The format follows [Keep a Change
 Regenerated from the commit log each time the site ships (`scripts/changelog-sync.ts`); the version sections below are written by hand when a release is cut.
 
 ### 4 October 2026
+- The sources come off the sidebar and go to the foot of the page
 - Arrow keys reach the results, and a brand name finds its drug
 - Arrow keys reach the results, a brand name finds its drug, and a prefix finds what starts with it
 
@@ -66,6 +67,7 @@ Regenerated from the commit log each time the site ships (`scripts/changelog-syn
 - Four verified approval rows from the proposals queue, and two structure keys that stopped the build
 - Page titles, second attempt: a noun phrase naming the thing and the dimension that orders it
 - The unattended gates run the tests the way the ship chain does, so a weekly data refresh can merge itself again
+- The sources come off the sidebar and go to the foot of the page, grouped by who published them
 - chore: refresh preprint tracker from Europe PMC
 - chore: refresh universe lists (NCI drugs and types, NCI centres, OECI, NHS alliances, NLM journals, OpenAlex, KEGG, ChEMBL, ClinicalTrials.gov, FDA OCE)
 - chore: check regional approvals against the EMA register

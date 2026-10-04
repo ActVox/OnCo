@@ -1,14 +1,5 @@
 [
   {
-    "branch": "product/sources-at-the-foot",
-    "why": "the sources come off the sidebar and go to the foot of the page",
-    "pr": "https://github.com/judegomila/OnCo/pull/117",
-    "preview": "",
-    "files": 12,
-    "proposed": "2026-09-30",
-    "state": "waiting"
-  },
-  {
     "branch": "product/prevalence-not-a-grid",
     "why": "/prevalence/ opens on a list, because the grid is 95 per cent empty",
     "pr": "https://github.com/judegomila/OnCo/pull/118",
