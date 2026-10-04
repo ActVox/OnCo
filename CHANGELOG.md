@@ -6,15 +6,12 @@ All notable changes to OnCo are recorded here. The format follows [Keep a Change
 
 Regenerated from the commit log each time the site ships (`scripts/changelog-sync.ts`); the version sections below are written by hand when a release is cut.
 
-### 3 October 2026
-- How recovery is measured, and who is reached by it
-- The recovery front gets its hub, its history and its open problems
-- Rehabilitation, reconstruction, and a matrix of what comes back
-- Recovery: transplant, second cancers, the mind, and the markdown nobody was rendering
-- Childhood and young adult survivorship: the cohorts that made the field
-- Six summaries that described the page instead of the thing
+### 4 October 2026
+- Arrow keys reach the results, and a brand name finds its drug
+- Arrow keys reach the results, a brand name finds its drug, and a prefix finds what starts with it
 
 ### 2 October 2026
+- How recovery is measured, and who is reached by it
 - Name the England quality of life survey as a gap rather than describe it
 - How recovery is measured, and who is actually reached by it
 - The recovery front gets its hub, its history and its open problems
@@ -62,6 +59,7 @@ Regenerated from the commit log each time the site ships (`scripts/changelog-syn
 - chore: draft change proposals that need review
 
 ### 30 September 2026
+- A name typed in full comes first, and people have faces in the search
 - Four verified approval rows from the proposals queue, and two structure keys that stopped the build
 - Page titles, second attempt: a noun phrase naming the thing and the dimension that orders it
 - The unattended gates run the tests the way the ship chain does, so a weekly data refresh can merge itself again
