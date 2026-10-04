@@ -2,7 +2,7 @@ import { beforeAll, describe, expect, it } from "vitest";
 import MiniSearch from "minisearch";
 import { siteSearchDocs, type SearchDoc } from "./search-index";
 import { KINDS } from "./kinds";
-import { DROPDOWN_PER_KIND, flattenGroups, groupByKind, KIND_TIER, NAME_BOOST, nameBoost, normaliseName, rankHits, SEARCH_INDEX_OPTIONS, TIER_WEIGHT } from "./search-rank";
+import { DROPDOWN_PER_KIND, flattenGroups, groupByKind, KIND_TIER, NAME_BOOST, nameBoost, normaliseName, rankHits, SEARCH_INDEX_OPTIONS, TIER_WEIGHT, TYPED_SEARCH_OPTIONS } from "./search-rank";
 
 /** The real index, built exactly as the browser builds it (about half a second), so the ranking tests see the live corpus. */
 let ms: MiniSearch<SearchDoc>;
@@ -44,10 +44,15 @@ describe("name match boost", () => {
   it("rewards the query being the name, then an alias, then a name prefix, then an alias prefix, then a whole word in the name", () => {
     expect(nameBoost("lancet", "The Lancet", "Lancet")).toBe(2);
     // A biomarker state is not the bare gene, and a journal called The Breast is not the query "breast".
-    expect(nameBoost("HER2", "HER2-positive (IHC 3+ or ISH-amplified)", "HER2-positive\nHER2+\nHER2−")).toBe(1.6);
+    // A prefix boost scales with how much of the name the query covers (NAME_BOOST.namePrefixFull), so these
+    // two are above the floor of 1.6 rather than at it: "HER2" is four of the 37 normalised characters of the
+    // biomarker's name, "breast" six of 24.
+    expect(nameBoost("HER2", "HER2-positive (IHC 3+ or ISH-amplified)", "HER2-positive\nHER2+\nHER2−")).toBeGreaterThan(1.6);
+    expect(nameBoost("HER2", "HER2-positive (IHC 3+ or ISH-amplified)", "HER2-positive\nHER2+\nHER2−")).toBeLessThan(2);
     expect(nameBoost("breast", "The Breast", "Breast (Edinburgh, Scotland)")).toBe(1.3);
     expect(nameBoost("breast", "The Breast", "Breast\nBreast (Edinburgh, Scotland)")).toBe(2);
-    expect(nameBoost("breast", "Breast cancer (all types)", "Breast carcinoma\nCarcinoma of the breast")).toBe(1.6);
+    expect(nameBoost("breast", "Breast cancer (all types)", "Breast carcinoma\nCarcinoma of the breast")).toBeGreaterThan(1.6);
+    expect(nameBoost("breast", "Breast cancer (all types)", "Breast carcinoma\nCarcinoma of the breast")).toBeLessThan(2.1);
     expect(nameBoost("bronch", "Lung cancer (all types)", "Bronchogenic carcinoma\nLung carcinoma")).toBe(1.3);
     expect(nameBoost("breast", "Male breast cancer", "")).toBe(1.15);
     expect(nameBoost("breast", "Sacituzumab govitecan", "")).toBe(1);
@@ -152,5 +157,43 @@ describe("a name typed in full wins", () => {
   it("the tier still decides for a one-word query, so a journal stays under the cancer", () => {
     expect(top("breast", 5)[0]).toBe("cancer:breast-cancer");
     expect(top("breast", 5).some((x) => x.startsWith("journal:"))).toBe(false);
+  });
+});
+
+describe("typing a prefix finds the thing that starts with it", () => {
+  /**
+   * The owner, 4 October 2026: "check all search functions that they can do the exact string matching on
+   * search." Three faults, all found by typing into the live box.
+   *
+   *   "pembro"   returned three trials with the word "Pembro" in their titles, not pembrolizumab. MiniSearch
+   *              discounts a prefix expansion against an exact term, so the titles that matched the word won.
+   *   "keytruda" returned nothing relevant at all: 534 of the 1,088 drugs carry a brand name and not one of
+   *              them was in the search index, so the name most people are actually given found nothing.
+   *   "trastuz"  was decided by a flat prefix boost that treated six letters of a thirteen-letter drug name the
+   *              same as six letters of a ninety-character trial title.
+   */
+  const ms = new MiniSearch<SearchDoc>(SEARCH_INDEX_OPTIONS);
+  beforeAll(() => { ms.addAll(siteSearchDocs()); });
+  const typed = (q: string, n = 1) =>
+    flattenGroups(groupByKind(rankHits(ms.search(q, TYPED_SEARCH_OPTIONS) as never[], q) as never[], 8)).slice(0, n).map((h) => (h as { id: string }).id);
+
+  it("a prefix of a drug name finds the drug, not a trial that happens to use the word", () => {
+    expect(typed("pembro")).toEqual(["pembrolizumab"]);
+    expect(typed("osim")).toEqual(["osimertinib"]);
+    expect(typed("trastuz")).toEqual(["trastuzumab"]);
+  });
+
+  it("a brand name finds its drug", () => {
+    for (const [brand, id] of [["keytruda", "pembrolizumab"], ["herceptin", "trastuzumab"], ["opdivo", "nivolumab"]] as const) {
+      expect(typed(brand), brand).toEqual([id]);
+    }
+    // And a partial brand, since that is what a reader types.
+    expect(typed("keytr")).toEqual(["pembrolizumab"]);
+  });
+
+  it("the tier still decides a one-word query, so the big pages are not displaced", () => {
+    expect(typed("breast")).toEqual(["breast-cancer"]);
+    expect(typed("lung")).toEqual(["lung-cancer"]);
+    expect(typed("lancet")).toEqual(["lancet"]);
   });
 });

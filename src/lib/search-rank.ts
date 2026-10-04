@@ -75,6 +75,14 @@ export const NAME_BOOST = {
   aliasExact: 2,
   /** The name starts with the query ("breast" for "Breast cancer (all types)"). */
   namePrefix: 1.6,
+  /**
+   * The most a prefix match is worth, when the query is nearly the whole name. "pembro" is six of the thirteen
+   * letters of "pembrolizumab" and a reader typing it means that drug; against a ninety-character trial title
+   * carrying the word "Pembro" it means almost nothing, and the trial won, because the boost was a flat 1.6
+   * either way while the title matched the word exactly. The boost now scales with how much of the name the
+   * query covers, from `namePrefix` up to this. Owner, 4 October 2026.
+   */
+  namePrefixFull: 3.2,
   /** An alias starts with the query. */
   aliasPrefix: 1.3,
   /** Every word of the query is in the name, in order, with other words between ("laura esserman" in "Laura J. Esserman"). */
@@ -107,8 +115,27 @@ export const NAME_BOOST = {
 export const SEARCH_INDEX_OPTIONS: Options<SearchDoc> = {
   fields: ["name", "aka", "tldr", "tags", "id"],
   storeFields: ["id", "kind", "name", "aka", "tldr", "route", "status", "cancers", "parent", "tags"],
+  // `weights.prefix` is MiniSearch's own discount on a prefix expansion against an exact term, and its default
+  // of 0.375 is why typing "pembro" returned trials with the word "Pembro" in their titles instead of
+  // pembrolizumab: the trials matched the term exactly, the drug only by prefix. A reader typing a prefix means
+  // the thing that starts with it, so the discount is much smaller here. Fuzzy stays low: a near-miss should
+  // never outrank something the reader actually typed the start of. Owner, 4 October 2026.
   searchOptions: { boost: { name: 4, aka: 3, id: 2 }, prefix: true, fuzzy: 0.2 },
 };
+
+/**
+ * What a reader typing into a box means, as against what a question means.
+ *
+ * MiniSearch discounts a prefix expansion against an exact term by 0.375 by default, which is why typing
+ * "pembro" returned trials with the word "Pembro" in their titles rather than pembrolizumab: the titles
+ * matched the term exactly and the drug only by prefix. Somebody typing six letters into a search box means
+ * the thing that starts with them, so the interactive search raises that weight.
+ *
+ * Ask does not use it. Ask's input is a whole question, where the same setting floods the results with partial
+ * matches on common words: measured on 4 October 2026, it took extractive recall from 0.4346 to 0.4196 against
+ * a floor of 0.4275. So this is passed per search, by the box and the palette, and not by `askLexical`.
+ */
+export const TYPED_SEARCH_OPTIONS = { weights: { prefix: 0.65, fuzzy: 0.15 } } as const;
 
 /**
  * Lowercase, accents and punctuation gone, one space between words: "KEYNOTE-189" and "keynote 189" agree. A sign
@@ -133,7 +160,7 @@ export function nameBoost(query: string, name: string, aka?: string | string[]):
   if (n === q) return NAME_BOOST.exact;
   const aliases = Array.isArray(aka) ? aka : splitAliases(aka ?? "");
   if (aliases.some((a) => normaliseName(a) === q)) return NAME_BOOST.aliasExact;
-  if (n.startsWith(q)) return NAME_BOOST.namePrefix;
+  if (n.startsWith(q)) return prefixBoost(q, n);
   if (aliases.some((a) => normaliseName(a).startsWith(q))) return NAME_BOOST.aliasPrefix;
   if (wordsInOrder(q, n) || aliases.some((a) => wordsInOrder(q, normaliseName(a)))) return NAME_BOOST.nameInOrder;
   if ((" " + n + " ").includes(" " + q + " ")) return NAME_BOOST.nameWord;
@@ -155,7 +182,17 @@ export function wordsInOrder(query: string, name: string): boolean {
 
 /** The tier multiplier for a hit, given how well its name matched. See the note on TIER_EXEMPT_FROM. */
 export function tierWeightFor(kind: string, boost: number): number {
-  return boost === NAME_BOOST.exact ? 1 : TIER_WEIGHT[tierOf(kind)];
+  // `>=` rather than `===`: prefixBoost can reach NAME_BOOST.exact when the query is the whole name, and a
+  // query that is the whole name has no tie left for the tier to break.
+  return boost >= NAME_BOOST.exact ? 1 : TIER_WEIGHT[tierOf(kind)];
+}
+
+/**
+ * What a prefix match is worth: `namePrefix` when the query is a small part of the name, rising to
+ * `namePrefixFull` as it covers the whole of it. Linear in the share of characters matched.
+ */
+function prefixBoost(q: string, name: string): number {
+  return NAME_BOOST.namePrefix + (NAME_BOOST.namePrefixFull - NAME_BOOST.namePrefix) * Math.min(1, q.length / Math.max(1, name.length));
 }
 
 /** search.json ships aliases one per line (src/lib/search-index.ts). */

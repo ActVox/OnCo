@@ -46,12 +46,22 @@ function pageDocs(): SearchDoc[] {
   return out;
 }
 
+/** A record's brand names, split on the separators the corpus uses, with any parenthetical form dropped. */
+function brandNames(e: object): string[] {
+  const brand = (e as { brand?: unknown }).brand;
+  if (typeof brand !== "string" || !brand.trim()) return [];
+  return brand.split(/\s*[/,;]\s*/).map((b) => b.replace(/\s*\([^)]*\)\s*/g, " ").trim()).filter(Boolean);
+}
+
 export function searchDocs(): SearchDoc[] {
   return graph().entities.map((e) => ({
     id: e.id,
     kind: e.kind,
     name: e.name,
-    aka: e.aka.join("\n"),
+    // The brand goes in with the aliases. 534 of the 1,088 drugs carry one and not one of them was searchable:
+    // "Keytruda" found nothing, and the brand is the name most people are given. A brand can be a list
+    // ("Keytruda / Keytruda Qlex (SC)"), so it is split the way an alias list is. Owner, 4 October 2026.
+    aka: [...e.aka, ...brandNames(e)].join("\n"),
     tldr: e.tldr,
     tags: e.tags.join(" "),
     route: routeFor(e),

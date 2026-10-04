@@ -1,7 +1,7 @@
 import type MiniSearch from "minisearch";
 import type { SearchResult } from "minisearch";
 import type { SearchDoc } from "@/lib/search-index";
-import { NAME_BOOST, nameBoost, rankHits, recordWeight, SEARCH_INDEX_OPTIONS } from "@/lib/search-rank";
+import { NAME_BOOST, nameBoost, rankHits, recordWeight, SEARCH_INDEX_OPTIONS, TYPED_SEARCH_OPTIONS } from "@/lib/search-rank";
 import { contentWords } from "@/lib/semantic";
 
 /**
@@ -38,7 +38,7 @@ export type RankedHit = SearchResult & SearchDoc;
  * (src/lib/search-rank.ts), best first. Every dropdown and results list should go through this rather than ms.search.
  */
 export function searchRanked(ms: MiniSearch<SearchDoc>, query: string, limit?: number): RankedHit[] {
-  const ranked = rankHits(ms.search(query) as RankedHit[], query);
+  const ranked = rankHits(ms.search(query, TYPED_SEARCH_OPTIONS) as RankedHit[], query);
   return limit === undefined ? ranked : ranked.slice(0, limit);
 }
 
@@ -52,7 +52,9 @@ export function searchRanked(ms: MiniSearch<SearchDoc>, query: string, limit?: n
 export function askLexical(ms: MiniSearch<SearchDoc>, question: string, k: number): string[] {
   const query = contentWords(question);
   if (!query) return [];
-  const hits = searchRanked(ms, query).filter((h) => h.kind !== "page");
+  // Deliberately not searchRanked: that raises the weight on prefix matches for someone typing into a box, and
+  // on a whole question it costs extractive recall (see TYPED_SEARCH_OPTIONS).
+  const hits = rankHits(ms.search(query) as RankedHit[], query).filter((h) => h.kind !== "page");
   const byId = new Map(hits.map((h) => [String(h.id), h]));
   // A subtype's name carries its parent's name ("Large-cell lung carcinoma" under non-small-cell lung cancer), so on
   // the parent's tokens the subtypes crowd the parent out. When the parent is also a hit and the subtype matched no

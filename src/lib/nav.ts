@@ -192,7 +192,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { href: "/data-sources/", label: "Open data", blurb: "Every open database OnCo pulls from, with licences and cadence, and the ones we could add next." },
       { href: "/open-tools/", label: "Open tools", blurb: "Open-source viewers, planners, pipelines and hardware you can use or build on, by front, from the Open Medical Registry." },
       { href: "/open-source/", label: "Open source in oncology", blurb: "Every open-source project the field runs on, from variant callers to planning systems and foundation models, with licence, openness and maintainer." },
-      { href: "/software/", label: "The software of oncology", blurb: "The rest of the field's software, most of it commercial: records, prescribing, planning, cleared algorithms, genomics, trial matching and case review, each row marked with what is behind it." },
+      { href: "/software/", label: "The software of oncology", aka: "software, soft, digital health, health IT", blurb: "The rest of the field's software, most of it commercial: records, prescribing, planning, cleared algorithms, genomics, trial matching and case review, each row marked with what is behind it." },
       { href: "https://github.com/judegomila/OnCo", label: "GitHub", blurb: "Code and data. Propose changes through the issue forms." },
     ],
   },
