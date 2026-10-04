@@ -10,6 +10,9 @@ Regenerated from the commit log each time the site ships (`scripts/changelog-syn
 - Arrow keys reach the results, and a brand name finds its drug
 - Arrow keys reach the results, a brand name finds its drug, and a prefix finds what starts with it
 
+### 3 October 2026
+- chore: EU regional rows read from the EMA register pages (#127)
+
 ### 2 October 2026
 - How recovery is measured, and who is reached by it
 - Name the England quality of life survey as a gap rather than describe it
