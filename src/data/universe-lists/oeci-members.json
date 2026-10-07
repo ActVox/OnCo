@@ -1,5 +1,5 @@
 {
- "checked": "2026-09-30",
+ "checked": "2026-10-07",
  "source": {
   "label": "OECI: Member Profiles",
   "url": "https://www.oeci.eu/MemberList.aspx"
@@ -440,17 +440,6 @@
    ]
   },
   {
-   "id": "94",
-   "name": "TYKS Syöpäkeskus Turun Yliopistollinen Sairaala",
-   "altName": "Turku University Hospital Cancer Centre",
-   "country": "Finland",
-   "website": "https://www.tyks.fi/",
-   "membership": "Full Member",
-   "leaders": [
-    "Sirkku Jyrkkiö"
-   ]
-  },
-  {
    "id": "95",
    "name": "TAYS Syöpäkeskus Tampereen Yliopistollinen Sairaala",
    "altName": "TAYS Cancer Centre Tampere University Hospital",
@@ -462,6 +451,17 @@
     "Olli Leppänen",
     "Maarit Bärlund",
     "Arja Jukkola"
+   ]
+  },
+  {
+   "id": "94",
+   "name": "TYKS Syöpäkeskus Turun Yliopistollinen Sairaala",
+   "altName": "Turku University Hospital Cancer Centre",
+   "country": "Finland",
+   "website": "https://www.tyks.fi/",
+   "membership": "Full Member",
+   "leaders": [
+    "Sirkku Jyrkkiö"
    ]
   },
   {
@@ -575,19 +575,6 @@
    ]
   },
   {
-   "id": "107",
-   "name": "Institut Universitaire du Cancer de Toulouse-Oncopole",
-   "altName": "University Cancer Institute Toulouse-Oncopole",
-   "country": "France",
-   "website": "https://www.iuct-oncopole.fr/",
-   "membership": "Full Member",
-   "leaders": [
-    "Jean-Pierre Delord",
-    "Claire Genety",
-    "Gilles Favre"
-   ]
-  },
-  {
    "id": "112",
    "name": "Institut du cancer Paris CARPEM AP-HP.Centre-Université Paris Cité",
    "country": "France",
@@ -692,6 +679,19 @@
    "leaders": [
     "Jean-Philippe Spano",
     "Serge Uzan"
+   ]
+  },
+  {
+   "id": "107",
+   "name": "Institut Universitaire du Cancer de Toulouse-Oncopole",
+   "altName": "University Cancer Institute Toulouse-Oncopole",
+   "country": "France",
+   "website": "https://www.iuct-oncopole.fr/",
+   "membership": "Full Member",
+   "leaders": [
+    "Jean-Pierre Delord",
+    "Claire Genety",
+    "Gilles Favre"
    ]
   },
   {
@@ -1006,18 +1006,6 @@
    ]
   },
   {
-   "id": "134",
-   "name": "HSE West North West, University of Galway Cancer Centre",
-   "country": "Ireland",
-   "website": "https://www.saolta.ie",
-   "membership": "Full Member",
-   "leaders": [
-    "Joseph Martin",
-    "Olive Gallagher",
-    "Geraldine Cooley"
-   ]
-  },
-  {
    "id": "145",
    "name": "Cork University Hospital/University College Cork",
    "country": "Ireland",
@@ -1038,6 +1026,18 @@
     "David Fennelly",
     "William Gallagher",
     "Paula Carroll"
+   ]
+  },
+  {
+   "id": "134",
+   "name": "HSE West North West, University of Galway Cancer Centre",
+   "country": "Ireland",
+   "website": "https://www.saolta.ie",
+   "membership": "Full Member",
+   "leaders": [
+    "Joseph Martin",
+    "Olive Gallagher",
+    "Geraldine Cooley"
    ]
   },
   {
@@ -1132,6 +1132,61 @@
    ]
   },
   {
+   "id": "42",
+   "name": "IRCCS Ospedale San Raffaele (OSR)",
+   "country": "Italy",
+   "website": "http://www.hsr.it",
+   "membership": "Full Member",
+   "leaders": [
+    "Marco Centenari",
+    "Fabio Ciceri",
+    "Gianvito Martino",
+    "Roberts Mazzuconi",
+    "Federico Esposti"
+   ]
+  },
+  {
+   "id": "92",
+   "name": "IRCCS Istituto Clinico Humanitas",
+   "altName": "Humanitas Research Hospital",
+   "country": "Italy",
+   "website": "http://www.humanitas.it",
+   "membership": "Full Member",
+   "leaders": [
+    "Riccardo Bui",
+    "Luigi Maria Terracciano",
+    "Alberto Mantovani",
+    "Simona Sancini"
+   ]
+  },
+  {
+   "id": "104",
+   "name": "INOC - Istituto Nazionale Oncologico Candiolo",
+   "country": "Italy",
+   "website": "https://inoc.it/it/",
+   "membership": "Full Member",
+   "leaders": [
+    "Andrea Agnelli",
+    "Salvatore Nieddu",
+    "Anna Sapino",
+    "Piero Fenu",
+    "Vanesa Gregorc"
+   ]
+  },
+  {
+   "id": "149",
+   "name": "ASST Spedali Civili di Brescia (SCH)",
+   "country": "Italy",
+   "website": "https://www.asst-spedalicivili.it",
+   "membership": "Full Member",
+   "leaders": [
+    "Luigi Cajazzo",
+    "Frida Fagandini",
+    "Fabio Agrò",
+    "Aldo Maria Roccaro"
+   ]
+  },
+  {
    "id": "10",
    "name": "Istituto Europeo di Oncologia",
    "altName": "IEO European Institute of Oncology",
@@ -1183,20 +1238,6 @@
    ]
   },
   {
-   "id": "42",
-   "name": "IRCCS Ospedale San Raffaele (OSR)",
-   "country": "Italy",
-   "website": "http://www.hsr.it",
-   "membership": "Full Member",
-   "leaders": [
-    "Marco Centenari",
-    "Fabio Ciceri",
-    "Gianvito Martino",
-    "Roberts Mazzuconi",
-    "Federico Esposti"
-   ]
-  },
-  {
    "id": "70",
    "name": "Istituto Oncologico Veneto IRCCS-IOV",
    "country": "Italy",
@@ -1205,7 +1246,7 @@
    "leaders": [
     "Patrizia Simionato",
     "Antonio Rosato",
-    "Anna Maria Saieva"
+    "Vinicio Danzi"
    ]
   },
   {
@@ -1220,44 +1261,17 @@
    ]
   },
   {
-   "id": "92",
-   "name": "IRCCS Istituto Clinico Humanitas",
-   "altName": "Humanitas Research Hospital",
+   "id": "127",
+   "name": "IRCCS Ospedale Sacro Cuore Don Calabria",
+   "altName": "Sacro Cuore - Don Calabria Hospital",
    "country": "Italy",
-   "website": "http://www.humanitas.it",
+   "website": "https://www.sacrocuore.it/",
    "membership": "Full Member",
    "leaders": [
-    "Riccardo Bui",
-    "Luigi Maria Terracciano",
-    "Alberto Mantovani",
-    "Simona Sancini"
-   ]
-  },
-  {
-   "id": "104",
-   "name": "INOC - Istituto Nazionale Oncologico Candiolo",
-   "country": "Italy",
-   "website": "https://inoc.it/it/",
-   "membership": "Full Member",
-   "leaders": [
-    "Andrea Agnelli",
-    "Salvatore Nieddu",
-    "Anna Sapino",
-    "Piero Fenu",
-    "Vanesa Gregorc"
-   ]
-  },
-  {
-   "id": "149",
-   "name": "ASST Spedali Civili di Brescia (SCH)",
-   "country": "Italy",
-   "website": "https://www.asst-spedalicivili.it",
-   "membership": "Full Member",
-   "leaders": [
-    "Luigi Cajazzo",
-    "Frida Fagandini",
-    "Fabio Agrò",
-    "Aldo Maria Roccaro"
+    "Claudio Cracco",
+    "Federico Gobbi",
+    "Fabrizio Nicolis",
+    "Stefania Gori"
    ]
   },
   {
@@ -1283,20 +1297,6 @@
     "Rocco Mario Calabrese",
     "Maria Mariani",
     "Rocco Galasso"
-   ]
-  },
-  {
-   "id": "127",
-   "name": "IRCCS Ospedale Sacro Cuore Don Calabria",
-   "altName": "Sacro Cuore - Don Calabria Hospital",
-   "country": "Italy",
-   "website": "https://www.sacrocuore.it/",
-   "membership": "Full Member",
-   "leaders": [
-    "Claudio Cracco",
-    "Federico Gobbi",
-    "Fabrizio Nicolis",
-    "Stefania Gori"
    ]
   },
   {
@@ -1395,7 +1395,7 @@
   },
   {
    "id": "225A",
-   "name": "Alleanza Contro il Cancro",
+   "name": "Alleanza Contro il Cancro - ACC",
    "altName": "Alliance Against Cancer",
    "country": "Italy",
    "website": "https://alleanzacontroilcancro.it/en/",
@@ -1589,8 +1589,7 @@
    "leaders": [
     "Øystein Mæland",
     "Erik Borge Skei",
-    "Pål Wiik",
-    "Helge Rørvik Røsjø"
+    "Joachim Børke Thorkildsen"
    ]
   },
   {
@@ -2130,9 +2129,9 @@
    "membership": "Full Member",
    "leaders": [
     "Pamela Buchwald",
-    "Silke Engelholm",
     "Josefin Holm",
-    "Bjorn Lovgren-Ekmehag"
+    "Bjorn Lovgren-Ekmehag",
+    "Oskar Hammar"
    ]
   },
   {
@@ -2146,16 +2145,6 @@
    ]
   },
   {
-   "id": "121",
-   "name": "Sahlgrenska University Hospital",
-   "country": "Sweden",
-   "website": "http://www.sahlgrenska.se/",
-   "membership": "Full Member",
-   "leaders": [
-    "Erik Johnsson"
-   ]
-  },
-  {
    "id": "141",
    "name": "Linköping Comprehensive Cancer Center",
    "country": "Sweden",
@@ -2166,6 +2155,16 @@
     "Mats Ulfendahl",
     "Ninnie Borendal Wodlin",
     "Jessica Frisk"
+   ]
+  },
+  {
+   "id": "121",
+   "name": "Sahlgrenska University Hospital",
+   "country": "Sweden",
+   "website": "http://www.sahlgrenska.se/",
+   "membership": "Full Member",
+   "leaders": [
+    "Erik Johnsson"
    ]
   },
   {
@@ -2434,8 +2433,8 @@
    "website": "http://www.christie.nhs.uk",
    "membership": "Associate Member",
    "leaders": [
-    "Rob Bristow",
-    "Fiona Blackhall"
+    "Fiona Blackhall",
+    "Roger Spencer"
    ]
   },
   {

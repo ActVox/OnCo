@@ -1,16 +1,16 @@
 {
- "checked": "2026-09-30",
+ "checked": "2026-10-07",
  "source": {
   "label": "ClinicalTrials.gov: interventional studies, condition 'cancer'",
   "url": "https://clinicaltrials.gov/search?cond=cancer&aggFilters=studyType:int"
  },
  "method": "ClinicalTrials.gov API v2 with query.cond=cancer and countTotal=true: interventional studies; of those, phase 3; of those, recruiting. Sponsors: distinct lead sponsor names (class INDUSTRY) across all phase 3 interventional cancer studies, so subsidiaries and name variants count separately.",
- "total": 97433,
- "phase3": 11022,
- "recruiting": 14402,
+ "total": 97571,
+ "phase3": 11029,
+ "recruiting": 14317,
  "industryPhase3": {
-  "studies": 4254,
-  "sponsors": 940
+  "studies": 4258,
+  "sponsors": 941
  },
  "items": [
   {
@@ -23,7 +23,7 @@
   },
   {
    "name": "AstraZeneca",
-   "studies": 204
+   "studies": 205
   },
   {
    "name": "Novartis Pharmaceuticals",
@@ -154,6 +154,10 @@
    "studies": 16
   },
   {
+   "name": "Genmab",
+   "studies": 16
+  },
+  {
    "name": "Innovent Biologics (Suzhou) Co. Ltd.",
    "studies": 16
   },
@@ -167,10 +171,6 @@
   },
   {
    "name": "Endo USA Inc., a Keenova Therapeutics Company",
-   "studies": 15
-  },
-  {
-   "name": "Genmab",
    "studies": 15
   },
   {
@@ -830,6 +830,10 @@
    "studies": 3
   },
   {
+   "name": "FutureChem",
+   "studies": 3
+  },
+  {
    "name": "GC Cell Corporation",
    "studies": 3
   },
@@ -1263,10 +1267,6 @@
   },
   {
    "name": "Favrille",
-   "studies": 2
-  },
-  {
-   "name": "FutureChem",
    "studies": 2
   },
   {
@@ -1755,6 +1755,10 @@
   },
   {
    "name": "AGC Biologics S.p.A.",
+   "studies": 1
+  },
+  {
+   "name": "Agios Pharmaceuticals, Inc.",
    "studies": 1
   },
   {

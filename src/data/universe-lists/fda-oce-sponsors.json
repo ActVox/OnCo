@@ -1,15 +1,15 @@
 {
- "checked": "2026-09-30",
+ "checked": "2026-10-07",
  "source": {
   "label": "FDA Oncology Center of Excellence: approval notifications",
   "url": "https://www.fda.gov/drugs/resources-information-approved-drugs/oncology-cancer-hematologic-malignancies-approval-notifications"
  },
  "method": "Sponsor named in brackets in each FDA OCE oncology approval notification on the current page, grouped after removing corporate suffixes. Covers the notifications the page still lists (see window), so it is a floor for 'companies with a recent FDA oncology approval'.",
  "total": 80,
- "notifications": 197,
+ "notifications": 198,
  "window": {
   "from": "2023-01-19",
-  "to": "2026-09-24"
+  "to": "2026-10-02"
  },
  "items": [
   {
@@ -37,6 +37,12 @@
    "last": "2026-09-04"
   },
   {
+   "name": "Eli Lilly and Company",
+   "approvals": 8,
+   "first": "2023-12-01",
+   "last": "2026-10-02"
+  },
+  {
    "name": "Genentech, Inc.",
    "approvals": 8,
    "first": "2023-04-19",
@@ -47,12 +53,6 @@
    "approvals": 7,
    "first": "2023-07-20",
    "last": "2026-05-22"
-  },
-  {
-   "name": "Eli Lilly and Company",
-   "approvals": 7,
-   "first": "2023-12-01",
-   "last": "2026-07-14"
   },
   {
    "name": "AstraZeneca Pharmaceuticals LP",
