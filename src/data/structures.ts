@@ -704,4 +704,7 @@ export const structures: Record<string, StructureDef[]> = {
   veliparib: [pc("Veliparib (ABT-888)", "cid:11960529")],
   zibotentan: [pc("Zibotentan (ZD4054)", "cid:9910224")],
 
+  // Small molecules and peptides resolved by PubChem name lookup on 18 Sept 2026 (scripts/fill-structures.ts), pinned by compound id.
+
+
 };
